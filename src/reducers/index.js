@@ -1,13 +1,10 @@
-const repos = (state = {movie:{}}, action) => {
+import {combineReducers} from 'redux';
+import movie from './movie';
+import config from './config';
 
-  switch (action.type) {
-    case 'GET_MOVIE_TMDB_FULFILLED':
-      return Object.assign({}, state, {
-        movie: action.movie
-      })
-    default:
-      return state;
-  }
-}
+const reducers = combineReducers({
+  config,
+  movie
+})
 
-export default repos;
+export default reducers;

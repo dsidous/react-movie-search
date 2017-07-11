@@ -3,7 +3,13 @@ import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
+import { Navbar, FormGroup } from 'react-bootstrap';
+
 class Search extends Component {
+
+  componentDidMount(){
+    this.props.dispatch(actions.getConfig());
+  }
 
   handleSearch(query) {
     if (!query) {
@@ -15,11 +21,6 @@ class Search extends Component {
       .then(json => this.setState({options: json.results}));
   }
 
-  handleSelect(e){
-    console.log(e.target.value);
-    e.preventDefault();
-  }
-
   renderMenuItemChildren(option, props, index) {
     return (
       <div key={option.id}>
@@ -28,24 +29,38 @@ class Search extends Component {
     );
   }
 
-  handleInputChange(selected){
-    console.log(selected);
+  handleChange(selected){
+    if (typeof selected[0] !== "undefined") {
+      const movieId = selected[0].id;
+      this.props.dispatch(actions.getMovie(movieId));
+    }
   }
 
   render(){
     return (
-      <div>
-        <AsyncTypeahead
-          {...this.state}
-          align="justify"
-          bsSize="large"
-          labelKey="original_title"
-          onChange={this.handleInputChange.bind(this)}
-          onSearch={this.handleSearch.bind(this)}
-          placeholder="Search for a movie title..."
-          renderMenuItemChildren={this.renderMenuItemChildren}
-        />
-      </div>
+      <Navbar inverse>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href="#">Movie Search</a>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Navbar.Form pullLeft>
+            <FormGroup>
+              <AsyncTypeahead
+                {...this.state}
+                align="justify"
+                labelKey="original_title"
+                onChange={this.handleChange.bind(this)}
+                onSearch={this.handleSearch.bind(this)}
+                placeholder="Search for a movie title..."
+                renderMenuItemChildren={this.renderMenuItemChildren}
+              />
+            </FormGroup>
+          </Navbar.Form>
+        </Navbar.Collapse>
+      </Navbar>
     )
   }
 }
