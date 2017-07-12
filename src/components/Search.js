@@ -33,6 +33,7 @@ class Search extends Component {
     if (typeof selected[0] !== "undefined") {
       const movieId = selected[0].id;
       this.props.dispatch(actions.getMovie(movieId));
+      this.props.dispatch(actions.getCrew(movieId));
     }
   }
 

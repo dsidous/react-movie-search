@@ -12,7 +12,8 @@
     "redux": "^3.7.1",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^4.3.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "style-it": "^1.6.12"
   },
   "devDependencies": {
     "react-scripts": "1.0.10"
