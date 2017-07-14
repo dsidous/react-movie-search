@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const GET_CONFIG = 'GET_CONFIG';
 export const GET_MOVIE_TMDB = 'GET_MOVIE_TMDB';
+export const GET_SIMILAR_MOVIE_TMDB = 'GET_SIMILAR_MOVIE_TMDB';
 export const GET_MOVIE_CREW = 'GET_MOVIE_CREW';
 
 export function getConfig(){
@@ -45,6 +46,21 @@ export function getCrew(movieId){
       })
       .catch((err) => {
         dispatch({type:"GET_MOVIE_CREW_REJECTED",crew: err})
+      })
+  }
+}
+
+export function getSimilarMovie(movieId){
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/similar?&api_key=cfe422613b250f702980a3bbf9e90716`
+
+  return function(dispatch) {
+    dispatch({type: "GET_SIMILAR_MOVIE_TMDB"});
+    axios.get(url)
+      .then((response) => {
+        dispatch({type:"GET_SIMILAR_MOVIE_TMDB_FULFILLED",similar: response.data.results.slice(0,5)})
+      })
+      .catch((err) => {
+        dispatch({type:"GET_SIMILAR_MOVIE_TMDB_REJECTED",similar: err})
       })
   }
 }
