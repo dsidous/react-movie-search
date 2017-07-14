@@ -34,6 +34,7 @@ class Search extends Component {
       const movieId = selected[0].id;
       this.props.dispatch(actions.getMovie(movieId));
       this.props.dispatch(actions.getCrew(movieId));
+      this.props.dispatch(actions.getSimilarMovie(movieId));
     }
   }
 

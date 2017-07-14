@@ -41,7 +41,7 @@ div.custom_bg:before {
     width: 100%;
     height: 100%;
     z-index: -1;
-    display: block;    
+    display: block;
     will-change: opacity;
     filter: opacity(92%);
     transition: filter 1s;
@@ -62,4 +62,21 @@ div.custom_bg:before {
 
 .poster-col img {
   box-shadow: 0 0 40px -5px #000;
+}
+
+.movie-title {
+  font-family: "Arial Black";
+  letter-spacing: 1px;
+}
+
+.movie-title span {
+  color: #999;
+  font-family:  "Trebuchet MS";
+  font-size: 20px;
+  letter-spacing: 0.01em;
+  margin-left: 10px;
+}
+
+.title-tags li {
+  border-right: 1px solid #666;
 }
