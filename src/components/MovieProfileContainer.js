@@ -3,8 +3,32 @@ import Style from 'style-it';
 import { connect } from 'react-redux';
 
 import { Grid, Col, Row } from 'react-bootstrap';
+import * as Vibrant from 'node-vibrant'
 
 class MovieProfileContainer extends Component {
+  constructor(){
+    super();
+
+    this.state = {
+      dcolor : []
+    }
+  }
+
+  componentDidMount(){
+    let path = this.props.config.config.images.base_url + this.props.config.config.images.poster_sizes[3] + this.props.movie.movie.poster_path;
+    this.getPalette(path);
+  }
+
+  componentWillReceiveProps(){
+    let path = this.props.config.config.images.base_url + this.props.config.config.images.poster_sizes[3] + this.props.movie.movie.poster_path;
+    this.getPalette(path);
+  }
+
+  getPalette(path){
+    Vibrant
+      .from(path)
+      .getSwatches((err,palette) => (this.setState({dcolor: palette.DarkVibrant._rgb})))
+  }
 
   render(){
     const movie = this.props.movie.movie;
@@ -25,6 +49,9 @@ class MovieProfileContainer extends Component {
       <div>
         <Style>
           {`
+            div.custom_bg:before {
+              background-image: radial-gradient(at 10% 30%, rgb(${this.state.dcolor[0]},${this.state.dcolor[1]},${this.state.dcolor[2]}) 0%, #342931 100%);
+            }
             .main-header:before {
               background-image: url(${img.base_url + img.backdrop_sizes[1] + movie.backdrop_path});
             }
@@ -34,21 +61,21 @@ class MovieProfileContainer extends Component {
         <Grid className="main-header" fluid={true}>
           <div className="custom_bg">
 
-            <Col sm={6} smOffset={3} className="main-col">
+            <Col sm={8} smOffset={2} className="main-col">
 
               <Row className="show-grid">
-                <Col xs={6} className="poster-col">{image}</Col>
+                <Col xs={4} className="poster-col">{image}</Col>
 
-                <Col xs={6}>
+                <Col xs={7}>
 
                   <Row className="profile-row">
                     <Col xs={12}><h1>{movie.original_title}</h1><h4>{movie.tagline}</h4></Col>
                   </Row>
 
                   <Row className="profile-row">
-                    <Col xs={4}><h4>Release date</h4>{movie.release_date}</Col>
-                    <Col xs={4}><h4>Runtime</h4>{movie.runtime} min</Col>
-                    <Col xs={4}><h4>Vote Rate</h4>{movie.vote_average} / 10</Col>
+                    <Col xs={4} className="text-center"><h4>Release date</h4>{movie.release_date}</Col>
+                    <Col xs={4} className="text-center"><h4>Runtime</h4>{movie.runtime} min</Col>
+                    <Col xs={4} className="text-center"><h4>Vote Rate</h4>{movie.vote_average} / 10</Col>
                   </Row>
 
                   <Row className="profile-row">
@@ -63,7 +90,7 @@ class MovieProfileContainer extends Component {
                     </Col>
                   </Row>
 
-                  <Row className="profile-row">
+                  <Row className="profile-row profile-row--no-border">
                     <Col xs={12}>
                       <ul className="list-inline">
                         {crew}

@@ -41,8 +41,7 @@ div.custom_bg:before {
     width: 100%;
     height: 100%;
     z-index: -1;
-    display: block;
-    background-image: radial-gradient(at 10% 30%, #3c3c3c 0%, #342931 100%);
+    display: block;    
     will-change: opacity;
     filter: opacity(92%);
     transition: filter 1s;
@@ -53,6 +52,14 @@ div.custom_bg:before {
   padding: 15px 0 25px;
 }
 
+.profile-row--no-border{
+  border: none;
+}
+
 .poster-col {
   padding: 35px 0 0;
+}
+
+.poster-col img {
+  box-shadow: 0 0 40px -5px #000;
 }
