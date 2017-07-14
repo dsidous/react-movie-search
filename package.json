@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "node-vibrant": "^3.0.0-alpha.2",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.0",
     "react-bootstrap-typeahead": "^1.4.1",
