@@ -43,7 +43,7 @@ class Search extends Component {
       <Navbar inverse>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">Movie Search</a>
+            Movie Search
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
