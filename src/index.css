@@ -57,7 +57,7 @@ div.custom_bg:before {
 }
 
 .poster-col {
-  padding: 35px 0 0;
+  padding: 35px 0;
 }
 
 .poster-col img {
@@ -79,4 +79,8 @@ div.custom_bg:before {
 
 .title-tags li {
   border-right: 1px solid #666;
+}
+
+.similar-movies__element {
+  cursor: pointer;
 }
