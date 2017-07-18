@@ -11,16 +11,15 @@ const MovieProfile = (props) => {
   let backdropURL = img.base_url + img.backdrop_sizes[1] + movie.backdrop_path;
 
   let genres = props.movie.genres.map(genre => (
-    <li key={genre.id}>
-      {genre.name}
-    </li>
+    <li key={genre.id} className="movie-genres">{genre.name}</li>
   ));
 
   if (typeof props.crew[0] !== 'undefined') {
-    var crew = props.crew.slice(0,9)
+    var crew = props.crew.slice(0,6)
           .map((cr,i) => (
-            <li key={i} className="col-sm-4">
+            <li key={i} className="col-sm-2">
               <p className="crew-col text-center">
+                <img src={img.base_url + img.profile_sizes[0] + cr.profile_path} alt={cr.name} /><br />
                 <strong>{cr.name}</strong><br />
                 <small>{cr.character}</small>
               </p>
@@ -71,8 +70,12 @@ const MovieProfile = (props) => {
                     <ul className="list-inline title-tags">
                       <li>{props.movie.release_date.slice(0,4)}</li>
                       <li>{props.movie.runtime} min</li>
-                        {genres}
-                      <li>{props.movie.vote_average} / 10</li>
+                      <li>
+                        <ul className="list-inline title-tags__genres">
+                          {genres}
+                        </ul>
+                      </li>
+                      <li className="movie-rating">{props.movie.vote_average}</li>
                     </ul>
                   <h4>{props.movie.tagline}</h4>
                 </Col>
@@ -84,6 +87,7 @@ const MovieProfile = (props) => {
 
               <Row className="profile-row profile-row--no-border">
                 <Col xs={12}>
+                  <h4>Cast</h4>
                   <ul className="list-inline">
                     {crew}
                   </ul>

@@ -10,6 +10,12 @@ body {
   margin-bottom: 0;
 }
 
+.movie-search-img-thumb {
+  height: 50px;
+  margin-left: -10px;
+  margin-right: 10px;
+}
+
 .main-header {
   position: relative;
 }
@@ -65,7 +71,8 @@ div.custom_bg:before {
 }
 
 .movie-title {
-  font-family: "Arial Black";
+  color: #fff;
+  font-family: "Arial";
   letter-spacing: 1px;
 }
 
@@ -79,6 +86,44 @@ div.custom_bg:before {
 
 .title-tags li {
   border-right: 1px solid #666;
+  padding: 0 10px;
+}
+
+.title-tags__genres{
+  margin-left: 0;
+}
+
+li.movie-genres {
+  border: none;
+  padding: 0 2px;
+}
+
+li.movie-genres:not(:last-child):after {
+  content: ",";
+}
+
+li.movie-rating{
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  margin-left: 10px;
+  padding-left: 23px;
+  position: relative;
+}
+
+.movie-rating:before{
+  font: 20px/20px FontAwesome;
+  color: #e3cf7a;
+  content: "\f005";
+  left: 0;
+  position: absolute;
+  top: 5px;
+}
+
+.movie-rating:after{
+  font-size: 12px;
+  color: #bbb;
+  content: "/10";
 }
 
 .similar-movies__element {
