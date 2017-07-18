@@ -24,7 +24,8 @@ class Search extends Component {
   renderMenuItemChildren(option, props, index) {
     return (
       <div key={option.id}>
-        <span>{option.original_title}</span>
+        <span><img src={this.props.config.config.images.base_url + this.props.config.config.images.poster_sizes[0] + option.poster_path} className="movie-search-img-thumb" alt="#"/></span>
+        <span>{option.original_title} ({option.release_date.slice(0,4)})</span>
       </div>
     );
   }
@@ -49,7 +50,7 @@ class Search extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Navbar.Form pullLeft>
-            <FormGroup>
+            <FormGroup bsSize="small">
               <AsyncTypeahead
                 {...this.state}
                 align="justify"
@@ -57,7 +58,7 @@ class Search extends Component {
                 onChange={this.handleChange.bind(this)}
                 onSearch={this.handleSearch.bind(this)}
                 placeholder="Search for a movie title..."
-                renderMenuItemChildren={this.renderMenuItemChildren}
+                renderMenuItemChildren={this.renderMenuItemChildren.bind(this)}
               />
             </FormGroup>
           </Navbar.Form>
@@ -69,6 +70,7 @@ class Search extends Component {
 
 const mapStateToProps = state => {
   return {
+    config: state.config,
     movie: state.movie
   }
 }
