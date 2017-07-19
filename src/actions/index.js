@@ -62,5 +62,20 @@ export function getSimilarMovie(movieId){
       .catch((err) => {
         dispatch({type:"GET_SIMILAR_MOVIE_TMDB_REJECTED",similar: err})
       })
+  } 
+}
+
+export function getDiscoverMovies(query){
+  const url = `https://api.themoviedb.org/3/discover/movie?&api_key=cfe422613b250f702980a3bbf9e90716${query}`
+
+  return function(dispatch) {
+    dispatch({type: "GET_MOVIES_TMDB"});
+    axios.get(url)
+      .then((response) => {
+        dispatch({type:"GET_MOVIES_TMDB_FULFILLED",movies: response.data})
+      })
+      .catch((err) => {
+        dispatch({type:"GET_MOVIES_TMDB_REJECTED",movies: err})
+      })
   }
 }
