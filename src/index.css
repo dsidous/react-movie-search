@@ -129,3 +129,11 @@ li.movie-rating{
 .similar-movies__element {
   cursor: pointer;
 }
+
+.movies-list__element {
+  color: #000;
+}
+
+.movies-poster {
+  height: 275px;
+}
