@@ -137,3 +137,13 @@ li.movie-rating{
 .movies-poster {
   height: 275px;
 }
+
+.movies-overview {
+  display: block;
+  display: -webkit-box;
+  height: 120px;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

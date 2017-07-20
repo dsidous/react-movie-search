@@ -20,6 +20,21 @@ export function getConfig(){
   }
 }
 
+export function getGenres(){
+  const url = `https://api.themoviedb.org/3/genre/movie/list?&api_key=cfe422613b250f702980a3bbf9e90716`
+
+  return function(dispatch) {
+    dispatch({type: "GET_GENRES_TMDB"});
+    axios.get(url)
+      .then((response) => {
+        dispatch({type:"GET_GENRES_TMDB_FULFILLED", genres: response.data.genres})
+      })
+      .catch((err) => {
+        dispatch({type:"GET_GENRES_TMDB_REJECTED", genres: err})
+      })
+  }
+}
+
 export function getMovie(movieId){
   const url = `https://api.themoviedb.org/3/movie/${movieId}?&api_key=cfe422613b250f702980a3bbf9e90716`
 
@@ -62,7 +77,7 @@ export function getSimilarMovie(movieId){
       .catch((err) => {
         dispatch({type:"GET_SIMILAR_MOVIE_TMDB_REJECTED",similar: err})
       })
-  } 
+  }
 }
 
 export function getDiscoverMovies(query){
