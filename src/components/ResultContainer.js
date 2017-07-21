@@ -1,9 +1,22 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
+import * as actions from '../actions'
 
 import { Panel, Row, Col } from 'react-bootstrap';
 
 class ResultContainer extends Component {
+  constructor(props){
+    super(props);
+    this.goToMovie = this.goToMovie.bind(this);
+  }
+
+  goToMovie(movieId){
+    this.props.dispatch(actions.getMovie(movieId));
+    this.props.dispatch(actions.getCrew(movieId));
+    this.props.dispatch(actions.getSimilarMovie(movieId));
+    this.context.router.push('/')
+  }
+
   render(){
     return(
       <div>
@@ -17,7 +30,9 @@ class ResultContainer extends Component {
                     <Col sm={4}>
                       <img src={this.props.config.config.images.base_url + this.props.config.config.images.poster_sizes[2] + movie.poster_path}
                            className="movies-poster"
-                           alt={movie.original_title}/>
+                           alt={movie.original_title}
+                           onClick={() => this.goToMovie(movie.id)}
+                      />
                     </Col>
                     <Col sm={8}>
                       <div><h3>{movie.original_title}</h3></div>
@@ -35,6 +50,10 @@ class ResultContainer extends Component {
       </div>
     )
   }
+}
+
+ResultContainer.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => {
