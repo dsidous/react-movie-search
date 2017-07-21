@@ -1,10 +1,9 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import Select from 'react-select';
 
-import { Navbar, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
-import 'react-select/dist/react-select.css';
+import { Navbar, FormGroup, FormControl } from 'react-bootstrap';
+import FilterGenres from './FilterGenres';
 
 class Filter extends Component {
 
@@ -13,10 +12,15 @@ class Filter extends Component {
 
     this.state = {
       page : 1,
-      primary_release_year : 2017
+      primary_release_year : 2017,
+      sort_by: 'popularity.desc',
+      with_genres: []
     }
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleShortChange = this.handleShortChange.bind(this);
+    this.handleGenresChange = this.handleGenresChange.bind(this);
+    this.runQuery = this.runQuery.bind(this);
 
   }
 
@@ -34,20 +38,27 @@ class Filter extends Component {
           .join('&');
   }
 
-  handleChange(val){
-    console.log("Selected: " + JSON.stringify(val))
-    // this.setState({ primary_release_year: option }, function() {
-    //   const query = this.objectToQueryStr(this.state);
-    //   this.props.dispatch(actions.getDiscoverMovies('&' + query));
-    // });
+  runQuery(){
+    const query = this.objectToQueryStr(this.state);
+    this.props.dispatch(actions.getDiscoverMovies('&' + query));
+  }
+
+  handleShortChange(e){
+    let val = e.target.value;
+    this.setState({sort_by : val }, () => this.runQuery());
+  }
+
+  handleChange(e){
+    let val = e.target.value;
+    this.setState({ primary_release_year: val }, () => this.runQuery());
+  }
+
+  handleGenresChange(e){
+    this.setState({with_genres: e}, () => this.runQuery());
   }
 
   render(){
     let year_options = Array(118).fill().map((_, i) => <option key={i} value={2017 - i}>{2017 - i}</option>);
-    let genres = (typeof this.props.config.genres[0] !== 'undefined') ? this.props.config.genres : [];
-    //let genres_options = genres.map( genre => <option key={genre.id} value={genre.id}>{genre.name}</option> );
-    let genres_options = [{value: 1, label: 'action'},{value: 2, label: 'comedy'}]
-
 
     return(
       <div>
@@ -60,26 +71,29 @@ class Filter extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Navbar.Form pullLeft>
-              <FormGroup bsSize="small">
+              <FormGroup className="filter-element-wrapper">
+                <FormControl componentClass="select" placeholder="select" onChange={this.handleShortChange} defaultValue="popularity.desc">
+                  <option value="popularity.desc">Popularity Descending</option>
+                  <option value="popularity.asc">Popularity Ascending</option>
+                  <option value="vote_average.desc">Rating Descending</option>
+                  <option value="vote_average.asc">Rating Ascending</option>
+                  <option value="primary_release_date.desc">Release Date Descending</option>
+                  <option value="primary_release_date.asc">Release Date Ascending</option>
+                  <option value="title.asc">Title (A-Z)</option>
+                  <option value="title.desc">Title (Z-A)</option>
+                </FormControl>
+              </FormGroup>
+              <FormGroup className="filter-element-wrapper">
                 <FormControl componentClass="select" placeholder="select" onChange={this.handleChange} defaultValue="2017">
                   <option value="">None</option>
                   {year_options}
                 </FormControl>
               </FormGroup>
-              <Select
-                name="select_genres"                
-                simpleValue={true}
-                options={genres_options}
-                onChange={this.handleChange}
-                multi={true}
-              />
-              {/* <FormGroup controlId="formControlsSelectMultiple">
-                <ControlLabel>Select Genres</ControlLabel>
-                <FormControl componentClass="select" multiple ref="select_genres" onChange={this.handleChange}>
-                  <option value="">None</option>
-                  {genres_options}
-                </FormControl>
-              </FormGroup> */}
+              {this.props.config.genres[0] &&
+                <FormGroup className="filter-element-wrapper filter-genres-wrapper">
+                  <FilterGenres genres={this.props.config.genres} onChange={this.handleGenresChange} value={this.state.with_genres}/>
+                </FormGroup>
+              }
             </Navbar.Form>
           </Navbar.Collapse>
         </Navbar>
