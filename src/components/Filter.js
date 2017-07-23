@@ -14,11 +14,11 @@ class Filter extends Component {
       page : 1,
       primary_release_year : 2017,
       sort_by: 'popularity.desc',
-      with_genres: []
+      with_genres: [],
+      'vote_average.gte': 0
     }
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleShortChange = this.handleShortChange.bind(this);
     this.handleGenresChange = this.handleGenresChange.bind(this);
     this.runQuery = this.runQuery.bind(this);
 
@@ -43,14 +43,10 @@ class Filter extends Component {
     this.props.dispatch(actions.getDiscoverMovies('&' + query));
   }
 
-  handleShortChange(e){
-    let val = e.target.value;
-    this.setState({sort_by : val }, () => this.runQuery());
-  }
-
   handleChange(e){
     let val = e.target.value;
-    this.setState({ primary_release_year: val }, () => this.runQuery());
+    let option = e.target.id;
+    this.setState({ [option] : val }, () => this.runQuery());
   }
 
   handleGenresChange(e){
@@ -72,7 +68,7 @@ class Filter extends Component {
           <Navbar.Collapse>
             <Navbar.Form pullLeft>
               <FormGroup className="filter-element-wrapper">
-                <FormControl componentClass="select" placeholder="select" onChange={this.handleShortChange} defaultValue="popularity.desc">
+                <FormControl componentClass="select" placeholder="select" onChange={this.handleChange} defaultValue="popularity.desc" id="sort_by">
                   <option value="popularity.desc">Popularity Descending</option>
                   <option value="popularity.asc">Popularity Ascending</option>
                   <option value="vote_average.desc">Rating Descending</option>
@@ -84,7 +80,7 @@ class Filter extends Component {
                 </FormControl>
               </FormGroup>
               <FormGroup className="filter-element-wrapper">
-                <FormControl componentClass="select" placeholder="select" onChange={this.handleChange} defaultValue="2017">
+                <FormControl componentClass="select" placeholder="select" onChange={this.handleChange} defaultValue="2017" id="primary_release_year">
                   <option value="">None</option>
                   {year_options}
                 </FormControl>
@@ -94,6 +90,21 @@ class Filter extends Component {
                   <FilterGenres genres={this.props.config.genres} onChange={this.handleGenresChange} value={this.state.with_genres}/>
                 </FormGroup>
               }
+              <FormGroup className="filter-element-wrapper">
+                <FormControl componentClass="select" id="vote_average.gte" placeholder="select" onChange={this.handleChange} defaultValue="">
+                  <option value="">None</option>
+                  <option value="10">10</option>
+                  <option value="9">9</option>
+                  <option value="8">8</option>
+                  <option value="7">7</option>
+                  <option value="6">6</option>
+                  <option value="5">5</option>
+                  <option value="4">4</option>
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                </FormControl>
+              </FormGroup>
             </Navbar.Form>
           </Navbar.Collapse>
         </Navbar>
