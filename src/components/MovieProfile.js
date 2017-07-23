@@ -1,4 +1,5 @@
 import React from 'react';
+import PlayTrailer from './PlayTrailer';
 import { Grid, Col, Row } from 'react-bootstrap';
 
 import Style from 'style-it';
@@ -9,6 +10,7 @@ const MovieProfile = (props) => {
 
   let posterURL = img.base_url + img.poster_sizes[3] + movie.poster_path;
   let backdropURL = img.base_url + img.backdrop_sizes[1] + movie.backdrop_path;
+  let video = props.videos.filter(video => video.type ==='Trailer')[0];
 
   let genres = props.movie.genres.map(genre => (
     <li key={genre.id} className="movie-genres">{genre.name}</li>
@@ -78,6 +80,9 @@ const MovieProfile = (props) => {
                       <li className="movie-rating">{props.movie.vote_average}</li>
                     </ul>
                   <h4>{props.movie.tagline}</h4>
+                  {video &&
+                    <PlayTrailer video={video} />
+                  }
                 </Col>
               </Row>
 

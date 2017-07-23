@@ -38,6 +38,7 @@ class MovieProfileContainer extends Component {
       this.props.dispatch(actions.getMovie(movieId));
       this.props.dispatch(actions.getCrew(movieId));
       this.props.dispatch(actions.getSimilarMovie(movieId));
+      this.props.dispatch(actions.getVideos(movieId));
   }
 
   render(){
@@ -48,6 +49,7 @@ class MovieProfileContainer extends Component {
             similar={this.props.movie.similar}
             movie={this.props.movie.movie}
             crew={this.props.movie.crew}
+            videos={this.props.movie.videos}
             dcolor={this.state.dcolor}
             handleMovieClick={this.handleMovieClick.bind(this)}
         />

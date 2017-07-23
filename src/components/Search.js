@@ -36,6 +36,7 @@ class Search extends Component {
       this.props.dispatch(actions.getMovie(movieId));
       this.props.dispatch(actions.getCrew(movieId));
       this.props.dispatch(actions.getSimilarMovie(movieId));
+      this.props.dispatch(actions.getVideos(movieId));      
     }
   }
 

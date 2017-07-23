@@ -14,13 +14,13 @@ class ResultContainer extends Component {
     this.props.dispatch(actions.getMovie(movieId));
     this.props.dispatch(actions.getCrew(movieId));
     this.props.dispatch(actions.getSimilarMovie(movieId));
+    this.props.dispatch(actions.getVideos(movieId));
     this.context.router.push('/')
   }
 
   render(){
     return(
       <div>
-
           <Col sm={8} smOffset={2}>
             <ul className="list-inline">
               {this.props.movies && this.props.movies.map(movie => (
@@ -45,6 +45,7 @@ class ResultContainer extends Component {
               </li>
               ))}
             </ul>
+
           </Col>
 
       </div>

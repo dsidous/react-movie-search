@@ -2,7 +2,8 @@ const movie = (
   state = {
     movie:{},
     crew:{},
-    similar:{}
+    similar:{},
+    videos:false
   }, action) => {
 
   switch (action.type) {
@@ -17,6 +18,10 @@ const movie = (
     case 'GET_SIMILAR_MOVIE_TMDB_FULFILLED':
       return Object.assign({}, state, {
         similar: action.similar
+      })
+    case 'GET_VIDEOS_TMDB_FULFILLED':
+      return Object.assign({}, state, {
+        videos: action.videos
       })
     default:
       return state;

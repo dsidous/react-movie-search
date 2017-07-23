@@ -80,6 +80,21 @@ export function getSimilarMovie(movieId){
   }
 }
 
+export function getVideos(movieId){
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?&api_key=cfe422613b250f702980a3bbf9e90716`
+
+  return function(dispatch) {
+    dispatch({type: "GET_VIDEOS_TMDB"});
+    axios.get(url)
+      .then((response) => {
+        dispatch({type:"GET_VIDEOS_TMDB_FULFILLED",videos: response.data.results})
+      })
+      .catch((err) => {
+        dispatch({type:"GET_VIDEOS_MOVIE_TMDB_REJECTED",videos: err})
+      })
+  }
+}
+
 export function getDiscoverMovies(query){
   const url = `https://api.themoviedb.org/3/discover/movie?&api_key=cfe422613b250f702980a3bbf9e90716${query}`
 
