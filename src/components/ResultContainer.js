@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import * as actions from '../actions'
 
 import { Panel, Row, Col } from 'react-bootstrap';
 
@@ -11,16 +11,12 @@ class ResultContainer extends Component {
   }
 
   goToMovie(movieId){
-    this.props.dispatch(actions.getMovie(movieId));
-    this.props.dispatch(actions.getCrew(movieId));
-    this.props.dispatch(actions.getSimilarMovie(movieId));
-    this.props.dispatch(actions.getVideos(movieId));
-    this.context.router.push('/')
+    this.context.router.push(`/movie/${movieId}`);
   }
 
   render(){
     return(
-      <div>
+      <div className="result-wrapper">
           <Col sm={8} smOffset={2}>
             <ul className="list-inline">
               {this.props.movies && this.props.movies.map(movie => (
@@ -35,9 +31,11 @@ class ResultContainer extends Component {
                       />
                     </Col>
                     <Col sm={8}>
-                      <div><h3>{movie.original_title}</h3></div>
-                      <div>{movie.vote_average}</div>
-                      <div>{movie.release_date.slice(0,4)}</div>
+                      <div className="clearfix">
+                        <div className="movies-title">{movie.original_title}</div>
+                        <div className="movies-rating">{movie.vote_average}</div>
+                      </div>
+                      <div className="movies-year">{movie.release_date.slice(0,4)}</div>
                       <div className="movies-overview">{movie.overview}</div>
                     </Col>
                   </Row>
@@ -54,7 +52,7 @@ class ResultContainer extends Component {
 }
 
 ResultContainer.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => {

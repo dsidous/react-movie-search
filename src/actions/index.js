@@ -109,3 +109,12 @@ export function getDiscoverMovies(query){
       })
   }
 }
+
+export function updateMovie(movieId){
+  return function(dispatch) {
+    dispatch(getMovie(movieId));
+    dispatch(getCrew(movieId));
+    dispatch(getSimilarMovie(movieId));
+    dispatch(getVideos(movieId));
+  }
+}

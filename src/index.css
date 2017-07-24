@@ -6,8 +6,24 @@ body {
   padding: 0;
 }
 
+a:hover {
+  color: #999;
+  text-decoration: none;
+}
+
 .navbar {
   margin-bottom: 0;
+}
+
+.bootstrap-typeahead {
+  margin: 0 30px 0 0;
+}
+
+.nav-discover {
+  color: #bbb;
+  display: inline-block;
+  font: 20px/20px "Trebuchet MS";
+  margin: 0 30px;
 }
 
 .movie-search-img-thumb {
@@ -85,8 +101,15 @@ div.custom_bg:before {
 }
 
 .title-tags li {
-  border-right: 1px solid #666;
   padding: 0 10px;
+  position: relative;
+}
+
+.title-tags li:after {
+  content: "\2022";
+  position: absolute;
+  right: -4px;
+  top: 0;
 }
 
 .title-tags__genres{
@@ -98,11 +121,21 @@ li.movie-genres {
   padding: 0 2px;
 }
 
-li.movie-genres:not(:last-child):after {
-  content: ",";
+li.movie-genres:after {
+
 }
 
-li.movie-rating{
+li.movie-genres:not(:last-child):after {
+  content: ",";
+  position: relative;
+  right: 0;
+}
+
+li.movie-genres:last-child:after {
+  content: "";
+}
+
+li.movie-rating {
   border: none;
   color: #fff;
   font-size: 22px;
@@ -111,7 +144,7 @@ li.movie-rating{
   position: relative;
 }
 
-.movie-rating:before{
+.movie-rating:before {
   font: 20px/20px FontAwesome;
   color: #e3cf7a;
   content: "\f005";
@@ -120,10 +153,31 @@ li.movie-rating{
   top: 5px;
 }
 
-.movie-rating:after{
+li.movie-rating:after {
   font-size: 12px;
+  bottom: 2px;
   color: #bbb;
   content: "/10";
+  right: auto;
+  top: auto;
+}
+
+.play-trailer {
+  background: none;
+  border: none;
+  color: #bbb;
+  display: block;
+  font-size: 16px;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.play-trailer:hover {
+  color: #999;
+}
+
+.play-trailer span {
+  margin: 0 5px 0 0;
 }
 
 .similar-movies__element {
@@ -135,7 +189,51 @@ li.movie-rating{
 }
 
 .movies-poster {
+  cursor: pointer;
   height: 275px;
+}
+
+.movies-title {
+  display: block;
+  float: left;
+  font: 20px/20px arial, helvetica, sans-serif;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 300px;
+}
+
+.movies-rating {
+  display: block;
+  float: right;
+  font: 20px/20px arial, helvetica, sans-serif;
+  margin-top: 10px;
+  padding-left: 22px;
+  position: relative;
+  text-align: right;
+}
+
+.movies-rating:before {
+  font: 20px/20px FontAwesome;
+  color: #666;
+  content: "\f005";
+  left: 0;
+  position: absolute;
+}
+
+.movies-year {
+  margin: 5px 0 0;
+  padding-left: 14px;
+  position: relative;
+}
+
+.movies-year:before {
+  font: 12px/12px FontAwesome;
+  content: "\f073";
+  left: 0;
+  position: absolute;
+  top: 3px;
 }
 
 .movies-overview {
@@ -144,12 +242,27 @@ li.movie-rating{
   height: 120px;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
+  margin: 20px 0 0;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.filter-element-wrapper {
-  margin-right: 20px;
+
+.result-wrapper,
+.filter-wrapper {
+  background: #f9f9f9;
+  overflow: hidden;
 }
+
+div.filter-element-wrapper {
+  margin: 30px 20px 50px 0 !important;
+}
+
 .filter-genres-wrapper {
   width: 400px;
+}
+
+.filter-element-wrapper .control-label {
+  color: #000;
+  font: 14px arial;
+  margin: 0 0 10px;
 }

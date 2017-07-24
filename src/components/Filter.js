@@ -2,7 +2,7 @@ import React, { Component} from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-import { Navbar, FormGroup, FormControl } from 'react-bootstrap';
+import { Col, ControlLabel, Form, FormGroup, FormControl } from 'react-bootstrap';
 import FilterGenres from './FilterGenres';
 
 class Filter extends Component {
@@ -57,17 +57,12 @@ class Filter extends Component {
     let year_options = Array(118).fill().map((_, i) => <option key={i} value={2017 - i}>{2017 - i}</option>);
 
     return(
-      <div>
-        <Navbar inverse>
-          <Navbar.Header>
-            <Navbar.Brand>
-              Movie Search
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Navbar.Form pullLeft>
+      <div className="filter-wrapper">
+
+          <Col sm={8} smOffset={2}>
+            <Form inline>
               <FormGroup className="filter-element-wrapper">
+                <ControlLabel>Sort By</ControlLabel><br />
                 <FormControl componentClass="select" placeholder="select" onChange={this.handleChange} defaultValue="popularity.desc" id="sort_by">
                   <option value="popularity.desc">Popularity Descending</option>
                   <option value="popularity.asc">Popularity Ascending</option>
@@ -80,6 +75,7 @@ class Filter extends Component {
                 </FormControl>
               </FormGroup>
               <FormGroup className="filter-element-wrapper">
+                <ControlLabel>Year</ControlLabel><br />
                 <FormControl componentClass="select" placeholder="select" onChange={this.handleChange} defaultValue="2017" id="primary_release_year">
                   <option value="">None</option>
                   {year_options}
@@ -87,13 +83,14 @@ class Filter extends Component {
               </FormGroup>
               {this.props.config.genres[0] &&
                 <FormGroup className="filter-element-wrapper filter-genres-wrapper">
+                  <ControlLabel>Genres</ControlLabel><br />
                   <FilterGenres genres={this.props.config.genres} onChange={this.handleGenresChange} value={this.state.with_genres}/>
                 </FormGroup>
               }
               <FormGroup className="filter-element-wrapper">
+                <ControlLabel>Average vote</ControlLabel><br />
                 <FormControl componentClass="select" id="vote_average.gte" placeholder="select" onChange={this.handleChange} defaultValue="">
                   <option value="">None</option>
-                  <option value="10">10</option>
                   <option value="9">9</option>
                   <option value="8">8</option>
                   <option value="7">7</option>
@@ -105,9 +102,9 @@ class Filter extends Component {
                   <option value="1">1</option>
                 </FormControl>
               </FormGroup>
-            </Navbar.Form>
-          </Navbar.Collapse>
-        </Navbar>
+            </Form>
+          </Col>
+
       </div>
     )
   }
