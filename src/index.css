@@ -247,8 +247,7 @@ li.movie-rating:after {
   text-overflow: ellipsis;
 }
 
-.result-wrapper,
-.filter-wrapper {
+.discover-wrapper {
   background: #f9f9f9;
   overflow: hidden;
 }
