@@ -6,7 +6,7 @@ import ResultContainer from './ResultContainer'
 class DiscoverContainer extends Component {
   render(){
     return(
-      <div>
+      <div className="discover-wrapper">
         <Search />
         <Filter />
         <ResultContainer />
