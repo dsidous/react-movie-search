@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieProfile from './MovieProfile';
 import { connect } from 'react-redux';
 
@@ -35,10 +36,8 @@ class MovieProfileContainer extends Component {
   }
 
   handleMovieClick(movieId){
-      this.props.dispatch(actions.getMovie(movieId));
-      this.props.dispatch(actions.getCrew(movieId));
-      this.props.dispatch(actions.getSimilarMovie(movieId));
-      this.props.dispatch(actions.getVideos(movieId));
+    this.props.dispatch(actions.updateMovie(movieId));
+    this.context.router.push(`/movie/${movieId}`);
   }
 
   render(){
@@ -55,6 +54,10 @@ class MovieProfileContainer extends Component {
         />
     )
   }
+}
+
+MovieProfileContainer.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => {

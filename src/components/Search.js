@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import {Link} from 'react-router';
 import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
@@ -33,10 +35,8 @@ class Search extends Component {
   handleChange(selected){
     if (typeof selected[0] !== "undefined") {
       const movieId = selected[0].id;
-      this.props.dispatch(actions.getMovie(movieId));
-      this.props.dispatch(actions.getCrew(movieId));
-      this.props.dispatch(actions.getSimilarMovie(movieId));
-      this.props.dispatch(actions.getVideos(movieId));      
+      this.props.dispatch(actions.updateMovie(movieId));
+      this.context.router.push(`/movie/${movieId}`);
     }
   }
 
@@ -62,11 +62,19 @@ class Search extends Component {
                 renderMenuItemChildren={this.renderMenuItemChildren.bind(this)}
               />
             </FormGroup>
+            <FormGroup bsSize="small">
+              OR
+              <Link to={`/discover`} className="nav-discover">Discover</Link>
+            </FormGroup>
           </Navbar.Form>
         </Navbar.Collapse>
       </Navbar>
     )
   }
+}
+
+Search.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => {

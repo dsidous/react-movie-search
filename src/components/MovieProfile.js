@@ -10,7 +10,7 @@ const MovieProfile = (props) => {
 
   let posterURL = img.base_url + img.poster_sizes[3] + movie.poster_path;
   let backdropURL = img.base_url + img.backdrop_sizes[1] + movie.backdrop_path;
-  let video = props.videos.filter(video => video.type ==='Trailer')[0];
+  let video = (props.videos) ? props.videos.filter(video => video.type ==='Trailer')[0] : [];
 
   let genres = props.movie.genres.map(genre => (
     <li key={genre.id} className="movie-genres">{genre.name}</li>

@@ -8,6 +8,7 @@ const Root = ({store}) => (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App} />
+      <Route path="/movie/:movieId" component={App} />
       <Route path="/discover" component={DiscoverContainer} />
     </Router>
   </Provider>
