@@ -2,7 +2,7 @@ import React, { Component} from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { Panel, Row, Col } from 'react-bootstrap';
+import { Row, Col, Well } from 'react-bootstrap';
 
 class ResultContainer extends Component {
   constructor(props){
@@ -15,13 +15,14 @@ class ResultContainer extends Component {
   }
 
   render(){
+
     return(
       <div className="result-wrapper">
           <Col sm={8} smOffset={2}>
             <ul className="list-inline">
               {this.props.movies && this.props.movies.map(movie => (
               <li key={movie.id} className="col-sm-6 movies-list__element">
-                <Panel>
+                <Well>
                   <Row>
                     <Col sm={4}>
                       <img src={this.props.config.config.images.base_url + this.props.config.config.images.poster_sizes[2] + movie.poster_path}
@@ -35,11 +36,23 @@ class ResultContainer extends Component {
                         <div className="movies-title">{movie.original_title}</div>
                         <div className="movies-rating">{movie.vote_average}</div>
                       </div>
-                      <div className="movies-year">{movie.release_date.slice(0,4)}</div>
+                      <div className="clearfix">
+                        <div className="movies-year">{movie.release_date.slice(0,4)}</div>
+                        <div className="movies-genres">
+                            { movie.genre_ids.map( (genreId, i) => (
+                              this.props.config.genres
+                                .filter(genre => genre.id === genreId)
+                                .map(g => {
+                                  return (movie.genre_ids.length === i + 1) ? g.name :  g.name + ', '
+                                })
+                              )
+                            )}
+                        </div>
+                      </div>
                       <div className="movies-overview">{movie.overview}</div>
                     </Col>
                   </Row>
-                </Panel>
+                </Well>
               </li>
               ))}
             </ul>

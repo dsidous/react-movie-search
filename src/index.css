@@ -1,7 +1,4 @@
 body {
-  background: #222;
-  color: #bbb;
-  font-family: "Trebuchet MS";
   margin: 0;
   padding: 0;
 }
@@ -185,12 +182,12 @@ li.movie-rating:after {
 }
 
 .movies-list__element {
-  color: #000;
+
 }
 
 .movies-poster {
   cursor: pointer;
-  height: 275px;
+  width: 100%;
 }
 
 .movies-title {
@@ -201,7 +198,7 @@ li.movie-rating:after {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 300px;
+  width: 70%;
 }
 
 .movies-rating {
@@ -223,17 +220,30 @@ li.movie-rating:after {
 }
 
 .movies-year {
+  float: left;
   margin: 5px 0 0;
   padding-left: 14px;
   position: relative;
 }
 
 .movies-year:before {
-  font: 12px/12px FontAwesome;
   content: "\f073";
   left: 0;
+  font: 12px/12px FontAwesome;
   position: absolute;
   top: 3px;
+}
+
+.movies-genres {
+  display: block;
+  float: right;
+  margin: 5px 0 0;
+  overflow: hidden;
+  text-align: right;
+  font-style: italic;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 200px;
 }
 
 .movies-overview {
@@ -248,7 +258,7 @@ li.movie-rating:after {
 }
 
 .discover-wrapper {
-  background: #f9f9f9;
+
   overflow: hidden;
 }
 
@@ -261,7 +271,6 @@ div.filter-element-wrapper {
 }
 
 .filter-element-wrapper .control-label {
-  color: #000;
   font: 14px arial;
   margin: 0 0 10px;
 }

@@ -23,7 +23,7 @@ class FilterGenres extends Component {
           multi
           simpleValue
           value={this.state.value}
-          placeholder="Select genres"
+          placeholder="Filter by genres..."
           options={this.state.options}
           onChange={this.props.onChange}
         />

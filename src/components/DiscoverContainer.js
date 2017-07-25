@@ -1,7 +1,6 @@
 import React, { Component} from 'react'
 import Search from './Search'
 import Filter from './Filter'
-import ResultContainer from './ResultContainer'
 
 class DiscoverContainer extends Component {
   render(){
@@ -9,7 +8,6 @@ class DiscoverContainer extends Component {
       <div className="discover-wrapper">
         <Search />
         <Filter />
-        <ResultContainer />
       </div>
     )
   }

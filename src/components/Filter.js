@@ -2,8 +2,9 @@ import React, { Component} from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-import { Col, ControlLabel, Form, FormGroup, FormControl } from 'react-bootstrap';
+import { Col, ControlLabel, Form, FormGroup, FormControl, Pagination } from 'react-bootstrap';
 import FilterGenres from './FilterGenres';
+import ResultContainer from './ResultContainer';
 
 class Filter extends Component {
 
@@ -21,6 +22,7 @@ class Filter extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleGenresChange = this.handleGenresChange.bind(this);
     this.runQuery = this.runQuery.bind(this);
+    this.handlePageSelect = this.handlePageSelect.bind(this);
 
   }
 
@@ -53,12 +55,15 @@ class Filter extends Component {
     this.setState({with_genres: e}, () => this.runQuery());
   }
 
+  handlePageSelect(e){
+    this.setState({page: e}, () => this.runQuery());
+  }
+
   render(){
     let year_options = Array(118).fill().map((_, i) => <option key={i} value={2017 - i}>{2017 - i}</option>);
 
     return(
       <div className="filter-wrapper">
-
           <Col sm={8} smOffset={2}>
             <Form inline>
               <FormGroup className="filter-element-wrapper">
@@ -90,7 +95,7 @@ class Filter extends Component {
               <FormGroup className="filter-element-wrapper">
                 <ControlLabel>Average vote</ControlLabel><br />
                 <FormControl componentClass="select" id="vote_average.gte" placeholder="select" onChange={this.handleChange} defaultValue="">
-                  <option value="">None</option>
+                  <option value="">Greater than...</option>
                   <option value="9">9</option>
                   <option value="8">8</option>
                   <option value="7">7</option>
@@ -104,7 +109,33 @@ class Filter extends Component {
               </FormGroup>
             </Form>
           </Col>
-
+          <Col sm={8} smOffset={2}>
+            <Pagination
+              prev
+              next
+              first
+              last
+              ellipsis
+              boundaryLinks
+              items={this.props.movies.movies.total_pages}
+              maxButtons={5}
+              activePage={this.state.page}
+              onSelect={this.handlePageSelect} />
+          </Col>
+          <ResultContainer />
+          <Col sm={8} smOffset={2}>
+            <Pagination
+              prev
+              next
+              first
+              last
+              ellipsis
+              boundaryLinks
+              items={this.props.movies.movies.total_pages}
+              maxButtons={5}
+              activePage={this.state.page}
+              onSelect={this.handlePageSelect} />
+          </Col>
       </div>
     )
   }
