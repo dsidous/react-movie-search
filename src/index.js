@@ -7,7 +7,7 @@ import configureStore from './store';
 const store = configureStore();
 
 store.subscribe(() => {
-  console.log("Store changed", store.getState());
+  //console.log("Store changed", store.getState());
 })
 
 ReactDOM.render(

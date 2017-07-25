@@ -42,7 +42,7 @@ class Search extends Component {
 
   render(){
     return (
-      <Navbar inverse>
+      <Navbar> 
         <Navbar.Header>
           <Navbar.Brand>
             Movie Search
