@@ -1,8 +1,10 @@
-import React from 'react';
-import PlayTrailer from './PlayTrailer';
-import { Grid, Col, Row } from 'react-bootstrap';
+import React from 'react'
+import PlayTrailer from './PlayTrailer'
+import { Grid, Col, Row } from 'react-bootstrap'
+import '../styles/movie.css'
+import '../styles/similar-movies.css'
 
-import Style from 'style-it';
+import Style from 'style-it'
 
 const MovieProfile = (props) => {
   const movie = props.movie;

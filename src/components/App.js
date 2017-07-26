@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Search from './Search';
-import MovieProfileContainer from './MovieProfileContainer';
+import MovieProfileContainer from '../containers/MovieProfileContainer';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
@@ -31,9 +31,7 @@ class App extends Component {
     return (
       <div className="App">
         <Search />
-        {this.props.movie.movie.id &&
-          <MovieProfileContainer />
-        }
+        <MovieProfileContainer />        
       </div>
     );
   }
