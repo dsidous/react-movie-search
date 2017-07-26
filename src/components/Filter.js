@@ -1,74 +1,20 @@
-import React, { Component} from 'react'
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+import React from 'react'
+import { Col, ControlLabel, Form, FormGroup, FormControl, Pagination } from 'react-bootstrap'
+import FilterGenres from './FilterGenres'
+import ResultContainer from '../containers/ResultContainer'
+import '../styles/filter.css'
 
-import { Col, ControlLabel, Form, FormGroup, FormControl, Pagination } from 'react-bootstrap';
-import FilterGenres from './FilterGenres';
-import ResultContainer from './ResultContainer';
+const Filter = (props) => {
 
-class Filter extends Component {
-
-  constructor(){
-    super();
-
-    this.state = {
-      page : 1,
-      primary_release_year : 2017,
-      sort_by: 'popularity.desc',
-      with_genres: [],
-      'vote_average.gte': 0
-    }
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleGenresChange = this.handleGenresChange.bind(this);
-    this.runQuery = this.runQuery.bind(this);
-    this.handlePageSelect = this.handlePageSelect.bind(this);
-
-  }
-
-  componentDidMount(){
-    this.props.dispatch(actions.getConfig());
-    this.props.dispatch(actions.getGenres());
-
-    this.props.dispatch(actions.getDiscoverMovies('&page=1&primary_release_year=2017'));
-  }
-
-  objectToQueryStr(paramsObj) {
-    return Object
-          .keys(paramsObj)
-          .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(paramsObj[key])}`)
-          .join('&');
-  }
-
-  runQuery(){
-    const query = this.objectToQueryStr(this.state);
-    this.props.dispatch(actions.getDiscoverMovies('&' + query));
-  }
-
-  handleChange(e){
-    let val = e.target.value;
-    let option = e.target.id;
-    this.setState({ [option] : val }, () => this.runQuery());
-  }
-
-  handleGenresChange(e){
-    this.setState({with_genres: e}, () => this.runQuery());
-  }
-
-  handlePageSelect(e){
-    this.setState({page: e}, () => this.runQuery());
-  }
-
-  render(){
     let year_options = Array(118).fill().map((_, i) => <option key={i} value={2017 - i}>{2017 - i}</option>);
 
-    return(
+    return (
       <div className="filter-wrapper">
           <Col sm={8} smOffset={2}>
             <Form inline>
               <FormGroup className="filter-element-wrapper">
                 <ControlLabel>Sort By</ControlLabel><br />
-                <FormControl componentClass="select" placeholder="select" onChange={this.handleChange} defaultValue="popularity.desc" id="sort_by">
+                <FormControl componentClass="select" placeholder="select" onChange={props.handleChange} defaultValue="popularity.desc" id="sort_by">
                   <option value="popularity.desc">Popularity Descending</option>
                   <option value="popularity.asc">Popularity Ascending</option>
                   <option value="vote_average.desc">Rating Descending</option>
@@ -81,20 +27,20 @@ class Filter extends Component {
               </FormGroup>
               <FormGroup className="filter-element-wrapper">
                 <ControlLabel>Year</ControlLabel><br />
-                <FormControl componentClass="select" placeholder="select" onChange={this.handleChange} defaultValue="2017" id="primary_release_year">
+                <FormControl componentClass="select" placeholder="select" onChange={props.handleChange} defaultValue="2017" id="primary_release_year">
                   <option value="">None</option>
                   {year_options}
                 </FormControl>
               </FormGroup>
-              {this.props.config.genres[0] &&
+              {props.config.genres[0] &&
                 <FormGroup className="filter-element-wrapper filter-genres-wrapper">
                   <ControlLabel>Genres</ControlLabel><br />
-                  <FilterGenres genres={this.props.config.genres} onChange={this.handleGenresChange} value={this.state.with_genres}/>
+                  <FilterGenres genres={props.config.genres} onChange={props.handleGenresChange} value={props.state.with_genres}/>
                 </FormGroup>
               }
               <FormGroup className="filter-element-wrapper">
                 <ControlLabel>Average vote</ControlLabel><br />
-                <FormControl componentClass="select" id="vote_average.gte" placeholder="select" onChange={this.handleChange} defaultValue="">
+                <FormControl componentClass="select" id="vote_average.gte" placeholder="select" onChange={props.handleChange} defaultValue="">
                   <option value="">Greater than...</option>
                   <option value="9">9</option>
                   <option value="8">8</option>
@@ -117,10 +63,10 @@ class Filter extends Component {
               last
               ellipsis
               boundaryLinks
-              items={this.props.movies.movies.total_pages}
+              items={props.movies.movies.total_pages}
               maxButtons={5}
-              activePage={this.state.page}
-              onSelect={this.handlePageSelect} />
+              activePage={props.state.page}
+              onSelect={props.handlePageSelect} />
           </Col>
           <ResultContainer />
           <Col sm={8} smOffset={2}>
@@ -131,28 +77,13 @@ class Filter extends Component {
               last
               ellipsis
               boundaryLinks
-              items={this.props.movies.movies.total_pages}
+              items={props.movies.movies.total_pages}
               maxButtons={5}
-              activePage={this.state.page}
-              onSelect={this.handlePageSelect} />
+              activePage={props.state.page}
+              onSelect={props.handlePageSelect} />
           </Col>
       </div>
     )
-  }
 }
 
-const mapStateToProps = state => {
-  return {
-    config: state.config,
-    movies: state.movies
-  }
-}
-
-const mapDispatchToProps = dispatch => ({
-  dispatch
-})
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Filter);
+export default Filter;

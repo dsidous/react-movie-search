@@ -1,0 +1,75 @@
+.movies-list__element {
+
+}
+
+.movies-poster {
+  cursor: pointer;
+  max-height: 240px;
+}
+
+.movies-title {
+  display: block;
+  float: left;
+  font: 20px/20px arial, helvetica, sans-serif;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 70%;
+}
+
+.movies-rating {
+  display: block;
+  float: right;
+  font: 20px/20px arial, helvetica, sans-serif;
+  margin-top: 10px;
+  padding-left: 22px;
+  position: relative;
+  text-align: right;
+}
+
+.movies-rating:before {
+  font: 20px/20px FontAwesome;
+  color: #666;
+  content: "\f005";
+  left: 0;
+  position: absolute;
+}
+
+.movies-year {
+  float: left;
+  margin: 5px 0 0;
+  padding-left: 14px;
+  position: relative;
+}
+
+.movies-year:before {
+  content: "\f073";
+  left: 0;
+  font: 12px/12px FontAwesome;
+  position: absolute;
+  top: 3px;
+}
+
+.movies-genres {
+  display: block;
+  float: right;
+  margin: 5px 0 0;
+  overflow: hidden;
+  text-align: right;
+  font-style: italic;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 200px;
+}
+
+.movies-overview {
+  display: block;
+  display: -webkit-box;
+  height: 120px;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  margin: 20px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -3,10 +3,15 @@ const movie = (
     movie:{},
     crew:{},
     similar:{},
-    videos:false
+    videos:[],
+    isFetching: false
   }, action) => {
 
   switch (action.type) {
+    case 'GET_MOVIE_TMDB':
+      return Object.assign({}, state, {
+        isFetching: true
+    })
     case 'GET_MOVIE_TMDB_FULFILLED':
       return Object.assign({}, state, {
         movie: action.movie
@@ -21,7 +26,8 @@ const movie = (
       })
     case 'GET_VIDEOS_TMDB_FULFILLED':
       return Object.assign({}, state, {
-        videos: action.videos
+        videos: action.videos,
+        isFetching: false
       })
     default:
       return state;
