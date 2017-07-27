@@ -5,12 +5,12 @@ import { connect } from 'react-redux'
 import Result from '../components/Result'
 
 class ResultContainer extends Component {
-  constructor(props){
-    super(props);
-    this.goToMovie = this.goToMovie.bind(this);
+  static propTypes = {
+    config: PropTypes.object.isRequired,
+    movies: PropTypes.array
   }
 
-  goToMovie(movieId){
+  goToMovie = (movieId) => {
     this.context.router.push(`/movie/${movieId}`);
   }
 

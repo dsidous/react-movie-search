@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import ModalVideo from 'react-modal-video'
+import PropTypes from 'prop-types'
 
-import 'react-modal-video/css/modal-video.min.css';
+import 'react-modal-video/css/modal-video.min.css'
 
 class PlayTrailer extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      isOpen : false
-    }
-    this.openModal = this.openModal.bind(this)
+  state = {
+    isOpen : false
   }
 
-  openModal () {
+  static propTypes = {
+    video: PropTypes.object
+  }
+
+  openModal = () => {
     this.setState({isOpen: true})
   }
 

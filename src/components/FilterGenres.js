@@ -1,18 +1,22 @@
-import React, { Component } from 'react';
-import Select from 'react-select';
-import 'react-select/dist/react-select.css';
+import React, { Component } from 'react'
+import Select from 'react-select'
+import PropTypes from 'prop-types'
+
+import 'react-select/dist/react-select.css'
 
 class FilterGenres extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      options: props.genres.map(genre => ({label:genre.name,value:String(genre.id)})),
-			value: []
-    }
+  state = {
+    options: this.props.genres.map(genre => ({label:genre.name,value:String(genre.id)})),
+    value: []
   }
 
-  componentWillReceiveProps(nextProps){
-    this.setState({ value:nextProps.value });
+  static propTypes = {
+    genres: PropTypes.array.isRequired,
+    onChange: PropTypes.func.isRequired
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ value: nextProps.value })
   }
 
   render () {
@@ -28,7 +32,7 @@ class FilterGenres extends Component {
           onChange={this.props.onChange}
         />
 			</div>
-		);
+		)
 	}
 }
 

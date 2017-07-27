@@ -1,8 +1,16 @@
 import React from 'react'
 import { Row, Col, Well } from 'react-bootstrap'
+import PropTypes from 'prop-types'
+
 import '../styles/movies.css'
 
-const Result = (props) => {
+Result.propTypes = {
+  config: PropTypes.object.isRequired,
+  movies: PropTypes.array.isRequired,
+  goToMovie: PropTypes.func.isRequired
+}
+
+function Result(props) {
 
   let img_base_path = props.config.config.images.base_url + props.config.config.images.poster_sizes[2];
 
@@ -15,11 +23,16 @@ const Result = (props) => {
               <Row>
 
                 <Col sm={4}>
-                  <img className="movies-poster"
-                      src={img_base_path + movie.poster_path}
-                      alt={movie.original_title}
-                      onClick={() => props.goToMovie(movie.id)}
-                  />
+                  {movie.poster_path !== null
+                    ? <img className="movies-poster"
+                        src={img_base_path + movie.poster_path}
+                        alt={movie.original_title}
+                        onClick={() => props.goToMovie(movie.id)}
+                      />
+                    : <div className="no-image-holder"
+                        onClick={() => props.goToMovie(movie.id)}
+                      ></div>
+                  }
                 </Col>
 
                 <Col sm={8}>

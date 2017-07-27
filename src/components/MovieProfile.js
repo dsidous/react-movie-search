@@ -1,12 +1,30 @@
 import React from 'react'
-import PlayTrailer from './PlayTrailer'
 import { Grid, Col, Row } from 'react-bootstrap'
+import PropTypes from 'prop-types'
+import Style from 'style-it'
+import Slider from 'react-slick'
+
+import PlayTrailer from './PlayTrailer'
+import Cast from './Cast'
+import SimilarMovies from './SimilarMovies'
+
 import '../styles/movie.css'
 import '../styles/similar-movies.css'
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
-import Style from 'style-it'
+MovieProfile.propTypes = {
+  config: PropTypes.object.isRequired,
+  movie: PropTypes.object.isRequired,
+  crew: PropTypes.array.isRequired,
+  similar: PropTypes.array.isRequired,
+  videos: PropTypes.array.isRequired,
+  images: PropTypes.object.isRequired,
+  dcolor: PropTypes.array.isRequired,
+  handleMovieClick: PropTypes.func.isRequired
+}
 
-const MovieProfile = (props) => {
+function MovieProfile(props) {
   const movie = props.movie;
   const img = props.config.images;
 
@@ -18,109 +36,124 @@ const MovieProfile = (props) => {
     <li key={genre.id} className="movie-genres">{genre.name}</li>
   ));
 
-  if (typeof props.crew[0] !== 'undefined') {
-    var crew = props.crew.slice(0,6)
-          .map((cr,i) => (
-            <li key={i} className="col-sm-2">
-              <p className="crew-col text-center">
-                <img src={img.base_url + img.profile_sizes[0] + cr.profile_path} alt={cr.name} /><br />
-                <strong>{cr.name}</strong><br />
-                <small>{cr.character}</small>
-              </p>
-            </li>
-          ));
-  }
+  var backdrops_settings = {
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      dots: false,
+      fade: true,
+      infinite: true,
+      lazyLoad: true,
+      pauseOnHover: false,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+  };
 
-  if (typeof props.similar[0] !== 'undefined') {
-    var similar = props.similar.map((sim,i) => (
-      <li key={i} className="col-sm-2 similar-movies__element"
-          onClick={() => props.handleMovieClick(sim.id)}
-        >
-        <p className="crew-col text-center">
-          <img src={img.base_url + img.poster_sizes[1] + sim.poster_path} alt={sim.original_title} /><br />
-          <small>{sim.original_title}</small>
-        </p>
-      </li>
-    ))
-  }
+  // if (typeof props.images.backdrops !== 'undefined') {
+  //   var backdrops = (
+  //       <Slider {...backdrops_settings}>
+  //         {props.images.backdrops.map((backdrop,i) => (
+  //           <div key={i}>
+  //             <div className="backdrop-element" style={{height: window.innerHeight,backgroundImage: 'url(' + img.base_url + img.backdrop_sizes[2] + backdrop.file_path + ')'}} ></div>
+  //             {/* <img src={img.base_url + img.backdrop_sizes[2] + backdrop.file_path} alt="backdrop" /> */}
+  //           </div>
+  //         ))
+  //       }
+  //     </Slider>
+  //   )
+  // }
+
   return (
-  <div>
-    <Style>
-      {`
-        div.custom_bg:before {
-          background-image: radial-gradient(at 10% 30%, rgb(${props.dcolor[0]},${props.dcolor[1]},${props.dcolor[2]}) 0%, #342931 100%);
-        }
-        .main-header:before {
-          background-image: url(${backdropURL});
-        }
-      `}
-    </Style>
+    <div>
+      <Style>
+        {`
+          div.custom_bg:before {
+            background-image: radial-gradient(at 10% 30%, rgb(${props.dcolor[0]},${props.dcolor[1]},${props.dcolor[2]}) 0%, #342931 100%);
+          }
+          .main-header:before {
+            background-image: url(${backdropURL});
+          }
+        `}
+      </Style>
 
-    <Grid className="main-header" fluid={true}>
-      <div className="custom_bg">
+      {/* <div className="full-background">
+        {backdrops}
+      </div> */}
 
-        <Col sm={8} smOffset={2} className="main-col">
+      <Grid className="main-header" fluid={true}>
+        <div className="custom_bg">
 
-          <Row className="show-grid">
-            <Col xs={4} className="poster-col">
-              <img src={posterURL} className="img-responsive center-block" alt="poster" />
-            </Col>
+          <Col sm={8} smOffset={2} className="main-col">
 
-            <Col xs={7}>
+            <Row className="show-grid">
+              <Col xs={4} className="poster-col">
+                { movie.poster_path !== null
+                  ? <img src={posterURL} className="img-responsive center-block" alt="poster" />
+                  : <div className="movie-no-image-holder"></div>
+                }
+              </Col>
 
-              <Row className="profile-row">
-                <Col xs={12}>
-                  <h1 className="movie-title">{props.movie.original_title}</h1>
-                    <ul className="list-inline title-tags">
-                      <li>{props.movie.release_date.slice(0,4)}</li>
-                      <li>{props.movie.runtime} min</li>
-                      <li>
-                        <ul className="list-inline title-tags__genres">
-                          {genres}
-                        </ul>
-                      </li>
-                      <li className="movie-rating">{props.movie.vote_average}</li>
-                    </ul>
-                  <h4>{props.movie.tagline}</h4>
-                  {video &&
-                    <PlayTrailer video={video} />
-                  }
-                </Col>
-              </Row>
+              <Col xs={7}>
 
-              <Row className="profile-row">
-                <Col xs={12}><h4>Overview</h4>{props.movie.overview}</Col>
-              </Row>
+                <Row className="profile-row">
+                  <Col xs={12}>
+                    <h1 className="movie-title">{props.movie.original_title}</h1>
+                      <ul className="list-inline title-tags">
+                        <li>{props.movie.release_date.slice(0,4)}</li>
+                        <li>{props.movie.runtime} min</li>
+                        <li>
+                          <ul className="list-inline title-tags__genres">
+                            {genres}
+                          </ul>
+                        </li>
+                        <li className="movie-rating">{props.movie.vote_average}</li>
+                      </ul>
+                    <h4>{props.movie.tagline}</h4>
+                    {video &&
+                      <PlayTrailer video={video} />
+                    }
+                  </Col>
+                </Row>
 
-              <Row className="profile-row profile-row--no-border">
-                <Col xs={12}>
-                  <h4>Cast</h4>
-                  <ul className="list-inline">
-                    {crew}
-                  </ul>
-                </Col>
-              </Row>
+                <Row className="profile-row">
+                  <Col xs={12}><h4>Overview</h4>{props.movie.overview}</Col>
+                </Row>
 
-            </Col>
+                <Row className="profile-row profile-row--no-border">
+                  <Col xs={12}>
+                    <h4>Cast</h4>
+                      {props.crew[0] &&
+                        <Cast cast={props.crew.slice(0,9)}
+                            profile_img_base_url={img.base_url + img.profile_sizes[1]}
+                        />
+                      }
+                  </Col>
+                </Row>
 
-          </Row>
+              </Col>
 
-        </Col>
-      </div>
+            </Row>
 
-    </Grid>
-    <Col sm={9} smOffset={2}>
-      <h3>Similar movies</h3>
-      <Row className="profile-row profile-row--no-border">
-        <Col xs={12}>
-          <ul className="list-inline">
-            {similar}
-          </ul>
-        </Col>
-      </Row>
-    </Col>
-  </div>
-)
+          </Col>
+        </div>
+
+      </Grid>
+      <Col sm={8} smOffset={2}>
+        <h3>Similar movies</h3>
+        <Row className="profile-row profile-row--no-border">
+          <Col xs={12}>
+            {props.similar[0] &&
+              <SimilarMovies
+                similar={props.similar}
+                img_base_path={img.base_url + img.poster_sizes[1]}
+              />
+            }
+          </Col>
+        </Row>
+      </Col>
+    </div>
+  )
 }
 
 export default MovieProfile;

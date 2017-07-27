@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
-import Search from './Search';
-import MovieProfileContainer from '../containers/MovieProfileContainer';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+
+import Search from './Search'
+import MovieProfileContainer from '../containers/MovieProfileContainer'
+import * as actions from '../actions'
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      movieId: this.props.params.movieId || ''
-    }
+
+  state = {
+    movieId: this.props.params.movieId || ''
+  }
+
+  static propTypes = {
+    movie : PropTypes.object.isRequired
   }
 
   componentDidMount(){
@@ -31,7 +35,7 @@ class App extends Component {
     return (
       <div className="App">
         <Search />
-        <MovieProfileContainer />        
+        <MovieProfileContainer />
       </div>
     );
   }

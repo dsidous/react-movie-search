@@ -1,8 +1,9 @@
 const movie = (
   state = {
     movie:{},
-    crew:{},
-    similar:{},
+    crew:[],
+    images:{},
+    similar:[],
     videos:[],
     isFetching: false
   }, action) => {
@@ -19,6 +20,10 @@ const movie = (
     case 'GET_MOVIE_CREW_FULFILLED':
       return Object.assign({}, state, {
         crew: action.crew
+      })
+    case 'GET_MOVIE_IMAGES_FULFILLED':
+      return Object.assign({}, state, {
+        images: action.images
       })
     case 'GET_SIMILAR_MOVIE_TMDB_FULFILLED':
       return Object.assign({}, state, {

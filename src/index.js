@@ -6,10 +6,6 @@ import './styles/index.css';
 import configureStore from './store';
 const store = configureStore();
 
-store.subscribe(() => {
-  //console.log("Store changed", store.getState());
-})
-
 ReactDOM.render(
   <Root store={store} />,
   document.getElementById('root')

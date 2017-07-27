@@ -7,6 +7,20 @@
   max-height: 240px;
 }
 
+.no-image-holder {
+  background: #666;
+  color: #444;
+  cursor: pointer;
+  font: 65px/240px FontAwesome;
+  height: 240px;
+  text-align: center;
+  width: 165px;
+}
+
+.no-image-holder:before {
+  content: "\f03e";
+}
+
 .movies-title {
   display: block;
   float: left;
