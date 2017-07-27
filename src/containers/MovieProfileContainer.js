@@ -58,6 +58,7 @@ class MovieProfileContainer extends Component {
                 movie={this.props.movie.movie}
                 crew={this.props.movie.crew}
                 videos={this.props.movie.videos}
+                images={this.props.movie.images}
                 dcolor={this.state.dcolor}
                 handleMovieClick={this.handleMovieClick}
             />

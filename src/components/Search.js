@@ -1,19 +1,28 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import {Link} from 'react-router';
-import { AsyncTypeahead } from 'react-bootstrap-typeahead';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import {Link} from 'react-router'
+import { AsyncTypeahead } from 'react-bootstrap-typeahead'
+import { Navbar, FormGroup } from 'react-bootstrap'
+import { connect } from 'react-redux'
 
-import { Navbar, FormGroup } from 'react-bootstrap';
+import * as actions from '../actions'
+
 
 class Search extends Component {
+
+  state = {
+    options: []
+  }
+
+  static propTypes = {
+    config: PropTypes.object.isRequired    
+  }
 
   componentDidMount(){
     this.props.dispatch(actions.getConfig());
   }
 
-  handleSearch(query) {
+  handleSearch = (query) => {
     if (!query) {
       return;
     }
@@ -23,7 +32,7 @@ class Search extends Component {
       .then(json => this.setState({options: json.results}));
   }
 
-  renderMenuItemChildren(option, props, index) {
+  renderMenuItemChildren = (option, props, index) => {
     return (
       <div key={option.id}>
         <span><img src={this.props.config.config.images.base_url + this.props.config.config.images.poster_sizes[0] + option.poster_path} className="movie-search-img-thumb" alt="#"/></span>
@@ -32,7 +41,7 @@ class Search extends Component {
     );
   }
 
-  handleChange(selected){
+  handleChange = (selected) => {
     if (typeof selected[0] !== "undefined") {
       const movieId = selected[0].id;
       this.props.dispatch(actions.updateMovie(movieId));
@@ -42,7 +51,7 @@ class Search extends Component {
 
   render(){
     return (
-      <Navbar> 
+      <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
             Movie Search
@@ -56,10 +65,10 @@ class Search extends Component {
                 {...this.state}
                 align="justify"
                 labelKey="original_title"
-                onChange={this.handleChange.bind(this)}
-                onSearch={this.handleSearch.bind(this)}
+                onChange={this.handleChange}
+                onSearch={this.handleSearch}
                 placeholder="Search for a movie title..."
-                renderMenuItemChildren={this.renderMenuItemChildren.bind(this)}
+                renderMenuItemChildren={this.renderMenuItemChildren}
               />
             </FormGroup>
             <FormGroup bsSize="small">
@@ -79,8 +88,7 @@ Search.contextTypes = {
 
 const mapStateToProps = state => {
   return {
-    config: state.config,
-    movie: state.movie
+    config: state.config
   }
 }
 

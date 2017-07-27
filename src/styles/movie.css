@@ -52,6 +52,20 @@ div.custom_bg:before {
   box-shadow: 0 0 40px -5px #000;
 }
 
+.movie-no-image-holder {
+  background: #666;
+  color: #444;
+  font: 80px/513px FontAwesome;
+  height: 513px;
+  text-align: center;
+  width: 342px;
+}
+
+.movie-no-image-holder:before {
+  content: "\f03e";
+}
+
+
 .movie-title {
   color: #fff;
   font-family: "Arial";
@@ -144,4 +158,14 @@ li.movie-rating:after {
 
 .play-trailer span {
   margin: 0 5px 0 0;
+}
+
+.backdrop-element {
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.crew-col img {
+  width: 90%;
 }
