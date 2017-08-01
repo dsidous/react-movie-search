@@ -2,11 +2,11 @@ import React from 'react'
 import { Grid, Col, Row } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import Style from 'style-it'
-import Slider from 'react-slick'
 
 import PlayTrailer from './PlayTrailer'
 import Cast from './Cast'
 import SimilarMovies from './SimilarMovies'
+import FullScreenBackdrop from './FullScreenBackdrop'
 
 import '../styles/movie.css'
 import '../styles/similar-movies.css'
@@ -36,34 +36,6 @@ function MovieProfile(props) {
     <li key={genre.id} className="movie-genres">{genre.name}</li>
   ));
 
-  var backdrops_settings = {
-      arrows: false,
-      autoplay: true,
-      autoplaySpeed: 2000,
-      dots: false,
-      fade: true,
-      infinite: true,
-      lazyLoad: true,
-      pauseOnHover: false,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-  };
-
-  // if (typeof props.images.backdrops !== 'undefined') {
-  //   var backdrops = (
-  //       <Slider {...backdrops_settings}>
-  //         {props.images.backdrops.map((backdrop,i) => (
-  //           <div key={i}>
-  //             <div className="backdrop-element" style={{height: window.innerHeight,backgroundImage: 'url(' + img.base_url + img.backdrop_sizes[2] + backdrop.file_path + ')'}} ></div>
-  //             {/* <img src={img.base_url + img.backdrop_sizes[2] + backdrop.file_path} alt="backdrop" /> */}
-  //           </div>
-  //         ))
-  //       }
-  //     </Slider>
-  //   )
-  // }
-
   return (
     <div>
       <Style>
@@ -77,9 +49,12 @@ function MovieProfile(props) {
         `}
       </Style>
 
-      {/* <div className="full-background">
-        {backdrops}
-      </div> */}
+      <div className="full-background">
+        <FullScreenBackdrop
+          backdrop_img_path={img.base_url + img.backdrop_sizes[3]}
+          backdrops={props.images.backdrops}
+        />
+      </div>
 
       <Grid className="main-header" fluid={true}>
         <div className="custom_bg">
@@ -147,6 +122,7 @@ function MovieProfile(props) {
               <SimilarMovies
                 similar={props.similar}
                 img_base_path={img.base_url + img.poster_sizes[1]}
+                handleMovieClick={props.handleMovieClick}
               />
             }
           </Col>

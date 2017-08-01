@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import ReactDom from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as Vibrant from 'node-vibrant'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import MovieProfile from '../components/MovieProfile'
 import * as actions from '../actions'
@@ -29,6 +31,10 @@ class MovieProfileContainer extends Component {
     this.getPalette();
   }
 
+  componentDidUpdate = () => {
+    ReactDom.findDOMNode(this).scrollIntoView();
+  }
+
   getPalette = (path) => {
     if (this.props.movie.movie.poster_path) {
       let path = this.props.config.config.images.base_url + this.props.config.config.images.poster_sizes[3] + this.props.movie.movie.poster_path;
@@ -51,8 +57,15 @@ class MovieProfileContainer extends Component {
       <div>
       {!this.props.movie.movie.id
         ? (this.props.movie.isFetching ? <h2>LOADING</h2> : '')
-        : <div style={{ opacity: this.props.movie.isFetching ? 0.5 : 1 }}>
+        : <div>
+          <ReactCSSTransitionGroup
+            transitionName="example"
+            transitionAppear={true}
+            transitionAppearTimeout={500}
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={300}>
             <MovieProfile
+                key='1'
                 config={this.props.config.config}
                 similar={this.props.movie.similar}
                 movie={this.props.movie.movie}
@@ -62,6 +75,7 @@ class MovieProfileContainer extends Component {
                 dcolor={this.state.dcolor}
                 handleMovieClick={this.handleMovieClick}
             />
+          </ReactCSSTransitionGroup>
           </div>
       }
     </div>
