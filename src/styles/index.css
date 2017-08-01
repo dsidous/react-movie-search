@@ -12,6 +12,14 @@ a:hover {
   margin-bottom: 0;
 }
 
+.App .navbar {
+  opacity: 0.8;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
 .bootstrap-typeahead {
   margin: 0 30px 0 0;
 }

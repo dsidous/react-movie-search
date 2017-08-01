@@ -15,7 +15,7 @@ class Search extends Component {
   }
 
   static propTypes = {
-    config: PropTypes.object.isRequired    
+    config: PropTypes.object.isRequired
   }
 
   componentDidMount(){
@@ -23,13 +23,11 @@ class Search extends Component {
   }
 
   handleSearch = (query) => {
-    if (!query) {
-      return;
+    if (query) {
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=cfe422613b250f702980a3bbf9e90716&query=${query}`)
+        .then(resp => resp.json())
+        .then(json => this.setState({options: json.results}));
     }
-
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=cfe422613b250f702980a3bbf9e90716&query=${query}`)
-      .then(resp => resp.json())
-      .then(json => this.setState({options: json.results}));
   }
 
   renderMenuItemChildren = (option, props, index) => {

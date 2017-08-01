@@ -2,7 +2,7 @@ import React from 'react'
 import Slider from 'react-slick'
 
 function Cast(props) {
-  var settings = {
+  const settings = {
       dots: false,
       infinite: true,
       speed: 500,
