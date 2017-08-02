@@ -25,14 +25,14 @@ MovieProfile.propTypes = {
 }
 
 function MovieProfile(props) {
-  const movie = props.movie;
-  const img = props.config.images;
+  const { base_url, poster_sizes, backdrop_sizes, profile_sizes } = props.config.images;
+  const { poster_path, backdrop_path, genres, original_title, release_date, runtime, vote_average, tagline, overview } = props.movie;
 
-  let posterURL = img.base_url + img.poster_sizes[3] + movie.poster_path;
-  let backdropURL = img.base_url + img.backdrop_sizes[1] + movie.backdrop_path;
+  let posterURL = base_url + poster_sizes[3] + poster_path;
+  let backdropURL = base_url + backdrop_sizes[1] + backdrop_path;
   let video = (props.videos) ? props.videos.filter(video => video.type ==='Trailer')[0] : [];
 
-  let genres = props.movie.genres.map(genre => (
+  let genres_html = genres.map(genre => (
     <li key={genre.id} className="movie-genres">{genre.name}</li>
   ));
 
@@ -51,7 +51,7 @@ function MovieProfile(props) {
 
       <div className="full-background">
         <FullScreenBackdrop
-          backdrop_img_path={img.base_url + img.backdrop_sizes[3]}
+          backdrop_img_path={base_url + backdrop_sizes[2]}
           backdrops={props.images.backdrops}
         />
       </div>
@@ -63,7 +63,7 @@ function MovieProfile(props) {
 
             <Row className="show-grid">
               <Col xs={4} className="poster-col">
-                { movie.poster_path !== null
+                { poster_path !== null
                   ? <img src={posterURL} className="img-responsive center-block" alt="poster" />
                   : <div className="movie-no-image-holder"></div>
                 }
@@ -73,18 +73,18 @@ function MovieProfile(props) {
 
                 <Row className="profile-row">
                   <Col xs={12}>
-                    <h1 className="movie-title">{props.movie.original_title}</h1>
+                    <h1 className="movie-title">{original_title}</h1>
                       <ul className="list-inline title-tags">
-                        <li>{props.movie.release_date.slice(0,4)}</li>
-                        <li>{props.movie.runtime} min</li>
+                        <li>{release_date.slice(0,4)}</li>
+                        <li>{runtime} min</li>
                         <li>
                           <ul className="list-inline title-tags__genres">
-                            {genres}
+                            {genres_html}
                           </ul>
                         </li>
-                        <li className="movie-rating">{props.movie.vote_average}</li>
+                        <li className="movie-rating">{vote_average}</li>
                       </ul>
-                    <h4>{props.movie.tagline}</h4>
+                    <h4>{tagline}</h4>
                     {video &&
                       <PlayTrailer video={video} />
                     }
@@ -92,7 +92,7 @@ function MovieProfile(props) {
                 </Row>
 
                 <Row className="profile-row">
-                  <Col xs={12}><h4>Overview</h4>{props.movie.overview}</Col>
+                  <Col xs={12}><h4>Overview</h4>{overview}</Col>
                 </Row>
 
                 <Row className="profile-row profile-row--no-border">
@@ -100,7 +100,7 @@ function MovieProfile(props) {
                     <h4>Cast</h4>
                       {props.crew[0] &&
                         <Cast cast={props.crew.slice(0,9)}
-                            profile_img_base_url={img.base_url + img.profile_sizes[1]}
+                            profile_img_base_url={base_url + profile_sizes[1]}
                         />
                       }
                   </Col>
@@ -121,7 +121,7 @@ function MovieProfile(props) {
             {props.similar[0] &&
               <SimilarMovies
                 similar={props.similar}
-                img_base_path={img.base_url + img.poster_sizes[1]}
+                img_base_path={base_url + poster_sizes[1]}
                 handleMovieClick={props.handleMovieClick}
               />
             }

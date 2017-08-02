@@ -8,14 +8,19 @@ function FullScreenBackdrop (props){
   const settings = {
     arrows: false,
     dots: false,
-    infinite: true,
     fade: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
+    autoPlay: true,
     autoplaySpeed: 3000,
-    speed: 1000,    
-    adaptiveHeight: true
+    speed: 1000,
+    adaptiveHeight: true,
+    pauseOnHover: false,
+    beforeChange: () => {
+      return(
+        console.log(this)
+      )
+
+
+    }
   };
 
   return(
@@ -24,7 +29,12 @@ function FullScreenBackdrop (props){
         <Slider {...settings}>
           {props.backdrops.map((backdrop,i) => (
             <div key={i}>
-              <div style={{height: window.innerHeight,backgroundImage: 'url(' + props.backdrop_img_path + backdrop.file_path + ')'}} ></div>
+              <div style={{
+                height: window.innerHeight,
+                backgroundImage: 'url(' + props.backdrop_img_path + backdrop.file_path + ')',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'
+              }} ></div>
             </div>
           ))
           }
