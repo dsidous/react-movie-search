@@ -65,6 +65,18 @@ div.custom_bg:before {
   content: "\f03e";
 }
 
+.movie-no-image-holder.smaller {
+  font: 60px/278px FontAwesome;
+  height: 278px;
+  width: 185px;
+}
+
+.movie-no-image-holder.smaller {
+  font: 60px/231px FontAwesome;
+  height: 231px;
+  width: 154px;
+}
+
 
 .movie-title {
   color: #fff;

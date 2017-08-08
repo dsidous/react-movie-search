@@ -3,12 +3,14 @@ import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from 'react-router'
 import App from './components/App'
 import DiscoverContainer from './containers/DiscoverContainer'
+import PersonContainer from './containers/PersonContainer'
 
 const Root = ({store}) => (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App} />
       <Route path="/movie/:movieId" component={App} />
+      <Route path="/person/:personId" component={PersonContainer} />
       <Route path="/discover" component={DiscoverContainer} />
     </Router>
   </Provider>

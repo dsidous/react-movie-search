@@ -51,6 +51,11 @@ class MovieProfileContainer extends Component {
     this.context.router.push(`/movie/${movieId}`);
   }
 
+  handlePersonClick = (personId) => {
+    this.props.dispatch(actions.updatePerson(personId));
+    this.context.router.push(`/person/${personId}`);
+  }
+
   render(){
 
     return (
@@ -74,6 +79,7 @@ class MovieProfileContainer extends Component {
                 images={this.props.movie.images}
                 dcolor={this.state.dcolor}
                 handleMovieClick={this.handleMovieClick}
+                handlePersonClick={this.handlePersonClick}
             />
           </ReactCSSTransitionGroup>
           </div>
