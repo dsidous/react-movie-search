@@ -9,6 +9,9 @@ export const GET_MOVIE_CREW = 'GET_MOVIE_CREW';
 export const GET_MOVIE_IMAGES = 'GET_MOVIE_IMAGES';
 export const GET_GENRES_TMDB = 'GET_GENRES_TMDB';
 
+export const GET_PERSON_TMDB = 'GET_PERSON_TMDB';
+export const GET_PERSON_MOVIES_TMDB = 'GET_PERSON_MOVIES_TMDB';
+
 export function getConfig(){
   const url = `https://api.themoviedb.org/3/configuration?api_key=?&api_key=cfe422613b250f702980a3bbf9e90716`
 
@@ -136,5 +139,42 @@ export function updateMovie(movieId){
     dispatch(getMovieImages(movieId));
     dispatch(getSimilarMovie(movieId));
     dispatch(getVideos(movieId));
+  }
+}
+
+export function getPerson(query){
+  const url = `https://api.themoviedb.org/3/person/${query}?&api_key=cfe422613b250f702980a3bbf9e90716`
+
+  return function(dispatch) {
+    dispatch({type: GET_PERSON_TMDB});
+    axios.get(url)
+      .then((response) => {
+        dispatch({type: GET_PERSON_TMDB + "_FULFILLED",person: response.data})
+      })
+      .catch((err) => {
+        dispatch({type: GET_PERSON_TMDB + "_REJECTED",person: err})
+      })
+  }
+}
+
+export function getPersonMovies(query){
+  const url = `https://api.themoviedb.org/3/person/${query}/movie_credits?&api_key=cfe422613b250f702980a3bbf9e90716`
+
+  return function(dispatch) {
+    dispatch({type: GET_PERSON_MOVIES_TMDB});
+    axios.get(url)
+      .then((response) => {
+        dispatch({type: GET_PERSON_MOVIES_TMDB + "_FULFILLED",person_movies: response.data.cast})
+      })
+      .catch((err) => {
+        dispatch({type: GET_PERSON_MOVIES_TMDB + "_REJECTED",person_movies: err})
+      })
+  }
+}
+
+export function updatePerson(personId){
+  return function(dispatch) {
+    dispatch(getPerson(personId));
+    dispatch(getPersonMovies(personId));
   }
 }

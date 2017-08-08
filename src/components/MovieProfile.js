@@ -101,6 +101,7 @@ function MovieProfile(props) {
                       {props.crew[0] &&
                         <Cast cast={props.crew.slice(0,9)}
                             profile_img_base_url={base_url + profile_sizes[1]}
+                            handlePersonClick={props.handlePersonClick}
                         />
                       }
                   </Col>
