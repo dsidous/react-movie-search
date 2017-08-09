@@ -5,7 +5,7 @@ import {FormattedDate} from 'react-intl'
 import '../styles/person.css'
 
 function CastProfile(props){
-  const { biography, birthday, name, place_of_birth, profile_path } = props.person;
+  const { biography, birthday, deathday, name, place_of_birth, profile_path } = props.person;
   const profileURL = props.config.images.base_url + props.config.images.profile_sizes[2] + profile_path;
   const person_movies = props.person_movies.sort((a,b) => b.release_date.localeCompare(a.release_date)).map(person_movie => (
     <li key={person_movie.id} className="person-movies">
@@ -16,7 +16,12 @@ function CastProfile(props){
          />
         : <div className="movie-no-image-holder smaller"></div>
       }
-      <p className="person-movie__release"><FormattedDate value={person_movie.release_date}/></p>
+      <p className="person-movie__release">
+        {person_movie.release_date !== ''
+         ? <FormattedDate value={person_movie.release_date}/>
+         : ''
+       }
+      </p>
       <p className="person-movie__title">{person_movie.original_title}</p>
       <p className="person-movie__character">as {person_movie.character}</p>
     </li>
@@ -41,7 +46,13 @@ function CastProfile(props){
                 <Row>
                   <Col xs={12}>
                     <h1>{name}</h1>
-                    {place_of_birth}, <FormattedDate value={birthday} />
+                    {place_of_birth}
+                    {birthday &&
+                      <span>, <FormattedDate value={birthday} /></span>
+                    }
+                    {deathday &&
+                      <span> - <FormattedDate value={deathday} /></span>
+                    }
                   </Col>
                 </Row>
 

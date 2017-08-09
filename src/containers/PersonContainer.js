@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
 import * as actions from '../actions'
@@ -9,10 +8,6 @@ import CastProfileContainer from './CastProfileContainer'
 class PersonContainer extends Component{
   state = {
     personId: this.props.params.personId || ''
-  }
-
-  static propTypes = {
-    person : PropTypes.object.isRequired
   }
 
   componentDidMount(){

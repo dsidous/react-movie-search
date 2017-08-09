@@ -7,7 +7,8 @@ function Cast(props) {
       infinite: true,
       speed: 500,
       slidesToShow: 3,
-      slidesToScroll: 3
+      slidesToScroll: 3,
+      pauseOnHover: false
   };
 
   return(
@@ -15,7 +16,7 @@ function Cast(props) {
       {props.cast.map((cr,i) => (
         <div key={i}>
           <p className="crew-col text-center">
-            <img src={props.profile_img_base_url + cr.profile_path} alt={cr.name} onClick={() => props.handlePersonClick(cr.id)}/>
+            <img src={props.profile_img_base_url + cr.profile_path} alt={cr.name} onClick={() => props.handlePersonClick(cr.id)} className="cast-img"/>
             <br />
             <strong>{cr.name}</strong><br />
             <small>{cr.character}</small>

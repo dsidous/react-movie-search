@@ -84,12 +84,31 @@ div.custom_bg:before {
   letter-spacing: 1px;
 }
 
-.movie-title span {
-  color: #999;
-  font-family:  "Trebuchet MS";
-  font-size: 20px;
-  letter-spacing: 0.01em;
-  margin-left: 10px;
+.movie-rating {
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  margin-left: 20px;
+  padding-left: 23px;
+  position: relative;
+}
+
+.movie-rating:before {
+  font: 20px/20px FontAwesome;
+  color: #e3cf7a;
+  content: "\f005";
+  left: 0;
+  position: absolute;
+  top: 2px;
+}
+
+.movie-rating:after {
+  font-size: 12px;
+  bottom: 2px;
+  color: #bbb;
+  content: "/10";
+  right: auto;
+  top: auto;
 }
 
 .title-tags li {
@@ -97,7 +116,7 @@ div.custom_bg:before {
   position: relative;
 }
 
-.title-tags li:after {
+.title-tags li:not(:last-child):after {
   content: "\2022";
   position: absolute;
   right: -4px;
@@ -125,33 +144,6 @@ li.movie-genres:not(:last-child):after {
 
 li.movie-genres:last-child:after {
   content: "";
-}
-
-li.movie-rating {
-  border: none;
-  color: #fff;
-  font-size: 22px;
-  margin-left: 10px;
-  padding-left: 23px;
-  position: relative;
-}
-
-.movie-rating:before {
-  font: 20px/20px FontAwesome;
-  color: #e3cf7a;
-  content: "\f005";
-  left: 0;
-  position: absolute;
-  top: 5px;
-}
-
-li.movie-rating:after {
-  font-size: 12px;
-  bottom: 2px;
-  color: #bbb;
-  content: "/10";
-  right: auto;
-  top: auto;
 }
 
 .play-trailer {
@@ -208,4 +200,17 @@ li.movie-rating:after {
 .example-appear.example-appear-active {
   opacity: 1;
   transition: opacity .5s ease-in;
+}
+
+.fullscreen-backdrop-slide {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cast-img {
+  cursor: pointer;
+}
+
+.similar-movies-img {
+  cursor: pointer;
 }

@@ -17,7 +17,7 @@ function SimilarMovies(props) {
             onClick={() => props.handleMovieClick(sim.id)}
           >
           <p className="crew-col text-center">
-            <img src={props.img_base_path + sim.poster_path} alt={sim.original_title} /><br />
+            <img src={props.img_base_path + sim.poster_path} alt={sim.original_title} className="similar-movies-img"/><br />
             <small>{sim.original_title}</small>
           </p>
         </div>
