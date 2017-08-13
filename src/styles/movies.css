@@ -5,6 +5,7 @@
 .movies-poster {
   cursor: pointer;
   max-height: 240px;
+  width: 95%;
 }
 
 .no-image-holder {
@@ -74,7 +75,7 @@
   font-style: italic;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 200px;
+  width: 70%;
 }
 
 .movies-overview {
