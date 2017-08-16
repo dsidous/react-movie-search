@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import ReactDom from 'react-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 import * as actions from '../actions'
 
 import CastProfile from '../components/CastProfile'
@@ -22,22 +24,29 @@ class CastProfielContainer extends Component {
   }
 
   handlePersonMovieClick = (movieId) => {
+    this.props.dispatch({type:'RESET_MOVIE_STATE'});
     this.props.dispatch(actions.updateMovie(movieId));
     this.context.router.push(`/movie/${movieId}`);
   }
 
   render(){
     return (
-      <div>
+      <ReactCSSTransitionGroup
+          transitionName="example"
+          transitionAppear={true}
+          transitionAppearTimeout={1500}
+          transitionEnterTimeout={1500}
+          transitionLeave={false}>
         { this.props.config.images &&
           <CastProfile
+            key={this.props.person.id}
             config={this.props.config}
             person={this.props.person}
             person_movies={this.props.person_movies}
             handlePersonMovieClick={this.handlePersonMovieClick}
           />
         }
-      </div>
+      </ReactCSSTransitionGroup>
     )
   }
 }

@@ -1,8 +1,10 @@
+const initial_state = {
+  person: {},
+  person_movies: []
+}
+
 const person = (
-  state = {
-    person: {},
-    person_movies: []
-  }, action) => {
+  state = initial_state, action) => {
 
   switch (action.type) {
     case 'GET_PERSON_TMDB_FULFILLED':
@@ -15,6 +17,9 @@ const person = (
         person_movies: action.person_movies
     })
 
+    case 'RESET_PERSON':
+      return initial_state
+      
     default:
       return state;
   }

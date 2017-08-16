@@ -98,7 +98,7 @@ function MovieProfile(props) {
                         <ul className="list-inline title-tags__genres">
                           {genres_html}
                         </ul>
-                      </li>                      
+                      </li>
                     </ul>
                     <h4>{tagline}</h4>
                     {video &&
