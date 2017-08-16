@@ -47,11 +47,13 @@ class MovieProfileContainer extends Component {
   // }
 
   handleMovieClick = (movieId) => {
+    this.props.dispatch({type:'RESET_MOVIE_STATE'});
     this.props.dispatch(actions.updateMovie(movieId));
     this.context.router.push(`/movie/${movieId}`);
   }
 
   handlePersonClick = (personId) => {
+    this.props.dispatch({type:'RESET_PERSON'});
     this.props.dispatch(actions.updatePerson(personId));
     this.context.router.push(`/person/${personId}`);
   }
@@ -62,15 +64,14 @@ class MovieProfileContainer extends Component {
       <div>
       {!this.props.movie.movie.id
         ? (this.props.movie.isFetching ? <h2>LOADING</h2> : '')
-        : <div>
-          <ReactCSSTransitionGroup
+        : <ReactCSSTransitionGroup
             transitionName="example"
             transitionAppear={true}
-            transitionAppearTimeout={500}
-            transitionEnterTimeout={500}
-            transitionLeaveTimeout={300}>
+            transitionAppearTimeout={1500}
+            transitionEnterTimeout={1500}
+            transitionLeave={false}>
             <MovieProfile
-                key='1'
+                key={this.props.movie.movie.id}
                 config={this.props.config.config}
                 similar={this.props.movie.similar}
                 movie={this.props.movie.movie}
@@ -82,7 +83,6 @@ class MovieProfileContainer extends Component {
                 handlePersonClick={this.handlePersonClick}
             />
           </ReactCSSTransitionGroup>
-          </div>
       }
     </div>
     )

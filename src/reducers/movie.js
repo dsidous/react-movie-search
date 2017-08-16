@@ -1,12 +1,14 @@
+const initial_state = {
+  movie:{},
+  crew:[],
+  images:{},
+  similar:[],
+  videos:[],
+  isFetching: false
+}
+
 const movie = (
-  state = {
-    movie:{},
-    crew:[],
-    images:{},
-    similar:[],
-    videos:[],
-    isFetching: false
-  }, action) => {
+  state = initial_state, action) => {
 
   switch (action.type) {
     case 'GET_MOVIE_TMDB':
@@ -34,6 +36,8 @@ const movie = (
         videos: action.videos,
         isFetching: false
       })
+    case 'RESET_MOVIE_STATE':
+      return initial_state
     default:
       return state;
   }
