@@ -7,7 +7,10 @@ import '../styles/person.css'
 function CastProfile(props){
   const { biography, birthday, deathday, name, place_of_birth, profile_path } = props.person;
   const profileURL = props.config.images.base_url + props.config.images.profile_sizes[2] + profile_path;
-  const person_movies = props.person_movies.sort((a,b) => b.release_date.localeCompare(a.release_date)).map(person_movie => (
+  const person_movies = props.person_movies.sort((a,b) => (
+      b.release_date ? b.release_date.localeCompare(a.release_date) : -1
+    ))
+    .map(person_movie => (
     <li key={person_movie.id} className="person-movies">
       { person_movie.poster_path !== null
         ? <img src={props.config.images.base_url + props.config.images.poster_sizes[1] + person_movie.poster_path}
