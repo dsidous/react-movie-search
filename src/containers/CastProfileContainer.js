@@ -42,7 +42,6 @@ class CastProfielContainer extends Component {
             key={this.props.person.id}
             config={this.props.config}
             person={this.props.person}
-            person_movies={this.props.person_movies}
             handlePersonMovieClick={this.handlePersonMovieClick}
           />
         }
@@ -54,8 +53,7 @@ class CastProfielContainer extends Component {
 const mapStateToProps = state => {
   return {
     config: state.config.config,
-    person: state.person.person,
-    person_movies: state.person.person_movies
+    person: state.person.person
   }
 }
 

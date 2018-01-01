@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { Router, Route, browserHistory, useRouterHistory } from 'react-router'
+import { Router, Route, useRouterHistory } from 'react-router'
 import { createHistory } from 'history'
 import App from './components/App'
 import DiscoverContainer from './containers/DiscoverContainer'

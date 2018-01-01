@@ -1,0 +1,33 @@
+.reviews {
+  border-top: 10px solid #083e4b;
+  margin: 40px 0 0;
+  padding: 0 10px;
+}
+
+.reviews h4 {
+  padding: 10px 0 20px;
+}
+
+.reviews-wrapper {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+.reviews-element {
+  background: #083e4b;
+  border-radius: 6px;
+  color: #fff;
+  padding: 20px;
+}
+
+.review-author {
+  font-size: 3.5vw;
+  font-weight: bold;
+  margin: 0 0 20px;
+}
+
+.review-content {
+  font-size: 2.5vw;
+  white-space: pre-line;
+}
