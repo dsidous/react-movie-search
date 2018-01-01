@@ -1,11 +1,24 @@
-.movies-list__element {
+.result-wrapper {
+  clear: both;
+  max-width: 960px;
+  margin: 0 auto;
+}
 
+.movies-list {
+  margin: 0;
+  padding: 0;
+}
+
+.movies-list__element {
+  list-style: none;
+  background: #083e4b;
+  border-radius: 4px;
+  margin: 10px 0 20px;
 }
 
 .movies-poster {
   cursor: pointer;
-  max-height: 240px;
-  width: 95%;
+  width: 100%;
 }
 
 .no-image-holder {
@@ -26,7 +39,7 @@
   display: block;
   float: left;
   font: 20px/20px arial, helvetica, sans-serif;
-  margin-top: 10px;
+  margin: 10px 0 0 10px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -37,7 +50,7 @@
   display: block;
   float: right;
   font: 20px/20px arial, helvetica, sans-serif;
-  margin-top: 10px;
+  margin: 10px 10px 0 0;
   padding-left: 22px;
   position: relative;
   text-align: right;
@@ -53,7 +66,7 @@
 
 .movies-year {
   float: left;
-  margin: 5px 0 0;
+  margin: 5px 0 0 10px;
   padding-left: 14px;
   position: relative;
 }
@@ -69,7 +82,7 @@
 .movies-genres {
   display: block;
   float: right;
-  margin: 5px 0 0;
+  margin: 5px 10px 10px 0;
   overflow: hidden;
   text-align: right;
   font-style: italic;
@@ -79,12 +92,62 @@
 }
 
 .movies-overview {
-  display: block;
-  display: -webkit-box;
-  height: 120px;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  margin: 20px 0 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: none;
+}
+
+@media screen and (min-width: 640px) {
+  .movies-overview {
+    display: block;
+    margin: 20px 0 0;
+  }
+
+  .movies-list {
+    display: grid;
+    grid-gap: 10px;
+    grid-area: result;
+    grid-template-columns: repeat(2,minmax(200px, 1fr));
+  }
+
+  .movies-list__element {
+    grid-column-gap: 10px;
+    grid-template-rows: 40px 40px; 
+    margin: 0; 
+    padding: 20px;
+  }
+
+  .movies-title {
+    margin: 10px 0 0;
+  }
+  
+  .movies-rating {
+    margin-right: 0;
+  }
+
+  .movies-year {
+    margin-left: 0;
+  }
+
+  .movies-genres {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .movies-list__element {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: minmax(115px, 1fr) minmax(200px, 2fr);
+    grid-column-gap: 10px;
+    grid-template-rows: 40px 40px;
+  }
+
+  .movies-poster {
+    grid-row: 1 / 4;
+  }
+
+  .movies-overview {
+    margin: 0;
+  }
+  
 }

@@ -1,34 +1,175 @@
 .person-bio {
-  margin: 0 0 40px;
   white-space: pre-line;
 }
 
-.person-movies {
-  margin-bottom: 20px;
-  overflow: hidden;
+.person-wrapper {
+  margin: 10px;
+}
+
+.person-info-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: 
+    "poster info"
+    "bio bio";
+  grid-gap: 10px;
+}
+
+.person-poster {
+  grid-area: poster;
+}
+
+.person-poster img {
+  border-radius: 4px;
+  box-shadow: 0 0 20px -5px #000;
+}
+
+.person-info {
+  grid-area: info;
+}
+
+.person-name {
+  font-weight: bold;
+}
+
+.person-bio-wrapper {
+  grid-area: bio;
+}
+
+.person-movies-wrapper {
+  border-top: 10px solid #083e4b;
+  margin: 40px 0 0;
+}
+
+.person-movies-wrapper h4 {
+  padding: 20px 0;
+}
+
+.person-movies-known-grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.person-movies-known {
   text-align: center;
   vertical-align: top;
-  width: 175px;
 }
 
-.person-movies .movie-no-image-holder,
-.person-movies img {
+.person-movies-known .movie-no-image-holder,
+.person-movies-known img {
   cursor: pointer;
-  height: 231px;
   margin: 0 0 10px;
+  width: 100%;
 }
 
-.person-movies .person-movie__release {
-  font-size: 14px;
-  margin: 0;
-}
-
-.person-movies .person-movie__title {
-  font-size: 16px;
+.person-movies-known .person-movie__title {
+  font-size: 1.9vw;
   font-weight: bold;
   margin: 0;
 }
 
+.person-movies-grid {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 1fr;
+}
+
+.person-movies {
+  border: 1px solid #083e4b;
+  border-bottom: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  grid-auto-rows: 50px;
+  padding: 0 10px;
+  text-align: left;
+  align-items: center;
+}
+
+.person-movies:last-child {
+  border-bottom: 1px solid #083e4b;
+}
+
+.person-movies:hover {
+  background: #083e4b;
+}
+
+
+.person-movie__title {
+  font-size: 3vw;
+  font-weight: bold;
+  margin: 0;
+}
+
+.person-movies .person-movie__release {
+  font-size: 3vw;
+  margin: 0;
+}
+
 .person-movies .person-movie__character {
-  font-size: 12px;
+  font-size: 2.8vw;
+  font-weight: normal;
+}
+
+@media screen and (min-width: 640px) {
+  .person-wrapper {
+    margin: 10px auto;
+    max-width: 960px;
+    padding: 0 10px;
+  }
+
+  .person-info-wrapper {
+    grid-column-gap: 40px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 100px auto;
+    grid-template-areas: 
+    "poster info"
+    "poster bio";  
+    margin: 0 0 40px;
+  }
+
+  .person-name {
+    font-size: 3em;
+  }
+
+  
+  .person-movies-wrapper h4:last-of-type {
+    margin: 0 auto;
+    width: 60%;
+  }
+
+  .person-movies-known-grid {
+    grid-gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+  }  
+  
+  .person-movies-known .person-movie__title {
+    font-size: 16px;
+  }
+
+  .person-movies-grid {
+    grid-gap: 0;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    width: 60%;
+  }  
+
+  .person-movies {
+    display: grid;
+    grid-template-columns: 80px 4fr;
+  }
+  
+  .person-movies .person-movie__title {
+    font-size: 16px;
+  }
+
+  .person-movies .person-movie__release {
+    font-size: 14px;
+  }
+  
+  .person-movies .person-movie__character {
+    font-size: 14px;
+  }
+  
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, ControlLabel, Form, FormGroup, FormControl, Pagination } from 'react-bootstrap'
+import { ControlLabel, Form, FormGroup, FormControl, Pagination } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 
 import FilterGenres from './FilterGenres'
@@ -20,7 +20,7 @@ function Filter(props) {
 
   return (
     <div className="filter-wrapper">
-        <Col sm={8} smOffset={2}>
+        
           <Form inline>
             <FormGroup className="filter-element-wrapper">
               <ControlLabel>Sort By</ControlLabel><br />
@@ -63,9 +63,7 @@ function Filter(props) {
                 <option value="1">1</option>
               </FormControl>
             </FormGroup>
-          </Form>
-        </Col>
-        <Col sm={8} smOffset={2}>
+          </Form>        
           <Pagination
             prev
             next
@@ -77,9 +75,7 @@ function Filter(props) {
             maxButtons={5}
             activePage={props.state.page}
             onSelect={props.handlePageSelect} />
-        </Col>
         <ResultContainer />
-        <Col sm={8} smOffset={2}>
           <Pagination
             prev
             next
@@ -91,7 +87,7 @@ function Filter(props) {
             maxButtons={5}
             activePage={props.state.page}
             onSelect={props.handlePageSelect} />
-        </Col>
+        
     </div>
   )
 }

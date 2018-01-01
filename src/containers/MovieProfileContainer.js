@@ -73,11 +73,7 @@ class MovieProfileContainer extends Component {
             <MovieProfile
                 key={this.props.movie.movie.id}
                 config={this.props.config.config}
-                similar={this.props.movie.similar}
                 movie={this.props.movie.movie}
-                crew={this.props.movie.crew}
-                videos={this.props.movie.videos}
-                images={this.props.movie.images}
                 // dcolor={this.state.dcolor}
                 handleMovieClick={this.handleMovieClick}
                 handlePersonClick={this.handlePersonClick}

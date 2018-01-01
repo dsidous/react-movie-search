@@ -1,6 +1,5 @@
 const initial_state = {
-  person: {},
-  person_movies: []
+  person: {}
 }
 
 const person = (
@@ -11,12 +10,7 @@ const person = (
       return Object.assign({}, state, {
         person: action.person
     })
-
-    case 'GET_PERSON_MOVIES_TMDB_FULFILLED':
-      return Object.assign({}, state, {
-        person_movies: action.person_movies
-    })
-
+    
     case 'RESET_PERSON':
       return initial_state
       

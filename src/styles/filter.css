@@ -1,12 +1,38 @@
 div.filter-element-wrapper {
-  margin: 30px 20px 50px 0 !important;
-}
-
-.filter-genres-wrapper {
-  width: 400px;
+  margin: 0 10px 10px;
 }
 
 .filter-element-wrapper .control-label {
   font: 14px arial;
   margin: 0 0 10px;
+}
+
+.pagination {
+  display: block;
+  max-width: 960px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.form-inline .form-control {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .form-inline {
+    display: grid;
+    grid-template-columns: 2fr 1fr 3fr 1fr;
+    max-width: 960px;
+    margin: 30px auto 0;
+  }
+
+  .form-inline .form-group {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: middle;
+  }
+
+  .pagination {
+    margin: 30px auto;
+  }
 }
