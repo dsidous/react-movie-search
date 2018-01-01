@@ -64,12 +64,21 @@ function CastProfile(props) {
             }
           </div>
         </div>
-        <div className="person-bio-wrapper">
-          <h4>Biography</h4>
-          <div className="person-bio">
-            {biography}
+        {biography &&
+          <div className="person-bio-wrapper">        
+            <h4>Biography</h4>            
+            <input type="checkbox" className="person-bio__more" id="person-bio__more" />
+            <div className="person-bio">                      
+              {biography.slice(0, biography.indexOf(' ', 500))}
+              <span className="person-bio__hidden">
+              {biography.slice(biography.indexOf(' ', 500))}  
+              </span>         
+              {biography.length > 500 &&
+                <label for="person-bio__more" className="person-bio__more-label"></label>        
+              }          
+            </div>            
           </div>
-        </div>
+        }
       </div>
       <div className="person-movies-wrapper">      
         <h4>Knonw For</h4>
