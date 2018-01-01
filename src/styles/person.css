@@ -1,7 +1,3 @@
-.person-bio {
-  white-space: pre-line;
-}
-
 .person-wrapper {
   margin: 10px;
 }
@@ -35,6 +31,54 @@
 .person-bio-wrapper {
   grid-area: bio;
 }
+
+.person-bio {
+  white-space: pre-line;
+}
+
+.person-bio::after {
+  content: ' ...';
+}
+
+.person-bio__hidden {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: .25s ease;
+  white-space: normal;
+}
+
+.person-bio__more {
+  display: none;
+}
+
+.person-bio__more-label {
+  background: #000;
+  cursor: pointer;
+  float: right;
+  margin: 40px 10px 0 0;
+  padding: 2px 7px;
+}
+
+.person-bio__more-label::before {
+  content: 'More';
+}
+
+
+.person-bio__more:checked ~ .person-bio::after {
+  display: none;
+}
+
+.person-bio__more:checked ~ .person-bio .person-bio__hidden {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+  white-space: pre-line;
+}
+
+.person-bio__more:checked ~ .person-bio .person-bio__more-label::before {
+  content: 'Less';
+} 
 
 .person-movies-wrapper {
   border-top: 10px solid #083e4b;
