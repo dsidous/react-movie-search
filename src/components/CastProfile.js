@@ -1,5 +1,6 @@
 import React from 'react'
 import { FormattedDate } from 'react-intl'
+import NoImage from '../images/noimage.jpg'
 
 import '../styles/person.css'
 
@@ -30,14 +31,14 @@ function CastProfile(props) {
             b.vote_average - a.vote_average
           )).slice(0,8)
             .map(person_movie => (
-              <div key={person_movie.id} className="person-movies-known">
-                {person_movie.poster_path !== null
-                  ? <img src={props.config.images.base_url + props.config.images.poster_sizes[1] + person_movie.poster_path}
+              <div key={person_movie.id} className="person-movies-known">                
+                  <img src={person_movie.poster_path !== null 
+                    ? props.config.images.base_url + props.config.images.poster_sizes[1] + person_movie.poster_path
+                    : NoImage
+                  }
                     alt={person_movie.original_title}
                     onClick={() => props.handlePersonMovieClick(person_movie.id)}
-                  />
-                  : <div className="movie-no-image-holder smaller"></div>
-                }
+                  />                
                 <p className="person-movie__title-known">{person_movie.original_title}</p>
               </div>
             )) 
