@@ -50,12 +50,12 @@ function MovieProfile(props) {
     <div>
 
       <div className="full-background">
-       {props.movie.images.backdrops[0] &&
-        <FullScreenBackdrop
-          backdrop_img_path={base_url + backdrop_sizes[2]}
-          backdrops={props.movie.images.backdrops}
-        />
-       }
+        {props.movie.images.backdrops[0] &&
+          <FullScreenBackdrop
+            backdrop_img_path={base_url + backdrop_sizes[2]}
+            backdrops={props.movie.images.backdrops}
+          />
+        }
       </div>
 
       <div className="main-header">
@@ -93,40 +93,35 @@ function MovieProfile(props) {
           <PlayTrailer video={video} />
         }
 
-        <div className="crew">
-          {props.movie.credits.crew[0] &&
-            <Crew crew={props.movie.credits.crew.slice(0, 4)} />
-          }
-        </div>
 
-        <div className="cast">
-          <h4>Top Billed Cast</h4>
-          {props.movie.credits.cast[0] &&
-            <Cast
-              cast={props.movie.credits.cast.slice(0, 6)}
-              profile_img_base_url={base_url + profile_sizes[1]}
-              handlePersonClick={props.handlePersonClick}
-            />
-          }
-        </div>
-      </div>
-      <div className="reviews">
-        {props.movie.reviews.results[0] &&
-          <Reviews
-            reviews={props.movie.reviews.results.slice(0,4)}
-          />
+        {props.movie.credits.crew[0] &&
+          <Crew crew={props.movie.credits.crew.slice(0, 4)} />
         }
-      </div>
-      <div className="similar">
-        {props.movie.similar.results[0] &&
-          <SimilarMovies
-            similar={props.movie.similar.results}
-            img_base_path={base_url + poster_sizes[1]}
-            handleMovieClick={props.handleMovieClick}
+
+
+        {props.movie.credits.cast[0] &&
+          <Cast
+            cast={props.movie.credits.cast.slice(0, 6)}
+            profile_img_base_url={base_url + profile_sizes[1]}
+            handlePersonClick={props.handlePersonClick}
           />
         }
 
       </div>
+
+      {props.movie.reviews.results[0] &&
+        <Reviews
+          reviews={props.movie.reviews.results.slice(0, 4)}
+        />
+      }
+
+      {props.movie.similar.results[0] &&
+        <SimilarMovies
+          similar={props.movie.similar.results}
+          img_base_path={base_url + poster_sizes[1]}
+          handleMovieClick={props.handleMovieClick}
+        />
+      }
     </div>
   );
 }

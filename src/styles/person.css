@@ -5,9 +5,7 @@
 .person-info-wrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-areas: 
-    "poster info"
-    "bio bio";
+  grid-template-areas: "poster info" "bio bio";
   grid-gap: 10px;
 }
 
@@ -64,21 +62,20 @@
   content: 'More';
 }
 
-
-.person-bio__more:checked ~ .person-bio::after {
+.person-bio__more:checked~.person-bio::after {
   display: none;
 }
 
-.person-bio__more:checked ~ .person-bio .person-bio__hidden {
+.person-bio__more:checked~.person-bio .person-bio__hidden {
   opacity: 1;
   font-size: inherit;
   max-height: 999em;
   white-space: pre-line;
 }
 
-.person-bio__more:checked ~ .person-bio .person-bio__more-label::before {
+.person-bio__more:checked~.person-bio .person-bio__more-label::before {
   content: 'Less';
-} 
+}
 
 .person-movies-wrapper {
   border-top: 10px solid #083e4b;
@@ -139,7 +136,6 @@
   background: #083e4b;
 }
 
-
 .person-movie__title {
   font-size: 3vw;
   font-weight: bold;
@@ -162,58 +158,44 @@
     max-width: 960px;
     padding: 0 10px;
   }
-
   .person-info-wrapper {
     grid-column-gap: 40px;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 100px auto;
-    grid-template-areas: 
-    "poster info"
-    "poster bio";  
+    grid-template-areas: "poster info" "poster bio";
     margin: 0 0 40px;
   }
-
   .person-name {
     font-size: 3em;
   }
-
-  
   .person-movies-wrapper h4:last-of-type {
     margin: 0 auto;
     width: 60%;
   }
-
   .person-movies-known-grid {
     grid-gap: 40px;
     grid-template-columns: repeat(4, 1fr);
-  }  
-  
+  }
   .person-movies-known .person-movie__title {
     font-size: 16px;
   }
-
   .person-movies-grid {
     grid-gap: 0;
     grid-template-columns: 1fr;
     margin: 0 auto;
     width: 60%;
-  }  
-
+  }
   .person-movies {
     display: grid;
     grid-template-columns: 80px 4fr;
   }
-  
   .person-movies .person-movie__title {
     font-size: 16px;
   }
-
   .person-movies .person-movie__release {
     font-size: 14px;
   }
-  
   .person-movies .person-movie__character {
     font-size: 14px;
   }
-  
 }

@@ -6,22 +6,17 @@
   display: grid;
   grid-gap: 15px;
   grid-template-columns: 1fr 2fr;
-  grid-template-areas: 
-    "mdata mdata"
-    "mposter moverview"
-    ". mtrailer"
-    "mcrew mcrew"
-    "mcast mcast";
+  grid-template-areas: "mdata mdata" "mposter moverview" ". mtrailer" "mcrew mcrew" "mcast mcast";
   margin: 65px 0 0;
   position: relative;
 }
 
-.profile-row{
+.profile-row {
   border-bottom: 1px solid #666;
   padding: 15px 0 25px;
 }
 
-.profile-row--no-border{
+.profile-row--no-border {
   border: none;
 }
 
@@ -31,7 +26,7 @@
 
 .poster {
   grid-area: mposter;
-  grid-row: 2 / 4; 
+  grid-row: 2 / 4;
   margin-left: 10px;
 }
 
@@ -131,7 +126,7 @@
   top: 0;
 }
 
-.title-tags__genres{
+.title-tags__genres {
   margin-left: 0;
   padding: 0;
 }
@@ -154,18 +149,17 @@ li.movie-genres:last-child:after {
 .play-trailer-wrapper {
   grid-area: mtrailer;
   align-self: flex-end;
-  margin-right: 10px;  
+  margin-right: 10px;
 }
 
 .play-trailer {
-  background: #083e4b;
+  background: none;
   border: none;
   color: #bbb;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
   margin: 20px 0 0;
   padding: 5px;
-  width: 100%;
 }
 
 .play-trailer:hover {
@@ -173,7 +167,7 @@ li.movie-genres:last-child:after {
 }
 
 .play-trailer span {
-  margin: 0 5px 0 0;
+  margin: 0 0 0 5px;
 }
 
 .overview {
@@ -246,9 +240,9 @@ li.movie-genres:last-child:after {
 }
 
 .crew-wrapper {
-  display: grid;
+  /* display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(5em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(5em, 1fr)); */
 }
 
 .crew-element {
@@ -268,64 +262,43 @@ li.movie-genres:last-child:after {
   .full-background {
     display: block;
   }
-
   .main-header {
     grid-column-gap: 40px;
     grid-template-columns: minmax(200px, 1fr) minmax(400px, 2fr);
     grid-template-rows: auto;
-    grid-template-areas: 
-      "mposter mdata"
-      "mposter moverview"
-      "mposter mcrew"
-      "mposter mtrailer"      
-      "mcast mcast";
+    grid-template-areas: "mposter mdata" "mposter moverview" "mposter mcrew" "mposter mtrailer" "mcast mcast";
     max-width: 960px;
     margin: 20px auto 0;
-  } 
-
-  .poster {    
+  }
+  .poster {
     grid-row: 1/5;
   }
-
   .movie-title {
     font-size: 2.3em;
-    margin: 60px 0 0;
+    margin: 20px 0 0;
   }
-
   .movie-data {
     background: none;
     font-size: 1.2em;
     padding: 0;
   }
-
   .cast {
     margin: 40px 0;
   }
-
   .cast-wrapper {
     grid-gap: 20px;
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
-
   .cast-element {
     font-size: 1em;
   }
-
   .crew {
     padding: 0;
   }
-  
   .crew-wrapper {
     grid-gap: 20px;
   }
-
   .crew-element {
     font-size: 1em;
   }
-
-  .similar {
-    margin: 0 auto;
-    max-width: 960px;
-  }
-   
 }
