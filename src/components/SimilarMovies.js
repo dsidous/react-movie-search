@@ -24,7 +24,7 @@ function SimilarMovies(props) {
   }
 
   return (
-    <div>
+    <div className="similar">
       <h4>Similar movies</h4>
       <Slider {...settings}>
         {props.similar.map((sim, i) => (

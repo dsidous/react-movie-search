@@ -1,9 +1,16 @@
 .similar {
-    border-top: 10px solid #083e4b;
-    margin: 40px 0 0;
-    padding: 0 10px;
+  border-top: 10px solid #083e4b;
+  margin: 40px 0 0;
+  padding: 0 10px;
+}
+
+.similar h4 {
+  padding: 10px 0 20px;
+}
+
+@media screen and (min-width: 776px) {
+  .similar .slick-slider {
+    margin: 0 auto;
+    max-width: 960px;
   }
-  
-  .similar h4 {
-    padding: 10px 0 20px;
-  }
+}

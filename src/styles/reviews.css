@@ -60,36 +60,32 @@
   content: 'More';
 }
 
-
-.review-content__more:checked ~ .review-content::after {
+.review-content__more:checked~.review-content::after {
   display: none;
 }
 
-.review-content__more:checked ~ .review-content .review-content__hidden {
+.review-content__more:checked~.review-content .review-content__hidden {
   opacity: 1;
   font-size: inherit;
   max-height: 999em;
   white-space: pre-line;
 }
 
-.review-content__more:checked ~ .review-content__more-label::before {
+.review-content__more:checked~.review-content__more-label::before {
   content: 'Less';
-} 
+}
 
 @media screen and (min-width: 640px) {
   .reviews-wrapper {
     grid-gap: 40px;
   }
-
   .reviews-element {
     margin: 0 auto;
     max-width: 600px;
   }
-
   .review-author {
     font-size: 16px;
   }
-
   .review-content {
     font-size: 14px;
     line-height: 1.5em;

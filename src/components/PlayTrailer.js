@@ -22,8 +22,7 @@ class PlayTrailer extends Component {
       <div className="play-trailer-wrapper">
         <ModalVideo channel='youtube' isOpen={this.state.isOpen} videoId={this.props.video.key} onClose={() => this.setState({isOpen: false})} />
         <button className="play-trailer" onClick={this.openModal}>
-          <span className="fa fa-play-circle-o"></span>
-          Play Trailer
+          Play Trailer <span className="fa fa-angle-right"></span>
         </button>
       </div>
     )
