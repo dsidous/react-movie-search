@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactDom from 'react-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 // import * as Vibrant from 'node-vibrant'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
@@ -49,13 +50,13 @@ class MovieProfileContainer extends Component {
   handleMovieClick = (movieId) => {
     this.props.dispatch({type:'RESET_MOVIE_STATE'});
     this.props.dispatch(actions.updateMovie(movieId));
-    this.context.router.push(`/movie/${movieId}`);
+    this.context.router.history.push(`/movie/${movieId}`);
   }
 
   handlePersonClick = (personId) => {
     this.props.dispatch({type:'RESET_PERSON'});
     this.props.dispatch(actions.updatePerson(personId));
-    this.context.router.push(`/person/${personId}`);
+    this.context.router.history.push(`/person/${personId}`);
   }
 
   render(){
@@ -96,7 +97,7 @@ const mapDispatchToProps = dispatch => ({
   dispatch
 })
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(MovieProfileContainer);
+)(MovieProfileContainer));
