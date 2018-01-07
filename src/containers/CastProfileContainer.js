@@ -3,6 +3,7 @@ import ReactDom from 'react-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import { withRouter } from 'react-router-dom'
 
 import * as actions from '../actions'
 
@@ -26,7 +27,7 @@ class CastProfielContainer extends Component {
   handlePersonMovieClick = (movieId) => {
     this.props.dispatch({type:'RESET_MOVIE_STATE'});
     this.props.dispatch(actions.updateMovie(movieId));
-    this.context.router.push(`/movie/${movieId}`);
+    this.context.router.history.push(`/movie/${movieId}`);
   }
 
   render(){
@@ -61,7 +62,7 @@ const mapDispatchToProps = dispatch => ({
   dispatch
 })
 
-export default connect (
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(CastProfielContainer);
+)(CastProfielContainer));

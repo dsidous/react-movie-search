@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router'
+import {Link} from 'react-router-dom'
 import { AsyncTypeahead } from 'react-bootstrap-typeahead'
 import { Navbar, FormGroup } from 'react-bootstrap'
 import { connect } from 'react-redux'
@@ -43,7 +43,7 @@ class Search extends Component {
     if (typeof selected[0] !== "undefined") {
       const movieId = selected[0].id;
       this.props.dispatch(actions.updateMovie(movieId));
-      this.context.router.push(`/movie/${movieId}`);
+      this.context.router.history.push(`/movie/${movieId}`);
     }
   }
 
@@ -52,15 +52,16 @@ class Search extends Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            Movie Search
+            <Link to={'/'}>Movie Search</Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
-        <Navbar.Collapse>
+        <Navbar.Collapse> 
           <Navbar.Form pullLeft>
             <FormGroup bsSize="small">
               <AsyncTypeahead
                 {...this.state}
+                isLoading={true}
                 align="justify"
                 labelKey="original_title"
                 onChange={this.handleChange}

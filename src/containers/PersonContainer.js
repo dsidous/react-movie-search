@@ -7,7 +7,7 @@ import CastProfileContainer from './CastProfileContainer'
 
 class PersonContainer extends Component{
   state = {
-    personId: this.props.params.personId || ''
+    personId: this.props.match.params.personId || ''
   }
 
   componentDidMount(){
@@ -18,8 +18,8 @@ class PersonContainer extends Component{
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.params.personId && (nextProps.params.personId !== this.state.personId)) {
-      let personId = nextProps.params.personId;
+    if (nextProps.match.params.personId && (nextProps.match.params.personId !== this.state.personId)) {
+      let personId = nextProps.match.params.personId;
       this.props.dispatch(actions.updatePerson(personId));
       this.setState({personId});
     }

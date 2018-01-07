@@ -1,22 +1,24 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { Router, Route, useRouterHistory } from 'react-router'
-import { createHistory } from 'history'
+import { Switch, Route, BrowserRouter as Router,  } from 'react-router-dom'
 import App from './components/App'
 import DiscoverContainer from './containers/DiscoverContainer'
 import PersonContainer from './containers/PersonContainer'
+import HomepageContainer from './containers/HomepageContainer'
 
-const appHistory = useRouterHistory(createHistory)({
-  basename: "/movie-search"
-});
+// const appHistory = useRouterHistory(createHistory)({
+//   basename: "/movie-search"
+// });
 
 const Root = ({store}) => (
   <Provider store={store}>
-    <Router history={appHistory}>
-      <Route path="/" component={App} />
-      <Route path="/movie/:movieId" component={App} />
-      <Route path="/person/:personId" component={PersonContainer} />
-      <Route path="/discover" component={DiscoverContainer} />
+    <Router basename="/movie-search">
+      <Switch>   
+        <Route exact={true} path="/" component={HomepageContainer} />
+        <Route exact={true} path="/movie/:movieId" component={App} />
+        <Route path="/person/:personId" component={PersonContainer} />
+        <Route path="/discover" component={DiscoverContainer} />
+      </Switch>
     </Router>
   </Provider>
 )
