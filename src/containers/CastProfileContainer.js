@@ -1,68 +1,80 @@
-import React, { Component } from 'react'
-import ReactDom from 'react-dom'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import { withRouter } from 'react-router-dom'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import { withRouter } from "react-router-dom";
 
-import * as actions from '../actions'
+import * as actions from "../actions";
 
-import CastProfile from '../components/CastProfile'
+import CastProfile from "../components/CastProfile";
 
 class CastProfielContainer extends Component {
-
   static propTypes = {
     config: PropTypes.object.isRequired,
-    person: PropTypes.object.isRequired,
-  }
+    person: PropTypes.object.isRequired
+  };
 
   static contextTypes = {
     router: PropTypes.object.isRequired
-  }
+  };
 
   componentDidUpdate = () => {
-    ReactDom.findDOMNode(this).scrollIntoView();
-  }
+    window.scrollTo(0, 0);
+  };
 
-  handlePersonMovieClick = (movieId) => {
-    this.props.dispatch({type:'RESET_MOVIE_STATE'});
+  handlePersonMovieClick = movieId => {
+    this.props.dispatch({ type: "RESET_MOVIE_STATE" });
     this.props.dispatch(actions.updateMovie(movieId));
     this.context.router.history.push(`/movie/${movieId}`);
-  }
+  };
 
-  render(){
+  render() {
     return (
-      <ReactCSSTransitionGroup
-          transitionName="example"
-          transitionAppear={true}
-          transitionAppearTimeout={1500}
-          transitionEnterTimeout={1500}
-          transitionLeave={false}>
-        { this.props.config.images &&
-          <CastProfile
-            key={this.props.person.id}
-            config={this.props.config}
-            person={this.props.person}
-            handlePersonMovieClick={this.handlePersonMovieClick}
-          />
-        }
-      </ReactCSSTransitionGroup>
-    )
+      <div>
+        {!this.props.person.id ? (
+          this.props.isFetching ? (
+            <div className="loader">
+              <i className="fa fa-spinner fa-pulse fa-3x fa-fw" />
+              <span className="sr-only">Loading...</span>
+            </div>
+          ) : (
+            ""
+          )
+        ) : (
+          <ReactCSSTransitionGroup
+            transitionName="example"
+            transitionAppear={true}
+            transitionAppearTimeout={1500}
+            transitionEnterTimeout={1500}
+            transitionLeave={false}
+          >
+            {this.props.config.images && (
+              <CastProfile
+                key={this.props.person.id}
+                config={this.props.config}
+                person={this.props.person}
+                handlePersonMovieClick={this.handlePersonMovieClick}
+              />
+            )}
+          </ReactCSSTransitionGroup>
+        )}
+      </div>
+    );
   }
 }
 
 const mapStateToProps = state => {
   return {
     config: state.config.config,
-    person: state.person.person
-  }
-}
+    person: state.person.person,
+    isFetching: state.person.isFetching
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   dispatch
-})
+});
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CastProfielContainer));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(CastProfielContainer)
+);

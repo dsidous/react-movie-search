@@ -5,12 +5,18 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+    "font-awesome": "^4.7.0",
+    "markdown-to-jsx": "^6.4.1",
+    "node-sass-chokidar": "^0.0.3",
     "node-vibrant": "^3.0.0",
+    "npm-run-all": "^4.1.2",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-bootstrap": "^0.31.5",
     "react-bootstrap-typeahead": "^2.0.2",
     "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
     "react-intl": "^2.4.0",
     "react-modal-video": "^1.0.7",
     "react-read-more": "^1.0.0",
@@ -31,9 +37,13 @@
     "react-scripts": "^1.0.17"
   },
   "scripts": {
-    "start": "set PORT=3006 && react-scripts start",
+    "build-css": "node-sass-chokidar src/scss -o src/css",
+    "watch-css": "npm run build-css && node-sass-chokidar src/scss -o src/css --watch --recursive",
+    "start-js": "set PORT=3006 && react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js",
     "stop": "react-scripts stop",
-    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

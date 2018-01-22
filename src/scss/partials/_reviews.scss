@@ -1,6 +1,7 @@
 .reviews {
-  border-top: 10px solid #083e4b;
-  margin: 40px 0 0;
+  border-top: $separator;
+  margin: 40px auto 0;
+  max-width: 960px;
   padding: 0 10px;
 }
 
@@ -9,16 +10,21 @@
 }
 
 .reviews-wrapper {
+  background: #eee;
+  border-radius: 4px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.1);
   display: grid;
-  grid-gap: 20px;
   grid-template-columns: 1fr;
+  padding: 0 20px 20px;
 }
 
 .reviews-element {
-  background: #083e4b;
-  border: 1px solid #444;
-  border-radius: 6px;
-  padding: 20px;
+  padding: 35px 15px;
+  width: 100%;
+}
+
+.reviews-element:not(:last-child) {
+  border-bottom: 1px solid #444;
 }
 
 .review-author {
@@ -32,15 +38,15 @@
   white-space: pre-line;
 }
 
-.review-content::after {
-  content: ' ...';
+.review-content.long::after {
+  content: " ...";
 }
 
 .review-content__hidden {
   opacity: 0;
   max-height: 0;
   font-size: 0;
-  transition: .25s ease;
+  transition: 0.25s ease;
   white-space: normal;
 }
 
@@ -50,44 +56,50 @@
 
 .review-content__more-label {
   background: #000;
+  color: #bbb;
   cursor: pointer;
   float: right;
+  font-size: 10px;
   margin: 10px 0 0;
-  padding: 2px 7px;
+  padding: 5px 10px;
 }
 
 .review-content__more-label::before {
-  content: 'More';
+  content: "More";
 }
 
-.review-content__more:checked~.review-content::after {
+.review-content__more:checked ~ .review-content.long::after {
   display: none;
 }
 
-.review-content__more:checked~.review-content .review-content__hidden {
+.review-content__more:checked ~ .review-content .review-content__hidden {
   opacity: 1;
   font-size: inherit;
   max-height: 999em;
   white-space: pre-line;
 }
 
-.review-content__more:checked~.review-content__more-label::before {
-  content: 'Less';
+.review-content__more:checked ~ .review-content__more-label::before {
+  content: "Less";
 }
 
 @media screen and (min-width: 640px) {
-  .reviews-wrapper {
-    grid-gap: 40px;
+  .reviews h4 {
+    margin: 10px auto;
+    max-width: 600px;
+    text-align: center;
   }
-  .reviews-element {
+  .reviews-wrapper {
     margin: 0 auto;
     max-width: 600px;
+    padding: 40px;
   }
+
   .review-author {
     font-size: 16px;
   }
   .review-content {
     font-size: 14px;
-    line-height: 1.5em;
+    line-height: 1.6;
   }
 }

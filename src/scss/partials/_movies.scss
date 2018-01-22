@@ -1,23 +1,29 @@
 .result-wrapper {
   clear: both;
-  max-width: 960px;
+  max-width: 1150px;
   margin: 0 auto;
 }
 
 .movies-list {
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 .movies-list__element {
   list-style: none;
-  background: #083e4b;
-  border-radius: 4px;
+  background: $card-bg;
+  border-radius: 8px;
   margin: 10px 0 20px;
+  overflow: hidden;
+  box-shadow: 0 0 30px 10px rgba(107, 106, 106, 0.1);
 }
 
 .movies-poster {
   cursor: pointer;
+  width: 100%;
+}
+
+.movies-poster img {
   width: 100%;
 }
 
@@ -38,7 +44,8 @@
 .movies-title {
   display: block;
   float: left;
-  font: 20px/20px arial, helvetica, sans-serif;
+  font-family: $ff-m;
+  font-size: 20px;
   margin: 10px 0 0 10px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -49,7 +56,8 @@
 .movies-rating {
   display: block;
   float: right;
-  font: 20px/20px arial, helvetica, sans-serif;
+  font-family: $ff-m;
+  font-size: 20px;
   margin: 10px 10px 0 0;
   padding-left: 22px;
   position: relative;
@@ -95,51 +103,41 @@
   display: none;
 }
 
+.movies-overview.long::after {
+  content: '...';
+} 
+
 @media screen and (min-width: 640px) {
   .movies-overview {
     display: block;
-    margin: 20px 0 0;
+    margin: 20px 10px;
   }
 
   .movies-list {
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 40px;
     grid-area: result;
     grid-template-columns: repeat(2,minmax(200px, 1fr));
+    margin: 0 auto;
+    padding: 0 20px;
   }
 
   .movies-list__element {
     grid-column-gap: 10px;
     grid-template-rows: 40px 40px; 
     margin: 0; 
-    padding: 20px;
+    padding: 0;
   }
 
-  .movies-title {
-    margin: 10px 0 0;
-  }
-  
-  .movies-rating {
-    margin-right: 0;
-  }
-
-  .movies-year {
-    margin-left: 0;
-  }
-
-  .movies-genres {
-    margin-right: 0;
-    margin-bottom: 0;
-  }
 }
 
 @media screen and (min-width: 940px) {
   .movies-list__element {
     display: grid;
-    padding: 20px;
     grid-template-columns: minmax(115px, 1fr) minmax(200px, 2fr);
     grid-column-gap: 10px;
     grid-template-rows: 40px 40px;
+    padding: 0;
   }
 
   .movies-poster {
@@ -147,7 +145,7 @@
   }
 
   .movies-overview {
-    margin: 0;
+    margin: 0 10px;
   }
   
 }

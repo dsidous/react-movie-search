@@ -14,8 +14,20 @@ div.filter-element-wrapper {
   overflow: hidden;
 }
 
+.form-inline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin: 30px 0;
+  width: 100%;  
+}
+
 .form-inline .form-control {
   width: 100%;
+}
+
+.Select-menu-outer {
+  z-index: 4;
 }
 
 @media (min-width: 768px) {

@@ -25,6 +25,9 @@ function Cast(props) {
         ))
         }
       </div>
+
+      <button className="full-crew-btn" onClick={props.handleFullCrewClick}>Full Cast & Crew</button>
+      
     </div>
   );
 

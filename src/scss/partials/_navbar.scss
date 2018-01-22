@@ -1,0 +1,22 @@
+.navbar-default {
+  .navbar-brand {
+    color: #fff;
+
+    &focus,
+    &:hover {
+      color: #ddd;
+    }
+  }
+
+  .navbar-text {
+    color: #fff;
+
+    a {
+      color: #fff;
+
+      &:hover {
+        color: #ddd;
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 .similar {
-  border-top: 10px solid #083e4b;
-  margin: 40px 0 0;
+  border-top: $separator;
+  margin: 40px auto 0;
+  max-width: 960px;
   padding: 0 10px;
 }
 

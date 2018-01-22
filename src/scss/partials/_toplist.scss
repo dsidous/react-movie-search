@@ -1,0 +1,38 @@
+.top-list {
+  display: grid;
+}
+
+@media screen and (min-width: 640px) {
+  .top-list {
+    grid-gap: 10px;
+    grid-template-columns: 1.555fr 2fr 2fr;
+    margin: 0 auto;
+    width: 70%;
+    
+    &-main-title {
+      margin: 40px auto;
+      width: 70%;
+    }
+
+    .featured {
+      grid-row: 1 / span 2;
+    }
+
+    &__element {
+      cursor: pointer;
+      position: relative;
+        
+      img {
+        width: 100%;
+      }
+  
+      &-title {
+        bottom: 10px;    
+        color: #fff;
+        left: 10px;
+        position: absolute;
+        text-shadow: 0 0 5px #000;
+      }
+    }
+  }
+}
