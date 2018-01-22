@@ -186,8 +186,7 @@ class CastProfile extends Component {
             <h4>Acting</h4>
             <div className="person-movies-grid">{person_movies}</div>
           </div>
-        </div>
-        )}
+        </div>        
       </div>
     );
   }
