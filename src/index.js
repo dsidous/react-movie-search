@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { IntlProvider } from 'react-intl';
+import 'font-awesome/css/font-awesome.min.css';
+
 
 import Root from './Root';
-import './styles/index.css';
+import './css/main.css';
 import configureStore from './store';
 
 const store = configureStore();

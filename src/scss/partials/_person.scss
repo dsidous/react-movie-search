@@ -1,5 +1,5 @@
 .person-wrapper {
-  margin: 10px;
+  margin: 20px 10px;
 }
 
 .person-info-wrapper {
@@ -11,11 +11,11 @@
 
 .person-poster {
   grid-area: poster;
-}
 
-.person-poster img {
-  border-radius: 4px;
-  box-shadow: 0 0 20px -5px #000;
+  img {
+    border-radius: 4px;
+    box-shadow: 0 0 20px -5px #000;
+  }
 }
 
 .person-info {
@@ -23,7 +23,8 @@
 }
 
 .person-name {
-  font-weight: bold;
+  font-weight: $fw-n;
+  margin-bottom: 0;
 }
 
 .person-bio-wrapper {
@@ -34,15 +35,15 @@
   white-space: pre-line;
 }
 
-.person-bio::after {
-  content: ' ...';
+.person-bio.long::after {
+  content: " ...";
 }
 
 .person-bio__hidden {
   opacity: 0;
   max-height: 0;
   font-size: 0;
-  transition: .25s ease;
+  transition: 0.25s ease;
   white-space: normal;
 }
 
@@ -52,33 +53,35 @@
 
 .person-bio__more-label {
   background: #000;
+  color: #bbb;
   cursor: pointer;
   float: right;
+  font-size: 10px;
   margin: 40px 10px 0 0;
-  padding: 2px 7px;
+  padding: 5px 10px;
 }
 
 .person-bio__more-label::before {
-  content: 'More';
+  content: "More";
 }
 
-.person-bio__more:checked~.person-bio::after {
+.person-bio__more:checked ~ .person-bio.long::after {
   display: none;
 }
 
-.person-bio__more:checked~.person-bio .person-bio__hidden {
+.person-bio__more:checked ~ .person-bio .person-bio__hidden {
   opacity: 1;
   font-size: inherit;
   max-height: 999em;
   white-space: pre-line;
 }
 
-.person-bio__more:checked~.person-bio .person-bio__more-label::before {
-  content: 'Less';
+.person-bio__more:checked ~ .person-bio .person-bio__more-label::before {
+  content: "Less";
 }
 
 .person-movies-wrapper {
-  border-top: 10px solid #083e4b;
+  border-top: $separator;
   margin: 40px 0 0;
 }
 
@@ -116,47 +119,60 @@
   grid-template-columns: 1fr;
 }
 
-.person-movies {
-  border: 1px solid #083e4b;
+.person-movie {
+  border: 1px solid #bbb;
   border-bottom: none;
   cursor: pointer;
   display: grid;
-  grid-template-columns: 1fr 8fr;
-  grid-auto-rows: 50px;
+  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1fr 8fr;
+  grid-auto-rows: 60px;
   padding: 0 10px;
   text-align: left;
   align-items: center;
-}
 
-.person-movies:last-child {
-  border-bottom: 1px solid #083e4b;
-}
+  &:last-child {
+    border-bottom: 1px solid #bbb;
+  }
 
-.person-movies:hover {
-  background: #083e4b;
-}
+  &:hover {
+    background: #bec1c2;
+  }
 
-.person-movie__title {
-  font-size: 3vw;
-  font-weight: bold;
-  margin: 0;
-}
+  &__poster {
+    margin: 0;
+    text-align: center;
 
-.person-movies .person-movie__release {
-  font-size: 3vw;
-  margin: 0;
-}
+    img {
+      display: block;
+      height: 40px;
+      margin: 0 auto;
+    }
+  }
 
-.person-movies .person-movie__character {
-  font-size: 2.8vw;
-  font-weight: normal;
+  &__release {
+    font-size: 3vw;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 3vw;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  &__character {
+    font-size: 2.8vw;
+    font-weight: normal;
+  }
 }
 
 @media screen and (min-width: 640px) {
   .person-wrapper {
-    margin: 10px auto;
-    max-width: 960px;
-    padding: 0 10px;
+    margin: 40px auto;
+    max-width: 980px;
+    padding: 0 20px;
   }
   .person-info-wrapper {
     grid-column-gap: 40px;
@@ -166,11 +182,11 @@
     margin: 0 0 40px;
   }
   .person-name {
-    font-size: 3em;
+    font-size: 4em;
   }
   .person-movies-wrapper h4:last-of-type {
     margin: 0 auto;
-    width: 60%;
+    width: 80%;
   }
   .person-movies-known-grid {
     grid-gap: 40px;
@@ -183,19 +199,20 @@
     grid-gap: 0;
     grid-template-columns: 1fr;
     margin: 0 auto;
-    width: 60%;
+    width: 80%;
   }
-  .person-movies {
+  .person-movie {
     display: grid;
-    grid-template-columns: 80px 4fr;
-  }
-  .person-movies .person-movie__title {
-    font-size: 16px;
-  }
-  .person-movies .person-movie__release {
-    font-size: 14px;
-  }
-  .person-movies .person-movie__character {
-    font-size: 14px;
+    grid-template-columns: 30px 70px 4fr;
+
+    &__title {
+      font-size: 16px;
+    }
+    &__release {
+      font-size: 14px;
+    }
+    &__character {
+      font-size: 14px;
+    }
   }
 }

@@ -27,6 +27,8 @@ class FilterContainer extends Component {
     this.props.dispatch(actions.getDiscoverMovies('&page=1&primary_release_year=2017'));
   }
 
+  componentDidUpdate = () => { window.scrollTo(0, 0) }
+
   objectToQueryStr(paramsObj) {
     return Object
           .keys(paramsObj)
@@ -50,7 +52,9 @@ class FilterContainer extends Component {
   }
 
   handlePageSelect = (e) => {
-    this.setState({page: e}, () => this.runQuery());
+    if (e > 0) {
+      this.setState({page: e}, () => this.runQuery());
+    }
   }
 
   render(){

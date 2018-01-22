@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto:300,400');   
+   
+$ff-m: 'Roboto', serif;
+$ff-s: 'Open Sans', serif;
+
+$fw-n: 300;
+$fw-b: 900;
+
+@mixin sans-serif($fs, $ls: .15em, $color: $dark-gray, $tt: uppercase, $lh: 1) {
+  font-size: $fs;
+  letter-spacing: $ls;
+  color: $color;
+  text-transform: $tt;
+  line-height: $lh;
+  font-family: $ff-ss;
+  font-weight: $fw-n;
+} 

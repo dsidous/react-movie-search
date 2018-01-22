@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import '../styles/movies.css'
+import NoImage from "../images/noimage.jpg";
+import NoBdImage from "../images/nobdimage.jpg";
 
 Result.propTypes = {
   config: PropTypes.object.isRequired,
@@ -26,9 +27,13 @@ function Result(props) {
                 srcSet={img_base_path + movie.backdrop_path} />
               <img src={img_base_path + movie.poster_path} className='movies-poster' alt={movie.original_title} />
             </picture>
-            : <div className="no-image-holder"
-              onClick={() => props.goToMovie(movie.id)}
-            ></div>
+            : <picture className='movies-poster' onClick={() => props.goToMovie(movie.id)}>
+                <source media='(min-width: 941px)'
+                  srcSet={NoImage} />
+                <source media='(max-width: 940px)'
+                  srcSet={NoBdImage} />
+                <img src={NoBdImage} className='movies-poster' alt={movie.original_title} />            
+              </picture>
           }
 
 
@@ -52,7 +57,8 @@ function Result(props) {
             </div>
           </div>
 
-          <div className="movies-overview">{movie.overview}</div>
+          <div className={"movies-overview " + (movie.overview.length > 200 ? "long" : "")}>
+            {movie.overview.slice(0,movie.overview.indexOf(' ',200))}</div>
         </li>
       ))
       }
