@@ -7,6 +7,7 @@ export const GET_GENRES_TMDB = 'GET_GENRES_TMDB';
 
 export const GET_PERSON_TMDB = 'GET_PERSON_TMDB';
 export const GET_TOPMOVIES_TMDB = 'GET_TOPMOVIES_TMDB';
+export const GET_TOPPEOPLE_TMDB = 'GET_TOPPEOPLE_TMDB';
 
 const APIKEY = 'cfe422613b250f702980a3bbf9e90716';
 
@@ -109,6 +110,21 @@ export function getTopRatedMovies(query){
       })
       .catch((err) => {
         dispatch({type: GET_TOPMOVIES_TMDB + "_REJECTED",topmovies: err})
+      })
+  }
+}
+
+export function getTopPeople(query){
+  const url = `https://api.themoviedb.org/3/person/popular?&api_key=${APIKEY}`
+
+  return function(dispatch) {
+    dispatch({type: GET_TOPPEOPLE_TMDB});
+    axios.get(url)
+      .then((response) => {
+        dispatch({type: GET_TOPPEOPLE_TMDB + "_FULFILLED",toppeople: response.data})
+      })
+      .catch((err) => {
+        dispatch({type: GET_TOPPEOPLE_TMDB + "_REJECTED",toppeople: err})
       })
   }
 }
