@@ -1,7 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto:300,400");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300,400");
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
 body {
-  background: linear-gradient(to bottom, #ECF0F3, #d4d0d0);
+  background: linear-gradient(to bottom, #ECF0F3, #d4d0d0) fixed;
   font-family: "Open Sans", serif;
+  font-weight: 300;
   margin: 0;
   min-height: 100vh;
   padding: 0; }
@@ -879,3 +884,28 @@ li.movie-genres:last-child:after {
     width: 100%; }
   .full-ca-cr__copy {
     align-self: center; }
+
+.top-people {
+  margin: 20px auto;
+  max-width: 960px;
+  padding: 0 10px; }
+  .top-people h2 {
+    margin: 40px 0; }
+  .top-people__list {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 0;
+    text-align: center; }
+    @media screen and (min-width: 640px) {
+      .top-people__list {
+        grid-gap: 40px;
+        grid-template-columns: repeat(4, 1fr); } }
+    .top-people__list-element {
+      cursor: pointer; }
+      .top-people__list-element__img {
+        border-radius: 4px;
+        box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+        width: 100%; }
+      .top-people__list-element__name {
+        margin: 5px 0 0; }

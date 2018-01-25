@@ -70,7 +70,9 @@ class Search extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Navbar.Text>MOVIES</Navbar.Text>
-          <Navbar.Text>PEOPLE</Navbar.Text>
+          <Navbar.Text>
+            <Link to={"/person"}>PEOPLE</Link>
+          </Navbar.Text>
           <Navbar.Text>
             <Link to={"/discover"}>DISCOVER</Link>
           </Navbar.Text>

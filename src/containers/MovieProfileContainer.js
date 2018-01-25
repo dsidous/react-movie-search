@@ -63,7 +63,7 @@ class MovieProfileContainer extends Component {
   };
 
   render() {
-    console.log( this.props.movie.isFetching);
+    
     return (
       <div>
         {!this.props.movie.movie.id ? (

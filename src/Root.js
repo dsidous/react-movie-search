@@ -6,6 +6,7 @@ import DiscoverContainer from "./containers/DiscoverContainer";
 import PersonContainer from "./containers/PersonContainer";
 import HomepageContainer from "./containers/HomepageContainer";
 import FullCastCrewContainer from "./containers/FullCastCrewContainer";
+import TopPeopleContainer from "./containers/TopPeopleContainer";
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -19,6 +20,7 @@ const Root = ({ store }) => (
           component={FullCastCrewContainer}
         />
         <Route path="/person/:personId" component={PersonContainer} />
+        <Route exact={true} path="/person" component={TopPeopleContainer} />
         <Route path="/discover" component={DiscoverContainer} />
       </Switch>
     </Router>
