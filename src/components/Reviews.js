@@ -7,9 +7,10 @@ function Reviews(props) {
       <input type="checkbox" className="review-content__more" id={`rw-${i}`} />
       <div className="review-author">A review by {review.author}</div>
       <div
-        className={
-          "review-content " + (review.content.length > 500 ? "long" : "")
-        }
+        className={[
+          "review-content",
+          review.content.length > 500 ? "long" : ""
+        ].join(" ")}
       >
         {compiler(review.content.slice(0, review.content.indexOf(" ", 500)), {
           forceInline: true

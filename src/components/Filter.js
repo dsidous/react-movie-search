@@ -39,7 +39,7 @@ function Filter(props) {
             componentClass="select"
             placeholder="select"
             onChange={props.handleChange}
-            defaultValue="popularity.desc"
+            defaultValue={props.state.sort_by}
             id="sort_by"
           >
             <option value="popularity.desc">Popularity Descending</option>
@@ -63,7 +63,7 @@ function Filter(props) {
             componentClass="select"
             placeholder="select"
             onChange={props.handleChange}
-            defaultValue="2017"
+            defaultValue={props.state.primary_release_year}
             id="primary_release_year"
           >
             <option value="">None</option>
@@ -89,7 +89,7 @@ function Filter(props) {
             id="vote_average.gte"
             placeholder="select"
             onChange={props.handleChange}
-            defaultValue=""
+            defaultValue={props.state["vote_average.gte"]}
           >
             <option value="">Greater than...</option>
             <option value="9">9</option>

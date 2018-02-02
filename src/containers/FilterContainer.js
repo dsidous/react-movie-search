@@ -1,90 +1,107 @@
-import React, { Component} from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 
-import * as actions from '../actions'
-import Filter from '../components/Filter'
-
+import * as actions from "../actions";
+import Filter from "../components/Filter";
 
 class FilterContainer extends Component {
+  constructor(props) {
+    super(props);
 
-  state = {
-    page : 1,
-    primary_release_year : 2017,
-    sort_by: 'popularity.desc',
-    with_genres: [],
-    'vote_average.gte': 0
+    const params = new URLSearchParams(props.location.search);
+
+    this.state = {
+      page: parseInt(params.get("page"), 10) || 1,
+      primary_release_year: params.get("primary_release_year") || 2017,
+      sort_by: params.get("sort_by") || "popularity.desc",
+      with_genres: params.get("with_genres") || [],
+      "vote_average.gte": params.get("vote_average.gte") || 0
+    };
   }
 
   static propTypes = {
-    config : PropTypes.object.isRequired,
-    movies : PropTypes.object.isRequired
-  }
+    config: PropTypes.object.isRequired,
+    movies: PropTypes.object.isRequired
+  };
 
-  componentDidMount(){
+  componentDidMount() {
+    const query = this.objectToQueryStr(this.state);
     this.props.dispatch(actions.getConfig());
     this.props.dispatch(actions.getGenres());
-    this.props.dispatch(actions.getDiscoverMovies('&page=1&primary_release_year=2017'));
+    this.props.dispatch(
+      actions.getDiscoverMovies(`&${query}`)
+    );
   }
 
-  componentDidUpdate = () => { window.scrollTo(0, 0) }
+  componentDidUpdate = () => {
+    window.scrollTo(0, 0);
+  };
 
   objectToQueryStr(paramsObj) {
-    return Object
-          .keys(paramsObj)
-          .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(paramsObj[key])}`)
-          .join('&');
+    return Object.keys(paramsObj)
+      .map(
+        key =>
+          `${encodeURIComponent(key)}=${encodeURIComponent(paramsObj[key])}`
+      )
+      .join("&");
   }
 
   runQuery = () => {
     const query = this.objectToQueryStr(this.state);
-    this.props.dispatch(actions.getDiscoverMovies('&' + query));
-  }
+    this.props.dispatch({ type: "RESET_MOVIES_STATE" });
+    this.props.dispatch(actions.getDiscoverMovies("&" + query));
+    this.context.router.history.push(`/discover?${query}`);
+  };
 
-  handleChange = (e) => {
+  handleChange = e => {
     let val = e.target.value;
     let option = e.target.id;
-    this.setState({ [option] : val }, () => this.runQuery());
-  }
+    this.setState({ [option]: val, page: 1 }, () => this.runQuery());
+  };
 
-  handleGenresChange = (e) => {
-    this.setState({with_genres: e}, () => this.runQuery());
-  }
+  handleGenresChange = e => {
+    this.setState({ with_genres: e, page: 1 }, () => this.runQuery());
+  };
 
-  handlePageSelect = (e) => {
+  handlePageSelect = e => {
     if (e > 0) {
-      this.setState({page: e}, () => this.runQuery());
+      this.setState({ page: e }, () => this.runQuery());
     }
-  }
+  };
 
-  render(){
-
-    return(
+  render() {
+    return (
       <div>
+        
         <Filter
           {...this.props}
-          state = {this.state}
+          state={this.state}
           handleChange={this.handleChange}
           handleGenresChange={this.handleGenresChange}
           handlePageSelect={this.handlePageSelect}
         />
       </div>
-    )
+    );
   }
 }
+
+FilterContainer.contextTypes = {
+  router: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => {
   return {
     config: state.config,
     movies: state.movies
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   dispatch
-})
+});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FilterContainer);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(FilterContainer)
+)

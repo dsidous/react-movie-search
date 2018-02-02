@@ -4,7 +4,7 @@
   -moz-osx-font-smoothing: grayscale; }
 
 body {
-  background: linear-gradient(to bottom, #ECF0F3, #d4d0d0) fixed;
+  background: linear-gradient(to bottom, #ECF0F3, #d4d0d0);
   font-family: "Open Sans", serif;
   font-weight: 300;
   margin: 0;
@@ -68,6 +68,9 @@ div.no_image_holder {
     .navbar-default .navbar-text a:hover {
       color: #ddd; }
 
+.navbar-collapse.in {
+  overflow-y: visible; }
+
 div.filter-element-wrapper {
   margin: 0 10px 10px; }
 
@@ -75,9 +78,9 @@ div.filter-element-wrapper {
   font: 14px arial;
   margin: 0 0 10px; }
 
-.pagination {
+.pager {
   display: block;
-  max-width: 960px;
+  max-width: 980px;
   margin: 20px auto;
   overflow: hidden; }
 
@@ -104,7 +107,7 @@ div.filter-element-wrapper {
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle; }
-  .pagination {
+  .pager {
     margin: 30px auto; } }
 
 .result-wrapper {
@@ -594,6 +597,8 @@ li.movie-genres:last-child:after {
 
 .person-movies-known .movie-no-image-holder,
 .person-movies-known img {
+  border-radius: 4px;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   margin: 0 0 10px;
   width: 100%; }
@@ -654,7 +659,16 @@ li.movie-genres:last-child:after {
     grid-template-areas: "poster info" "poster bio";
     margin: 0 0 40px; }
   .person-name {
-    font-size: 4em; }
+    font-size: 4em;
+    position: relative; }
+    .person-name::after {
+      color: rgba(170, 170, 170, 0.2);
+      content: attr(data-name);
+      font-size: 1.3em;
+      font-weight: bold;
+      left: -20px;
+      position: absolute;
+      top: -20px; }
   .person-movies-wrapper h4:last-of-type {
     margin: 0 auto;
     width: 80%; }

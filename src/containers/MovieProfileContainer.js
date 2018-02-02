@@ -22,16 +22,6 @@ class MovieProfileContainer extends Component {
     router: PropTypes.object.isRequired
   };
 
-  componentDidMount() {
-    this.getPalette();
-  }
-
-  componentWillReceiveProps() {
-    this.getPalette();
-  }
-
-  componentDidUpdate = () => { window.scrollTo(0, 0) }
-
   getPalette = path => {
     if (this.props.movie.movie.poster_path) {
       let path =
@@ -87,6 +77,7 @@ class MovieProfileContainer extends Component {
               key={this.props.movie.movie.id}
               config={this.props.config.config}
               movie={this.props.movie.movie}
+              getPalette={this.getPalette}
               dcolor={this.state.dcolor}
               handleMovieClick={this.handleMovieClick}
               handlePersonClick={this.handlePersonClick}

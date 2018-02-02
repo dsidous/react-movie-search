@@ -2,7 +2,7 @@ import React from "react";
 
 function FullCastCrew(props) {
   const { base_url } = props.config.images;
-  const profile_img_base_url = base_url + "w120_and_h120_bestv2/";
+  const profile_img_base_url = base_url + "w132_and_h132_face/";
   return (
     <div>
       <div className="full-ca-cr__header">
