@@ -13,7 +13,10 @@ import SEO from "./SEO";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-MovieProfile.propTypes = {
+
+class MovieProfile extends Component {
+  
+  static propTypes = {
   config: PropTypes.object.isRequired,
   movie: PropTypes.object.isRequired,
   handleMovieClick: PropTypes.func.isRequired
