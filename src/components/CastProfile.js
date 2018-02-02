@@ -119,7 +119,7 @@ class CastProfile extends Component {
               )}
             </div>
             <div className="person-info">
-              <h3 className="person-name">{firstName}</h3>
+              <h3 className="person-name" data-name={lastName}>{firstName}</h3>
               <div>
                 {`${lastName}, ${place_of_birth}`}
                 {birthday && (
@@ -135,8 +135,7 @@ class CastProfile extends Component {
                 )}
                 {this.deathday && (
                   <span>
-                    {" "}
-                    -{" "}
+                    {" - "}
                     <FormattedDate
                       value={deathday}
                       year="numeric"
@@ -157,7 +156,7 @@ class CastProfile extends Component {
                 />
                 <div
                   className={
-                    "person-bio " + (biography.length > 500 ? "long" : "")
+                    ["person-bio",(biography.length > 500 ? "long" : "")].join(" ")
                   }
                 >
                   <Markdown options={{ forceInline: true }}>

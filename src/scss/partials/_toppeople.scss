@@ -1,4 +1,4 @@
-.top-people {  
+.top-people {
   margin: 20px auto;
   max-width: 960px;
   padding: 0 10px;
@@ -8,23 +8,25 @@
   }
 
   &__list {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 1fr 1fr;
-    margin: 20px 0;    
-    text-align: center;
+    
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      margin: 20px 0;
+      text-align: center;    
 
-    @media screen and (min-width: 640px) {
-      grid-gap: 40px;
-      grid-template-columns: repeat(4,1fr);    
-    }
+      @media screen and (min-width: 640px) {
+        grid-gap: 40px;
+        grid-template-columns: repeat(4, 1fr);
+      }
+    
 
     &-element {
       cursor: pointer;
-    
+
       &__img {
         border-radius: 4px;
-        box-shadow: 0 0 20px 5px rgba(0,0,0,.1);
+        box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
         width: 100%;
       }
 

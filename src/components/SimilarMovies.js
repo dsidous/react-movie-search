@@ -1,5 +1,5 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React from "react";
+import Slider from "react-slick";
 
 function SimilarMovies(props) {
   const settings = {
@@ -7,7 +7,7 @@ function SimilarMovies(props) {
     infinite: true,
     speed: 500,
     slidesToShow: 7,
-    slidesToScroll: 1,
+    slidesToScroll: 1
   };
 
   checkMobile();
@@ -18,7 +18,7 @@ function SimilarMovies(props) {
         arrows: false,
         slidesToScroll: 1,
         slidesToShow: 3,
-        swipeToSlide: true,
+        swipeToSlide: true
       });
     }
   }
@@ -34,12 +34,16 @@ function SimilarMovies(props) {
             onClick={() => props.handleMovieClick(sim.id)}
           >
             <p className="crew-col text-center">
-              <img src={props.img_base_path + sim.poster_path} alt={sim.original_title} className="similar-movies-img" /><br />
+              <img
+                src={props.img_base_path + sim.poster_path}
+                alt={sim.original_title}
+                className="similar-movies-img"
+              />
+              <br />
               <small>{sim.original_title}</small>
             </p>
           </div>
-        ))
-        }
+        ))}
       </Slider>
     </div>
   );

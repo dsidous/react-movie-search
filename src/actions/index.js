@@ -115,7 +115,7 @@ export function getTopRatedMovies(query){
 }
 
 export function getTopPeople(query){
-  const url = `https://api.themoviedb.org/3/person/popular?&api_key=${APIKEY}`
+  const url = `https://api.themoviedb.org/3/person/popular?&api_key=${APIKEY}${query}`
 
   return function(dispatch) {
     dispatch({type: GET_TOPPEOPLE_TMDB});

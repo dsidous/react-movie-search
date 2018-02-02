@@ -102,6 +102,8 @@
 
 .person-movies-known .movie-no-image-holder,
 .person-movies-known img {
+  border-radius: 4px;
+  box-shadow: 0 0 20px 5px rgba(0,0,0,.1);
   cursor: pointer;
   margin: 0 0 10px;
   width: 100%;
@@ -181,9 +183,22 @@
     grid-template-areas: "poster info" "poster bio";
     margin: 0 0 40px;
   }
+
   .person-name {
     font-size: 4em;
+    position: relative;
+    
+      &::after {
+        color: rgba(170,170,170,.2);
+        content: attr(data-name);
+        font-size: 1.3em;
+        font-weight: bold;
+        left: -20px;
+        position: absolute;
+        top: -20px;
+      }
   }
+  
   .person-movies-wrapper h4:last-of-type {
     margin: 0 auto;
     width: 80%;
