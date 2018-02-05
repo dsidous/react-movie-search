@@ -1,0 +1,63 @@
+.cast-images{
+  &__header {
+    background: #eee;
+    border-top: 10px solid #ddd;
+    border-bottom: 10px solid #ddd;
+    font-size: 5em;
+    padding: 30px 20px;
+
+    a {
+      color: #000;
+    }
+
+    h2 {
+      margin: 0 auto;
+      max-width: 960px;
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 40px auto;
+    padding: 0 20px;
+
+    @media screen and (min-width: 640px) {
+      grid-gap: 40px;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 960px;
+    }
+  }
+
+  &__element {
+    border-radius: 4px;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    a {
+      color: #000;
+
+      &:hover,
+      &:visited,
+      &:focus {
+        color: #000;
+        text-decoration: none;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    figcaption {
+      padding: 10px;
+
+      p {
+        margin: 0;
+      }
+    }
+
+  }
+
+}
