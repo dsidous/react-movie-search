@@ -79,7 +79,7 @@ export function updateMovie(movieId){
 }
 
 export function getPerson(query){
-  const url = `https://api.themoviedb.org/3/person/${query}?&api_key=${APIKEY}&append_to_response=movie_credits`
+  const url = `https://api.themoviedb.org/3/person/${query}?&api_key=${APIKEY}&append_to_response=movie_credits,images`
 
   return function(dispatch) {
     dispatch({type: GET_PERSON_TMDB});

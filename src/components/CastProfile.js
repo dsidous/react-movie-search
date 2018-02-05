@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FormattedDate } from "react-intl";
 import Markdown from "markdown-to-jsx";
+import { Link } from "react-router-dom";
 
 import SEO from "./SEO";
 
@@ -15,7 +16,8 @@ class CastProfile extends Component {
       name,
       place_of_birth,
       profile_path,
-      movie_credits
+      movie_credits,
+      id
     } = this.props.person;
 
     let firstName, lastName;
@@ -108,18 +110,22 @@ class CastProfile extends Component {
         <div className="person-wrapper">
           <div className="person-info-wrapper">
             <div className="person-poster">
-              {profile_path !== null ? (
-                <img
-                  src={profileURL}
-                  className="img-responsive center-block"
-                  alt="poster"
-                />
-              ) : (
-                <div className="movie-no-image-holder small" />
-              )}
+              <Link to={`/person/${id}/images`}>
+                {profile_path !== null ? (
+                  <img
+                    src={profileURL}
+                    className="img-responsive center-block"
+                    alt="poster"
+                  />
+                ) : (
+                  <div className="movie-no-image-holder small" />
+                )}
+              </Link>
             </div>
             <div className="person-info">
-              <h3 className="person-name" data-name={lastName}>{firstName}</h3>
+              <h3 className="person-name" data-name={lastName}>
+                {firstName}
+              </h3>
               <div>
                 {`${lastName}, ${place_of_birth}`}
                 {birthday && (
@@ -155,9 +161,10 @@ class CastProfile extends Component {
                   id="person-bio__more"
                 />
                 <div
-                  className={
-                    ["person-bio",(biography.length > 500 ? "long" : "")].join(" ")
-                  }
+                  className={[
+                    "person-bio",
+                    biography.length > 500 ? "long" : ""
+                  ].join(" ")}
                 >
                   <Markdown options={{ forceInline: true }}>
                     {biography.slice(0, biography.indexOf(" ", 500))}
@@ -185,7 +192,7 @@ class CastProfile extends Component {
             <h4>Acting</h4>
             <div className="person-movies-grid">{person_movies}</div>
           </div>
-        </div>        
+        </div>
       </div>
     );
   }
