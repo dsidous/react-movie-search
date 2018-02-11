@@ -41,7 +41,7 @@ class MovieProfile extends Component {
       backdrop_path,
       poster_path,
       genres,
-      original_title,
+      title,
       release_date,
       runtime,
       vote_average,
@@ -75,7 +75,7 @@ class MovieProfile extends Component {
         }
       `}
         </Style>
-        <SEO title={this.props.movie.original_title} />
+        <SEO title={this.props.movie.title} />
         <div className="full-background">
           {this.props.movie.images.backdrops[0] && (
             <FullScreenBackdrop
@@ -96,7 +96,7 @@ class MovieProfile extends Component {
             </div>
             <div className="movie-data">
               <h1 className="movie-title">
-                {original_title}
+                {title}
                 <span className="movie-rating">{vote_average}</span>
               </h1>
 

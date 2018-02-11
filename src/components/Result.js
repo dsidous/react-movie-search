@@ -48,13 +48,13 @@ function Result(props) {
               <img
                 src={NoBdImage}
                 className="movies-poster"
-                alt={movie.original_title}
+                alt={movie.title}
               />
             </picture>
           )}
 
           <div className="clearfix">
-            <div className="movies-title">{movie.original_title}</div>
+            <div className="movies-title">{movie.title}</div>
             <div className="movies-rating">{movie.vote_average}</div>
           </div>
 
