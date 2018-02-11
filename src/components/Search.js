@@ -69,12 +69,11 @@ class Search extends Component {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-          <Navbar.Text>MOVIES</Navbar.Text>
           <Navbar.Text>
-            <Link to={"/person"}>PEOPLE</Link>
+            <Link to={"/movies"}>MOVIES</Link>
           </Navbar.Text>
           <Navbar.Text>
-            <Link to={"/discover"}>DISCOVER</Link>
+            <Link to={"/person"}>PEOPLE</Link>
           </Navbar.Text>
           <Navbar.Form pullLeft>
             <AsyncTypeahead

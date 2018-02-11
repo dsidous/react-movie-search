@@ -11,10 +11,13 @@ class FilterContainer extends Component {
     super(props);
 
     const params = new URLSearchParams(props.location.search);
+    
+    var d = new Date();
+    const year = d.getFullYear();
 
     this.state = {
       page: parseInt(params.get("page"), 10) || 1,
-      primary_release_year: params.get("primary_release_year") || 2017,
+      primary_release_year: params.get("primary_release_year") || year,
       sort_by: params.get("sort_by") || "popularity.desc",
       with_genres: params.get("with_genres") || [],
       "vote_average.gte": params.get("vote_average.gte") || 0
@@ -52,7 +55,7 @@ class FilterContainer extends Component {
     const query = this.objectToQueryStr(this.state);
     this.props.dispatch({ type: "RESET_MOVIES_STATE" });
     this.props.dispatch(actions.getDiscoverMovies("&" + query));
-    this.context.router.history.push(`/discover?${query}`);
+    this.context.router.history.push(`/movies?${query}`);
   };
 
   handleChange = e => {

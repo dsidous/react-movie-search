@@ -21,11 +21,14 @@ Filter.propTypes = {
 };
 
 function Filter(props) {
-  let year_options = Array(118)
+  var d = new Date();
+  const year = d.getFullYear();
+  const sumYear = year - 1900;
+  let year_options = Array(sumYear)
     .fill()
     .map((_, i) => (
-      <option key={i} value={2017 - i}>
-        {2017 - i}
+      <option key={i} value={year - i}>
+        {year - i}
       </option>
     ));
 

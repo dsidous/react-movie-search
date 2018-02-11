@@ -23,7 +23,7 @@ const Root = ({ store }) => (
         <Route exact={true} path="/person/:personId" component={PersonContainer} />
         <Route exact={true} path="/person/:personId/images" component={CastImagesContainer} />
         <Route exact={true} path="/person" component={TopPeopleContainer} />
-        <Route path="/discover" component={DiscoverContainer} />
+        <Route path="/movies" component={DiscoverContainer} />
       </Switch>
     </Router>
   </Provider>
