@@ -28,7 +28,9 @@ class ResultContainer extends Component {
             ""
           )
         ) : (
-          <Result {...this.props} goToMovie={this.goToMovie} />
+          this.props.config.genres &&
+            <Result {...this.props} goToMovie={this.goToMovie} />
+          
         )}
       </div>
     );

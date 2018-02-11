@@ -7,6 +7,8 @@ export const GET_GENRES_TMDB = 'GET_GENRES_TMDB';
 
 export const GET_PERSON_TMDB = 'GET_PERSON_TMDB';
 export const GET_TOPMOVIES_TMDB = 'GET_TOPMOVIES_TMDB';
+export const GET_NPMOVIES_TMDB = 'GET_NPMOVIES_TMDB';
+export const GET_UCMOVIES_TMDB = 'GET_UCMOVIES_TMDB';
 export const GET_TOPPEOPLE_TMDB = 'GET_TOPPEOPLE_TMDB';
 
 const APIKEY = 'cfe422613b250f702980a3bbf9e90716';
@@ -99,24 +101,9 @@ export function updatePerson(personId){
   }
 }
 
-export function getTopRatedMovies(query){
-  const url = `https://api.themoviedb.org/3/movie/popular?&api_key=${APIKEY}`
-
-  return function(dispatch) {
-    dispatch({type: GET_TOPMOVIES_TMDB});
-    axios.get(url)
-      .then((response) => {
-        dispatch({type: GET_TOPMOVIES_TMDB + "_FULFILLED",topmovies: response.data})
-      })
-      .catch((err) => {
-        dispatch({type: GET_TOPMOVIES_TMDB + "_REJECTED",topmovies: err})
-      })
-  }
-}
-
 export function getTopPeople(query){
   const url = `https://api.themoviedb.org/3/person/popular?&api_key=${APIKEY}${query}`
-
+  
   return function(dispatch) {
     dispatch({type: GET_TOPPEOPLE_TMDB});
     axios.get(url)
@@ -126,5 +113,58 @@ export function getTopPeople(query){
       .catch((err) => {
         dispatch({type: GET_TOPPEOPLE_TMDB + "_REJECTED",toppeople: err})
       })
+    }
   }
-}
+  
+  export function getTopRatedMovies(query){
+    const url = `https://api.themoviedb.org/3/movie/popular?&api_key=${APIKEY}`
+    
+    return function(dispatch) {
+      dispatch({type: GET_TOPMOVIES_TMDB});
+      axios.get(url)
+      .then((response) => {
+        dispatch({type: GET_TOPMOVIES_TMDB + "_FULFILLED",topmovies: response.data})
+      })
+      .catch((err) => {
+        dispatch({type: GET_TOPMOVIES_TMDB + "_REJECTED",topmovies: err})
+      })
+    }
+  }
+  
+  export function getNowPlayingMovies(query){
+    const url = `https://api.themoviedb.org/3/movie/now_playing?&api_key=${APIKEY}`
+    
+    return function(dispatch) {
+      dispatch({type: GET_NPMOVIES_TMDB});
+      axios.get(url)
+      .then((response) => {
+        dispatch({type: GET_NPMOVIES_TMDB + "_FULFILLED",npmovies: response.data})
+      })
+      .catch((err) => {
+        dispatch({type: GET_NPMOVIES_TMDB + "_REJECTED",npmovies: err})
+      })
+    }
+  }
+  
+  export function getUpcomingMovies(query){
+    const url = `https://api.themoviedb.org/3/movie/upcoming?&api_key=${APIKEY}`
+    
+    return function(dispatch) {
+      dispatch({type: GET_UCMOVIES_TMDB});
+      axios.get(url)
+      .then((response) => {
+        dispatch({type: GET_UCMOVIES_TMDB + "_FULFILLED",ucmovies: response.data})
+      })
+      .catch((err) => {
+        dispatch({type: GET_UCMOVIES_TMDB + "_REJECTED",ucmovies: err})
+      })
+    }
+  }
+
+  export function getHomeLists(){
+    return function(dispatch) {
+      dispatch(getTopRatedMovies());
+      dispatch(getNowPlayingMovies());
+      dispatch(getUpcomingMovies());
+    }
+  }
