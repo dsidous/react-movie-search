@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 
 import * as actions from "../actions";
 import TopRatedMovies from "../components/TopRatedMovies";
+import HomeList from "../components/HomeList";
 
 class TopListsContainer extends Component {
   static propTypes = {
@@ -13,7 +14,7 @@ class TopListsContainer extends Component {
   };
 
   componentDidMount() {
-    this.props.dispatch(actions.getTopRatedMovies());
+    this.props.dispatch(actions.getHomeLists());
   }
 
   goToMovie = movieId => {
@@ -32,6 +33,22 @@ class TopListsContainer extends Component {
             title="Popular Movies"
           />
         )}
+        {this.props.npmovies && (
+          <HomeList
+            config={this.props.config.config}
+            list={this.props.npmovies.slice(0, 10)}
+            goToMovie={this.goToMovie}
+            title="In Theatres"
+          />
+        )}
+        {this.props.ucmovies && (
+          <HomeList
+            config={this.props.config.config}
+            list={this.props.ucmovies.slice(0, 10)}
+            goToMovie={this.goToMovie}
+            title="Upcoming Movies"
+          />
+        )}
       </div>
     );
   }
@@ -44,7 +61,9 @@ TopListsContainer.contextTypes = {
 const mapStateToProps = state => {
   return {
     config: state.config,
-    topMovies: state.homelists.topmovies.results
+    topMovies: state.homelists.topmovies.results,
+    npmovies: state.homelists.npmovies.results,
+    ucmovies: state.homelists.ucmovies.results
   };
 };
 

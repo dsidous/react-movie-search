@@ -22,7 +22,11 @@ function TopRatedMovies(props) {
 
   const MovieListElement = props => (
     <div
-      className={"top-list__element " + (props.keys === 0 ? "featured" : "")}
+      className={
+        ["top-list__element", 
+         (props.keys === 0 ? "featured" : "")
+        ].join(" ")
+      }
       onClick={() => props.goToMovie(props.movie.id)}
     >
       {props.movie.poster_path !== null &&
