@@ -6,6 +6,7 @@ import { Navbar } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import * as actions from "../actions";
+import noimage from '../images/noimage.jpg';
 
 class Search extends Component {
   state = {
@@ -24,40 +25,56 @@ class Search extends Component {
   handleSearch = query => {
     if (query) {
       fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=cfe422613b250f702980a3bbf9e90716&query=${query}`
+        `https://api.themoviedb.org/3/search/multi?api_key=cfe422613b250f702980a3bbf9e90716&query=${query}`
       )
         .then(resp => resp.json())
-        .then(json => this.setState({ options: json.results }));
+        .then(json => this.setState({ options: json.results.filter(res => res.media_type!=='tv') }));
     }
   };
 
   renderMenuItemChildren = (option, props, index) => {
-    return (
-      <div key={option.id}>
+    let title, image;
+
+    if (option.media_type === 'movie') {
+      title = [option.title,option.release_date.slice(0, 4),'in movies'].join(' ');
+      image = option.poster_path 
+        ? [this.props.config.config.images.base_url,
+          this.props.config.config.images.poster_sizes[0],
+          option.poster_path].join('')
+        : noimage;
+      } else if (option.media_type === 'person'){
+        title = option.name +' in persons';
+        image = option.profile_path 
+          ? [this.props.config.config.images.base_url,
+            this.props.config.config.images.profile_sizes[0],
+            option.profile_path].join('')
+          : noimage;
+      }
+
+      return (
+        <div key={option.id}>
         <span>
           <img
-            src={
-              this.props.config.config.images.base_url +
-              this.props.config.config.images.poster_sizes[0] +
-              option.poster_path
-            }
+            src={image}
             className="movie-search-img-thumb"
             alt="#"
           />
         </span>
-        <span>
-          {option.original_title} ({option.release_date.slice(0, 4)})
-        </span>
-      </div>
+        <span>{title}</span>
+      </div>            
     );
   };
 
   handleChange = selected => {
     if (typeof selected[0] !== "undefined") {
-      const movieId = selected[0].id;
-      this.props.dispatch(actions.updateMovie(movieId));
-      this.context.router.history.push(`/movie/${movieId}`);
-    }
+      if (selected[0].media_type === 'movie') {
+        this.props.dispatch(actions.updateMovie(selected[0].id));
+        this.context.router.history.push(`/movie/${selected[0].id}`);
+      } else if (selected[0].media_type === 'person') {
+        this.props.dispatch(actions.updatePerson(selected[0].id));
+        this.context.router.history.push(`/person/${selected[0].id}`);
+      } 
+    } 
   };
 
   render() {
@@ -81,10 +98,16 @@ class Search extends Component {
               {...this.state}
               isLoading={true}
               align="justify"
-              labelKey="original_title"
+              labelKey={option => {
+                if (option.title) {
+                  return option.title
+                } else {
+                  return option.name
+                }
+              }}
               onChange={this.handleChange}
               onSearch={this.handleSearch}
-              placeholder="Search for a movie title..."
+              placeholder="Search for a movie or a person..."
               renderMenuItemChildren={this.renderMenuItemChildren}
             />
           </Navbar.Form>
