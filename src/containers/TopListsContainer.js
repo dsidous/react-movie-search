@@ -13,8 +13,52 @@ class TopListsContainer extends Component {
     topmovies: PropTypes.array
   };
 
+  constructor(props) {
+    super();
+    this.state = {
+      topmovies: []
+    };
+  }
+
   componentDidMount() {
     this.props.dispatch(actions.getHomeLists());
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.topMovies) {
+      this.setState({
+        topmovies: nextProps.topMovies.slice(0, 5)
+      });
+    }
+  }
+
+  randomList = (to) => {
+    var a = Array.from(Array(to), (_,x) => x);
+    var n;
+    var r=[];
+    for (n=1; n<=5; ++n)
+    {
+      var i = Math.floor((Math.random() * (to-n)) + 1);
+      r.push(a[i]);
+      a[i] = a[to-n];
+    }
+    
+    return r;
+  }
+
+  filterTopMovies = genre => {
+    let movies = genre !== -1 
+      ? this.props.topMovies.filter(movie => movie.genre_ids.includes(genre))
+      : this.props.topMovies;
+    
+    let moviesLength = movies.length;
+
+    if (moviesLength > 5) {
+      let a = this.randomList(moviesLength);
+      movies = movies.filter((movie,index) => a.indexOf(index) !== -1);   
+    }
+
+    this.setState({topmovies: movies});
   }
 
   goToMovie = movieId => {
@@ -25,30 +69,34 @@ class TopListsContainer extends Component {
   render() {
     return (
       <div>
-        {this.props.topMovies && (
+        {this.state.topmovies && (
           <TopRatedMovies
             config={this.props.config.config}
-            topMovies={this.props.topMovies.slice(0, 5)}
+            topMovies={this.state.topmovies}
             goToMovie={this.goToMovie}
-            title="Popular Movies"
+            filterTopMovies={this.filterTopMovies}
           />
         )}
-        {this.props.npmovies && (
-          <HomeList
-            config={this.props.config.config}
-            list={this.props.npmovies.slice(0, 10)}
-            goToMovie={this.goToMovie}
-            title="In Theatres"
-          />
-        )}
-        {this.props.ucmovies && (
-          <HomeList
-            config={this.props.config.config}
-            list={this.props.ucmovies.slice(0, 10)}
-            goToMovie={this.goToMovie}
-            title="Upcoming Movies"
-          />
-        )}
+        <div className="top-lists-wrapper">
+          {this.props.npmovies &&
+            this.props.config.config && (
+              <HomeList
+                config={this.props.config}
+                list={this.props.npmovies.slice(0, 10)}
+                goToMovie={this.goToMovie}
+                title="In Theatres"
+              />
+            )}
+          {this.props.ucmovies &&
+            this.props.config.config && (
+              <HomeList
+                config={this.props.config}
+                list={this.props.ucmovies.slice(0, 10)}
+                goToMovie={this.goToMovie}
+                title="Upcoming Movies"
+              />
+            )}
+        </div>
       </div>
     );
   }

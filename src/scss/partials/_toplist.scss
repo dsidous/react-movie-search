@@ -1,3 +1,13 @@
+.top-lists-wrapper {
+  display: grid;
+  
+  @media screen and (min-width: 640px) {
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    width: 70%    
+  }
+
+}
 .top-list {
   display: grid;
   grid-gap: 10px;
@@ -41,4 +51,22 @@
   @media screen and (min-width: 640px) {
     grid-row: 1 / span 2;
   }
+}
+
+.top-genres-list {
+  list-style: none;
+  margin: 0 auto 20px;
+  padding: 0 10px;
+  width: 70%;
+
+  li {
+    cursor: pointer;
+    display: inline;
+    margin: 0 10px 0 0;
+
+    &.active {
+      font-weight: bold;
+    }
+  }
+
 }
