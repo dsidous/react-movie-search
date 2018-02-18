@@ -31,8 +31,6 @@ class FilterContainer extends Component {
 
   componentDidMount() {
     const query = this.objectToQueryStr(this.state);
-    this.props.dispatch(actions.getConfig());
-    this.props.dispatch(actions.getGenres());
     this.props.dispatch(
       actions.getDiscoverMovies(`&${query}`)
     );

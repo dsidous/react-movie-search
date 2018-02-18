@@ -18,6 +18,7 @@ class Search extends Component {
 
   componentDidMount() {
     this.props.dispatch(actions.getConfig());
+    this.props.dispatch(actions.getGenres());
   }
 
   handleSearch = query => {

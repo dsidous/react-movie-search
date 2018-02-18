@@ -1,64 +1,81 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-TopRatedMovies.propTypes = {
-  config: PropTypes.object.isRequired
-};
+class TopRatedMovies extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      active: -1
+    };
 
-function TopRatedMovies(props) {
-  const img_base_path = props.config.images
-    ? props.config.images.base_url + props.config.images.poster_sizes[3]
-    : "";
+  }
 
-  const MovieList = () =>
-    props.topMovies.map((movie, i) => (
-      <MovieListElement
-        {...props}
-        movie={movie}
-        keys={i}
-        key={i}
-      />
-    ));
-
-  const MovieListElement = props => (
-    <div
-      className={
-        ["top-list__element", 
-         (props.keys === 0 ? "featured" : "")
-        ].join(" ")
-      }
-      onClick={() => props.goToMovie(props.movie.id)}
-    >
-      {props.movie.poster_path !== null &&
-        props.keys === 0 && (
-          <img
-            src={img_base_path + props.movie.poster_path}
-            alt={props.movie.original_title}
-          />
-        )}
-      {props.movie.backdrop_path !== null &&
-        props.keys !== 0 && (
-          <img
-            src={img_base_path + props.movie.backdrop_path}
-            alt={props.movie.original_title}
-          />
-        )}
-      <div className="top-list__element-title">{props.movie.title}</div>
-    </div>
-  );
-
-  return (
-    <div>
-      {props.topMovies && (
-        <div>
-          <h3 className="top-list-main-title">{props.title}</h3>
-          <div className="top-list">
-            <MovieList {...props}/>
+  selectGenre = (topGenreId) => {
+    this.setState({active : topGenreId});
+    this.props.filterTopMovies(topGenreId);
+  }
+  
+  render() {
+    const topGenres = [
+      { id: -1, name: "All" },
+      { id: 28, name: "Action" },
+      { id: 35, name: "Comedy" },
+      { id: 18, name: "Drama" },
+      { id: 10751, name: "Family" },
+      { id: 878, name: "Science Fiction" },
+      { id: 53, name: "Thriller" }
+    ];
+  
+    const img_base_path = this.props.config.images
+      ? this.props.config.images.base_url + this.props.config.images.poster_sizes[3]
+      : "";
+    return (
+      <div>
+        {this.props.topMovies && (
+          <div>
+            <h3 className="top-list-main-title">Movies of the day</h3>
+            <ul className="top-genres-list">
+              {topGenres.map((topGenre, i) => (
+                <li
+                  className={topGenre.id === this.state.active ? "active" : ""}
+                  onClick={() => this.selectGenre(topGenre.id)}
+                >
+                  {topGenre.name}
+                </li>
+              ))}
+            </ul>
+            <div className="top-list">
+              {this.props.topMovies.map((movie, i) => (
+                <div
+                  className={[
+                    "top-list__element",
+                    i === 0 ? "featured" : ""
+                  ].join(" ")}
+                  onClick={() => this.props.goToMovie(movie.id)}
+                >
+                  {movie.poster_path !== null &&
+                    i === 0 && (
+                      <img
+                        src={img_base_path + movie.poster_path}
+                        alt={movie.original_title}
+                      />
+                    )}
+                  {movie.backdrop_path !== null &&
+                    i !== 0 && (
+                      <img
+                        src={img_base_path + movie.backdrop_path}
+                        alt={movie.original_title}
+                      />
+                    )}
+                  <div className="top-list__element-title">{movie.title}</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
-    </div>
-  );
+        )}
+      </div>
+    );
+  }
 }
 
 export default TopRatedMovies;
