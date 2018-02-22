@@ -10,7 +10,8 @@ import * as actions from "../actions";
 
 class MovieProfileContainer extends Component {
   state = {
-    dcolor: []
+    dcolor: [],
+    movieId: this.props.match.params.movieId || ''
   };
 
   static propTypes = {
@@ -21,6 +22,21 @@ class MovieProfileContainer extends Component {
   static contextTypes = {
     router: PropTypes.object.isRequired
   };
+
+  componentDidMount(){
+    let movieId = this.state.movieId;
+    if (movieId !== '') {
+      this.props.dispatch(actions.updateMovie(movieId));
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.movieId && (nextProps.match.params.movieId !== this.state.movieId)) {
+      let movieId = nextProps.match.params.movieId;
+      this.props.dispatch(actions.updateMovie(movieId));
+      this.setState({movieId});
+    }
+  }
 
   getPalette = path => {
     if (this.props.movie.movie.poster_path) {

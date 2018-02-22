@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import Search from "../components/Search";
 import CastImages from "../components/CastImages";
 import * as actions from '../actions';
 
@@ -24,7 +23,6 @@ class CastImagesContainer extends Component {
   render(){
     return (
       <div>
-        <Search />
         {this.props.config.images && this.props.person.images &&
           <CastImages 
             config={this.props.config}

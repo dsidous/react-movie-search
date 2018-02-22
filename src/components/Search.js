@@ -5,13 +5,17 @@ import { AsyncTypeahead } from "react-bootstrap-typeahead";
 import { Navbar } from "react-bootstrap";
 import { connect } from "react-redux";
 
+import SignOutButton from './auth/SignOut';
 import * as actions from "../actions";
 import noimage from '../images/noimage.jpg';
 
 class Search extends Component {
-  state = {
-    options: []
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+      options: []
+    };
+  }
 
   static propTypes = {
     config: PropTypes.object.isRequired
@@ -111,6 +115,12 @@ class Search extends Component {
               renderMenuItemChildren={this.renderMenuItemChildren}
             />
           </Navbar.Form>
+          {this.props.authUser &&
+            <Navbar.Text>
+              <SignOutButton />
+              {this.props.authUser.email}
+            </Navbar.Text>
+          }
         </Navbar.Collapse>
       </Navbar>
     );
@@ -123,7 +133,8 @@ Search.contextTypes = {
 
 const mapStateToProps = state => {
   return {
-    config: state.config
+    config: state.config,
+    authUser: state.session.authUser
   };
 };
 

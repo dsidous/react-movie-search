@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 class TopRatedMovies extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       active: -1
     };
@@ -36,7 +35,7 @@ class TopRatedMovies extends Component {
             <h3 className="top-list-main-title">Movies of the day</h3>
             <ul className="top-genres-list">
               {topGenres.map((topGenre, i) => (
-                <li
+                <li key={topGenre.id}
                   className={topGenre.id === this.state.active ? "active" : ""}
                   onClick={() => this.selectGenre(topGenre.id)}
                 >
@@ -46,7 +45,7 @@ class TopRatedMovies extends Component {
             </ul>
             <div className="top-list">
               {this.props.topMovies.map((movie, i) => (
-                <div
+                <div key={movie.id}
                   className={[
                     "top-list__element",
                     i === 0 ? "featured" : ""

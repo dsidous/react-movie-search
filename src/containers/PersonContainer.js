@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 
 import * as actions from '../actions'
-import Search from '../components/Search'
 import CastProfileContainer from './CastProfileContainer'
 
 class PersonContainer extends Component{
@@ -28,7 +27,6 @@ class PersonContainer extends Component{
   render() {
     return (
       <div>
-        <Search />
         <CastProfileContainer />
       </div>
     )

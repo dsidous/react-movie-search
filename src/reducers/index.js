@@ -1,4 +1,6 @@
 import {combineReducers} from 'redux';
+import session from './session';
+import user from './user';
 import movie from './movie';
 import movies from './movies';
 import config from './config';
@@ -12,7 +14,9 @@ const reducers = combineReducers({
   movies,
   person,
   homelists,
-  toppeople
+  toppeople,
+  session,
+  user
 })
 
 export default reducers;
