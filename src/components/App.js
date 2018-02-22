@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 
-import Search from './Search'
 import MovieProfileContainer from '../containers/MovieProfileContainer'
 import * as actions from '../actions'
 
@@ -35,7 +34,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Search />
         <MovieProfileContainer />
       </div>
     );

@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import Search from "../components/Search";
 import FullCastCrew from "../components/FullCastCrew";
 import * as actions from "../actions";
 
@@ -36,7 +35,6 @@ class FullCastCrewContainer extends Component {
   render() {
     return (
       <div>
-        <Search />
         {this.props.movie.movie.credits &&
           <FullCastCrew
             config={this.props.config.config}

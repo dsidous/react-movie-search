@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+    "firebase": "^4.10.0",
     "font-awesome": "^4.7.0",
     "markdown-to-jsx": "^6.4.1",
     "node-sass-chokidar": "^0.0.3",
@@ -26,6 +27,7 @@
     "react-select": "^1.1.0",
     "react-simple-image": "^1.0.0",
     "react-slick": "^0.16.0",
+    "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.0.0",

@@ -5,7 +5,6 @@ import { withRouter } from "react-router-dom";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import * as actions from "../actions";
-import Search from "../components/Search";
 import SEO from "../components/SEO";
 import TopPeople from "../components/TopPeople";
 
@@ -55,7 +54,6 @@ class TopPeopleContainer extends Component {
     return (
       <div>
         <SEO title="Popular people" />
-        <Search />
         {!this.props.toppeople.results ? (
           this.props.isFetching ? (
             <div className="loader">

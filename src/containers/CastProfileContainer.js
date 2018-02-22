@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { withRouter } from "react-router-dom";
+import { IntlProvider } from 'react-intl';
+
 
 import * as actions from "../actions";
 
@@ -49,12 +51,14 @@ class CastProfielContainer extends Component {
             transitionLeave={false}
           >
             {this.props.config.images && (
+              <IntlProvider locale={navigator.language}>
               <CastProfile
                 key={this.props.person.id}
                 config={this.props.config}
                 person={this.props.person}
                 handlePersonMovieClick={this.handlePersonMovieClick}
               />
+              </IntlProvider>
             )}
           </ReactCSSTransitionGroup>
         )}

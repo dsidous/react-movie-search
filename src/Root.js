@@ -1,32 +1,45 @@
 import React from "react";
-import { Provider } from "react-redux";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import App from "./components/App";
+import MainLayout from "./layouts/MainLayout";
+import MovieProfileContainer from "./containers/MovieProfileContainer";
 import DiscoverContainer from "./containers/DiscoverContainer";
 import PersonContainer from "./containers/PersonContainer";
 import CastImagesContainer from "./containers/CastImagesContainer";
 import HomepageContainer from "./containers/HomepageContainer";
 import FullCastCrewContainer from "./containers/FullCastCrewContainer";
 import TopPeopleContainer from "./containers/TopPeopleContainer";
+import SignUp from "./components/auth/SignUp";
+import SignIn from "./components/auth/SignIn";
+import withAuthentication from './components/auth/WithAuthentication';
+
+const MatchWithMainLayout = ({ exact, path, component: Component }: any) => {
+  return (
+    <Route exact={exact} path={path} render={(props: any) => (
+      <MainLayout><Component {...props} /></MainLayout>
+    )} />
+  );
+};
 
 const Root = ({ store }) => (
-  <Provider store={store}>
+  // <Provider store={store}>
     <Router onUpdate={() => window.scrollTo(0, 0)} basename="/movie-search">
       <Switch>
-        <Route exact={true} path="/" component={HomepageContainer} />
-        <Route exact={true} path="/movie/:movieId" component={App} />
-        <Route
+        <MatchWithMainLayout exact={true} path="/" component={HomepageContainer} />
+        <MatchWithMainLayout exact={true} path="/movie/:movieId" component={MovieProfileContainer} />
+        <MatchWithMainLayout
           exact={true}
           path="/movie/:movieId/crew"
           component={FullCastCrewContainer}
         />
-        <Route exact={true} path="/person/:personId" component={PersonContainer} />
-        <Route exact={true} path="/person/:personId/images" component={CastImagesContainer} />
-        <Route exact={true} path="/person" component={TopPeopleContainer} />
-        <Route path="/movies" component={DiscoverContainer} />
+        <MatchWithMainLayout exact={true} path="/person/:personId" component={PersonContainer} />
+        <MatchWithMainLayout exact={true} path="/person/:personId/images" component={CastImagesContainer} />
+        <MatchWithMainLayout exact={true} path="/person" component={TopPeopleContainer} />
+        <MatchWithMainLayout path="/movies" component={DiscoverContainer} />
+        <MatchWithMainLayout path="/signup" component={SignUp} />
+        <MatchWithMainLayout path="/signin" component={SignIn} />
       </Switch>
     </Router>
-  </Provider>
+  // </Provider>
 );
 
-export default Root;
+export default withAuthentication(Root);
