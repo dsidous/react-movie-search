@@ -72,6 +72,28 @@ div.no_image_holder {
 .navbar-collapse.in {
   overflow-y: visible; }
 
+.navbar-default #nav-user.navbar-nav > li > a {
+  color: #fff; }
+  .navbar-default #nav-user.navbar-nav > li > a:hover {
+    color: #ddd; }
+
+#nav-user #user-dd {
+  background: none;
+  border: none;
+  color: #ccc;
+  margin: 15px 15px 2px;
+  padding: 0; }
+
+#nav-user .dropdown-header .title {
+  color: #000;
+  font-size: 14px;
+  font-weight: bold; }
+
+#nav-user .menuitem {
+  color: #666;
+  font-size: 13px;
+  font-weight: bold; }
+
 div.filter-element-wrapper {
   margin: 0 10px 10px; }
 
@@ -1052,3 +1074,8 @@ li.movie-genres:last-child:after {
       font-style: italic;
       overflow: hidden;
       width: 90%; }
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto; }

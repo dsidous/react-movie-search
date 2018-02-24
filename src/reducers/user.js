@@ -1,16 +1,16 @@
 const INITIAL_STATE = {
-  users: {},
+  user: {},
 };
 
-const applySetUsers = (state, action) => ({
+const applySetUser = (state, action) => ({
   ...state,
-  users: action.users
+  user: action.user
 });
 
 function user(state = INITIAL_STATE, action) {
   switch(action.type) {
-    case 'USERS_SET' : {
-      return applySetUsers(state, action);
+    case 'USER_SET' : {
+      return applySetUser(state, action);
     }
     default : return state;
   }
