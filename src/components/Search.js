@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { AsyncTypeahead } from "react-bootstrap-typeahead";
-import { Navbar } from "react-bootstrap";
+import { Navbar, NavItem, Glyphicon, Dropdown, MenuItem, Nav } from "react-bootstrap";
 import { connect } from "react-redux";
 
-import SignOutButton from './auth/SignOut';
+import SignOutButton from "./auth/SignOut";
 import * as actions from "../actions";
-import noimage from '../images/noimage.jpg';
+import noimage from "../images/noimage.jpg";
 
 class Search extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       options: []
@@ -32,54 +32,66 @@ class Search extends Component {
         `https://api.themoviedb.org/3/search/multi?api_key=cfe422613b250f702980a3bbf9e90716&query=${query}`
       )
         .then(resp => resp.json())
-        .then(json => this.setState({ options: json.results.filter(res => res.media_type!=='tv') }));
+        .then(json =>
+          this.setState({
+            options: json.results.filter(res => res.media_type !== "tv")
+          })
+        );
     }
   };
 
   renderMenuItemChildren = (option, props, index) => {
     let title, image;
 
-    if (option.media_type === 'movie') {
-      title = [option.title,option.release_date.slice(0, 4),'in movies'].join(' ');
-      image = option.poster_path 
-        ? [this.props.config.config.images.base_url,
-          this.props.config.config.images.poster_sizes[0],
-          option.poster_path].join('')
+    if (option.media_type === "movie") {
+      title = [option.title, option.release_date.slice(0, 4), "in movies"].join(
+        " "
+      );
+      image = option.poster_path
+        ? [
+            this.props.config.config.images.base_url,
+            this.props.config.config.images.poster_sizes[0],
+            option.poster_path
+          ].join("")
         : noimage;
-      } else if (option.media_type === 'person'){
-        title = option.name +' in persons';
-        image = option.profile_path 
-          ? [this.props.config.config.images.base_url,
+    } else if (option.media_type === "person") {
+      title = option.name + " in persons";
+      image = option.profile_path
+        ? [
+            this.props.config.config.images.base_url,
             this.props.config.config.images.profile_sizes[0],
-            option.profile_path].join('')
-          : noimage;
-      }
+            option.profile_path
+          ].join("")
+        : noimage;
+    }
 
-      return (
-        <div key={option.id}>
+    return (
+      <div key={option.id}>
         <span>
-          <img
-            src={image}
-            className="movie-search-img-thumb"
-            alt="#"
-          />
+          <img src={image} className="movie-search-img-thumb" alt="#" />
         </span>
         <span>{title}</span>
-      </div>            
+      </div>
     );
   };
 
   handleChange = selected => {
     if (typeof selected[0] !== "undefined") {
-      if (selected[0].media_type === 'movie') {
+      if (selected[0].media_type === "movie") {
         this.props.dispatch(actions.updateMovie(selected[0].id));
         this.context.router.history.push(`/movie/${selected[0].id}`);
-      } else if (selected[0].media_type === 'person') {
+      } else if (selected[0].media_type === "person") {
         this.props.dispatch(actions.updatePerson(selected[0].id));
         this.context.router.history.push(`/person/${selected[0].id}`);
-      } 
-    } 
+      }
+    }
   };
+
+  handleNavSelect = selectedKey => {
+    if (typeof selectedKey !== "undefined") {
+      this.context.router.history.push(`/${selectedKey}`);
+    }
+  }
 
   render() {
     return (
@@ -104,9 +116,9 @@ class Search extends Component {
               align="justify"
               labelKey={option => {
                 if (option.title) {
-                  return option.title
+                  return option.title;
                 } else {
-                  return option.name
+                  return option.name;
                 }
               }}
               onChange={this.handleChange}
@@ -115,12 +127,41 @@ class Search extends Component {
               renderMenuItemChildren={this.renderMenuItemChildren}
             />
           </Navbar.Form>
-          {this.props.authUser &&
-            <Navbar.Text>
-              <SignOutButton />
-              {this.props.authUser.email}
-            </Navbar.Text>
+          {!this.props.authUser && 
+          <Nav pullRight id="nav-user" onSelect={this.handleNavSelect}> 
+            <NavItem eventKey={'signin'} href="#">
+              Login
+            </NavItem>
+            <NavItem eventKey={'signup'} href="#">
+              Sign up
+            </NavItem>
+          </Nav>
           }
+          {this.props.authUser && (
+          <Nav pullRight id="nav-user">             
+            <Dropdown id="user-dd">
+              <Dropdown.Toggle noCaret>
+                <Glyphicon glyph="user" />
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="user-dd__menu">
+                <MenuItem header disabled>
+                  <div className="title">
+                    {this.props.user ? this.props.user.username : null}
+                  </div>
+                  view profile
+                </MenuItem>    
+                <MenuItem divider />    
+                <MenuItem disabled>
+                  Watchlist
+                </MenuItem>    
+                <MenuItem divider />    
+                <MenuItem>
+                  <SignOutButton />
+                </MenuItem>    
+              </Dropdown.Menu>
+            </Dropdown>
+          </Nav>
+          )}
         </Navbar.Collapse>
       </Navbar>
     );
@@ -134,7 +175,8 @@ Search.contextTypes = {
 const mapStateToProps = state => {
   return {
     config: state.config,
-    authUser: state.session.authUser
+    authUser: state.session.authUser,
+    user: state.user.user
   };
 };
 

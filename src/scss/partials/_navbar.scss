@@ -24,3 +24,33 @@
 .navbar-collapse.in {
   overflow-y: visible;
 }
+
+#nav-user {
+  .navbar-default &.navbar-nav>li>a {
+    color: #fff;
+
+    &:hover {
+      color: #ddd;
+    }
+  }
+  #user-dd {
+    background: none;
+    border: none;
+    color: #ccc;
+    margin: 15px 15px 2px;
+    padding: 0;
+  }
+  .dropdown-header {
+    .title {
+      color: #000;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  .menuitem {
+    color: #666;
+    font-size: 13px;
+    font-weight: bold;
+  }
+}

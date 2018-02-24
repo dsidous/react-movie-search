@@ -21,7 +21,6 @@ const MatchWithMainLayout = ({ exact, path, component: Component }: any) => {
 };
 
 const Root = ({ store }) => (
-  // <Provider store={store}>
     <Router onUpdate={() => window.scrollTo(0, 0)} basename="/movie-search">
       <Switch>
         <MatchWithMainLayout exact={true} path="/" component={HomepageContainer} />
@@ -39,7 +38,6 @@ const Root = ({ store }) => (
         <MatchWithMainLayout path="/signin" component={SignIn} />
       </Switch>
     </Router>
-  // </Provider>
 );
 
 export default withAuthentication(Root);
