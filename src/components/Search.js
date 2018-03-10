@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { AsyncTypeahead } from "react-bootstrap-typeahead";
 import { Navbar, NavItem, Glyphicon, Dropdown, MenuItem, Nav } from "react-bootstrap";
+import { LinkContainer } from 'react-router-bootstrap';
 import { connect } from "react-redux";
 
 import SignOutButton from "./auth/SignOut";
@@ -137,30 +138,30 @@ class Search extends Component {
             </NavItem>
           </Nav>
           }
-          {this.props.authUser && (
-          <Nav pullRight id="nav-user">             
+          {this.props.authUser && (          
             <Dropdown id="user-dd">
               <Dropdown.Toggle noCaret>
                 <Glyphicon glyph="user" />
               </Dropdown.Toggle>
               <Dropdown.Menu className="user-dd__menu">
-                <MenuItem header disabled>
-                  <div className="title">
-                    {this.props.user ? this.props.user.username : null}
-                  </div>
+                <MenuItem header disabled>                  
+                  {this.props.user ? this.props.user.username : null}                  
+                </MenuItem>
+                <MenuItem eventKey="1" href="#" disabled>
                   view profile
                 </MenuItem>    
                 <MenuItem divider />    
-                <MenuItem disabled>
-                  Watchlist
-                </MenuItem>    
+                <LinkContainer to="/watchlist">
+                  <MenuItem eventkey="2">
+                    Watchlist
+                  </MenuItem>    
+                </LinkContainer>
                 <MenuItem divider />    
-                <MenuItem>
+                <MenuItem eventkey="3">
                   <SignOutButton />
                 </MenuItem>    
               </Dropdown.Menu>
-            </Dropdown>
-          </Nav>
+            </Dropdown>          
           )}
         </Navbar.Collapse>
       </Navbar>

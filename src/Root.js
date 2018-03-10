@@ -8,13 +8,14 @@ import CastImagesContainer from "./containers/CastImagesContainer";
 import HomepageContainer from "./containers/HomepageContainer";
 import FullCastCrewContainer from "./containers/FullCastCrewContainer";
 import TopPeopleContainer from "./containers/TopPeopleContainer";
+import WatchListContainer from "./containers/WatchListContainer";
 import SignUp from "./components/auth/SignUp";
 import SignIn from "./components/auth/SignIn";
 import withAuthentication from './components/auth/WithAuthentication';
 
-const MatchWithMainLayout = ({ exact, path, component: Component }: any) => {
+const MatchWithMainLayout = ({ exact, path, component: Component }) => {
   return (
-    <Route exact={exact} path={path} render={(props: any) => (
+    <Route exact={exact} path={path} render={(props) => (
       <MainLayout><Component {...props} /></MainLayout>
     )} />
   );
@@ -36,6 +37,7 @@ const Root = ({ store }) => (
         <MatchWithMainLayout path="/movies" component={DiscoverContainer} />
         <MatchWithMainLayout path="/signup" component={SignUp} />
         <MatchWithMainLayout path="/signin" component={SignIn} />
+        <MatchWithMainLayout path="/watchlist" component={WatchListContainer} />
       </Switch>
     </Router>
 );
