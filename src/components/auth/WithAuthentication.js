@@ -2,22 +2,32 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { firebase,db } from '../../firebase';
+import * as actions from "../../actions";
 
 const withAuthentication = (Component) => {
   class WithAuthentication extends React.Component {
     componentDidMount() {
-      const { onSetAuthUser, onSetUser } = this.props;
-
       firebase.auth.onAuthStateChanged(authUser => {
         if (authUser) {
           db.onceGetUser(authUser.uid)
-           .then(res => onSetUser(res.val()));
-          onSetAuthUser(authUser);                    
+           .then(res => this.props.dispatch(actions.onSetUser(res.val())))
+           .then(this.setWatchlist);
+          this.props.dispatch(actions.onSetAuthUser(authUser));                    
         } else {
-          onSetAuthUser(null);
-          onSetUser(null)
+          this.props.dispatch(actions.onSetAuthUser(null));
+          this.props.dispatch(actions.onSetUser(null));
+          this.props.dispatch({type: "RESET_WATCHLIST_STATE"});
         }
       });
+    }
+
+    setWatchlist = () => {
+      const { watchlist } = this.props.user.user;
+      if (watchlist) {
+        watchlist.map(movieId => 
+          this.props.dispatch(actions.getWatchListMovie(movieId))
+        )
+      }
     }
 
     render() {
@@ -27,12 +37,15 @@ const withAuthentication = (Component) => {
     }
   }
 
+  const mapStateToProps = (state) => ({
+    user: state.user
+  })
+
   const mapDispatchToProps = (dispatch) => ({
-    onSetAuthUser: (authUser) => dispatch({ type: 'AUTH_USER_SET', authUser }),
-    onSetUser: (user) => dispatch({ type: 'USER_SET', user }),
+    dispatch
   });
 
-  return connect(null, mapDispatchToProps)(WithAuthentication);
+  return connect(mapStateToProps, mapDispatchToProps)(WithAuthentication);
 }
 
 export default withAuthentication;

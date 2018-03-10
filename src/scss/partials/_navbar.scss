@@ -25,7 +25,21 @@
   overflow-y: visible;
 }
 
-#nav-user {
+.navbar-collapse .dropdown.btn-group {
+  @media screen and (min-width: 768px) {
+    float: right;
+    margin-right: 58px;
+  }
+}
+
+
+#user-dd {
+  background: none;
+  border: none;
+  color: #ccc;  
+  margin: 15px 15px 2px;
+  padding: 0;
+
   .navbar-default &.navbar-nav>li>a {
     color: #fff;
 
@@ -33,13 +47,7 @@
       color: #ddd;
     }
   }
-  #user-dd {
-    background: none;
-    border: none;
-    color: #ccc;
-    margin: 15px 15px 2px;
-    padding: 0;
-  }
+  
   .dropdown-header {
     .title {
       color: #000;

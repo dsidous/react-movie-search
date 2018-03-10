@@ -11,6 +11,8 @@ export const GET_NPMOVIES_TMDB = 'GET_NPMOVIES_TMDB';
 export const GET_UCMOVIES_TMDB = 'GET_UCMOVIES_TMDB';
 export const GET_TOPPEOPLE_TMDB = 'GET_TOPPEOPLE_TMDB';
 
+export const ADD_WATCHLIST_MOVIE_TMDB = 'ADD_WATCHLIST_MOVIE_TMDB';
+
 const APIKEY = 'cfe422613b250f702980a3bbf9e90716';
 
 export function getConfig(){
@@ -168,3 +170,42 @@ export function getTopPeople(query){
       dispatch(getUpcomingMovies());
     }
   }
+
+  export function onSetAuthUser(authUser){
+    return function(dispatch) {
+      dispatch({ type: 'AUTH_USER_SET', authUser })
+    }
+  }
+
+  export function onSetUser(user){
+    return function(dispatch){
+      dispatch({ type: 'USER_SET', user })
+    }
+  }
+
+  export function removeUserMovie(movieId){
+    return function(dispatch){
+      dispatch({ type: 'REMOVE_USER_MOVIE', movieId })
+    }
+  }
+
+  export function removeWatchlistMovie(movieId){
+    return function(dispatch){
+      dispatch({ type: 'REMOVE_WATCHLIST_MOVIE', movieId })
+    }
+  }
+
+  export function getWatchListMovie(movieId){
+    const url = `https://api.themoviedb.org/3/movie/${movieId}?&api_key=${APIKEY}`
+    return function(dispatch) {
+      dispatch({type: ADD_WATCHLIST_MOVIE_TMDB});
+      axios.get(url)
+        .then((response) => {
+          dispatch({type:ADD_WATCHLIST_MOVIE_TMDB + "_FULFILLED",movie: response.data})
+        })
+        .catch((err) => {
+          dispatch({type: ADD_WATCHLIST_MOVIE_TMDB + "_REJECTED", movie: err})
+        })
+    }
+  }
+  
