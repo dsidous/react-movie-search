@@ -19,13 +19,12 @@ class WatchListContainer extends Component {
   }
 
   removeMovie = movieId => {
-    this.props.dispatch(actions.removeWatchlistMovie(movieId));
-    this.props.dispatch(actions.removeUserMovie(movieId));
+    this.props.dispatch(actions.removeMovieFromWatchlist(movieId));
   }
   
   componentWillReceiveProps(nextProps) {
     if (nextProps.user.user && this.props.user.user && nextProps.user.user.watchlist !== this.props.user.user.watchlist) {
-      db.delUserWatchlist(this.props.authUser.uid, nextProps.user.user.watchlist);
+      db.updateUserWatchlist(this.props.authUser.uid, nextProps.user.user.watchlist);
     };
   }
 

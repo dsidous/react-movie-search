@@ -118,6 +118,10 @@ class MovieProfile extends Component {
 
             {video && <PlayTrailer video={video} />}
 
+            <button onClick={this.props.toggleWatchlist}>
+              Add to watchlist
+            </button>
+
             {this.props.movie.credits.crew[0] && (
               <Crew crew={this.props.movie.credits.crew.slice(0, 4)} />
             )}

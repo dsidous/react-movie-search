@@ -12,8 +12,8 @@ export const doCreateUser = (id, username, email) =>
 export const onceGetUser = (id) =>
   db.ref(`users/${id}`).once('value');
 
-export const delUserWatchlist = (id, watchlist) => {
+export const updateUserWatchlist = (id, watchlist) => {
+  console.log("DB ",watchlist);
   const wref = db.ref(`users/${id}/watchlist`);
   wref.set(watchlist);
-  //["284054","337167","401981","299536"]
 }
