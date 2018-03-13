@@ -7,11 +7,14 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import MovieProfile from "../components/MovieProfile";
 import * as actions from "../actions";
+import { db } from '../firebase';
+
 
 class MovieProfileContainer extends Component {
   state = {
     dcolor: [],
-    movieId: this.props.match.params.movieId || ''
+    movieId: this.props.match.params.movieId || '',
+    watchlist: false
   };
 
   static propTypes = {
@@ -28,6 +31,7 @@ class MovieProfileContainer extends Component {
     if (movieId !== '') {
       this.props.dispatch(actions.updateMovie(movieId));
     }
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -36,37 +40,56 @@ class MovieProfileContainer extends Component {
       this.props.dispatch(actions.updateMovie(movieId));
       this.setState({movieId});
     }
-  }
 
+    if (nextProps.user.user.watchlist && nextProps.user.user.watchlist.includes(Number(this.state.movieId))) {
+      this.setState({watchlist: true});
+    } else {
+      this.setState({watchlist: false});
+    }
+
+    console.log(nextProps);
+    if (this.props.user.user && nextProps.user.user.watchlist !== this.props.user.user.watchlist) {
+      console.log("UPDATE");
+    }
+
+  }
+  
   getPalette = path => {
     if (this.props.movie.movie.poster_path) {
       let path =
-        this.props.config.config.images.base_url +
-        this.props.config.config.images.poster_sizes[3] +
-        this.props.movie.movie.poster_path;
+      this.props.config.config.images.base_url +
+      this.props.config.config.images.poster_sizes[3] +
+      this.props.movie.movie.poster_path;
       Vibrant.from(path).getSwatches((err, palette) =>
-        this.setState({ dcolor: palette.DarkVibrant._rgb })
-      );
-    } else {
-      this.setState({ dcolor: [0, 0, 0] });
-    }
-  };
+      this.setState({ dcolor: palette.DarkVibrant._rgb })
+    );
+  } else {
+    this.setState({ dcolor: [0, 0, 0] });
+  }
+};
 
-  handleMovieClick = movieId => {
-    this.props.dispatch({ type: "RESET_MOVIE_STATE" });
-    this.props.dispatch(actions.updateMovie(movieId));
-    this.context.router.history.push(`/movie/${movieId}`);
-  };
-  
-  handleFullCrewClick = () => {
-    this.context.router.history.push(`/movie/${this.props.movie.movie.id}/crew`);
-  };
+handleMovieClick = movieId => {
+  this.props.dispatch({ type: "RESET_MOVIE_STATE" });
+  this.props.dispatch(actions.updateMovie(movieId));
+  this.context.router.history.push(`/movie/${movieId}`);
+};
 
-  handlePersonClick = personId => {
-    this.props.dispatch({ type: "RESET_PERSON" });
-    this.props.dispatch(actions.updatePerson(personId));
-    this.context.router.history.push(`/person/${personId}`);
-  };
+handleFullCrewClick = () => {
+  this.context.router.history.push(`/movie/${this.props.movie.movie.id}/crew`);
+};
+
+handlePersonClick = personId => {
+  this.props.dispatch({ type: "RESET_PERSON" });
+  this.props.dispatch(actions.updatePerson(personId));
+  this.context.router.history.push(`/person/${personId}`);
+};
+
+toggleWatchlist = () => {
+  this.state.watchlist
+   ? this.props.dispatch(actions.removeMovieFromWatchlist(this.props.movie.movie.id))  
+   : this.props.dispatch(actions.addMovieToWatchlist(this.props.movie.movie)) 
+  //db.updateUserWatchlist(this.props.authUser.uid, this.props.user.user.watchlist);
+}
 
   render() {
     
@@ -98,6 +121,7 @@ class MovieProfileContainer extends Component {
               handleMovieClick={this.handleMovieClick}
               handlePersonClick={this.handlePersonClick}
               handleFullCrewClick={this.handleFullCrewClick}
+              toggleWatchlist={this.toggleWatchlist}
             />
           </ReactCSSTransitionGroup>
         )}
@@ -109,7 +133,10 @@ class MovieProfileContainer extends Component {
 const mapStateToProps = state => {
   return {
     movie: state.movie,
-    config: state.config
+    config: state.config,
+    watchlist: state.watchlist,
+    authUser: state.session.authUser,
+    user: state.user
   };
 };
 
