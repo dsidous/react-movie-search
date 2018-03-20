@@ -1,7 +1,6 @@
 import React from 'react';
 
 import NoImage from "../images/noimage.jpg";
-import NoBdImage from "../images/nobdimage.jpg";
 
 const WatchList = (props) => {
   

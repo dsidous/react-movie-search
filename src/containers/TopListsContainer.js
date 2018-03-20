@@ -61,8 +61,7 @@ class TopListsContainer extends Component {
     this.setState({topmovies: movies});
   }
 
-  goToMovie = movieId => {
-    this.props.dispatch({ type: "RESET_MOVIE_STATE" });
+  goToMovie = movieId => {    
     this.context.router.history.push(`/movie/${movieId}`);
   };
 

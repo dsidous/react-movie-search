@@ -14,7 +14,7 @@ class CastImagesContainer extends Component {
 
     if (!this.props.person.personId) {
       let personId = this.props.match.params.personId;
-      this.props.dispatch(actions.updatePerson(personId));
+      this.props.dispatch(actions.getPerson(personId));
     }
 
     window.scroll(0,0);

@@ -5,15 +5,16 @@ import {
   GET_MOVIES_TMDB
 } from "./types";
 
-export function getMovie(movieId){
-  const url = `https://api.themoviedb.org/3/movie/${movieId}?&api_key=${APIKEY}&append_to_response=videos,images,similar,credits,reviews`
+export function getMovie(movieId,callback = null){
+  const url = `https://api.themoviedb.org/3/movie/${movieId}?&api_key=${APIKEY}&append_to_response=videos,images,similar,credits,reviews`;
 
-  return function(dispatch) {
+  return (dispatch) => {
     dispatch({type: GET_MOVIE_TMDB});
     axios.get(url)
-      .then((response) => {
-        dispatch({type:GET_MOVIE_TMDB + "_FULFILLED",movie: response.data})
+      .then(({data}) => {
+        dispatch({type:GET_MOVIE_TMDB + "_FULFILLED",movie: data})
       })
+      .then(() => callback ? callback() : null)
       .catch((err) => {
         dispatch({type: GET_MOVIE_TMDB + "_REJECTED", movie: err})
       })
@@ -22,22 +23,16 @@ export function getMovie(movieId){
 
 
 export function getDiscoverMovies(query){
-  const url = `https://api.themoviedb.org/3/discover/movie?&api_key=${APIKEY}${query}`
+  const url = `https://api.themoviedb.org/3/discover/movie?&api_key=${APIKEY}${query}`;
 
-  return function(dispatch) {
+  return (dispatch) => {
     dispatch({type: GET_MOVIES_TMDB});
     axios.get(url)
-      .then((response) => {
-        dispatch({type: GET_MOVIES_TMDB + "_FULFILLED",movies: response.data})
+      .then(({data}) => {
+        dispatch({type: GET_MOVIES_TMDB + "_FULFILLED",movies: data})
       })
       .catch((err) => {
         dispatch({type: GET_MOVIES_TMDB + "_REJECTED",movies: err})
       })
-  }
-}
-
-export function updateMovie(movieId){
-  return function(dispatch) {
-    dispatch(getMovie(movieId))   
   }
 }

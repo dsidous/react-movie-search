@@ -79,10 +79,8 @@ class Search extends Component {
   handleChange = selected => {
     if (typeof selected[0] !== "undefined") {
       if (selected[0].media_type === "movie") {
-        this.props.dispatch(actions.updateMovie(selected[0].id));
         this.context.router.history.push(`/movie/${selected[0].id}`);
       } else if (selected[0].media_type === "person") {
-        this.props.dispatch(actions.updatePerson(selected[0].id));
         this.context.router.history.push(`/person/${selected[0].id}`);
       }
     }

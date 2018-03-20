@@ -5,9 +5,6 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { withRouter } from "react-router-dom";
 import { IntlProvider } from 'react-intl';
 
-
-import * as actions from "../actions";
-
 import CastProfile from "../components/CastProfile";
 
 class CastProfielContainer extends Component {
@@ -25,8 +22,6 @@ class CastProfielContainer extends Component {
   };
 
   handlePersonMovieClick = movieId => {
-    this.props.dispatch({ type: "RESET_MOVIE_STATE" });
-    this.props.dispatch(actions.updateMovie(movieId));
     this.context.router.history.push(`/movie/${movieId}`);
   };
 
@@ -75,10 +70,6 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  dispatch
-});
-
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(CastProfielContainer)
+  connect(mapStateToProps)(CastProfielContainer)
 );

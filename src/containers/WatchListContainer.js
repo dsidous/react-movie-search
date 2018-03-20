@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 
-import { db } from '../firebase';
 import WatchList from '../components/WatchList';
 import * as actions from '../actions';
 
@@ -21,19 +20,13 @@ class WatchListContainer extends Component {
   removeMovie = movieId => {
     this.props.dispatch(actions.removeMovieFromWatchlist(movieId));
   }
-  
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.user.user && this.props.user.user && nextProps.user.user.watchlist !== this.props.user.user.watchlist) {
-      db.updateUserWatchlist(this.props.authUser.uid, nextProps.user.user.watchlist);
-    };
-  }
 
   render() {
     return (
       <div>
         {this.props.config.config.images &&
           <WatchList
-            movies={this.props.watchlist} 
+            movies={this.props.user.user.watchlist} 
             config={this.props.config.config}
             goToMovie={this.goToMovie}
             removeMovie={this.removeMovie}
@@ -47,7 +40,6 @@ class WatchListContainer extends Component {
 const mapStateToProps = state => {
   return {
     config: state.config,
-    watchlist: state.watchlist,
     authUser: state.session.authUser,
     user: state.user
   };
