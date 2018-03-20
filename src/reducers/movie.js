@@ -8,15 +8,13 @@ const movie = (
 
   switch (action.type) {
     case 'GET_MOVIE_TMDB':
-      return Object.assign({}, state, {
+      return Object.assign({}, initial_state, {
         isFetching: true
     })
     case 'GET_MOVIE_TMDB_FULFILLED':
       return Object.assign({}, state, {
         movie: action.movie
-      })    
-    case 'RESET_MOVIE_STATE':
-      return initial_state
+      })       
     default:
       return state;
   }

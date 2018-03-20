@@ -12,15 +12,15 @@ class PersonContainer extends Component{
   componentDidMount(){
     let personId = this.state.personId;
     if (personId !== '') {
-      this.props.dispatch(actions.updatePerson(personId));
+      this.props.dispatch(actions.getPerson(personId));
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.personId && (nextProps.match.params.personId !== this.state.personId)) {
       let personId = nextProps.match.params.personId;
-      this.props.dispatch(actions.updatePerson(personId));
       this.setState({personId});
+      this.props.dispatch(actions.getPerson(personId));
     }
   }
 

@@ -19,14 +19,14 @@ class App extends Component {
   componentDidMount(){
     let movieId = this.state.movieId;
     if (movieId !== '') {
-      this.props.dispatch(actions.updateMovie(movieId));
+      this.props.dispatch(actions.getMovie(movieId));
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.movieId && (nextProps.match.params.movieId !== this.state.movieId)) {
       let movieId = nextProps.match.params.movieId;
-      this.props.dispatch(actions.updateMovie(movieId));
+      this.props.dispatch(actions.getMovie(movieId));
       this.setState({movieId});
     }
   }

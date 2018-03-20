@@ -31,13 +31,10 @@ class TopPeopleContainer extends Component {
   componentDidUpdate = () => window.scrollTo(0, 0);
 
   handlePersonClick = personId => {
-    this.props.dispatch({ type: "RESET_PERSON" });
-    this.props.dispatch(actions.updatePerson(personId));
     this.context.router.history.push(`/person/${personId}`);
   };
 
   runQuery() {
-    this.props.dispatch({ type: "RESET_TOPPEOPLE_STATE" });
     this.props.dispatch(actions.getTopPeople("&page=" + this.state.page));
   }
 

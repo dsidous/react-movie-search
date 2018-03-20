@@ -50,8 +50,7 @@ class FilterContainer extends Component {
   }
 
   runQuery = () => {
-    const query = this.objectToQueryStr(this.state);
-    this.props.dispatch({ type: "RESET_MOVIES_STATE" });
+    const query = this.objectToQueryStr(this.state);    
     this.props.dispatch(actions.getDiscoverMovies("&" + query));
     this.context.router.history.push(`/movies?${query}`);
   };

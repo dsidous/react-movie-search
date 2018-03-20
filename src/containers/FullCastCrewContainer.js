@@ -19,7 +19,7 @@ class FullCastCrewContainer extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.movieId && (nextProps.match.params.movieId !== this.state.movieId)) {
       let movieId = nextProps.match.params.movieId;
-      this.props.dispatch(actions.updateMovie(movieId));
+      this.props.dispatch(actions.getMovie(movieId));
       this.setState({movieId});
     }
   }
@@ -27,8 +27,6 @@ class FullCastCrewContainer extends Component {
   componentDidUpdate = () => { window.scrollTo(0, 0) }
 
   handlePersonClick = personId => {
-    this.props.dispatch({ type: "RESET_PERSON" });
-    this.props.dispatch(actions.updatePerson(personId));
     this.context.router.history.push(`/person/${personId}`);
   };
 

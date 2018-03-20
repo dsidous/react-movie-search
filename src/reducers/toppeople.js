@@ -6,15 +6,13 @@ const initial_state = {
 const toppeople = (state = initial_state, action) => {
   switch (action.type) {
     case "GET_TOPPEOPLE_TMDB":
-      return Object.assign({}, state, {
+      return Object.assign({}, initial_state, {
         isFetching: true
       });
     case "GET_TOPPEOPLE_TMDB_FULFILLED":
       return Object.assign({}, state, {
         toppeople: action.toppeople
       });
-    case "RESET_TOPPEOPLE_STATE":
-      return initial_state;
     default:
       return state;
   }

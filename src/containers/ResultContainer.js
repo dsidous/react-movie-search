@@ -10,8 +10,7 @@ class ResultContainer extends Component {
     movies: PropTypes.array
   };
 
-  goToMovie = movieId => {
-    this.props.dispatch({ type: "RESET_MOVIE_STATE" });
+  goToMovie = movieId => {    
     this.context.router.history.push(`/movie/${movieId}`);
   };
 
