@@ -1,13 +1,40 @@
 import { AUTH_USER_SET, USER_SET } from './types';
+import { firebase } from '../firebase';
+import { db } from '../firebase/firebase';
 
-export function onSetAuthUser(authUser){
+let User = db;
+
+export function onSetAuthUser(){
   return function(dispatch) {
-    dispatch({ type: AUTH_USER_SET, authUser })
+    firebase.auth.onAuthStateChanged(authUser => {
+      if (authUser) {
+        User = db.ref(`users/${authUser.uid}`);
+        dispatch(onSetUser());
+        dispatch({ type: AUTH_USER_SET, authUser});                   
+      } else {
+        dispatch({ type: AUTH_USER_SET, authUser: null});
+        dispatch({ type: USER_SET, user: null});                   
+      }
+    });    
   }
 }
 
-export function onSetUser(user){
+export function onSetUser(id){
   return function(dispatch){
-    dispatch({ type: USER_SET, user })
+    User.on('value', snapshot => {
+      dispatch({ type: USER_SET, user: snapshot.val()})
+    });
+  }
+}
+
+export function addMovieToWatchlist(movie){
+  return function(dispatch) {
+    User.child(`watchlist/${movie.id}`).update(movie);
+  }
+}
+
+export function removeMovieFromWatchlist(movieId){
+  return function(dispatch){
+    User.child(`watchlist/${movieId}`).remove();
   }
 }

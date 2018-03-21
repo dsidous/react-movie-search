@@ -11,8 +11,7 @@ import * as actions from "../actions";
 class MovieProfileContainer extends Component {
   state = {
     dcolor: [],
-    movieId: this.props.match.params.movieId || '',
-    watchlist: false
+    movieId: this.props.match.params.movieId || ''
   };
 
   static propTypes = {
@@ -67,7 +66,7 @@ handlePersonClick = personId => {
 };
 
 toggleWatchlist = () => {
-  this.state.watchlist
+  this.props.user.user.watchlist[this.state.movieId]
    ? this.props.dispatch(actions.removeMovieFromWatchlist(this.props.movie.movie.id))  
    : this.props.dispatch(actions.addMovieToWatchlist(this.props.movie.movie)) 
 }
@@ -114,8 +113,7 @@ toggleWatchlist = () => {
 const mapStateToProps = state => {
   return {
     movie: state.movie,
-    config: state.config,
-    watchlist: state.watchlist,
+    config: state.config,    
     authUser: state.session.authUser,
     user: state.user
   };

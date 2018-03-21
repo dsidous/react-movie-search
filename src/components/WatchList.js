@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 
 import NoImage from "../images/noimage.jpg";
@@ -13,10 +14,10 @@ const WatchList = (props) => {
 
   return (
     <div>
-      {movies.length > 0 
+      {_.size(movies) > 0 
       ? (
         <ul className="movies-list movies-list--watchlist">
-        {movies.map(movie => (
+        {_.map(movies, movie => (
         <li key={movie.id} className="movies-list__element">
         {movie.poster_path !== null ? (
           <picture
