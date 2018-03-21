@@ -7,7 +7,6 @@ import config from './config';
 import person from './person';
 import homelists from './homelists';
 import toppeople from './toppeople';
-import watchlist from './watchlist';
 
 const reducers = combineReducers({
   config,
@@ -17,8 +16,7 @@ const reducers = combineReducers({
   homelists,
   toppeople,
   session,
-  user,
-  watchlist
+  user
 })
 
 export default reducers;

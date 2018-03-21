@@ -13,7 +13,6 @@ class WatchListContainer extends Component {
   };
 
   goToMovie = movieId => {
-    this.props.dispatch({ type: "RESET_MOVIE_STATE" });
     this.context.router.history.push(`/movie/${movieId}`);
   }
 
@@ -21,10 +20,10 @@ class WatchListContainer extends Component {
     this.props.dispatch(actions.removeMovieFromWatchlist(movieId));
   }
 
-  render() {
+  render() {    
     return (
       <div>
-        {this.props.config.config.images &&
+        {this.props.config.config.images && this.props.user.user.watchlist &&
           <WatchList
             movies={this.props.user.user.watchlist} 
             config={this.props.config.config}
