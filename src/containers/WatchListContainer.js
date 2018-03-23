@@ -11,6 +11,12 @@ class WatchListContainer extends Component {
   static contextTypes = {
     router: PropTypes.object.isRequired
   };
+  
+  // componentDidMount(){
+  //   if (!this.props.authUser) {
+  //     this.context.router.history.push('/signin');
+  //   }
+  // }
 
   goToMovie = movieId => {
     this.context.router.history.push(`/movie/${movieId}`);
@@ -20,10 +26,17 @@ class WatchListContainer extends Component {
     this.props.dispatch(actions.removeMovieFromWatchlist(movieId));
   }
 
-  render() {    
+  render() {   
+    if (!this.props.authUser) {
+      return (
+        <div>
+          Please sign in or register for watchlist
+        </div>
+      )
+    } 
     return (
       <div>
-        {this.props.config.config.images && this.props.user.user.watchlist &&
+        {this.props.config.config.images && this.props.user.user &&
           <WatchList
             movies={this.props.user.user.watchlist} 
             config={this.props.config.config}

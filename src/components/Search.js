@@ -108,6 +108,11 @@ class Search extends Component {
           <Navbar.Text>
             <Link to={"/person"}>PEOPLE</Link>
           </Navbar.Text>
+          <Navbar.Text>
+            <Link to={"/watchlist"}>
+              WATCHLIST <span className="fa fa-bookmark"></span>
+            </Link>
+          </Navbar.Text>
           <Navbar.Form pullLeft>
             <AsyncTypeahead
               {...this.state}

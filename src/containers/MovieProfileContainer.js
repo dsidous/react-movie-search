@@ -10,7 +10,7 @@ import * as actions from "../actions";
 
 class MovieProfileContainer extends Component {
   state = {
-    dcolor: [],
+    dcolor: [0, 0, 0],
     movieId: this.props.match.params.movieId || ''
   };
 
@@ -25,10 +25,7 @@ class MovieProfileContainer extends Component {
 
   componentDidMount(){
     let movieId = this.state.movieId;
-    if (movieId !== '') {
-      this.props.dispatch(actions.getMovie(movieId));
-    }
-
+    this.props.dispatch(actions.getMovie(movieId,() => this.getPalette()));
   }
 
   componentWillReceiveProps(nextProps) {    
@@ -36,6 +33,7 @@ class MovieProfileContainer extends Component {
       let movieId = nextProps.match.params.movieId;
       this.setState({movieId});
       this.props.dispatch(actions.getMovie(movieId));
+      this.getPalette();
     }
   }
   
@@ -45,13 +43,12 @@ class MovieProfileContainer extends Component {
       this.props.config.config.images.base_url +
       this.props.config.config.images.poster_sizes[3] +
       this.props.movie.movie.poster_path;
-      Vibrant.from(path).getSwatches((err, palette) =>
-      this.setState({ dcolor: palette.DarkVibrant._rgb })
-    );
-  } else {
-    this.setState({ dcolor: [0, 0, 0] });
-  }
-};
+      Vibrant.from(path).getSwatches((err,palette) => {
+          this.setState({ dcolor: (palette.DarkVibrant !== null) ? palette.DarkVibrant._rgb : [0, 0, 0] })
+        }
+      )
+    } 
+  };
 
 handleMovieClick = movieId => {
   this.context.router.history.push(`/movie/${movieId}`);
@@ -66,7 +63,7 @@ handlePersonClick = personId => {
 };
 
 toggleWatchlist = () => {
-  this.props.user.user.watchlist[this.state.movieId]
+  (this.props.user.user.watchlist && this.props.user.user.watchlist[this.state.movieId])
    ? this.props.dispatch(actions.removeMovieFromWatchlist(this.props.movie.movie.id))  
    : this.props.dispatch(actions.addMovieToWatchlist(this.props.movie.movie)) 
 }
@@ -96,7 +93,7 @@ toggleWatchlist = () => {
               key={this.props.movie.movie.id}
               config={this.props.config.config}
               movie={this.props.movie.movie}
-              getPalette={this.getPalette}
+              watchlist={(this.props.user.user.watchlist && this.props.user.user.watchlist[this.state.movieId])}
               dcolor={this.state.dcolor}
               handleMovieClick={this.handleMovieClick}
               handlePersonClick={this.handlePersonClick}
