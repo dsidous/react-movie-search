@@ -23,10 +23,6 @@ class MovieProfile extends Component {
     handleMovieClick: PropTypes.func.isRequired
   };
 
-  componentWillMount() {
-    this.props.getPalette();
-  }
-
   componentDidMount = () => { window.scrollTo(0, 0) }
   
   render() {
@@ -93,6 +89,13 @@ class MovieProfile extends Component {
               ) : (
                 <div className="movie-no-image-holder" />
               )}
+              <div className="movie-add-watchlist__wrapper" onClick={this.props.toggleWatchlist}>
+                <span className={
+                  ["movie-add-watchlist__icon fa",
+                   this.props.watchlist ? "fa-bookmark": 'fa-bookmark-o'].join(" ")
+                  }>
+                </span>
+              </div>
             </div>
             <div className="movie-data">
               <h1 className="movie-title">
@@ -117,10 +120,6 @@ class MovieProfile extends Component {
             </div>
 
             {video && <PlayTrailer video={video} />}
-
-            <button onClick={this.props.toggleWatchlist}>
-              Add to watchlist
-            </button>
 
             {this.props.movie.credits.crew[0] && (
               <Crew crew={this.props.movie.credits.crew.slice(0, 4)} />

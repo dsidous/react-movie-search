@@ -5,12 +5,14 @@ import { Alert, Button } from 'react-bootstrap';
 import FieldGroup from '../FieldGroup';
 import { SignUpLink } from "./SignUp";
 import { auth } from "../../firebase";
+import SignInFacebook from './SignInFacebook';
 
 const SignInPage = ({ history }) => (
-  <div>
+  <div className="form-signin">
+    <SignInFacebook history={history} />
     <SignInForm history={history} />
   </div>
-);
+)
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value
@@ -53,8 +55,8 @@ class SignInForm extends Component {
     const isInvalid = password === "" || email === "";
     
     return (
-      <form onSubmit={this.onSubmit} className="form-signin">
-        <h3>Please sign in</h3>
+      <form onSubmit={this.onSubmit}>
+        <h3>Or Sign in</h3>
 
         {error && <Alert bsStyle="danger">{error.message}</Alert>}
         <FieldGroup

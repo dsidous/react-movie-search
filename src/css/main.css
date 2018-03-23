@@ -150,6 +150,7 @@ div.filter-element-wrapper {
   border-radius: 8px;
   margin: 10px 0 20px;
   overflow: hidden;
+  position: relative;
   box-shadow: 0 0 30px 10px rgba(107, 106, 106, 0.1); }
 
 .movies-poster {
@@ -309,7 +310,8 @@ div.filter-element-wrapper {
 .poster {
   grid-area: mposter;
   grid-row: 2 / 4;
-  margin-left: 10px; }
+  margin-left: 10px;
+  position: relative; }
 
 .poster img {
   border-radius: 2px;
@@ -502,6 +504,21 @@ li.movie-genres:last-child:after {
 
 .similar h4 {
   margin-left: 10px; }
+
+.movie-add-watchlist__wrapper {
+  cursor: pointer;
+  left: 15px;
+  position: absolute;
+  top: -8px; }
+
+.movie-add-watchlist__icon {
+  color: #FBC500;
+  font-size: 3rem;
+  text-shadow: 2px 2px 8px #000;
+  transition: .3s linear; }
+  @media screen and (min-width: 776px) {
+    .movie-add-watchlist__icon {
+      font-size: 5rem; } }
 
 @media screen and (min-width: 776px) {
   .full-background {
@@ -1078,26 +1095,13 @@ li.movie-genres:last-child:after {
       width: 90%; }
 
 .form-signin {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   max-width: 330px;
   padding: 15px;
-  margin: 0 auto; }
+  margin: 30px auto; }
 
-@media screen and (min-width: 640px) {
-  .movies-list--watchlist {
-    grid-template-columns: 1fr;
-    max-width: 900px; }
-    .movies-list--watchlist .movies-list__element {
-      grid-column-gap: 10px;
-      grid-template-columns: 1fr 6fr;
-      grid-template-rows: 40px 40px;
-      margin: 0;
-      padding: 0; } }
-
-@media screen and (min-width: 940px) {
-  .movies-list--watchlist .movies-list__element {
-    grid-template-columns: 1fr 6fr;
-    grid-template-rows: 40px 40px; }
-  .movies-poster {
-    grid-row: 1 / 4; }
-  .movies-overview {
-    margin: 0 10px; } }
+.movies-list--watchlist {
+  margin: 50px auto;
+  max-width: 1150px; }

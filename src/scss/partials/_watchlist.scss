@@ -1,28 +1,4 @@
-@media screen and (min-width: 640px) {
-  .movies-list--watchlist {
-    grid-template-columns: 1fr;
-    max-width: 900px;
-    .movies-list__element {
-      grid-column-gap: 10px;
-      grid-template-columns: 1fr 6fr;
-      grid-template-rows: 40px 40px;
-      margin: 0;
-      padding: 0;
-    }
-  }
-}
-
-@media screen and (min-width: 940px) {
-  .movies-list--watchlist {
-    .movies-list__element {
-      grid-template-columns: 1fr 6fr;
-      grid-template-rows: 40px 40px;
-    }
-  }
-  .movies-poster {
-    grid-row: 1 / 4;
-  }
-  .movies-overview {
-    margin: 0 10px;
-  }
+.movies-list--watchlist {
+  margin: 50px auto;
+  max-width: 1150px;
 }

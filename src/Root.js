@@ -24,7 +24,6 @@ const MatchWithMainLayout = ({ exact, path, component: Component }) => {
 const Root = ({ store }) => (
     <Router onUpdate={() => window.scrollTo(0, 0)} basename="/movie-search">
       <Switch>
-        <MatchWithMainLayout exact={true} path="/" component={HomepageContainer} />
         <MatchWithMainLayout exact={true} path="/movie/:movieId" component={MovieProfileContainer} />
         <MatchWithMainLayout
           exact={true}
@@ -38,6 +37,7 @@ const Root = ({ store }) => (
         <MatchWithMainLayout path="/signup" component={SignUp} />
         <MatchWithMainLayout path="/signin" component={SignIn} />
         <MatchWithMainLayout path="/watchlist" component={WatchListContainer} />
+        <MatchWithMainLayout path="/" component={HomepageContainer} />
       </Switch>
     </Router>
 );

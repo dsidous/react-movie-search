@@ -56,6 +56,7 @@
   grid-area: mposter;
   grid-row: 2 / 4;
   margin-left: 10px;
+  position: relative;
 }
 
 .poster img {
@@ -287,6 +288,26 @@ li.movie-genres:last-child:after {
 
 .similar h4 {
   margin-left: 10px;
+}
+
+.movie-add-watchlist {
+  &__wrapper {
+    cursor: pointer;
+    left: 15px;
+    position: absolute;
+    top: -8px;
+  }
+
+  &__icon {
+    color: #FBC500;
+    font-size: 3rem;
+    text-shadow: 2px 2px 8px #000;
+    transition: .3s linear;
+
+    @media screen and (min-width: 776px) {
+      font-size: 5rem;
+    }
+  }
 }
 
 @media screen and (min-width: 776px) {
