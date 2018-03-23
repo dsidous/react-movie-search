@@ -93,12 +93,12 @@ toggleWatchlist = () => {
               key={this.props.movie.movie.id}
               config={this.props.config.config}
               movie={this.props.movie.movie}
-              watchlist={(this.props.user.user.watchlist && this.props.user.user.watchlist[this.state.movieId])}
               dcolor={this.state.dcolor}
               handleMovieClick={this.handleMovieClick}
               handlePersonClick={this.handlePersonClick}
               handleFullCrewClick={this.handleFullCrewClick}
-              toggleWatchlist={this.toggleWatchlist}
+              watchlist={(this.props.user.user && this.props.user.user.watchlist && this.props.user.user.watchlist[this.state.movieId])}
+              toggleWatchlist={this.props.user.user ? this.toggleWatchlist : false}
             />
           </ReactCSSTransitionGroup>
         )}
