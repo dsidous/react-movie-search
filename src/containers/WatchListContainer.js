@@ -11,12 +11,6 @@ class WatchListContainer extends Component {
   static contextTypes = {
     router: PropTypes.object.isRequired
   };
-  
-  // componentDidMount(){
-  //   if (!this.props.authUser) {
-  //     this.context.router.history.push('/signin');
-  //   }
-  // }
 
   goToMovie = movieId => {
     this.context.router.history.push(`/movie/${movieId}`);

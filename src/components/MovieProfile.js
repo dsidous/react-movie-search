@@ -89,13 +89,16 @@ class MovieProfile extends Component {
               ) : (
                 <div className="movie-no-image-holder" />
               )}
-              <div className="movie-add-watchlist__wrapper" onClick={this.props.toggleWatchlist}>
-                <span className={
-                  ["movie-add-watchlist__icon fa",
-                   this.props.watchlist ? "fa-bookmark": 'fa-bookmark-o'].join(" ")
-                  }>
-                </span>
-              </div>
+
+              {this.props.toggleWatchlist !== false ? (
+                <div className="movie-add-watchlist__wrapper" onClick={this.props.toggleWatchlist}>
+                  <span className={
+                    ["movie-add-watchlist__icon fa",
+                      this.props.watchlist ? "fa-bookmark": 'fa-bookmark-o'].join(" ")
+                    }>
+                  </span>
+                </div>
+              ) : null }
             </div>
             <div className="movie-data">
               <h1 className="movie-title">
