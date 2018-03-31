@@ -9,6 +9,7 @@ import SimilarMovies from "./SimilarMovies";
 import FullScreenBackdrop from "./FullScreenBackdrop";
 import Reviews from "./Reviews";
 import SEO from "./SEO";
+import WatchlistBookmark from './WatchlistBookmark';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -56,7 +57,6 @@ class MovieProfile extends Component {
         {genre.name}
       </li>
     ));
-
     return (
       <div>
         <Style>
@@ -89,16 +89,7 @@ class MovieProfile extends Component {
               ) : (
                 <div className="movie-no-image-holder" />
               )}
-
-              {this.props.toggleWatchlist !== false ? (
-                <div className="movie-add-watchlist__wrapper" onClick={this.props.toggleWatchlist}>
-                  <span className={
-                    ["movie-add-watchlist__icon fa",
-                      this.props.watchlist ? "fa-bookmark": 'fa-bookmark-o'].join(" ")
-                    }>
-                  </span>
-                </div>
-              ) : null }
+              <WatchlistBookmark movie={this.props.movie}/>              
             </div>
             <div className="movie-data">
               <h1 className="movie-title">

@@ -22,7 +22,7 @@ const MatchWithMainLayout = ({ exact, path, component: Component }) => {
 };
 
 const Root = ({ store }) => (
-    <Router onUpdate={() => window.scrollTo(0, 0)} basename="/movie-search">
+    <Router onUpdate={() => window.scrollTo(0, 0)}>
       <Switch>
         <MatchWithMainLayout exact={true} path="/movie/:movieId" component={MovieProfileContainer} />
         <MatchWithMainLayout

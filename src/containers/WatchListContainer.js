@@ -4,21 +4,12 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 
 import WatchList from '../components/WatchList';
-import * as actions from '../actions';
 
 class WatchListContainer extends Component {
   
   static contextTypes = {
     router: PropTypes.object.isRequired
   };
-
-  goToMovie = movieId => {
-    this.context.router.history.push(`/movie/${movieId}`);
-  }
-
-  removeMovie = movieId => {
-    this.props.dispatch(actions.removeMovieFromWatchlist(movieId));
-  }
 
   render() {   
     if (!this.props.authUser) {
@@ -34,8 +25,6 @@ class WatchListContainer extends Component {
           <WatchList
             movies={this.props.user.user.watchlist} 
             config={this.props.config.config}
-            goToMovie={this.goToMovie}
-            removeMovie={this.removeMovie}
             />
         }
       </div>  
@@ -51,10 +40,6 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  dispatch
-});
-
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(WatchListContainer)
+  connect(mapStateToProps)(WatchListContainer)
 );
