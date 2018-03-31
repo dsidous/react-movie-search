@@ -62,12 +62,6 @@ handlePersonClick = personId => {
   this.context.router.history.push(`/person/${personId}`);
 };
 
-toggleWatchlist = () => {
-  (this.props.user.user.watchlist && this.props.user.user.watchlist[this.state.movieId])
-   ? this.props.dispatch(actions.removeMovieFromWatchlist(this.props.movie.movie.id))  
-   : this.props.dispatch(actions.addMovieToWatchlist(this.props.movie.movie)) 
-}
-
   render() {
     
     return (
@@ -97,8 +91,6 @@ toggleWatchlist = () => {
               handleMovieClick={this.handleMovieClick}
               handlePersonClick={this.handlePersonClick}
               handleFullCrewClick={this.handleFullCrewClick}
-              watchlist={(this.props.user.user && this.props.user.user.watchlist && this.props.user.user.watchlist[this.state.movieId])}
-              toggleWatchlist={this.props.user.user ? this.toggleWatchlist : false}
             />
           </ReactCSSTransitionGroup>
         )}
@@ -111,8 +103,6 @@ const mapStateToProps = state => {
   return {
     movie: state.movie,
     config: state.config,    
-    authUser: state.session.authUser,
-    user: state.user
   };
 };
 

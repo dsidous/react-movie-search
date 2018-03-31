@@ -10,10 +10,6 @@ class ResultContainer extends Component {
     movies: PropTypes.array
   };
 
-  goToMovie = movieId => {    
-    this.context.router.history.push(`/movie/${movieId}`);
-  };
-
   render() {
     return (
       <div className="result-wrapper">
@@ -28,8 +24,7 @@ class ResultContainer extends Component {
           )
         ) : (
           this.props.config.genres &&
-            <Result {...this.props} goToMovie={this.goToMovie} />
-          
+            <Result {...this.props} />          
         )}
       </div>
     );
@@ -48,8 +43,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  dispatch
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ResultContainer);
+export default connect(mapStateToProps)(ResultContainer);

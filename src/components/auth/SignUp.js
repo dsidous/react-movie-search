@@ -4,10 +4,11 @@ import { Alert, Button } from 'react-bootstrap';
 
 import FieldGroup from '../FieldGroup';
 import { auth,db } from '../../firebase';
-
+import SignInFacebook from './SignInFacebook';
 
 const SignUpPage = ({ history }) => (
-  <div>
+  <div className="form-signin">
+    <SignInFacebook history={history} />
     <SignUpForm history={history} />
   </div>
 );
@@ -64,9 +65,9 @@ class SignUpForm extends Component {
       username === "";
 
     return (
-      <form onSubmit={this.onSubmit} className="form-signin">
+      <form onSubmit={this.onSubmit}>
       
-      <h3>Sign up for an account</h3>
+      <h3>Or Sign up for an account</h3>
 
       {error && 
         <Alert bsStyle="danger">
