@@ -18,3 +18,6 @@ export const REMOVE_WATCHLIST_MOVIE = 'REMOVE_WATCHLIST_MOVIE';
 
 export const AUTH_USER_SET = 'AUTH_USER_SET';
 export const USER_SET = 'USER_SET';
+
+export const GET_TV_TMDB = 'GET_TV_TMDB';
+export const GET_TVS_TMDB = 'GET_TVS_TMDB';

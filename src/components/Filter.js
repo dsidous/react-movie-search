@@ -107,7 +107,7 @@ function Filter(props) {
           </FormControl>
         </FormGroup>
       </Form>
-      <ResultContainer />
+      <ResultContainer path={props.state.path} />
       <Pager>
         <Pager.Item
           previous

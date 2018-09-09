@@ -114,10 +114,6 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  dispatch
-});
-
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(TopListsContainer)
+  connect(mapStateToProps)(TopListsContainer)
 );

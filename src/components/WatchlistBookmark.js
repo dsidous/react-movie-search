@@ -6,17 +6,19 @@ import * as actions from '../actions';
 class WatchlistBookmark extends Component {
 
   toggleMovie = () => {
-    (this.props.user.user.watchlist && this.props.user.user.watchlist[this.props.movie.id])
-      ? this.props.dispatch(actions.removeMovieFromWatchlist(this.props.movie.id))  
-      : this.props.dispatch(actions.addMovieToWatchlist(this.props.movie)) 
+    const {movie, user} = this.props;
+
+    (user.watchlist && user.watchlist[movie.id])
+      ? this.props.dispatch(actions.removeMovieFromWatchlist(movie.id))  
+      : this.props.dispatch(actions.addMovieToWatchlist(movie)) 
   }
 
   render() {
-    const {movie} = this.props; 
-    const watchlist=this.props.user.user && this.props.user.user.watchlist && this.props.user.user.watchlist[movie.id];
+    const {movie, user} = this.props; 
+    const watchlist = user && user.watchlist && user.watchlist[movie.id];
     return (
       <div className="movie-add-watchlist__wrapper" onClick={() => this.toggleMovie()}>
-        {this.props.user.user && 
+        {user && 
           <span className={
             ["movie-add-watchlist__icon fa",
             (watchlist !== undefined) ? "fa-bookmark": "fa-bookmark-o"].join(" ")
@@ -28,11 +30,7 @@ class WatchlistBookmark extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user.user
 });
 
-const mapDispatchToProps = dispatch => ({
-  dispatch
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(WatchlistBookmark);
+export default connect(mapStateToProps)(WatchlistBookmark);

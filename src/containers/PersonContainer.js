@@ -33,10 +33,5 @@ class PersonContainer extends Component{
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  dispatch
-})
-
 export default connect(
-  mapDispatchToProps
 )(PersonContainer);

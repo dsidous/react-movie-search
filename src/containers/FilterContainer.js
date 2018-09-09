@@ -16,6 +16,7 @@ class FilterContainer extends Component {
     const year = d.getFullYear();
 
     this.state = {
+      path: this.props.match.path,
       page: parseInt(params.get("page"), 10) || 1,
       primary_release_year: params.get("primary_release_year") || year,
       sort_by: params.get("sort_by") || "popularity.desc",
@@ -31,8 +32,12 @@ class FilterContainer extends Component {
 
   componentDidMount() {
     const query = this.objectToQueryStr(this.state);
+    const path = this.state.path;
+
     this.props.dispatch(
-      actions.getDiscoverMovies(`&${query}`)
+      path === '/movies'
+        ? actions.getDiscoverMovies(`&${query}`)
+        : actions.getDiscoverTvs(`&${query}`)
     );
   }
 
@@ -94,14 +99,11 @@ FilterContainer.contextTypes = {
 const mapStateToProps = state => {
   return {
     config: state.config,
-    movies: state.movies
+    movies: state.movies,
+    tvs: state.tvs
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  dispatch
-});
-
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(FilterContainer)
+  connect(mapStateToProps)(FilterContainer)
 )

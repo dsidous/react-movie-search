@@ -34,6 +34,7 @@ const Root = ({ store }) => (
         <MatchWithMainLayout exact={true} path="/person/:personId/images" component={CastImagesContainer} />
         <MatchWithMainLayout exact={true} path="/person" component={TopPeopleContainer} />
         <MatchWithMainLayout path="/movies" component={DiscoverContainer} />
+        <MatchWithMainLayout path="/tvs" component={DiscoverContainer} />
         <MatchWithMainLayout path="/signup" component={SignUp} />
         <MatchWithMainLayout path="/signin" component={SignIn} />
         <MatchWithMainLayout path="/watchlist" component={WatchListContainer} />

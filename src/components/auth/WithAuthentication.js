@@ -16,11 +16,7 @@ const withAuthentication = (Component) => {
     }
   }
 
-  const mapDispatchToProps = (dispatch) => ({
-    dispatch
-  });
-
-  return connect(null, mapDispatchToProps)(WithAuthentication);
+  return connect()(WithAuthentication);
 }
 
 export default withAuthentication;
