@@ -50,14 +50,22 @@ const MovieCard = ({
       )}
 
       <div className="clearfix">
-        <div className="movies-title">{movie.title}</div>
+        <div className="movies-title">
+          {movie.title 
+            ? movie.title
+            : movie.name
+          }
+        </div>
         <div className="movies-rating">{movie.vote_average}</div>
       </div>
-
       <div className="clearfix">
-        <div className="movies-year">{movie.release_date.slice(0, 4)}</div>
+        <div className="movies-year">
+          {movie.release_date 
+            ? movie.release_date.slice(0, 4)
+            : movie.first_air_date.slice(0,4)
+          }
+        </div>
       </div>
-
       <div
         className={[
           "movies-overview ",

@@ -3,6 +3,7 @@ import session from './session';
 import user from './user';
 import movie from './movie';
 import movies from './movies';
+import tvs from './tvs';
 import config from './config';
 import person from './person';
 import homelists from './homelists';
@@ -12,6 +13,7 @@ const reducers = combineReducers({
   config,
   movie,
   movies,
+  tvs,
   person,
   homelists,
   toppeople,

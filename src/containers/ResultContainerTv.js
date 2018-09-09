@@ -4,13 +4,10 @@ import { connect } from "react-redux";
 
 import Result from "../components/Result";
 
-class ResultContainer extends Component {
-  
+class ResultContainerTv extends Component {
   static propTypes = {
     config: PropTypes.object.isRequired,
-    movies: PropTypes.array,
-    tvs: PropTypes.array,
-    path: PropTypes.string
+    movies: PropTypes.array
   };
 
   render() {
@@ -38,12 +35,12 @@ ResultContainer.contextTypes = {
   router: PropTypes.object.isRequired
 };
 
-const mapStateToProps = (state,ownProps) => {
+const mapStateToProps = state => {
   return {
     config: state.config,
-    movies: ownProps.path === '/movies' ? state.movies.movies.results : state.tvs.tvs.results,
-    isFetching: ownProps.path === '/movies' ? state.movies.isFetching : state.tvs.isFetching
+    movies: state.movies.movies.results,
+    isFetching: state.movies.isFetching
   };
 };
 
-export default connect(mapStateToProps)(ResultContainer);
+export default connect(mapStateToProps)(ResultContainerTv);
