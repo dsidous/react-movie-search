@@ -1,4 +1,4 @@
-export const APIKEY = 'cfe422613b250f702980a3bbf9e90716';
+export const APIKEY = process.env.REACT_APP_TMDB_API_KEY;
 
 export const GET_CONFIG = 'GET_CONFIG';
 export const GET_MOVIE_TMDB = 'GET_MOVIE_TMDB';
