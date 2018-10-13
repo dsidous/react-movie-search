@@ -3,21 +3,15 @@ import { call, put, takeLatest } from "redux-saga/effects";
 
 import { APIKEY, GET_MOVIE_TMDB, GET_MOVIES_TMDB } from "./types";
 
-export function getMovie(movieId, callback = null) {
-  const url = `https://api.themoviedb.org/3/movie/${movieId}?&api_key=${APIKEY}&append_to_response=videos,images,similar,credits,reviews`;
+function* getMovie(movieId) {
+  try {
+    const url = `https://api.themoviedb.org/3/movie/${movieId}?&api_key=${APIKEY}&append_to_response=videos,images,similar,credits,reviews`;
+    const movie = yield call([axios, axios.get], url);
 
-  return dispatch => {
-    dispatch({ type: GET_MOVIE_TMDB });
-    axios
-      .get(url)
-      .then(({ data }) => {
-        dispatch({ type: GET_MOVIE_TMDB + "_FULFILLED", movie: data });
-      })
-      .then(() => (callback ? callback() : null))
-      .catch(err => {
-        dispatch({ type: GET_MOVIE_TMDB + "_REJECTED", movie: err });
-      });
-  };
+    yield put({ type: GET_MOVIE_TMDB + "_FULFILLED", movie });
+  } catch (err) {
+    dispatch({ type: GET_MOVIE_TMDB + "_REJECTED", movie: err });
+  }
 }
 
 function* getDiscoverMovies(query) {
@@ -33,4 +27,8 @@ function* getDiscoverMovies(query) {
 
 export function* getDiscoverMoviesWatcher() {
   yield takeLatest(GET_MOVIES_TMDB, getDiscoverMovies);
+}
+
+export function* getMovieWatcher() {
+  yield takeLatest(GET_MOVIE_TMDB, getMovie);
 }

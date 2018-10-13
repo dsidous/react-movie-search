@@ -9,8 +9,8 @@ class WatchlistBookmark extends Component {
     const {movie, user} = this.props;
 
     (user.watchlist && user.watchlist[movie.id])
-      ? this.props.dispatch(actions.removeMovieFromWatchlist(movie.id))  
-      : this.props.dispatch(actions.addMovieToWatchlist(movie)) 
+      ? actions.removeMovieFromWatchlist(movie.id)  
+      : actions.addMovieToWatchlist(movie) 
   }
 
   render() {
