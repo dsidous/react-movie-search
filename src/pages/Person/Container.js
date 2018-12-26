@@ -24,7 +24,6 @@ export default class CastProfielContainer extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         {

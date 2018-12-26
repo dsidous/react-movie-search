@@ -20,6 +20,12 @@ export const query = gql`
           vote_count
         }
       }
+      images {
+        file_path
+        height
+        width
+        vote_average
+      }
     }  
   }
 `;
