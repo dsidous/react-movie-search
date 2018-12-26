@@ -1,17 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "font-awesome/css/font-awesome.min.css";
-import { Provider } from "react-redux";
+import { ApolloProvider } from "react-apollo";
 
 import Root from "./Root";
+import { client } from './apollo';
 import "./css/main.css";
-import configureStore from "./store";
-
-const store = configureStore();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Root store={store} />
-  </Provider>,
+  <ApolloProvider client={client}>
+    <Root />
+  </ApolloProvider>,
   document.getElementById("root")
 );

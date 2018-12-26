@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
-import MovieProfileContainer from "./containers/MovieProfileContainer";
+import MovieProfileContainer from "./pages/Movie";
 import DiscoverContainer from "./containers/DiscoverContainer";
 import PersonContainer from "./containers/PersonContainer";
 import CastImagesContainer from "./containers/CastImagesContainer";
@@ -21,26 +21,26 @@ const MatchWithMainLayout = ({ exact, path, component: Component }) => {
   );
 };
 
-const Root = ({ store }) => (
-    <Router onUpdate={() => window.scrollTo(0, 0)}>
-      <Switch>
-        <MatchWithMainLayout exact={true} path="/movie/:movieId" component={MovieProfileContainer} />
-        <MatchWithMainLayout
-          exact={true}
-          path="/movie/:movieId/crew"
-          component={FullCastCrewContainer}
-        />
-        <MatchWithMainLayout exact={true} path="/person/:personId" component={PersonContainer} />
-        <MatchWithMainLayout exact={true} path="/person/:personId/images" component={CastImagesContainer} />
-        <MatchWithMainLayout exact={true} path="/person" component={TopPeopleContainer} />
-        <MatchWithMainLayout path="/movies" component={DiscoverContainer} />
-        <MatchWithMainLayout path="/tvs" component={DiscoverContainer} />
-        <MatchWithMainLayout path="/signup" component={SignUp} />
-        <MatchWithMainLayout path="/signin" component={SignIn} />
-        <MatchWithMainLayout path="/watchlist" component={WatchListContainer} />
-        <MatchWithMainLayout path="/" component={HomepageContainer} />
-      </Switch>
-    </Router>
+const Root = () => (
+  <Router onUpdate={() => window.scrollTo(0, 0)}>
+    <Switch>
+      <Route exact={true} path="/movie/:movieId" component={MovieProfileContainer} />
+      {/* <MatchWithMainLayout
+        exact={true}
+        path="/movie/:movieId/crew"
+        component={FullCastCrewContainer}
+      />
+      <MatchWithMainLayout exact={true} path="/person/:personId" component={PersonContainer} />
+      <MatchWithMainLayout exact={true} path="/person/:personId/images" component={CastImagesContainer} />
+      <MatchWithMainLayout exact={true} path="/person" component={TopPeopleContainer} />
+      <MatchWithMainLayout path="/movies" component={DiscoverContainer} />
+      <MatchWithMainLayout path="/tvs" component={DiscoverContainer} />
+      <MatchWithMainLayout path="/signup" component={SignUp} />
+      <MatchWithMainLayout path="/signin" component={SignIn} />
+      <MatchWithMainLayout path="/watchlist" component={WatchListContainer} />
+      <MatchWithMainLayout path="/" component={HomepageContainer} /> */}
+    </Switch>
+  </Router>
 );
 
-export default withAuthentication(Root);
+export default Root;
