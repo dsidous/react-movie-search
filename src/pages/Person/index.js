@@ -1,11 +1,11 @@
 import { compose, withProps } from 'recompose';
 
-import withMovie from '../../queries/withMovie';
+import withPerson from '../../queries/withPerson';
 import withConfig from '../../queries/withConfig';
 import Container from './Container';
 
 export default compose(
-  withProps(props => ({ 'movieId': props.match.params.movieId })),
-  withMovie(),
+  withProps(props => ({ 'personId': props.match.params.personId })),
+  withPerson(),
   withConfig(),
 )(Container);
