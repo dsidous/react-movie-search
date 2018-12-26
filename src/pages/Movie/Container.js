@@ -52,7 +52,7 @@ export default class MovieProfileContainer extends Component {
   };
 
   handleFullCrewClick = () => {
-    this.context.router.history.push(`/movie/${this.props.movie.movie.id}/crew`);
+    this.context.router.history.push(`/movie/${this.props.movie.id}/crew`);
   };
 
   handlePersonClick = personId => {
