@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 export const query = gql`
   query getMovie($movieId: ID!) {
     movie(id: $movieId) {
+      id
       backdrop_path,
       poster_path,
       title,
@@ -19,6 +20,7 @@ export const query = gql`
         crew {
           job
           name
+          profile_path
         }
         cast {
           id

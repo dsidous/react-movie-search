@@ -6,7 +6,7 @@ import DiscoverContainer from "./containers/DiscoverContainer";
 import PersonContainer from "./pages/Person";
 import CastImagesContainer from "./pages/PersonImages";
 import HomepageContainer from "./containers/HomepageContainer";
-import FullCastCrewContainer from "./containers/FullCastCrewContainer";
+import FullCastCrewContainer from "./pages/MovieCastCrew";
 import TopPeopleContainer from "./containers/TopPeopleContainer";
 import WatchListContainer from "./containers/WatchListContainer";
 import SignUp from "./components/auth/SignUp";
@@ -27,11 +27,8 @@ const Root = () => (
       <Route exact={true} path="/movie/:movieId" component={MovieProfileContainer} />
       <Route exact={true} path="/person/:personId" component={PersonContainer} />
       <Route exact={true} path="/person/:personId/images" component={CastImagesContainer} />
-      {/* <MatchWithMainLayout
-        exact={true}
-        path="/movie/:movieId/crew"
-        component={FullCastCrewContainer}
-      />
+      <Route exact={true} path="/movie/:movieId/crew" component={FullCastCrewContainer} />
+      {/* 
       <MatchWithMainLayout exact={true} path="/person" component={TopPeopleContainer} />
       <MatchWithMainLayout path="/movies" component={DiscoverContainer} />
       <MatchWithMainLayout path="/tvs" component={DiscoverContainer} />
