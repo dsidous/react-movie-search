@@ -51,23 +51,21 @@ export default class TopPeopleContainer extends Component {
             </div>
           ) : (
               <div>
-                {this.props.config.images &&
-                  <ReactCSSTransitionGroup
-                    transitionName="example"
-                    transitionAppear={true}
-                    transitionAppearTimeout={5500}
-                    transitionEnterTimeout={5500}
-                    transitionLeaveTimeout={5500}
-                  >
-                    <TopPeople
-                      config={this.props.config}
-                      state={this.state}
-                      toppeople={this.props.toppeople}
-                      handlePersonClick={this.handlePersonClick}
-                      handlePageSelect={this.handlePageSelect}
-                    />
-                  </ReactCSSTransitionGroup>
-                }
+                <ReactCSSTransitionGroup
+                  transitionName="example"
+                  transitionAppear={true}
+                  transitionAppearTimeout={5500}
+                  transitionEnterTimeout={5500}
+                  transitionLeaveTimeout={5500}
+                >
+                  <TopPeople
+                    config={this.props.config}
+                    state={this.state}
+                    toppeople={this.props.toppeople}
+                    handlePersonClick={this.handlePersonClick}
+                    handlePageSelect={this.handlePageSelect}
+                  />
+                </ReactCSSTransitionGroup>
               </div>
             )}
       </div>
