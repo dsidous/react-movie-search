@@ -6,7 +6,7 @@ import 'react-select/dist/react-select.css'
 
 class FilterGenres extends Component {
   state = {
-    options: this.props.genres.map(genre => ({label:genre.name,value:String(genre.id)})),
+    options: this.props.genres.map(genre => ({ label: genre.name, value: String(genre.id) })),
     value: []
   }
 
@@ -19,10 +19,10 @@ class FilterGenres extends Component {
     this.setState({ value: nextProps.value })
   }
 
-  render () {
+  render() {
 
-		return (
-			<div className="section">
+    return (
+      <div className="section">
         <Select
           multi
           simpleValue
@@ -31,9 +31,9 @@ class FilterGenres extends Component {
           options={this.state.options}
           onChange={this.props.onChange}
         />
-			</div>
-		)
-	}
+      </div>
+    )
+  }
 }
 
 export default FilterGenres;

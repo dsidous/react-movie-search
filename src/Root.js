@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import MovieProfileContainer from "./pages/Movie";
-import DiscoverContainer from "./containers/DiscoverContainer";
+import DiscoverContainer from "./pages/Movies";
 import PersonContainer from "./pages/Person";
 import CastImagesContainer from "./pages/PersonImages";
 import HomepageContainer from "./pages/Home";
@@ -29,9 +29,9 @@ const Root = () => (
       <Route exact={true} path="/person/:personId/images" component={CastImagesContainer} />
       <Route exact={true} path="/movie/:movieId/crew" component={FullCastCrewContainer} />
       <Route exact={true} path="/person" component={TopPeopleContainer} />
-      <Route path="/" component={HomepageContainer} />
+      <Route exact={true} path="/" component={HomepageContainer} />
+      <Route path="/movies" component={DiscoverContainer} />
       {/* 
-      <MatchWithMainLayout path="/movies" component={DiscoverContainer} />
       <MatchWithMainLayout path="/tvs" component={DiscoverContainer} />
       <MatchWithMainLayout path="/signup" component={SignUp} />
       <MatchWithMainLayout path="/signin" component={SignIn} />

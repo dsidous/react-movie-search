@@ -1,20 +1,14 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import NoImage from "../images/noimage.jpg";
 import NoBdImage from "../images/nobdimage.jpg";
-import WatchlistBookmark from './WatchlistBookmark';
+//import WatchlistBookmark from './WatchlistBookmark';
 
-const MovieCard = ({
-  history,
-  img_base_path,
-  movie,
-  removeMovie
-}) => {
+const MovieCard = ({ img_base_path, movie }, context) => {
 
   const goToMovie = movieId => (
-    history.push(`/movie/${movieId}`)
+    context.router.history.push(`/movie/${movieId}`)
   )
 
   return (
@@ -39,19 +33,19 @@ const MovieCard = ({
           />
         </picture>
       ) : (
-        <picture
-          className="movies-poster"
-          onClick={() => goToMovie(movie.id)}
-        >
-          <source media="(min-width: 941px)" srcSet={NoImage} />
-          <source media="(max-width: 940px)" srcSet={NoBdImage} />
-          <img src={NoBdImage} className="movies-poster" alt={movie.title} />
-        </picture>
-      )}
+          <picture
+            className="movies-poster"
+            onClick={() => goToMovie(movie.id)}
+          >
+            <source media="(min-width: 941px)" srcSet={NoImage} />
+            <source media="(max-width: 940px)" srcSet={NoBdImage} />
+            <img src={NoBdImage} className="movies-poster" alt={movie.title} />
+          </picture>
+        )}
 
       <div className="clearfix">
         <div className="movies-title">
-          {movie.title 
+          {movie.title
             ? movie.title
             : movie.name
           }
@@ -60,9 +54,9 @@ const MovieCard = ({
       </div>
       <div className="clearfix">
         <div className="movies-year">
-          {movie.release_date 
+          {movie.release_date
             ? movie.release_date.slice(0, 4)
-            : movie.first_air_date.slice(0,4)
+            : movie.first_air_date.slice(0, 4)
           }
         </div>
       </div>
@@ -74,15 +68,13 @@ const MovieCard = ({
       >
         {movie.overview.slice(0, movie.overview.indexOf(" ", 200))}
       </div>
-      <WatchlistBookmark movie={movie}/>
+      {/* <WatchlistBookmark movie={movie}/> */}
     </li>
   );
 };
 
-MovieCard.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }),
+MovieCard.contextTypes = {
+  router: PropTypes.object.isRequired
 };
 
-export default withRouter(MovieCard);
+export default MovieCard;

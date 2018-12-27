@@ -10,8 +10,8 @@ Result.propTypes = {
 
 function Result(props) {
   let img_base_path =
-    props.config.config.images.base_url +
-    props.config.config.images.poster_sizes[3];
+    props.config.images.base_url +
+    props.config.images.poster_sizes[3];
 
   return (
     <ul className="movies-list">
