@@ -1,9 +1,9 @@
 import React from "react";
 
 const HomeList = props => {
-  const img_base_path = props.config.config.images
-    ? props.config.config.images.base_url +
-      props.config.config.images.poster_sizes[0]
+  const img_base_path = props.config.images
+    ? props.config.images.base_url +
+    props.config.images.poster_sizes[0]
     : "";
   return (
     <div className="home-list">
@@ -20,7 +20,7 @@ const HomeList = props => {
               <div className="list-data__title">
                 {list.title} ({list.vote_average})
               </div>
-              <div className="list-data__genres">
+              {/* <div className="list-data__genres">
                 {list.genre_ids.map((genreId, i) =>
                   props.config.genres
                     .filter(genre => genre.id === genreId)
@@ -30,7 +30,7 @@ const HomeList = props => {
                         : g.name + ", ";
                     })
                 )}
-              </div>
+              </div> */}
             </div>
           </li>
         ))}
