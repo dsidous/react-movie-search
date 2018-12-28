@@ -40,34 +40,35 @@ export default class TopPeopleContainer extends Component {
   };
 
   render() {
+    if (this.props.loading || this.props.configLoading) {
+      return (
+        <div className="loader">
+          <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+          <span className="sr-only">Loading...</span>
+        </div>
+      )
+    }
+    console.log(this.props);
     return (
       <div>
         <SEO title="Popular people" />
-        {
-          (this.props.loading || this.props.configLoading) ? (
-            <div className="loader">
-              <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-              <span className="sr-only">Loading...</span>
-            </div>
-          ) : (
-              <div>
-                <ReactCSSTransitionGroup
-                  transitionName="example"
-                  transitionAppear={true}
-                  transitionAppearTimeout={5500}
-                  transitionEnterTimeout={5500}
-                  transitionLeaveTimeout={5500}
-                >
-                  <TopPeople
-                    config={this.props.config}
-                    state={this.state}
-                    toppeople={this.props.toppeople}
-                    handlePersonClick={this.handlePersonClick}
-                    handlePageSelect={this.handlePageSelect}
-                  />
-                </ReactCSSTransitionGroup>
-              </div>
-            )}
+        <div>
+          <ReactCSSTransitionGroup
+            transitionName="example"
+            transitionAppear={true}
+            transitionAppearTimeout={5500}
+            transitionEnterTimeout={5500}
+            transitionLeaveTimeout={5500}
+          >
+            <TopPeople
+              config={this.props.config}
+              state={this.state}
+              toppeople={this.props.toppeople}
+              handlePersonClick={this.handlePersonClick}
+              handlePageSelect={this.handlePageSelect}
+            />
+          </ReactCSSTransitionGroup>
+        </div>
       </div>
     );
   }

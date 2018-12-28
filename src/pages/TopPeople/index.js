@@ -7,7 +7,7 @@ import Container from './Container';
 export default compose(
   withProps(props => {
     const params = new URLSearchParams(props.location.search);
-    const page = parseInt(params.get("page"), 10);
+    const page = parseInt(params.get("page"), 10) || 1;
 
     const query = `page=${page}`;
     return { 'query': query }

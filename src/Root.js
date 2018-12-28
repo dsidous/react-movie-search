@@ -24,13 +24,13 @@ const MatchWithMainLayout = ({ exact, path, component: Component }) => {
 const Root = () => (
   <Router onUpdate={() => window.scrollTo(0, 0)}>
     <Switch>
-      <Route exact={true} path="/movie/:movieId" component={MovieProfileContainer} />
-      <Route exact={true} path="/person/:personId" component={PersonContainer} />
-      <Route exact={true} path="/person/:personId/images" component={CastImagesContainer} />
-      <Route exact={true} path="/movie/:movieId/crew" component={FullCastCrewContainer} />
-      <Route exact={true} path="/person" component={TopPeopleContainer} />
-      <Route exact={true} path="/" component={HomepageContainer} />
-      <Route path="/movies" component={DiscoverContainer} />
+      <MatchWithMainLayout exact={true} path="/movie/:movieId" component={MovieProfileContainer} />
+      <MatchWithMainLayout exact={true} path="/person/:personId" component={PersonContainer} />
+      <MatchWithMainLayout exact={true} path="/person/:personId/images" component={CastImagesContainer} />
+      <MatchWithMainLayout exact={true} path="/movie/:movieId/crew" component={FullCastCrewContainer} />
+      <MatchWithMainLayout exact={true} path="/person" component={TopPeopleContainer} />
+      <MatchWithMainLayout exact={true} path="/" component={HomepageContainer} />
+      <MatchWithMainLayout path="/movies" component={DiscoverContainer} />
       {/* 
       <MatchWithMainLayout path="/tvs" component={DiscoverContainer} />
       <MatchWithMainLayout path="/signup" component={SignUp} />

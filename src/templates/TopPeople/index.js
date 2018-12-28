@@ -23,7 +23,7 @@ function TopPeople(props) {
       <h2>POPULAR PEOPLE</h2>
       <div className="top-people__list">
 
-        {people &&
+        {
           people.map(person => (
             <figure
               className="top-people__list-element"
@@ -39,7 +39,8 @@ function TopPeople(props) {
                 {person.name}
               </figcaption>
             </figure>
-          ))}
+          ))
+        }
 
       </div>
       <Pager>

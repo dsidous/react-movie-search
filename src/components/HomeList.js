@@ -20,17 +20,14 @@ const HomeList = props => {
               <div className="list-data__title">
                 {list.title} ({list.vote_average})
               </div>
-              {/* <div className="list-data__genres">
-                {list.genre_ids.map((genreId, i) =>
-                  props.config.genres
-                    .filter(genre => genre.id === genreId)
-                    .map(g => {
-                      return list.genre_ids.length === i + 1
-                        ? g.name
-                        : g.name + ", ";
-                    })
-                )}
-              </div> */}
+              <div className="list-data__genres">
+                {list.genre_names.genre_name.map((genreName, i) =>
+                  list.genre_names.length === i + 1
+                    ? genreName
+                    : genreName + ", "
+                )
+                }
+              </div>
             </div>
           </li>
         ))}

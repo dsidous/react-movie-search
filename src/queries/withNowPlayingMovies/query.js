@@ -9,7 +9,9 @@ export const query = gql`
       title
       release_date
       vote_average
-      genre_ids
+      genre_names {
+        genre_name
+      }
     }
   }
 `;
