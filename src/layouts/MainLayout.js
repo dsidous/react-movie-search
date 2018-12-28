@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Search from "../components/Search";
+import MainNavbar from "../pages/MainNavbar";
 
 class MainLayout extends Component {
   render() {
     return (
       <div>
-        <Search />
+        <MainNavbar />
         {this.props.children}
       </div>
     );

@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 import { AsyncTypeahead } from "react-bootstrap-typeahead";
 import { Navbar, NavItem, Glyphicon, Dropdown, MenuItem, Nav } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap';
-import { connect } from "react-redux";
 
-import SignOutButton from "./auth/SignOut";
-import * as actions from "../actions";
-import noimage from "../images/noimage.jpg";
+// import SignOutButton from "./auth/SignOut";
+import noimage from "../../images/noimage.jpg";
 
-class Search extends Component {
+class MainNavbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,11 +19,6 @@ class Search extends Component {
   static propTypes = {
     config: PropTypes.object.isRequired
   };
-
-  componentDidMount() {
-    this.props.dispatch(actions.getConfig());
-    this.props.dispatch(actions.getGenres());
-  }
 
   handleSearch = query => {
     if (query) {
@@ -41,48 +34,39 @@ class Search extends Component {
     }
   };
 
-  renderMenuItemChildren = (option, props, index) => {
-    let title, image;
+  renderMenuItemChildren = (option) => {
+    const { id, title, name, release_date, poster_path, profile_path } = option;
+    const { base_url, poster_sizes, profile_sizes } = this.props.config.images;
 
-    if (option.media_type === "movie") {
-      title = [option.title, option.release_date.slice(0, 4), "in movies"].join(
-        " "
-      );
-      image = option.poster_path
-        ? [
-            this.props.config.config.images.base_url,
-            this.props.config.config.images.poster_sizes[0],
-            option.poster_path
-          ].join("")
-        : noimage;
-    } else if (option.media_type === "person") {
-      title = option.name + " in persons";
-      image = option.profile_path
-        ? [
-            this.props.config.config.images.base_url,
-            this.props.config.config.images.profile_sizes[0],
-            option.profile_path
-          ].join("")
-        : noimage;
-    }
+    const listTitle = [
+      title ? title : name,
+      release_date
+        ? [release_date.slice(0, 4), "in movies"].join(" ")
+        : " in persons"
+    ].join(" ");
+
+    const listImage = (poster_path || profile_path)
+      ? [
+        base_url,
+        poster_path
+          ? [poster_sizes[0], poster_path].join('')
+          : [profile_sizes[0], profile_path].join('')
+      ].join("")
+      : noimage;
 
     return (
-      <div key={option.id}>
+      <div key={id}>
         <span>
-          <img src={image} className="movie-search-img-thumb" alt="#" />
+          <img src={listImage} className="movie-search-img-thumb" alt="#" />
         </span>
-        <span>{title}</span>
+        <span>{listTitle}</span>
       </div>
     );
   };
 
   handleChange = selected => {
     if (typeof selected[0] !== "undefined") {
-      if (selected[0].media_type === "movie") {
-        this.context.router.history.push(`/movie/${selected[0].id}`);
-      } else if (selected[0].media_type === "person") {
-        this.context.router.history.push(`/person/${selected[0].id}`);
-      }
+      this.context.router.history.push(`/${selected[0].media_type}/${selected[0].id}`);
     }
   };
 
@@ -108,11 +92,11 @@ class Search extends Component {
           <Navbar.Text>
             <Link to={"/person"}>PEOPLE</Link>
           </Navbar.Text>
-          <Navbar.Text>
+          {/* <Navbar.Text>
             <Link to={"/watchlist"}>
               WATCHLIST <span className="fa fa-bookmark"></span>
             </Link>
-          </Navbar.Text>
+          </Navbar.Text> */}
           <Navbar.Form pullLeft>
             <AsyncTypeahead
               {...this.state}
@@ -131,7 +115,7 @@ class Search extends Component {
               renderMenuItemChildren={this.renderMenuItemChildren}
             />
           </Navbar.Form>
-          {!this.props.authUser && 
+          {/* {!this.props.authUser && 
           <Nav pullRight id="nav-user" onSelect={this.handleNavSelect}> 
             <NavItem eventKey={'signin'} href="#">
               Login
@@ -165,23 +149,15 @@ class Search extends Component {
                 </MenuItem>    
               </Dropdown.Menu>
             </Dropdown>          
-          )}
+          )} */}
         </Navbar.Collapse>
       </Navbar>
     );
   }
 }
 
-Search.contextTypes = {
+MainNavbar.contextTypes = {
   router: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => {
-  return {
-    config: state.config,
-    authUser: state.session.authUser,
-    user: state.user.user
-  };
-};
-
-export default connect(mapStateToProps)(Search);
+export default MainNavbar;
