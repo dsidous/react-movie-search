@@ -48,7 +48,7 @@ export default class TopPeopleContainer extends Component {
         </div>
       )
     }
-    console.log(this.props);
+
     return (
       <div>
         <SEO title="Popular people" />

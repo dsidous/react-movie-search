@@ -21,7 +21,7 @@ function CastImages(props) {
       <figure key={i} className="cast-images__element">
         <a href={props.config.images.base_url +
           props.config.images.profile_sizes[3] +
-          image.file_path} target="_blank">
+          image.file_path} target="_blank" rel="noopener noreferrer">
           <img src={profileURL + image.file_path} alt={props.person.name} />
           <figcaption>
             <p>
