@@ -114,9 +114,8 @@ class MainNavbar extends Component {
               labelKey={option => {
                 if (option.title) {
                   return option.title;
-                } else {
-                  return option.name;
                 }
+                return option.name;
               }}
               onChange={this.handleChange}
               onSearch={this.handleSearch}

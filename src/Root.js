@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import { compose } from 'recompose';
 import MainLayout from "./layouts/MainLayout";
 import MovieProfileContainer from "./pages/Movie";
 import DiscoverContainer from "./pages/Movies";
