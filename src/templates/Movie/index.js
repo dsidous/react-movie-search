@@ -89,7 +89,7 @@ class MovieProfile extends Component {
               ) : (
                   <div className="movie-no-image-holder" />
                 )}
-              {/* <WatchlistBookmark movie={this.props.movie} /> */}
+              <WatchlistBookmark movie={this.props.movie} />
             </div>
             <div className="movie-data">
               <h1 className="movie-title">

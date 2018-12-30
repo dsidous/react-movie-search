@@ -1,24 +1,30 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router';
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { AsyncTypeahead } from "react-bootstrap-typeahead";
 import { Navbar, NavItem, Glyphicon, Dropdown, MenuItem, Nav } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap';
 
-// import SignOutButton from "./auth/SignOut";
+import { FirebaseAuthContext } from '../../firebase/FirebaseAuthProvider';
+import SignOutButton from "../../components/auth/SignOut";
 import noimage from "../../images/noimage.jpg";
 
 class MainNavbar extends Component {
+
+  static propTypes = {
+    config: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
+  };
+
+  static contextType = FirebaseAuthContext;
+
   constructor(props) {
     super(props);
     this.state = {
       options: []
     };
   }
-
-  static propTypes = {
-    config: PropTypes.object.isRequired
-  };
 
   handleSearch = query => {
     if (query) {
@@ -65,18 +71,21 @@ class MainNavbar extends Component {
   };
 
   handleChange = selected => {
+    const { history } = this.props;
     if (typeof selected[0] !== "undefined") {
-      this.context.router.history.push(`/${selected[0].media_type}/${selected[0].id}`);
+      history.push(`/${selected[0].media_type}/${selected[0].id}`);
     }
   };
 
   handleNavSelect = selectedKey => {
+    const { history } = this.props;
     if (typeof selectedKey !== "undefined") {
-      this.context.router.history.push(`/${selectedKey}`);
+      history.push(`/${selectedKey}`);
     }
   }
 
   render() {
+    const { authUser, user } = this.context;
     return (
       <Navbar fixedTop>
         <Navbar.Header>
@@ -92,11 +101,11 @@ class MainNavbar extends Component {
           <Navbar.Text>
             <Link to={"/person"}>PEOPLE</Link>
           </Navbar.Text>
-          {/* <Navbar.Text>
+          <Navbar.Text>
             <Link to={"/watchlist"}>
               WATCHLIST <span className="fa fa-bookmark"></span>
             </Link>
-          </Navbar.Text> */}
+          </Navbar.Text>
           <Navbar.Form pullLeft>
             <AsyncTypeahead
               {...this.state}
@@ -115,49 +124,45 @@ class MainNavbar extends Component {
               renderMenuItemChildren={this.renderMenuItemChildren}
             />
           </Navbar.Form>
-          {/* {!this.props.authUser && 
-          <Nav pullRight id="nav-user" onSelect={this.handleNavSelect}> 
-            <NavItem eventKey={'signin'} href="#">
-              Login
+          {!authUser &&
+            <Nav pullRight id="nav-user" onSelect={this.handleNavSelect}>
+              <NavItem eventKey={'signin'} href="#">
+                Login
             </NavItem>
-            <NavItem eventKey={'signup'} href="#">
-              Sign up
+              <NavItem eventKey={'signup'} href="#">
+                Sign up
             </NavItem>
-          </Nav>
+            </Nav>
           }
-          {this.props.authUser && (          
+          {authUser && (
             <Dropdown id="user-dd">
               <Dropdown.Toggle noCaret>
                 <Glyphicon glyph="user" />
               </Dropdown.Toggle>
               <Dropdown.Menu className="user-dd__menu">
-                <MenuItem header disabled>                  
-                  {this.props.user ? this.props.user.username : null}                  
+                <MenuItem header disabled>
+                  {user ? user.username : null}
                 </MenuItem>
                 <MenuItem eventKey="1" href="#" disabled>
                   view profile
-                </MenuItem>    
-                <MenuItem divider />    
+                </MenuItem>
+                <MenuItem divider />
                 <LinkContainer to="/watchlist">
                   <MenuItem eventkey="2">
                     Watchlist
-                  </MenuItem>    
+                  </MenuItem>
                 </LinkContainer>
-                <MenuItem divider />    
+                <MenuItem divider />
                 <MenuItem eventkey="3">
                   <SignOutButton />
-                </MenuItem>    
+                </MenuItem>
               </Dropdown.Menu>
-            </Dropdown>          
-          )} */}
+            </Dropdown>
+          )}
         </Navbar.Collapse>
       </Navbar>
     );
   }
 }
 
-MainNavbar.contextTypes = {
-  router: PropTypes.object.isRequired
-};
-
-export default MainNavbar;
+export default withRouter(MainNavbar);

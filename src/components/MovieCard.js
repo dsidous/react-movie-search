@@ -3,14 +3,13 @@ import PropTypes from "prop-types";
 
 import NoImage from "../images/noimage.jpg";
 import NoBdImage from "../images/nobdimage.jpg";
-//import WatchlistBookmark from './WatchlistBookmark';
+import WatchlistBookmark from './WatchlistBookmark';
 
 const MovieCard = ({ img_base_path, movie }, context) => {
 
   const goToMovie = movieId => (
     context.router.history.push(`/movie/${movieId}`)
   )
-
   return (
     <li className="movies-list__element">
       {movie.poster_path !== null ? (
@@ -68,7 +67,7 @@ const MovieCard = ({ img_base_path, movie }, context) => {
       >
         {movie.overview.slice(0, movie.overview.indexOf(" ", 200))}
       </div>
-      {/* <WatchlistBookmark movie={movie}/> */}
+      <WatchlistBookmark movie={movie} />
     </li>
   );
 };

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MainNavbar from "../pages/MainNavbar";
 
 class MainLayout extends Component {
+
   render() {
     return (
       <div>

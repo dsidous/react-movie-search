@@ -1,27 +1,30 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
-import * as actions from '../actions';
+import { removeMovieFromWatchlist, addMovieToWatchlist, FirebaseAuthContext } from '../firebase/FirebaseAuthProvider';
 
 class WatchlistBookmark extends Component {
 
+  static contextType = FirebaseAuthContext;
+
   toggleMovie = () => {
-    const {movie, user} = this.props;
+    const { movie } = this.props;
+    const { user } = this.context;
 
     (user.watchlist && user.watchlist[movie.id])
-      ? actions.removeMovieFromWatchlist(movie.id)  
-      : actions.addMovieToWatchlist(movie) 
+      ? removeMovieFromWatchlist(movie.id)
+      : addMovieToWatchlist(movie)
   }
 
   render() {
-    const {movie, user} = this.props; 
+    const { movie } = this.props;
+    const { user } = this.context;
     const watchlist = user && user.watchlist && user.watchlist[movie.id];
     return (
       <div className="movie-add-watchlist__wrapper" onClick={() => this.toggleMovie()}>
-        {user && 
+        {user &&
           <span className={
             ["movie-add-watchlist__icon fa",
-            (watchlist !== undefined) ? "fa-bookmark": "fa-bookmark-o"].join(" ")
+              (watchlist !== undefined) ? "fa-bookmark" : "fa-bookmark-o"].join(" ")
           }></span>
         }
       </div>
@@ -29,8 +32,4 @@ class WatchlistBookmark extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  user: state.user.user
-});
-
-export default connect(mapStateToProps)(WatchlistBookmark);
+export default WatchlistBookmark;
