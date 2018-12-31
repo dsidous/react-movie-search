@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Alert, Button } from 'react-bootstrap';
 
-import FieldGroup from '../atoms/FieldGroup';
-import { auth, db } from '../../firebase';
+import FieldGroup from '../../atoms/FieldGroup';
+import { auth, db } from '../../../firebase';
 
 const INITIAL_STATE = {
   username: "",

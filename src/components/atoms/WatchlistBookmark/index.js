@@ -4,7 +4,7 @@ import {
   removeMovieFromWatchlist,
   addMovieToWatchlist,
   FirebaseAuthContext
-} from '../../firebase/FirebaseAuthProvider';
+} from '../../../firebase/FirebaseAuthProvider';
 
 class WatchlistBookmark extends Component {
 

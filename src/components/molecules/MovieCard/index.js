@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import NoImage from "../../images/noimage.jpg";
-import NoBdImage from "../../images/nobdimage.jpg";
-import WatchlistBookmark from '../atoms/WatchlistBookmark';
+import NoImage from "../../../images/noimage.jpg";
+import NoBdImage from "../../../images/nobdimage.jpg";
+import WatchlistBookmark from '../../atoms/WatchlistBookmark';
 
 const MovieCard = ({ img_base_path, movie }, context) => {
 
