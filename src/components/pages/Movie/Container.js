@@ -20,17 +20,10 @@ export default class MovieProfileContainer extends Component {
     router: PropTypes.object.isRequired
   };
 
-  // componentDidMount(){
-  //   let movieId = this.state.movieId;
-  //   this.props.dispatch(actions.getMovie(movieId,() => this.getPalette()));
-  // }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.movieId && (nextProps.match.params.movieId !== this.state.movieId)) {
       let movieId = nextProps.match.params.movieId;
       this.setState({ movieId });
-      // this.props.dispatch(actions.getMovie(movieId));
-      // this.getPalette();
     }
   }
 

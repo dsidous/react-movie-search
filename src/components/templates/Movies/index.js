@@ -8,8 +8,8 @@ import {
 } from "react-bootstrap";
 import PropTypes from "prop-types";
 
-import FilterGenres from "../../components/FilterGenres";
-import Result from "../../components/Result";
+import FilterGenres from "../../atoms/FilterGenres";
+import Result from "../../molecules/Result";
 
 class Filter extends Component {
 

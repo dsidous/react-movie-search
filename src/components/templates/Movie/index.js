@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Style from "style-it";
 
-import PlayTrailer from "../../components/PlayTrailer";
-import Cast from "../../components/Cast";
-import Crew from "../../components/Crew";
-import SimilarMovies from "../../components/SimilarMovies";
-import FullScreenBackdrop from "../../components/FullScreenBackdrop";
-import Reviews from "../../components/Reviews";
-import SEO from "../../components/SEO";
-import WatchlistBookmark from '../../components/WatchlistBookmark';
+import PlayTrailer from "../../atoms/PlayTrailer";
+import Cast from "../../atoms/Cast";
+import Crew from "../../atoms/Crew";
+import SimilarMovies from "../../organisms/SimilarMovies";
+import FullScreenBackdrop from "../../atoms/FullScreenBackdrop";
+import Reviews from "../../molecules/Reviews";
+import SEO from "../../atoms/SEO";
+import WatchlistBookmark from '../../atoms/WatchlistBookmark';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

@@ -2,16 +2,8 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Alert, Button } from 'react-bootstrap';
 
-import FieldGroup from '../FieldGroup';
-import { auth,db } from '../../firebase';
-import SignInFacebook from './SignInFacebook';
-
-const SignUpPage = ({ history }) => (
-  <div className="form-signin">
-    <SignInFacebook history={history} />
-    <SignUpForm history={history} />
-  </div>
-);
+import FieldGroup from '../atoms/FieldGroup';
+import { auth, db } from '../../firebase';
 
 const INITIAL_STATE = {
   username: "",
@@ -23,7 +15,7 @@ const INITIAL_STATE = {
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value
-}); 
+});
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -66,14 +58,14 @@ class SignUpForm extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-      
-      <h3>Or Sign up for an account</h3>
 
-      {error && 
-        <Alert bsStyle="danger">
-          {error.message}
-        </Alert>
-      }
+        <h3>Or Sign up for an account</h3>
+
+        {error &&
+          <Alert bsStyle="danger">
+            {error.message}
+          </Alert>
+        }
         <FieldGroup
           id="username"
           type="text"
@@ -94,43 +86,41 @@ class SignUpForm extends Component {
             this.setState(byPropKey("email", event.target.value))
           }
         />
-        <FieldGroup 
-          id="passwordOne" 
-          label="Password" 
+        <FieldGroup
+          id="passwordOne"
+          label="Password"
           type="password"
           value={passwordOne}
           onChange={event =>
             this.setState(byPropKey("passwordOne", event.target.value))
-          } 
+          }
         />
-        <FieldGroup 
-          id="passwordTwo" 
-          label="Confirm password" 
+        <FieldGroup
+          id="passwordTwo"
+          label="Confirm password"
           type="password"
           value={passwordTwo}
           onChange={event =>
             this.setState(byPropKey("passwordTwo", event.target.value))
-          } 
+          }
         />
-        <Button 
+        <Button
           type="submit"
           disabled={isInvalid}
           className="btn btn-primary btn-block"
         >
           Sign Up
         </Button>
-        
+
       </form>
     );
   }
 }
 
-const SignUpLink = () => (
+export default withRouter(SignUpForm);
+
+export const SignUpLink = () => (
   <p>
     Don't have an account? <Link to={'/signup'}>Sign Up</Link>
   </p>
 );
-
-export default withRouter(SignUpPage);
-
-export { SignUpForm, SignUpLink };

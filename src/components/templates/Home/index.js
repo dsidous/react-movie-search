@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import TopRatedMovies from "../../components/TopRatedMovies";
-import HomeList from "../../components/HomeList";
+import TopRatedMovies from "../../organisms/TopRatedMovies";
+import HomeList from "../../atoms/HomeList";
 
 export default class TopListsContainer extends Component {
   static propTypes = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import NoImage from '../images/noimage.jpg';
+import NoImage from '../../images/noimage.jpg';
 
 function Cast(props) {
 
@@ -27,7 +27,7 @@ function Cast(props) {
       </div>
 
       <button className="full-crew-btn" onClick={props.handleFullCrewClick}>Full Cast & Crew</button>
-      
+
     </div>
   );
 

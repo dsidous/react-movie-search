@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
-import SEO from "../../components/SEO";
+import SEO from "../../atoms/SEO";
 import TopPeople from "../../templates/TopPeople";
 
 export default class TopPeopleContainer extends Component {
