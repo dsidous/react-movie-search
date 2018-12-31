@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 
-import { auth } from "../../firebase";
+import { auth } from "../../../firebase";
 
 class SignInFacebook extends Component {
-  
+
   signInWithFB = () => {
     auth.doSignInWithFacebook()
       .then(() => {
@@ -16,15 +16,15 @@ class SignInFacebook extends Component {
       });
   }
 
-  render(){
+  render() {
     return (
       <div>
         <Button
-            type="submit"
-            className="btn btn-primary btn-block"
-            onClick={this.signInWithFB}
-          >
-            Log in with Facebook
+          type="submit"
+          className="btn btn-primary btn-block"
+          onClick={this.signInWithFB}
+        >
+          Log in with Facebook
           </Button>
       </div>
     )

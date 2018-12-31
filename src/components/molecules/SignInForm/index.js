@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Alert, Button } from 'react-bootstrap';
 
-import FieldGroup from '../atoms/FieldGroup';
-import { SignUpLink } from "./SignUpForm";
-import { auth } from "../../firebase";
+import FieldGroup from '../../atoms/FieldGroup';
+import { SignUpLink } from "../SignUpForm";
+import { auth } from "../../../firebase";
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value

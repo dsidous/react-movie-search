@@ -1,5 +1,5 @@
 import React from 'react';
-import NoImage from '../../images/noimage.jpg';
+import NoImage from '../../../images/noimage.jpg';
 
 function Cast(props) {
 

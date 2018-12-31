@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import MovieCard from "./MovieCard";
+import MovieCard from "../MovieCard";
 
 Result.propTypes = {
   config: PropTypes.object.isRequired,
