@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import "font-awesome/css/font-awesome.min.css";
 import { ApolloProvider } from "react-apollo";
 
-import Root from "./Root";
-import { client } from './apollo';
+import Root from "./app/Root";
+import { client } from './app/apollo';
 import "./css/main.css";
 
 ReactDOM.render(

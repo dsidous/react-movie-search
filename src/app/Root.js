@@ -1,17 +1,17 @@
 import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import MainLayout from "./components/layouts/MainLayout";
-import MovieProfileContainer from "./components/pages/Movie";
-import DiscoverContainer from "./components/pages/Movies";
-import PersonContainer from "./components/pages/Person";
-import CastImagesContainer from "./components/pages/PersonImages";
-import HomepageContainer from "./components/pages/Home";
-import FullCastCrewContainer from "./components/pages/MovieCastCrew";
-import TopPeopleContainer from "./components/pages/TopPeople";
-import WatchList from "./components/pages/WatchList";
-import SignUp from "./components/pages/SignUp";
-import Login from "./components/pages/Login";
-import FirebaseAuthProvider from './firebase/FirebaseAuthProvider';
+import MainLayout from "../components/layouts/MainLayout";
+import MovieProfileContainer from "../components/pages/Movie";
+import DiscoverContainer from "../components/pages/Movies";
+import PersonContainer from "../components/pages/Person";
+import CastImagesContainer from "../components/pages/PersonImages";
+import HomepageContainer from "../components/pages/Home";
+import FullCastCrewContainer from "../components/pages/MovieCastCrew";
+import TopPeopleContainer from "../components/pages/TopPeople";
+import WatchList from "../components/pages/WatchList";
+import SignUp from "../components/pages/SignUp";
+import Login from "../components/pages/Login";
+import FirebaseAuthProvider from '../firebase/FirebaseAuthProvider';
 
 const MatchWithMainLayout = ({ exact, path, component: Component }) => {
   return (
