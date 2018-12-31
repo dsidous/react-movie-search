@@ -1,16 +1,16 @@
 import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import MainLayout from "./layouts/MainLayout";
-import MovieProfileContainer from "./pages/Movie";
-import DiscoverContainer from "./pages/Movies";
-import PersonContainer from "./pages/Person";
-import CastImagesContainer from "./pages/PersonImages";
-import HomepageContainer from "./pages/Home";
-import FullCastCrewContainer from "./pages/MovieCastCrew";
-import TopPeopleContainer from "./pages/TopPeople";
-import WatchList from "./pages/WatchList";
-import SignUp from "./components/auth/SignUp";
-import SignIn from "./components/auth/SignIn";
+import MainLayout from "./components/layouts/MainLayout";
+import MovieProfileContainer from "./components/pages/Movie";
+import DiscoverContainer from "./components/pages/Movies";
+import PersonContainer from "./components/pages/Person";
+import CastImagesContainer from "./components/pages/PersonImages";
+import HomepageContainer from "./components/pages/Home";
+import FullCastCrewContainer from "./components/pages/MovieCastCrew";
+import TopPeopleContainer from "./components/pages/TopPeople";
+import WatchList from "./components/pages/WatchList";
+import SignUp from "./components/pages/SignUp";
+import Login from "./components/pages/Login";
 import FirebaseAuthProvider from './firebase/FirebaseAuthProvider';
 
 const MatchWithMainLayout = ({ exact, path, component: Component }) => {
@@ -32,7 +32,7 @@ const Root = () => (
         <MatchWithMainLayout exact={true} path="/person" component={TopPeopleContainer} />
         <MatchWithMainLayout exact={true} path="/" component={HomepageContainer} />
         <MatchWithMainLayout path="/movies" component={DiscoverContainer} />
-        <MatchWithMainLayout path="/signin" component={SignIn} />
+        <MatchWithMainLayout path="/login" component={Login} />
         <MatchWithMainLayout path="/signup" component={SignUp} />
         <MatchWithMainLayout path="/watchlist" component={WatchList} />
         {/* 

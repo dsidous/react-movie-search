@@ -6,9 +6,9 @@ import { AsyncTypeahead } from "react-bootstrap-typeahead";
 import { Navbar, NavItem, Glyphicon, Dropdown, MenuItem, Nav } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap';
 
-import { FirebaseAuthContext } from '../../firebase/FirebaseAuthProvider';
-import SignOutButton from "../../components/auth/SignOut";
-import noimage from "../../images/noimage.jpg";
+import { FirebaseAuthContext } from '../../../firebase/FirebaseAuthProvider';
+import SignOutButton from "../../atoms/SignOut";
+import noimage from "../../../images/noimage.jpg";
 
 class MainNavbar extends Component {
 
@@ -125,7 +125,7 @@ class MainNavbar extends Component {
           </Navbar.Form>
           {!authUser &&
             <Nav pullRight id="nav-user" onSelect={this.handleNavSelect}>
-              <NavItem eventKey={'signin'} href="#">
+              <NavItem eventKey={'login'} href="#">
                 Login
             </NavItem>
               <NavItem eventKey={'signup'} href="#">

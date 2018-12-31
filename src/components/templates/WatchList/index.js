@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { FirebaseAuthContext } from '../../firebase/FirebaseAuthProvider';
-import MovieCard from "../../components/MovieCard";
+import { FirebaseAuthContext } from '../../../firebase/FirebaseAuthProvider';
+import MovieCard from "../../molecules/MovieCard";
 
 const WatchList = (props) => {
 

@@ -3,9 +3,9 @@ import { FormattedDate } from "react-intl";
 import Markdown from "markdown-to-jsx";
 import { Link } from "react-router-dom";
 
-import SEO from "../../components/SEO";
+import SEO from "../../atoms/SEO";
 
-import NoImage from "../../images/noimage.jpg";
+import NoImage from "../../../images/noimage.jpg";
 
 class CastProfile extends Component {
   render() {

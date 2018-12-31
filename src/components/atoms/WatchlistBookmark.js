@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
-import { removeMovieFromWatchlist, addMovieToWatchlist, FirebaseAuthContext } from '../firebase/FirebaseAuthProvider';
+import {
+  removeMovieFromWatchlist,
+  addMovieToWatchlist,
+  FirebaseAuthContext
+} from '../../firebase/FirebaseAuthProvider';
 
 class WatchlistBookmark extends Component {
 
@@ -24,7 +28,8 @@ class WatchlistBookmark extends Component {
         {user &&
           <span className={
             ["movie-add-watchlist__icon fa",
-              (watchlist !== undefined) ? "fa-bookmark" : "fa-bookmark-o"].join(" ")
+              (watchlist !== undefined) ? "fa-bookmark" : "fa-bookmark-o"
+            ].join(" ")
           }></span>
         }
       </div>

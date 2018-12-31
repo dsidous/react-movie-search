@@ -2,17 +2,9 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Alert, Button } from 'react-bootstrap';
 
-import FieldGroup from '../FieldGroup';
-import { SignUpLink } from "./SignUp";
+import FieldGroup from '../atoms/FieldGroup';
+import { SignUpLink } from "./SignUpForm";
 import { auth } from "../../firebase";
-import SignInFacebook from './SignInFacebook';
-
-const SignInPage = ({ history }) => (
-  <div className="form-signin">
-    <SignInFacebook history={history} />
-    <SignInForm history={history} />
-  </div>
-)
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value
@@ -27,33 +19,33 @@ const INITIAL_STATE = {
 class SignInForm extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = { ...INITIAL_STATE };
   }
-  
+
   onSubmit = event => {
     const { email, password } = this.state;
-    
+
     const { history } = this.props;
-    
+
     auth
-    .doSignInWithEmailAndPassword(email, password)
-    .then(() => {
-      this.setState(() => ({ ...INITIAL_STATE }));
-      history.push("/");
-    })
-    .catch(error => {
-      this.setState(byPropKey("error", error));
-    });
-    
+      .doSignInWithEmailAndPassword(email, password)
+      .then(() => {
+        this.setState(() => ({ ...INITIAL_STATE }));
+        history.push("/");
+      })
+      .catch(error => {
+        this.setState(byPropKey("error", error));
+      });
+
     event.preventDefault();
   };
-  
+
   render() {
     const { email, password, error } = this.state;
-    
+
     const isInvalid = password === "" || email === "";
-    
+
     return (
       <form onSubmit={this.onSubmit}>
         <h3>Or Sign in</h3>
@@ -91,6 +83,4 @@ class SignInForm extends Component {
   }
 }
 
-export default withRouter(SignInPage);
-
-export { SignInForm };
+export default withRouter(SignInForm);
