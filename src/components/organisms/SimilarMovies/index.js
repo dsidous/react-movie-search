@@ -36,11 +36,11 @@ function SimilarMovies(props) {
             <p className="crew-col text-center">
               <img
                 src={props.img_base_path + sim.poster_path}
-                alt={sim.original_title}
+                alt={sim.title}
                 className="similar-movies-img"
               />
               <br />
-              <small>{sim.original_title}</small>
+              <small>{sim.title}</small>
             </p>
           </div>
         ))}

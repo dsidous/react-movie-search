@@ -11,10 +11,6 @@ import Reviews from "../../molecules/Reviews";
 import SEO from "../../atoms/SEO";
 import WatchlistBookmark from '../../atoms/WatchlistBookmark';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-
 class MovieProfile extends Component {
 
   static propTypes = {
@@ -28,28 +24,22 @@ class MovieProfile extends Component {
 
   render() {
     const {
-      base_url,
-      poster_sizes,
-      backdrop_sizes,
-      profile_sizes
-    } = this.props.config.images;
-
-    const {
-      backdrop_path,
-      poster_path,
-      genres,
-      title,
-      release_date,
-      runtime,
-      vote_average,
-      tagline,
-      overview
-    } = this.props.movie;
+      config: {
+        images: { base_url, poster_sizes, backdrop_sizes, profile_sizes }
+      },
+      movie: { backdrop_path, poster_path, genres, title,
+        release_date, reviews, runtime, vote_average,
+        tagline, overview, images: { backdrops },
+        videos, similar, credits: { cast, crew },
+      },
+      dcolor,
+      movie,
+    } = this.props;
 
     const posterURL = base_url + poster_sizes[3] + poster_path;
-    let backdropURL = base_url + backdrop_sizes[1] + backdrop_path;
-    const video = this.props.movie.videos
-      ? this.props.movie.videos.filter(video => video.type === "Trailer")[0]
+    const backdropURL = base_url + backdrop_sizes[1] + backdrop_path;
+    const video = videos
+      ? videos.filter(video => video.type === "Trailer")[0]
       : [];
 
     const genres_html = genres.map(genre => (
@@ -57,26 +47,24 @@ class MovieProfile extends Component {
         {genre.name}
       </li>
     ));
+
     return (
       <div>
         <Style>
           {`
-        .main-header:after {
-          background-image: radial-gradient(at 10% 30%, rgb(${
-            this.props.dcolor[0]
-            },${this.props.dcolor[1]},${this.props.dcolor[2]}) 0%, #342931 100%);
-        }
-        .main-header:before {
-          background-image: url(${backdropURL});
-        }
-      `}
+          .main-header:after {
+            background-image: radial-gradient(at 10% 30%, rgb(${dcolor[0]},${dcolor[1]},${dcolor[2]}) 0%, #342931 100%);
+          }
+          .main-header:before {
+            background-image: url(${backdropURL});
+          }
+        `}
         </Style>
-        <SEO title={this.props.movie.title} />
+        <SEO title={title} />
         <div className="full-background">
-          {this.props.movie.images.backdrops[0] && (
+          {backdrops[0] && (
             <FullScreenBackdrop
-              backdrop_img_path={base_url + backdrop_sizes[2]}
-              backdrops={this.props.movie.images.backdrops}
+              backdrops={backdrops.map(image => `${base_url}${backdrop_sizes[2]}${image.file_path}`)}
             />
           )}
         </div>
@@ -89,7 +77,7 @@ class MovieProfile extends Component {
               ) : (
                   <div className="movie-no-image-holder" />
                 )}
-              <WatchlistBookmark movie={this.props.movie} />
+              <WatchlistBookmark movie={movie} />
             </div>
             <div className="movie-data">
               <h1 className="movie-title">
@@ -115,31 +103,27 @@ class MovieProfile extends Component {
 
             {video && <PlayTrailer video={video} />}
 
-            {this.props.movie.credits.crew[0] && (
-              <Crew crew={this.props.movie.credits.crew.slice(0, 4)} />
-            )}
+            {crew[0] && <Crew crew={crew.slice(0, 4)} />}
           </div>
         </div>
-        {this.props.movie.credits.cast[0] && (
+        {cast[0] &&
           <Cast
-            cast={this.props.movie.credits.cast.slice(0, 6)}
+            cast={cast.slice(0, 6)}
             profile_img_base_url={base_url + profile_sizes[1]}
             handlePersonClick={this.props.handlePersonClick}
             handleFullCrewClick={this.props.handleFullCrewClick}
           />
-        )}
+        }
 
-        {this.props.movie.reviews[0] && (
-          <Reviews reviews={this.props.movie.reviews.slice(0, 4)} />
-        )}
+        {reviews[0] && <Reviews reviews={reviews.slice(0, 4)} />}
 
-        {this.props.movie.similar.results[0] && (
+        {similar.results[0] &&
           <SimilarMovies
-            similar={this.props.movie.similar.results}
+            similar={similar.results}
             img_base_path={base_url + poster_sizes[1]}
             handleMovieClick={this.props.handleMovieClick}
           />
-        )}
+        }
       </div>
     );
   }
