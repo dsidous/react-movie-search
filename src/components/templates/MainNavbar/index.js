@@ -17,24 +17,26 @@ class MainNavbar extends Component {
     history: PropTypes.object.isRequired
   };
 
-  static contextType = FirebaseAuthContext;
 
   constructor(props) {
     super(props);
     this.state = {
+      isLoading: false,
       options: []
     };
   }
 
   handleSearch = query => {
     if (query) {
+      this.setState({ isLoading: true });
       fetch(
         `https://api.themoviedb.org/3/search/multi?api_key=cfe422613b250f702980a3bbf9e90716&query=${query}`
       )
         .then(resp => resp.json())
         .then(json =>
           this.setState({
-            options: json.results.filter(res => res.media_type !== "tv")
+            options: json.results.filter(res => res.media_type !== "tv"),
+            isLoading: false
           })
         );
     }
@@ -109,7 +111,6 @@ class MainNavbar extends Component {
           <Navbar.Form pullLeft>
             <AsyncTypeahead
               {...this.state}
-              isLoading={true}
               align="justify"
               labelKey={option => {
                 if (option.title) {
@@ -165,3 +166,5 @@ class MainNavbar extends Component {
 }
 
 export default withRouter(MainNavbar);
+
+MainNavbar.contextType = FirebaseAuthContext;

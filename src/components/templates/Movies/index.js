@@ -15,7 +15,7 @@ class Filter extends Component {
 
   static propTypes = {
     config: PropTypes.object.isRequired,
-    movies: PropTypes.object.isRequired
+    movies: PropTypes.array.isRequired
   };
 
   static contextTypes = {
