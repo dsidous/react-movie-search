@@ -15,6 +15,10 @@ class FilterGenres extends Component {
     onChange: PropTypes.func.isRequired
   }
 
+  componentDidMount() {
+    this.setState({ value: this.props.value })
+  }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ value: nextProps.value })
   }

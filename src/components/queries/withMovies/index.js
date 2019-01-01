@@ -10,7 +10,7 @@ const withMovie = () => graphql(query, {
   }),
   props: ({
     data: {
-      movies = {},
+      movies = [],
       loading,
     },
   }) => ({
