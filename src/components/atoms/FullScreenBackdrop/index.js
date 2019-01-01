@@ -4,7 +4,7 @@ import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-function FullScreenBackdrop (props){
+function FullScreenBackdrop(props) {
   const settings = {
     arrows: false,
     dots: false,
@@ -16,19 +16,19 @@ function FullScreenBackdrop (props){
     pauseOnHover: false
   };
 
-  return(
+  return (
     <div>
       {props.backdrops &&
         <Slider {...settings}>
-              {props.backdrops
-                .map((backdrop,i) => (
-                  <div className="fullscreen-backdrop-slide" key={i} style={{
-                      height: window.innerHeight,
-                      backgroundImage: 'url(' + props.backdrop_img_path + backdrop.file_path + ')'
-                    }} >
-                  </div>
-                ))
-              }
+          {props.backdrops
+            .map((backdrop, i) => (
+              <div className="fullscreen-backdrop-slide" key={i} style={{
+                height: window.innerHeight,
+                backgroundImage: `url(${backdrop})`
+              }} >
+              </div>
+            ))
+          }
 
         </Slider>
       }
