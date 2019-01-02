@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Pager } from "react-bootstrap";
+import MyPager from "../../atoms/Pager";
 
 
 TopPeople.propTypes = {
@@ -43,23 +43,10 @@ function TopPeople(props) {
         }
 
       </div>
-      <Pager>
-        <Pager.Item
-          previous
-          eventKey={props.state.page - 1}
-          href="#"
-          onSelect={props.handlePageSelect}
-        >
-          &larr; Previous
-        </Pager.Item>
-        <Pager.Item
-          next
-          eventKey={props.state.page + 1}
-          onSelect={props.handlePageSelect}
-        >
-          Next &rarr;
-        </Pager.Item>
-      </Pager>
+      <MyPager
+        page={props.state.page}
+        handlePageSelect={props.handlePageSelect}
+      />
     </div>
   );
 }
