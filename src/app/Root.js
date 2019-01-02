@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import MainLayout from "../components/layouts/MainLayout";
 import Movie from "../components/pages/Movie";
 import Movies from "../components/pages/Movies";
+import Tvs from "../components/pages/Tvs";
 import Person from "../components/pages/Person";
 import PersonImages from "../components/pages/PersonImages";
 import Home from "../components/pages/Home";
@@ -35,9 +36,7 @@ const Root = () => (
         <MatchWithMainLayout path="/login" component={Login} />
         <MatchWithMainLayout path="/signup" component={SignUp} />
         <MatchWithMainLayout path="/watchlist" component={WatchList} />
-        {/* 
-      <MatchWithMainLayout path="/tvs" component={DiscoverContainer} />
-      */}
+        <MatchWithMainLayout path="/tvs" component={Tvs} />
       </Switch>
     </Router>
   </FirebaseAuthProvider>

@@ -1,7 +1,7 @@
 import { graphql } from 'react-apollo';
 import { query } from './query';
 
-const withMovies = () => graphql(query, {
+const withTvs = () => graphql(query, {
   options: props => ({
     fetchPolicy: 'cache-and-network',
     variables: {
@@ -10,13 +10,13 @@ const withMovies = () => graphql(query, {
   }),
   props: ({
     data: {
-      movies = [],
+      tvs = [],
       loading,
     },
   }) => ({
     loading,
-    movies,
+    movies: tvs,
   }),
 });
 
-export default withMovies;
+export default withTvs;
