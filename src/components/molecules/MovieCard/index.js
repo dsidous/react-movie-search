@@ -10,62 +10,59 @@ const MovieCard = ({ img_base_path, movie }, context) => {
   const goToMovie = movieId => (
     context.router.history.push(`/movie/${movieId}`)
   )
+
+  const { id, title, overview, poster_path, backdrop_path, vote_average, release_date } = movie;
+
   return (
     <li className="movies-list__element">
-      {movie.poster_path !== null ? (
+      {poster_path !== null ? (
         <picture
           className="movies-poster"
-          onClick={() => goToMovie(movie.id)}
+          onClick={() => goToMovie(id)}
         >
           <source
             media="(min-width: 941px)"
-            srcSet={img_base_path + movie.poster_path}
+            srcSet={img_base_path + poster_path}
           />
           <source
             media="(max-width: 940px)"
-            srcSet={img_base_path + movie.backdrop_path}
+            srcSet={img_base_path + backdrop_path}
           />
           <img
-            src={img_base_path + movie.poster_path}
+            src={img_base_path + poster_path}
             className="movies-poster"
-            alt={movie.original_title}
+            alt={title}
           />
         </picture>
       ) : (
           <picture
             className="movies-poster"
-            onClick={() => goToMovie(movie.id)}
+            onClick={() => goToMovie(id)}
           >
             <source media="(min-width: 941px)" srcSet={NoImage} />
             <source media="(max-width: 940px)" srcSet={NoBdImage} />
-            <img src={NoBdImage} className="movies-poster" alt={movie.title} />
+            <img src={NoBdImage} className="movies-poster" alt={title} />
           </picture>
         )}
 
       <div className="clearfix">
         <div className="movies-title">
-          {movie.title
-            ? movie.title
-            : movie.name
-          }
+          {title}
         </div>
-        <div className="movies-rating">{movie.vote_average}</div>
+        <div className="movies-rating">{vote_average}</div>
       </div>
       <div className="clearfix">
         <div className="movies-year">
-          {movie.release_date
-            ? movie.release_date.slice(0, 4)
-            : movie.first_air_date.slice(0, 4)
-          }
+          {release_date.slice(0, 4)}
         </div>
       </div>
       <div
         className={[
           "movies-overview ",
-          movie.overview.length > 200 ? "long" : ""
+          overview.length > 200 ? "long" : ""
         ].join(" ")}
       >
-        {movie.overview.slice(0, movie.overview.indexOf(" ", 200))}
+        {overview.slice(0, overview.indexOf(" ", 200))}
       </div>
       <WatchlistBookmark movie={movie} />
     </li>

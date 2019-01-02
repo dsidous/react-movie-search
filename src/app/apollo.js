@@ -2,9 +2,10 @@ import { ApolloClient } from "apollo-client";
 import { ApolloLink } from 'apollo-link';
 import { setContext } from 'apollo-link-context';
 import { BatchHttpLink } from 'apollo-link-batch-http';
-import { InMemoryCache} from 'apollo-cache-inmemory';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
-const httpLink = new BatchHttpLink({ uri: process.env.REACT_APP_GQL_URL });
+//const httpLink = new BatchHttpLink({ uri: process.env.REACT_APP_GQL_URL });
+const httpLink = new BatchHttpLink({ uri: "http://localhost:4040" });
 const apikey = process.env.REACT_APP_API_KEY;
 
 const authLink = setContext((_, { headers }) => {
@@ -12,7 +13,7 @@ const authLink = setContext((_, { headers }) => {
     headers: Object.assign({}, headers, {
       apikey,
     })
-  }  
+  }
 });
 
 const link = ApolloLink.from([
@@ -21,6 +22,6 @@ const link = ApolloLink.from([
 ]);
 
 export const client = new ApolloClient({
-  link,  
+  link,
   cache: new InMemoryCache(),
 });

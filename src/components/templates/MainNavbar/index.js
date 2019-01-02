@@ -101,6 +101,9 @@ class MainNavbar extends Component {
             <Link to={"/movies"}>MOVIES</Link>
           </Navbar.Text>
           <Navbar.Text>
+            <Link to={"/tvs"}>TVS</Link>
+          </Navbar.Text>
+          <Navbar.Text>
             <Link to={"/person"}>PEOPLE</Link>
           </Navbar.Text>
           <Navbar.Text>

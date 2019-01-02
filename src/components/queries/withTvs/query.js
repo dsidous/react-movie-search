@@ -6,9 +6,9 @@ export const query = gql`
       id
       backdrop_path
       poster_path
-      name
+      title
       overview
-      first_air_date
+      release_date
       vote_average
       genre_ids
     }
