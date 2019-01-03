@@ -11,7 +11,7 @@
     "apollo-link-context": "^1.0.10",
     "axios": "^0.17.1",
     "dotenv": "^6.1.0",
-    "firebase": "^4.10.0",
+    "firebase": "^5.7.2",
     "font-awesome": "^4.7.0",
     "graphql": "^14.0.2",
     "grpc": "^1.17.0",
