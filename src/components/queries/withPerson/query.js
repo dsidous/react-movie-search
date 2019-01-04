@@ -10,14 +10,27 @@ export const query = gql`
       name
       place_of_birth
       profile_path
-      movie_credits {
+      combined_credits {
         cast {
-          id
-          original_title
-          character
-          release_date
-          poster_path
-          vote_count
+          ... on Person_Movie_Cast_Credit {
+            id
+            title
+            character
+            release_date
+            poster_path
+            vote_count
+            media_type
+          }
+          ... on Person_Tv_Cast_Credit {
+            id
+            name
+            character
+            episode_count
+            first_air_date
+            poster_path
+            vote_count
+            media_type
+          }
         }
       }
       images {
