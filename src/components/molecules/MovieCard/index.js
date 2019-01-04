@@ -5,10 +5,10 @@ import NoImage from "../../../images/noimage.jpg";
 import NoBdImage from "../../../images/nobdimage.jpg";
 import WatchlistBookmark from '../../atoms/WatchlistBookmark';
 
-const MovieCard = ({ img_base_path, movie }, context) => {
+const MovieCard = ({ img_base_path, movie, media }, context) => {
 
   const goToMovie = movieId => (
-    context.router.history.push(`/movie/${movieId}`)
+    context.router.history.push(`/${media}/${movieId}`)
   )
 
   const { id, title, overview, poster_path, backdrop_path, vote_average, release_date } = movie;

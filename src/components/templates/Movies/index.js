@@ -36,7 +36,7 @@ class Movies extends Component {
 
     return (
       <Filter query={this.props.query} genres={this.props.genres} queryUpdate={this.queryUpdate}>
-        <Result {...this.props} />
+        <Result {...this.props} media="movie" />
       </Filter>
     );
   }

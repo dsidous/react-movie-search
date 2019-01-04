@@ -19,8 +19,8 @@ export default class CastProfielContainer extends Component {
     window.scrollTo(0, 0);
   };
 
-  handlePersonMovieClick = movieId => {
-    this.context.router.history.push(`/movie/${movieId}`);
+  handlePersonMovieClick = (movieId,show) => {
+    this.context.router.history.push(`/${show}/${movieId}`);
   };
 
   render() {

@@ -35,7 +35,7 @@ class MainNavbar extends Component {
         .then(resp => resp.json())
         .then(json =>
           this.setState({
-            options: json.results.filter(res => res.media_type !== "tv"),
+            options: json.results,
             isLoading: false
           })
         );
@@ -43,14 +43,16 @@ class MainNavbar extends Component {
   };
 
   renderMenuItemChildren = (option) => {
-    const { id, title, name, release_date, poster_path, profile_path } = option;
+    const { id, title, name, first_air_date, release_date, poster_path, profile_path } = option;
     const { base_url, poster_sizes, profile_sizes } = this.props.config.images;
 
     const listTitle = [
       title ? title : name,
       release_date
         ? [release_date.slice(0, 4), "in movies"].join(" ")
-        : " in persons"
+        : first_air_date 
+          ? [first_air_date.slice(0, 4), "in tvs"].join(" ")
+          : " in persons"
     ].join(" ");
 
     const listImage = (poster_path || profile_path)

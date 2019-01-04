@@ -16,7 +16,7 @@ class CastProfile extends Component {
       name,
       place_of_birth,
       profile_path,
-      movie_credits,
+      combined_credits,
       id
     } = this.props.person;
 
@@ -37,49 +37,64 @@ class CastProfile extends Component {
       this.props.config.images.base_url +
       this.props.config.images.poster_sizes[0];
 
-    const person_movies = movie_credits
-      ? movie_credits.cast
-        .sort(
-          (a, b) =>
-            b.release_date ? b.release_date.localeCompare(a.release_date) : -1
-        )
-        .map(person_movie => (
-          <div
-            key={person_movie.id}
-            className="person-movie"
-            onClick={() => this.props.handlePersonMovieClick(person_movie.id)}
-          >
-            <p className="person-movie__poster">
-              {person_movie.poster_path !== null ? (
-                <img
-                  src={posterBaseURL + person_movie.poster_path}
-                  alt={person_movie.title}
-                />
-              ) : (
-                  "-"
+    const person_shows = (shows) => { 
+      if(shows.cast.length>0) {
+       
+      return shows.cast
+        .sort((a, b) => {
+          const data_b = b.release_date || b.first_air_date;  
+          const data_a = a.release_date || a.first_air_date;  
+          return data_b ? data_b.localeCompare(data_a) : -1
+        })
+        .map(show => {
+          const {id,poster_path,character} = show;
+          const show_attr = show.release_date 
+            ? {title:"title",release_date:"release_date",show_type:"movie"}
+            : {title:"name",release_date:"first_air_date",show_type:"tv"};
+          
+          const title = show[show_attr.title];
+          const release_date = show[show_attr.release_date] || '';
+          const { show_type } = show_attr;
+          return (
+            <div
+              key={id}
+              className="person-movie"
+              onClick={() => this.props.handlePersonMovieClick(id,show_type)}
+            >
+              <p className="person-movie__poster">
+                {poster_path !== null 
+                  ? (
+                    <img
+                      src={posterBaseURL + poster_path}
+                      alt={title}
+                    />
+                    ) 
+                  : (
+                      "-"
+                    )}
+              </p>
+              <p className="person-movie__release">
+                {release_date !== "" &&
+                  release_date !== undefined
+                  ? release_date.substr(0, 4)
+                  : ""}
+              </p>
+              <p className="person-movie__title">
+                {title}
+                {character && (
+                  <span className="person-movie__character">
+                    {" "}
+                    as {character}
+                  </span>
                 )}
-            </p>
-            <p className="person-movie__release">
-              {person_movie.release_date !== "" &&
-                person_movie.release_date !== undefined
-                ? person_movie.release_date.substr(0, 4)
-                : ""}
-            </p>
-            <p className="person-movie__title">
-              {person_movie.original_title}
-              {person_movie.character && (
-                <span className="person-movie__character">
-                  {" "}
-                  as {person_movie.character}
-                </span>
-              )}
-            </p>
-          </div>
-        ))
-      : "";
-
-    const person_movies_known = movie_credits
-      ? movie_credits.cast
+              </p>
+            </div>
+          )
+        })
+      }
+    }  
+    const person_movies_known = combined_credits
+      ? combined_credits.cast
         .sort((a, b) => b.vote_count - a.vote_count)
         .slice(0, 8)
         .map(person_movie => (
@@ -92,13 +107,13 @@ class CastProfile extends Component {
                   person_movie.poster_path
                   : NoImage
               }
-              alt={person_movie.original_title}
+              alt={person_movie.title || person_movie.name }
               onClick={() =>
-                this.props.handlePersonMovieClick(person_movie.id)
+                this.props.handlePersonMovieClick(person_movie.id,person_movie.media_type)
               }
             />
             <p className="person-movie__title-known">
-              {person_movie.original_title}
+              {person_movie.title || person_movie.name}
             </p>
           </div>
         ))
@@ -190,7 +205,7 @@ class CastProfile extends Component {
               {person_movies_known}
             </div>
             <h4>Acting</h4>
-            <div className="person-movies-grid">{person_movies}</div>
+            <div className="person-movies-grid">{person_shows(combined_credits)}</div>
           </div>
         </div>
       </div>
