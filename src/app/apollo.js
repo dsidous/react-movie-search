@@ -2,7 +2,7 @@ import { ApolloClient } from "apollo-client";
 import { ApolloLink } from 'apollo-link';
 import { setContext } from 'apollo-link-context';
 import { BatchHttpLink } from 'apollo-link-batch-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory';
 
 //const httpLink = new BatchHttpLink({ uri: process.env.REACT_APP_GQL_URL });
 const httpLink = new BatchHttpLink({ uri: "http://localhost:4040" });
@@ -21,7 +21,15 @@ const link = ApolloLink.from([
   httpLink,
 ]);
 
+const fragmentMatcher = new IntrospectionFragmentMatcher({
+  introspectionQueryResultData: {
+    __schema: {
+      types: []
+    }
+  }
+});
+
 export const client = new ApolloClient({
   link,
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({ fragmentMatcher }),
 });

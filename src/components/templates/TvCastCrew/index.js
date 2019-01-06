@@ -24,7 +24,7 @@ class CastCrew extends Component {
     const profile_img_base_url = base_url + "w132_and_h132_face/";
     return (
       <FullCastCrew
-        movie={this.props.movie}
+        movie={this.props.tv}
         profile_img_base_url={profile_img_base_url}
         handlePersonClick={this.handlePersonClick}
       />

@@ -27,6 +27,14 @@ export const query = gql`
           character
         }
       }
+      seasons {
+        poster_path
+        overview
+        name
+        episode_count
+        air_date
+        season_number
+      }
       reviews {
         author
         content

@@ -20,20 +20,16 @@ export default class MovieProfileContainer extends Component {
     router: PropTypes.object.isRequired
   };
 
-  componentDidMount = () => {
-    this.getPalette();
-  }
-
   componentWillReceiveProps(nextProps) {
-    if (nextProps.match.params.movieId && (nextProps.match.params.movieId !== this.state.movieId)) {
+    if (!nextProps.loading && !nextProps.configLoading) {
       let movieId = nextProps.match.params.movieId;
       this.setState({ movieId });
-      this.getPalette();
+      this.getPalette(nextProps);
     }
   }
 
-  getPalette = () => {
-    const { movie: { poster_path }, config: { images } } = this.props;
+  getPalette = (props) => {
+    const { movie: { poster_path }, config: { images } } = props;
     if (poster_path) {
       const path = images.base_url + images.poster_sizes[3] + poster_path;
       Vibrant.from(path).getSwatches((err, palette) => {

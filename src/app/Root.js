@@ -9,6 +9,7 @@ import Person from "../components/pages/Person";
 import PersonImages from "../components/pages/PersonImages";
 import Home from "../components/pages/Home";
 import MovieCastCrew from "../components/pages/MovieCastCrew";
+import TvCastCrew from "../components/pages/TvCastCrew";
 import TopPeople from "../components/pages/TopPeople";
 import WatchList from "../components/pages/WatchList";
 import SignUp from "../components/pages/SignUp";
@@ -39,6 +40,7 @@ const Root = () => (
         <MatchWithMainLayout path="/watchlist" component={WatchList} />
         <MatchWithMainLayout path="/tvs" component={Tvs} />
         <MatchWithMainLayout exact={true} path="/tv/:tvId" component={Tv} />
+        <MatchWithMainLayout exact={true} path="/tv/:tvId/crew" component={TvCastCrew} />
       </Switch>
     </Router>
   </FirebaseAuthProvider>
