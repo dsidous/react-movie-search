@@ -1,0 +1,29 @@
+.season {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 10px;
+    padding: 0 10px;
+
+  &-poster img{
+    width: 100%;
+  }
+
+  &-details {
+    padding: 20px;
+  }
+}
+
+.last-season {
+  border-top: $separator;
+  margin: 40px auto 0;
+
+  h4 {
+    margin: 20px 10px;
+  }
+}
+
+@media screen and (min-width: 776px) {
+  .last-season {
+    max-width: 960px;
+  }
+}

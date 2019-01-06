@@ -10,6 +10,7 @@ import FullScreenBackdrop from "../../atoms/FullScreenBackdrop";
 import Reviews from "../../molecules/Reviews";
 import SEO from "../../atoms/SEO";
 import WatchlistBookmark from '../../atoms/WatchlistBookmark';
+import Season from '../../molecules/Season';
 
 class TvProfile extends Component {
 
@@ -23,7 +24,7 @@ class TvProfile extends Component {
   componentDidMount = () => { window.scrollTo(0, 0) }
 
   render() {
-    
+
     const {
       config: {
         images: { base_url, poster_sizes, backdrop_sizes, profile_sizes }
@@ -31,7 +32,7 @@ class TvProfile extends Component {
       tv: { backdrop_path, poster_path, genres, name,
         first_air_date, reviews, runtime, vote_average,
         tagline, overview, images: { backdrops },
-        videos, similar, credits: { cast, crew },
+        videos, similar, credits: { cast, crew }, seasons,
       },
       dcolor,
       tv,
@@ -115,7 +116,12 @@ class TvProfile extends Component {
             handleFullCrewClick={this.props.handleFullCrewClick}
           />
         }
-        
+
+        <div className="last-season">
+          <h4>Last season</h4>
+          <Season season={seasons.pop()} config={this.props.config} />
+        </div>
+
         {reviews && reviews[0] && <Reviews reviews={reviews} />}
 
         {similar.results[0] &&

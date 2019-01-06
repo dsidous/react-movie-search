@@ -20,21 +20,16 @@ export default class TvProfileContainer extends Component {
     router: PropTypes.object.isRequired
   };
 
-  componentDidMount = () => {
-    this.getPalette();
-  }
-
   componentWillReceiveProps(nextProps) {
-    if (nextProps.match.params.tvId && (nextProps.match.params.tvId !== this.state.tvId)) {
+    if (!nextProps.loading && !nextProps.configLoading) {
       let tvId = nextProps.match.params.tvId;
       this.setState({ tvId });
-      this.getPalette();
+      this.getPalette(nextProps);
     }
   }
 
-  getPalette = () => {
-    
-    const { tv: { poster_path }, config: { images } } = this.props;
+  getPalette = (props) => {
+    const { tv: { poster_path }, config: { images } } = props;
     if (poster_path) {
       const path = images.base_url + images.poster_sizes[3] + poster_path;
       Vibrant.from(path).getSwatches((err, palette) => {

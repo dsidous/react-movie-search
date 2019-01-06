@@ -1105,3 +1105,23 @@ li.movie-genres:last-child:after {
 .movies-list--watchlist {
   margin: 50px auto;
   max-width: 1150px; }
+
+.season {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-column-gap: 10px;
+  padding: 0 10px; }
+  .season-poster img {
+    width: 100%; }
+  .season-details {
+    padding: 20px; }
+
+.last-season {
+  border-top: 5px solid #bcbcbc;
+  margin: 40px auto 0; }
+  .last-season h4 {
+    margin: 20px 10px; }
+
+@media screen and (min-width: 776px) {
+  .last-season {
+    max-width: 960px; } }
