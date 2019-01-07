@@ -2,7 +2,7 @@ import React from "react";
 
 const HomeList = props => {
   const img_base_path = props.config.images
-    ? props.config.images.base_url +
+    ? props.config.images.secure_base_url +
     props.config.images.poster_sizes[0]
     : "";
   return (

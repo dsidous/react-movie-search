@@ -31,7 +31,7 @@ export default class TvProfileContainer extends Component {
   getPalette = (props) => {
     const { tv: { poster_path }, config: { images } } = props;
     if (poster_path) {
-      const path = images.base_url + images.poster_sizes[3] + poster_path;
+      const path = images.secure_base_url + images.poster_sizes[3] + poster_path;
       Vibrant.from(path).getSwatches((err, palette) => {
         this.setState({ dcolor: (palette.DarkVibrant !== null) ? palette.DarkVibrant._rgb : [0, 0, 0] })
       });

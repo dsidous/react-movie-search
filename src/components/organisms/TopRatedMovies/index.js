@@ -26,7 +26,7 @@ class TopRatedMovies extends Component {
     ];
   
     const img_base_path = this.props.config.images
-      ? this.props.config.images.base_url + this.props.config.images.poster_sizes[3]
+      ? this.props.config.images.secure_base_url + this.props.config.images.poster_sizes[3]
       : "";
     return (
       <div>

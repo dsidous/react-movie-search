@@ -7,7 +7,7 @@ const Season = (props) => {
   const {
     season: { poster_path, overview, name, episode_count, air_date },
     config: {
-      images: { base_url, poster_sizes }
+      images: { secure_base_url, poster_sizes }
     }
   } = props;
   return (
@@ -16,7 +16,7 @@ const Season = (props) => {
         className="season-poster"
       >
         <img
-          src={poster_path !== null ? base_url + poster_sizes[3] + poster_path : NoBdImage}
+          src={poster_path !== null ? secure_base_url + poster_sizes[3] + poster_path : NoBdImage}
           alt={name}
         />
       </picture>
