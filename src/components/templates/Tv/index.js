@@ -10,7 +10,7 @@ import FullScreenBackdrop from "../../atoms/FullScreenBackdrop";
 import Reviews from "../../molecules/Reviews";
 import SEO from "../../atoms/SEO";
 import WatchlistBookmark from '../../atoms/WatchlistBookmark';
-import Season from '../../molecules/Season';
+import LastSeason from '../../molecules/LastSeason';
 
 class TvProfile extends Component {
 
@@ -19,6 +19,15 @@ class TvProfile extends Component {
     tv: PropTypes.object.isRequired,
     dcolor: PropTypes.array.isRequired,
     handleTvClick: PropTypes.func.isRequired
+  };
+
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  };
+
+  handleSeasonsClick = () => {
+    const {id} = this.props.tv;
+    this.context.router.history.push(`/tv/${id}/seasons`);
   };
 
   componentDidMount = () => { window.scrollTo(0, 0) }
@@ -37,7 +46,7 @@ class TvProfile extends Component {
       dcolor,
       tv,
     } = this.props;
-
+    const last_season = seasons.sort((a,b)=>(b.season_number - a.season_number))[0];
     const posterURL = secure_base_url + poster_sizes[3] + poster_path;
     const backdropURL = secure_base_url + backdrop_sizes[1] + backdrop_path;
     const video = videos
@@ -117,11 +126,12 @@ class TvProfile extends Component {
           />
         }
 
-        <div className="last-season">
-          <h4>Last season</h4>
-          <Season season={seasons.pop()} config={this.props.config} />
-        </div>
-
+        <LastSeason 
+          season={last_season} 
+          config={this.props.config} 
+          handleSeasonsClick={this.handleSeasonsClick} 
+        />
+        
         {reviews && reviews[0] && <Reviews reviews={reviews} />}
 
         {similar.results[0] &&

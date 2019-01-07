@@ -1,0 +1,30 @@
+.seasons {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 20px;
+  
+  &__header {
+    background: #eee;
+    border-top: 10px solid #ddd;
+    border-bottom: 10px solid #ddd;
+    font-size: 5em;
+    padding: 30px 20px;
+
+    h2 {
+      margin: 0 auto;
+      max-width: 960px;
+
+      span {
+        font-size: .75em;
+      }
+    }
+  }
+
+  &__element {
+    border-bottom: $separator;
+    list-style-type: none;
+    margin: 40px 0;
+    padding: 0 0 40px;
+  }
+  
+}

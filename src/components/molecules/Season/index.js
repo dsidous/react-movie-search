@@ -3,7 +3,6 @@ import React from 'react';
 import NoBdImage from '../../../images/nobdimage.jpg';
 
 const Season = (props) => {
-  console.log(props);
   const {
     season: { poster_path, overview, name, episode_count, air_date },
     config: {
@@ -22,7 +21,7 @@ const Season = (props) => {
       </picture>
       <div className="season-details">
         <h3>{name}</h3>
-        <h5>{`${air_date.slice(0, 4)} | ${episode_count}episodes`}</h5>
+        <h5>{`${air_date.slice(0, 4)} | ${episode_count} episodes`}</h5>
         <div>{overview}</div>
       </div>
     </div>

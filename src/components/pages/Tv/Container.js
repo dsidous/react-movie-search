@@ -51,7 +51,6 @@ export default class TvProfileContainer extends Component {
   };
 
   render() {
-
     return (
       <div>
         {
