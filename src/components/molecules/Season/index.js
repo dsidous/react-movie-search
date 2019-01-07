@@ -9,6 +9,9 @@ const Season = (props) => {
       images: { secure_base_url, poster_sizes }
     }
   } = props;
+
+  const date = air_date !== null ? air_date.slice(0,4) : '';
+  
   return (
     <div className="season">
       <picture
@@ -21,7 +24,7 @@ const Season = (props) => {
       </picture>
       <div className="season-details">
         <h3>{name}</h3>
-        <h5>{`${air_date.slice(0, 4)} | ${episode_count} episodes`}</h5>
+        <h5>{`${date} | ${episode_count} episodes`}</h5>
         <div>{overview}</div>
       </div>
     </div>
