@@ -44,7 +44,7 @@ class MainNavbar extends Component {
 
   renderMenuItemChildren = (option) => {
     const { id, title, name, first_air_date, release_date, poster_path, profile_path } = option;
-    const { base_url, poster_sizes, profile_sizes } = this.props.config.images;
+    const { secure_base_url, poster_sizes, profile_sizes } = this.props.config.images;
 
     const listTitle = [
       title ? title : name,
@@ -57,7 +57,7 @@ class MainNavbar extends Component {
 
     const listImage = (poster_path || profile_path)
       ? [
-        base_url,
+        secure_base_url,
         poster_path
           ? [poster_sizes[0], poster_path].join('')
           : [profile_sizes[0], profile_path].join('')

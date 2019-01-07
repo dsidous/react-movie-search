@@ -25,7 +25,7 @@ class MovieProfile extends Component {
   render() {
     const {
       config: {
-        images: { base_url, poster_sizes, backdrop_sizes, profile_sizes }
+        images: { secure_base_url, poster_sizes, backdrop_sizes, profile_sizes }
       },
       movie: { backdrop_path, poster_path, genres, title,
         release_date, reviews, runtime, vote_average,
@@ -36,8 +36,8 @@ class MovieProfile extends Component {
       movie,
     } = this.props;
 
-    const posterURL = base_url + poster_sizes[3] + poster_path;
-    const backdropURL = base_url + backdrop_sizes[1] + backdrop_path;
+    const posterURL = secure_base_url + poster_sizes[3] + poster_path;
+    const backdropURL = secure_base_url + backdrop_sizes[1] + backdrop_path;
     const video = videos
       ? videos.filter(video => video.type === "Trailer")[0]
       : [];
@@ -64,7 +64,7 @@ class MovieProfile extends Component {
         <div className="full-background">
           {backdrops[0] && (
             <FullScreenBackdrop
-              backdrops={backdrops.map(image => `${base_url}${backdrop_sizes[2]}${image.file_path}`)}
+              backdrops={backdrops.map(image => `${secure_base_url}${backdrop_sizes[2]}${image.file_path}`)}
             />
           )}
         </div>
@@ -109,7 +109,7 @@ class MovieProfile extends Component {
         {cast[0] &&
           <Cast
             cast={cast.slice(0, 6)}
-            profile_img_base_url={base_url + profile_sizes[1]}
+            profile_img_base_url={secure_base_url + profile_sizes[1]}
             handlePersonClick={this.props.handlePersonClick}
             handleFullCrewClick={this.props.handleFullCrewClick}
           />
@@ -120,7 +120,7 @@ class MovieProfile extends Component {
         {similar.results[0] &&
           <SimilarMovies
             similar={similar.results}
-            img_base_path={base_url + poster_sizes[1]}
+            img_base_path={secure_base_url + poster_sizes[1]}
             handleMovieClick={this.props.handleMovieClick}
           />
         }

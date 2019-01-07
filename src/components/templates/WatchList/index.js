@@ -12,7 +12,7 @@ const WatchList = (props) => {
 
   const { config } = props;
 
-  const img_base_path = config.images.base_url + config.images.poster_sizes[2];
+  const img_base_path = config.images.secure_base_url + config.images.poster_sizes[2];
 
   return (
     <FirebaseAuthContext.Consumer>

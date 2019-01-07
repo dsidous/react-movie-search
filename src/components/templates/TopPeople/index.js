@@ -14,9 +14,9 @@ TopPeople.propTypes = {
 function TopPeople(props) {
   const people = props.toppeople;
 
-  const { base_url, profile_sizes } = props.config.images;
+  const { secure_base_url, profile_sizes } = props.config.images;
 
-  const profile_path = base_url + profile_sizes[1];
+  const profile_path = secure_base_url + profile_sizes[1];
 
   return (
     <div className="top-people">

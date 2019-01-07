@@ -29,12 +29,12 @@ class CastProfile extends Component {
     }
 
     const profileURL =
-      this.props.config.images.base_url +
+      this.props.config.images.secure_base_url +
       this.props.config.images.profile_sizes[2] +
       profile_path;
 
     const posterBaseURL =
-      this.props.config.images.base_url +
+      this.props.config.images.secure_base_url +
       this.props.config.images.poster_sizes[0];
 
     const person_shows = (shows) => { 
@@ -102,7 +102,7 @@ class CastProfile extends Component {
             <img
               src={
                 person_movie.poster_path !== null
-                  ? this.props.config.images.base_url +
+                  ? this.props.config.images.secure_base_url +
                   this.props.config.images.poster_sizes[1] +
                   person_movie.poster_path
                   : NoImage
