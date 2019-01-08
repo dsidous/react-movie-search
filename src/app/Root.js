@@ -6,6 +6,7 @@ import Movies from "../components/pages/Movies";
 import Tvs from "../components/pages/Tvs";
 import Tv from "../components/pages/Tv";
 import Seasons from "../components/pages/Seasons";
+import TvSeason from "../components/pages/TvSeason";
 import Person from "../components/pages/Person";
 import PersonImages from "../components/pages/PersonImages";
 import Home from "../components/pages/Home";
@@ -43,6 +44,7 @@ const Root = () => (
         <MatchWithMainLayout exact={true} path="/tv/:tvId" component={Tv} />
         <MatchWithMainLayout exact={true} path="/tv/:tvId/crew" component={TvCastCrew} />
         <MatchWithMainLayout exact={true} path="/tv/:tvId/seasons" component={Seasons} />
+        <MatchWithMainLayout exact={true} path="/tv/:tvId/season/:season" component={TvSeason} />
       </Switch>
     </Router>
   </FirebaseAuthProvider>
