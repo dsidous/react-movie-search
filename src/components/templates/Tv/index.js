@@ -25,11 +25,6 @@ class TvProfile extends Component {
     router: PropTypes.object.isRequired
   };
 
-  handleSeasonsClick = () => {
-    const {id} = this.props.tv;
-    this.context.router.history.push(`/tv/${id}/seasons`);
-  };
-
   componentDidMount = () => { window.scrollTo(0, 0) }
 
   render() {
@@ -38,7 +33,7 @@ class TvProfile extends Component {
       config: {
         images: { secure_base_url, poster_sizes, backdrop_sizes, profile_sizes }
       },
-      tv: { backdrop_path, poster_path, genres, name,
+      tv: { id, backdrop_path, poster_path, genres, name,
         first_air_date, reviews, runtime, vote_average,
         tagline, overview, images: { backdrops },
         videos, similar, credits: { cast, crew }, seasons,
@@ -46,7 +41,7 @@ class TvProfile extends Component {
       dcolor,
       tv,
     } = this.props;
-    const last_season = seasons.sort((a,b)=>(b.season_number - a.season_number))[0];
+    const last_season = seasons.sort((a, b) => (b.season_number - a.season_number))[0];
     const posterURL = secure_base_url + poster_sizes[3] + poster_path;
     const backdropURL = secure_base_url + backdrop_sizes[1] + backdrop_path;
     const video = videos
@@ -126,12 +121,12 @@ class TvProfile extends Component {
           />
         }
 
-        <LastSeason 
-          season={last_season} 
-          config={this.props.config} 
-          handleSeasonsClick={this.handleSeasonsClick} 
+        <LastSeason
+          tvId={id}
+          season={last_season}
+          config={this.props.config}
         />
-        
+
         {reviews && reviews[0] && <Reviews reviews={reviews} />}
 
         {similar.results[0] &&
