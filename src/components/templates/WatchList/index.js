@@ -22,11 +22,13 @@ const WatchList = (props) => {
             ? (
               <ul className="movies-list movies-list--watchlist">
                 {_.map(user.watchlist, movie => {
+                  const media = movie.__typename === "Tv_detailed" || movie.__typename === "Tv" ? "tv" : "movie";
                   return (
-                    <MovieCard
-                      key={movie.id}
-                      movie={movie}
-                      img_base_path={img_base_path}
+                    <MovieCard 
+                      key={movie.id} 
+                      movie={movie} 
+                      img_base_path={img_base_path} 
+                      media={media}
                     />
                   )
                 })}
