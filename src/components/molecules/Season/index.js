@@ -1,21 +1,27 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 import NoBdImage from '../../../images/nobdimage.jpg';
 
-const Season = (props) => {
+const Season = (props, context) => {
   const {
-    season: { poster_path, overview, name, episode_count, air_date },
+    season: { poster_path, overview, name, episode_count, air_date, season_number },
     config: {
       images: { secure_base_url, poster_sizes }
-    }
+    }, tvId
   } = props;
 
-  const date = air_date !== null ? air_date.slice(0,4) : '';
-  
+  const date = air_date !== null ? air_date.slice(0, 4) : '';
+
+  const handleSeasonClick = () => {
+    context.router.history.push(`/tv/${tvId}/season/${season_number}`);
+  };
+
   return (
     <div className="season">
       <picture
         className="season-poster"
+        onClick={handleSeasonClick}
       >
         <img
           src={poster_path !== null ? secure_base_url + poster_sizes[3] + poster_path : NoBdImage}
@@ -30,5 +36,9 @@ const Season = (props) => {
     </div>
   )
 }
+
+Season.contextTypes = {
+  router: PropTypes.object.isRequired
+};
 
 export default Season;

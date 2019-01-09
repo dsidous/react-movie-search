@@ -10,10 +10,6 @@ class Seasons extends Component {
 
   componentDidMount = () => { window.scrollTo(0, 0) }
 
-  handleSeasonClick = seasonId => {
-    this.context.router.history.push(`tv/${this.props.tv.id}/season/${seasonId}`);
-  };
-
   render() {
     if (this.props.loading || this.props.configLoading) {
       return (
@@ -24,7 +20,7 @@ class Seasons extends Component {
       )
     }
 
-    const {config,tv:{seasons, name, first_air_date}} = this.props;
+    const { config, tv: { seasons, name, first_air_date, id } } = this.props;
 
     return (
       <div>
@@ -34,11 +30,11 @@ class Seasons extends Component {
           </h2>
         </div>
         <ul className="seasons">
-        {seasons.sort((a,b) => a.season_number - b.season_number).map(season => (
-          <li className="seasons__element" key={season.season_number}>
-            <Season season={season} config={config} handleSeasonClick={this.handleSeasonClick}/> 
-          </li>          
-        ))}
+          {seasons.sort((a, b) => a.season_number - b.season_number).map(season => (
+            <li className="seasons__element" key={season.season_number}>
+              <Season season={season} config={config} tvId={id} />
+            </li>
+          ))}
         </ul>
       </div>
     );

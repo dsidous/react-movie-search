@@ -1112,6 +1112,7 @@ li.movie-genres:last-child:after {
   grid-column-gap: 10px;
   padding: 0 10px; }
   .season-poster img {
+    cursor: pointer;
     width: 100%; }
   .season-details {
     padding: 20px; }
@@ -1145,7 +1146,7 @@ li.movie-genres:last-child:after {
     padding: 30px 20px; }
     .seasons__header h2 {
       margin: 0 auto;
-      max-width: 960px; }
+      max-width: 900px; }
       .seasons__header h2 span {
         font-size: .75em; }
   .seasons__element {
@@ -1153,3 +1154,38 @@ li.movie-genres:last-child:after {
     list-style-type: none;
     margin: 40px 0;
     padding: 0 0 40px; }
+
+.season__header {
+  background: #eee;
+  border-top: 10px solid #ddd;
+  border-bottom: 10px solid #ddd;
+  font-size: 5em;
+  padding: 30px 20px; }
+  .season__header h2 {
+    margin: 0 auto;
+    max-width: 900px; }
+    .season__header h2 span {
+      font-size: .65em; }
+
+.episodes__wrapper {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 20px; }
+
+.episodes__element {
+  border-bottom: 5px solid #bcbcbc;
+  list-style-type: none;
+  margin: 40px 0;
+  padding: 0 0 40px; }
+
+.episode {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-column-gap: 10px;
+  padding: 0 10px; }
+  .episode-poster img {
+    width: 100%; }
+  .episode-details {
+    padding: 0 20px; }
+    .episode-details h3 {
+      margin-top: 0; }
