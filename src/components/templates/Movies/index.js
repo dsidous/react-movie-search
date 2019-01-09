@@ -16,10 +16,6 @@ class Movies extends Component {
     router: PropTypes.object.isRequired
   }
 
-  componentDidUpdate = () => {
-    window.scrollTo(0, 0);
-  };
-
   queryUpdate = (query) => {
     this.context.router.history.push(`/movies?${query}`);
   }

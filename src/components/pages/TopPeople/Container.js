@@ -25,8 +25,6 @@ export default class TopPeopleContainer extends Component {
     };
   }
 
-  componentDidUpdate = () => window.scrollTo(0, 0);
-
   handlePersonClick = personId => {
     this.context.router.history.push(`/person/${personId}`);
   };

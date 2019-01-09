@@ -25,8 +25,6 @@ class TvProfile extends Component {
     router: PropTypes.object.isRequired
   };
 
-  componentDidMount = () => { window.scrollTo(0, 0) }
-
   render() {
 
     const {
