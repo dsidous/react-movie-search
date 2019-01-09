@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
+import { Link, withRouter } from "react-router-dom";
+
 
 import Episode from '../../molecules/Episode';
 
@@ -20,14 +22,23 @@ class Season extends Component {
       )
     }
 
-    const { tvSeason: { name, air_date, episodes }, config } = this.props;
+    const { tvSeason: { name, air_date, episodes, poster_path }, config, tvId } = this.props;
     const date = air_date.slice(0, 4);
+    const poster = config.images.secure_base_url + config.images.poster_sizes[1] + poster_path;
     return (
       <div>
         <div className="season__header">
-          <h2>{name}&nbsp;
-            <span>({date})</span>
-          </h2>
+          <div className="season__header__inner">
+            <img src={poster} alt={name} />
+            <div className="season__header__info">
+              <h2>{name}&nbsp;
+                <span>({date})</span>
+                </h2>
+                <h4>
+                  <Link to={`/tv/${tvId}/seasons`}>&#8592; Back to seasons</Link>
+                </h4>
+            </div>
+          </div>
         </div>
         <ul className="episodes__wrapper">
           {episodes.map(episode => (
@@ -42,4 +53,4 @@ class Season extends Component {
 
 }
 
-export default Season;
+export default withRouter(Season);

@@ -5,6 +5,7 @@ export const query = gql`
     tvSeason(id:$tvId, season:$season) {
       name
       air_date
+      poster_path
       episodes {
         name
         air_date
@@ -15,17 +16,3 @@ export const query = gql`
     }
   }
 `
-// export const query = gql`
-//  query getTvs($query: String!) {
-//     tvs(query: $query) {
-//       id
-//       backdrop_path
-//       poster_path
-//       title
-//       overview
-//       release_date
-//       vote_average
-//       genre_ids
-//     }
-//   }
-// `

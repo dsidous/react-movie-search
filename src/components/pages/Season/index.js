@@ -2,7 +2,7 @@ import { compose, withProps } from 'recompose';
 
 import withSeason from '../../queries/withSeason';
 import withConfig from '../../queries/withConfig';
-import TvSeason from '../../templates/TvSeason';
+import Season from '../../templates/Season';
 
 export default compose(
   withProps(props => {
@@ -12,4 +12,4 @@ export default compose(
   }),
   withSeason(),
   withConfig(),
-)(TvSeason);
+)(Season);

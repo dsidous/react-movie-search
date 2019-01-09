@@ -1144,11 +1144,23 @@ li.movie-genres:last-child:after {
     border-bottom: 10px solid #ddd;
     font-size: 5em;
     padding: 30px 20px; }
-    .seasons__header h2 {
-      margin: 0 auto;
-      max-width: 900px; }
-      .seasons__header h2 span {
-        font-size: .75em; }
+    .seasons__header__inner {
+      display: grid;
+      grid-template-columns: 70px 4fr;
+      grid-column-gap: 10px;
+      height: 100px;
+      max-width: 900px;
+      margin: 0 auto; }
+      .seasons__header__inner img {
+        height: 100%; }
+    .seasons__header__info {
+      align-self: center; }
+      .seasons__header__info h2 {
+        margin: 0; }
+        .seasons__header__info h2 span {
+          font-size: .65em; }
+      .seasons__header__info h4 a {
+        color: #999; }
   .seasons__element {
     border-bottom: 5px solid #bcbcbc;
     list-style-type: none;
@@ -1161,11 +1173,23 @@ li.movie-genres:last-child:after {
   border-bottom: 10px solid #ddd;
   font-size: 5em;
   padding: 30px 20px; }
-  .season__header h2 {
-    margin: 0 auto;
-    max-width: 900px; }
-    .season__header h2 span {
-      font-size: .65em; }
+  .season__header__inner {
+    display: grid;
+    grid-template-columns: 70px 4fr;
+    grid-column-gap: 10px;
+    height: 100px;
+    max-width: 900px;
+    margin: 0 auto; }
+    .season__header__inner img {
+      height: 100%; }
+  .season__header__info {
+    align-self: center; }
+    .season__header__info h2 {
+      margin: 0; }
+      .season__header__info h2 span {
+        font-size: .65em; }
+    .season__header__info h4 a {
+      color: #999; }
 
 .episodes__wrapper {
   margin: 0 auto;

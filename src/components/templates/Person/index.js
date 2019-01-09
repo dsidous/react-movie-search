@@ -10,32 +10,32 @@ import NoImage from "../../../images/noimage.jpg";
 class CastProfile extends Component {
   render() {
     const {
-      biography,
-      birthday,
-      deathday,
-      name,
-      place_of_birth,
-      profile_path,
-      combined_credits,
-      id
-    } = this.props.person;
+      person: {
+        biography,
+        birthday,
+        deathday,
+        name,
+        place_of_birth,
+        profile_path,
+        combined_credits,
+        id},
+      config: { images: {
+        secure_base_url,
+        profile_sizes,
+        poster_sizes
+      }}
+    } = this.props;
 
     let firstName, lastName;
 
     if (name) {
       [firstName, ...lastName] = name.split(" ");
-
       lastName = lastName.join(" ");
     }
 
-    const profileURL =
-      this.props.config.images.secure_base_url +
-      this.props.config.images.profile_sizes[2] +
-      profile_path;
+    const profileURL = secure_base_url + profile_sizes[2] + profile_path;
 
-    const posterBaseURL =
-      this.props.config.images.secure_base_url +
-      this.props.config.images.poster_sizes[0];
+    const posterBaseURL = secure_base_url + poster_sizes[0];
 
     const person_shows = (shows) => { 
       if(shows.cast.length>0) {
@@ -46,7 +46,7 @@ class CastProfile extends Component {
           const data_a = a.release_date || a.first_air_date;  
           return data_b ? data_b.localeCompare(data_a) : -1
         })
-        .map(show => {
+        .map((show,i) => {
           const {id,poster_path,character} = show;
           const show_attr = show.release_date 
             ? {title:"title",release_date:"release_date",show_type:"movie"}
@@ -57,7 +57,7 @@ class CastProfile extends Component {
           const { show_type } = show_attr;
           return (
             <div
-              key={id}
+              key={id + i}
               className="person-movie"
               onClick={() => this.props.handlePersonMovieClick(id,show_type)}
             >
@@ -97,14 +97,12 @@ class CastProfile extends Component {
       ? combined_credits.cast
         .sort((a, b) => b.vote_count - a.vote_count)
         .slice(0, 8)
-        .map(person_movie => (
-          <div key={person_movie.id} className="person-movies-known">
+        .map((person_movie,i) => (
+          <div key={person_movie.id + i} className="person-movies-known">
             <img
               src={
                 person_movie.poster_path !== null
-                  ? this.props.config.images.secure_base_url +
-                  this.props.config.images.poster_sizes[1] +
-                  person_movie.poster_path
+                  ? secure_base_url + poster_sizes[1] + person_movie.poster_path
                   : NoImage
               }
               alt={person_movie.title || person_movie.name }

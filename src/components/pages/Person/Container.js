@@ -15,10 +15,6 @@ export default class CastProfielContainer extends Component {
     router: PropTypes.object.isRequired
   };
 
-  componentDidUpdate = () => {
-    window.scrollTo(0, 0);
-  };
-
   handlePersonMovieClick = (movieId,show) => {
     this.context.router.history.push(`/${show}/${movieId}`);
   };

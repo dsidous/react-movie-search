@@ -1,19 +1,41 @@
 .season__header {
-    background: #eee;
-    border-top: 10px solid #ddd;
-    border-bottom: 10px solid #ddd;
-    font-size: 5em;
-    padding: 30px 20px;
+  background: #eee;
+  border-top: 10px solid #ddd;
+  border-bottom: 10px solid #ddd;
+  font-size: 5em;
+  
+  padding: 30px 20px;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 70px 4fr;
+    grid-column-gap: 10px;
+    height: 100px;
+    max-width: 900px;
+    margin: 0 auto;
+    
+    img {
+      height: 100%;
+    }
+  }
+
+  &__info {
+    align-self: center;
 
     h2 {
-      margin: 0 auto;
-      max-width: 900px;
+      margin: 0;
 
       span {
         font-size: .65em;
       }
     }
+
+    h4 a {
+      color: #999;
+    }
   }
+  
+}
 .episodes {
   &__wrapper {
     margin: 0 auto;

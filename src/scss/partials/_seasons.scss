@@ -10,12 +10,32 @@
     font-size: 5em;
     padding: 30px 20px;
 
-    h2 {
-      margin: 0 auto;
+    &__inner {
+      display: grid;
+      grid-template-columns: 70px 4fr;
+      grid-column-gap: 10px;
+      height: 100px;
       max-width: 900px;
+      margin: 0 auto;
+      
+      img {
+        height: 100%;
+      }
+    }
 
-      span {
-        font-size: .75em;
+    &__info {
+      align-self: center;
+
+      h2 {
+        margin: 0;
+
+        span {
+          font-size: .65em;
+        }
+      }
+
+      h4 a {
+        color: #999;
       }
     }
   }

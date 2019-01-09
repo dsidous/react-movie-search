@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import Season from '../../molecules/Season';
 
@@ -7,8 +8,6 @@ class Seasons extends Component {
   static contextTypes = {
     router: PropTypes.object.isRequired
   };
-
-  componentDidMount = () => { window.scrollTo(0, 0) }
 
   render() {
     if (this.props.loading || this.props.configLoading) {
@@ -20,14 +19,23 @@ class Seasons extends Component {
       )
     }
 
-    const { config, tv: { seasons, name, first_air_date, id } } = this.props;
+    const { config, tv: { seasons, name, first_air_date, id, poster_path } } = this.props;
+    const poster = config.images.secure_base_url + config.images.poster_sizes[1] + poster_path;
 
     return (
       <div>
         <div className="seasons__header">
-          <h2>{name}
-            <span> ({first_air_date.slice(0, 4)})</span>
-          </h2>
+          <div className="seasons__header__inner">
+            <img src={poster} alt={name} />
+            <div className="seasons__header__info">
+              <h2>{name}&nbsp;
+                <span>({first_air_date.slice(0, 4)})</span>
+                </h2>
+                <h4>
+                  <Link to={`/tv/${id}`}>&#8592; Back to main</Link>
+                </h4>
+            </div>
+          </div>
         </div>
         <ul className="seasons">
           {seasons.sort((a, b) => a.season_number - b.season_number).map(season => (

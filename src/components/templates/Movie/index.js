@@ -20,8 +20,6 @@ class MovieProfile extends Component {
     handleMovieClick: PropTypes.func.isRequired
   };
 
-  componentDidMount = () => { window.scrollTo(0, 0) }
-
   render() {
     const {
       config: {

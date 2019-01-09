@@ -26,10 +26,6 @@ class Filter extends Component {
     };
   }
 
-  componentDidUpdate = () => {
-    window.scrollTo(0, 0);
-  };
-
   objectToQueryStr(paramsObj) {
     return Object.keys(paramsObj)
       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(paramsObj[key])}`)

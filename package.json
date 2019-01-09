@@ -36,6 +36,7 @@
     "react-router": "4",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",
+    "react-router-scroll-top": "^0.1.1",
     "react-select": "^1.1.0",
     "react-simple-image": "^1.0.0",
     "react-slick": "^0.16.0",
