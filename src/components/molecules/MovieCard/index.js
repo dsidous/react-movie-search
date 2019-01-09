@@ -11,7 +11,14 @@ const MovieCard = ({ img_base_path, movie, media }, context) => {
     context.router.history.push(`/${media}/${movieId}`)
   )
 
-  const { id, title, overview, poster_path, backdrop_path, vote_average, release_date } = movie;
+  const { 
+    id, title, overview, poster_path, 
+    backdrop_path, vote_average, release_date,
+    name, first_air_date
+  } = movie;
+
+  const mtitle = title || name;
+  const date = release_date || first_air_date;
 
   return (
     <li className="movies-list__element">
@@ -41,19 +48,19 @@ const MovieCard = ({ img_base_path, movie, media }, context) => {
           >
             <source media="(min-width: 941px)" srcSet={NoImage} />
             <source media="(max-width: 940px)" srcSet={NoBdImage} />
-            <img src={NoBdImage} className="movies-poster" alt={title} />
+            <img src={NoBdImage} className="movies-poster" alt={mtitle} />
           </picture>
         )}
 
       <div className="clearfix">
         <div className="movies-title">
-          {title}
+          {mtitle}
         </div>
         <div className="movies-rating">{vote_average}</div>
       </div>
       <div className="clearfix">
         <div className="movies-year">
-          {release_date.slice(0, 4)}
+          {date.slice(0, 4)}
         </div>
       </div>
       <div
