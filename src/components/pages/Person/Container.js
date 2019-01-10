@@ -7,7 +7,6 @@ import Person from "../../templates/Person";
 
 export default class CastProfielContainer extends Component {
   static propTypes = {
-    config: PropTypes.object.isRequired,
     person: PropTypes.object.isRequired
   };
 
@@ -15,7 +14,7 @@ export default class CastProfielContainer extends Component {
     router: PropTypes.object.isRequired
   };
 
-  handlePersonMovieClick = (movieId,show) => {
+  handlePersonMovieClick = (movieId, show) => {
     this.context.router.history.push(`/${show}/${movieId}`);
   };
 
@@ -23,7 +22,7 @@ export default class CastProfielContainer extends Component {
     return (
       <div>
         {
-          (this.props.loading || this.props.configLoading) ? (
+          (this.props.loading) ? (
             <div className="loader">
               <i className="fa fa-spinner fa-pulse fa-3x fa-fw" />
               <span className="sr-only">Loading...</span>
@@ -36,16 +35,13 @@ export default class CastProfielContainer extends Component {
                 transitionEnterTimeout={1500}
                 transitionLeave={false}
               >
-                {this.props.config.images && (
-                  <IntlProvider locale={navigator.language}>
-                    <Person
-                      key={this.props.person.id}
-                      config={this.props.config}
-                      person={this.props.person}
-                      handlePersonMovieClick={this.handlePersonMovieClick}
-                    />
-                  </IntlProvider>
-                )}
+                <IntlProvider locale={navigator.language}>
+                  <Person
+                    key={this.props.person.id}
+                    person={this.props.person}
+                    handlePersonMovieClick={this.handlePersonMovieClick}
+                  />
+                </IntlProvider>
               </ReactCSSTransitionGroup>
             )}
       </div>
