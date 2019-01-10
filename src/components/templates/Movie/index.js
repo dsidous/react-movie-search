@@ -117,7 +117,6 @@ class MovieProfile extends Component {
         {similar.results[0] &&
           <SimilarMovies
             similar={similar.results}
-            img_base_path={secure_base_url + poster_sizes[1]}
             handleMovieClick={this.props.handleMovieClick}
           />
         }

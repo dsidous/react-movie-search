@@ -4,8 +4,8 @@ import Markdown from "markdown-to-jsx";
 import { Link } from "react-router-dom";
 
 import SEO from "../../atoms/SEO";
-
-import NoImage from "../../../images/noimage.jpg";
+import MediaImage from '../../atoms/MediaImage';
+import PersonShows from '../../molecules/PersonShows';
 
 class CastProfile extends Component {
   render() {
@@ -33,79 +33,18 @@ class CastProfile extends Component {
       lastName = lastName.join(" ");
     }
 
-    const profileURL = secure_base_url + profile_sizes[2] + profile_path;
-
-    const posterBaseURL = secure_base_url + poster_sizes[0];
-
-    const person_shows = (shows) => { 
-      if(shows.cast.length>0) {
-       
-      return shows.cast
-        .sort((a, b) => {
-          const data_b = b.release_date || b.first_air_date;  
-          const data_a = a.release_date || a.first_air_date;  
-          return data_b ? data_b.localeCompare(data_a) : -1
-        })
-        .map((show,i) => {
-          const {id,poster_path,character} = show;
-          const show_attr = show.release_date 
-            ? {title:"title",release_date:"release_date",show_type:"movie"}
-            : {title:"name",release_date:"first_air_date",show_type:"tv"};
-          
-          const title = show[show_attr.title];
-          const release_date = show[show_attr.release_date] || '';
-          const { show_type } = show_attr;
-          return (
-            <div
-              key={id + i}
-              className="person-movie"
-              onClick={() => this.props.handlePersonMovieClick(id,show_type)}
-            >
-              <p className="person-movie__poster">
-                {poster_path !== null 
-                  ? (
-                    <img
-                      src={posterBaseURL + poster_path}
-                      alt={title}
-                    />
-                    ) 
-                  : (
-                      "-"
-                    )}
-              </p>
-              <p className="person-movie__release">
-                {release_date !== "" &&
-                  release_date !== undefined
-                  ? release_date.substr(0, 4)
-                  : ""}
-              </p>
-              <p className="person-movie__title">
-                {title}
-                {character && (
-                  <span className="person-movie__character">
-                    {" "}
-                    as {character}
-                  </span>
-                )}
-              </p>
-            </div>
-          )
-        })
-      }
-    }  
+    
     const person_movies_known = combined_credits
       ? combined_credits.cast
         .sort((a, b) => b.vote_count - a.vote_count)
         .slice(0, 8)
         .map((person_movie,i) => (
           <div key={person_movie.id + i} className="person-movies-known">
-            <img
-              src={
-                person_movie.poster_path !== null
-                  ? secure_base_url + poster_sizes[1] + person_movie.poster_path
-                  : NoImage
-              }
-              alt={person_movie.title || person_movie.name }
+            <MediaImage
+              mediaType="poster"
+              size={1} 
+              filePath={person_movie.poster_path} 
+              name={person_movie.title || person_movie.name} 
               onClick={() =>
                 this.props.handlePersonMovieClick(person_movie.id,person_movie.media_type)
               }
@@ -124,15 +63,13 @@ class CastProfile extends Component {
           <div className="person-info-wrapper">
             <div className="person-poster">
               <Link to={`/person/${id}/images`}>
-                {profile_path !== null ? (
-                  <img
-                    src={profileURL}
-                    className="img-responsive center-block"
-                    alt="poster"
-                  />
-                ) : (
-                    <div className="movie-no-image-holder small" />
-                  )}
+                <MediaImage
+                  className="img-responsive center-block"
+                  mediaType="profile"
+                  size={2} 
+                  filePath={profile_path} 
+                  name="poster" 
+                />
               </Link>
             </div>
             <div className="person-info">
@@ -203,7 +140,9 @@ class CastProfile extends Component {
               {person_movies_known}
             </div>
             <h4>Acting</h4>
-            <div className="person-movies-grid">{person_shows(combined_credits)}</div>
+            <div className="person-movies-grid">
+              <PersonShows shows={combined_credits} />
+            </div>
           </div>
         </div>
       </div>
