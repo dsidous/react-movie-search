@@ -12,7 +12,7 @@ class CastCrew extends Component {
   };
 
   render() {
-    if (this.props.loading || this.props.configLoading) {
+    if (this.props.loading) {
       return (
         <div className="loader">
           <i className="fa fa-spinner fa-pulse fa-3x fa-fw" />
@@ -20,12 +20,10 @@ class CastCrew extends Component {
         </div>
       )
     }
-    const { secure_base_url } = this.props.config.images;
-    const profile_img_base_url = secure_base_url + "w132_and_h132_face/";
+    
     return (
       <FullCastCrew
         movie={this.props.movie}
-        profile_img_base_url={profile_img_base_url}
         handlePersonClick={this.handlePersonClick}
       />
     );

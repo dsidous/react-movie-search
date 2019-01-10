@@ -1,10 +1,8 @@
 import React from "react";
+import MediaImage from '../MediaImage';
 
 const HomeList = props => {
-  const img_base_path = props.config.images
-    ? props.config.images.secure_base_url +
-    props.config.images.poster_sizes[0]
-    : "";
+  
   return (
     <div className="home-list">
       <div className="home-list__title">{props.title}</div>
@@ -15,7 +13,12 @@ const HomeList = props => {
             key={list.id}
             onClick={() => props.goToMovie(list.id)}
           >
-            <img src={img_base_path + list.poster_path} alt={list.title} />
+            <MediaImage
+              mediaType="poster"
+              size={0} 
+              filePath={list.poster_path} 
+              name={list.title} 
+            />
             <div className="list-data">
               <div className="list-data__title">
                 {list.title} ({list.vote_average})

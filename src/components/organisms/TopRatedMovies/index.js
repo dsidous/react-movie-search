@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MediaImage from '../../atoms/MediaImage';
 
 class TopRatedMovies extends Component {
   constructor(props) {
@@ -25,9 +26,7 @@ class TopRatedMovies extends Component {
       { id: 53, name: "Thriller" }
     ];
   
-    const img_base_path = this.props.config.images
-      ? this.props.config.images.secure_base_url + this.props.config.images.poster_sizes[3]
-      : "";
+    
     return (
       <div>
         {this.props.topMovies && (
@@ -54,16 +53,20 @@ class TopRatedMovies extends Component {
                 >
                   {movie.poster_path !== null &&
                     i === 0 && (
-                      <img
-                        src={img_base_path + movie.poster_path}
-                        alt={movie.original_title}
+                      <MediaImage
+                        mediaType="poster"
+                        size={5} 
+                        filePath={movie.poster_path} 
+                        name={movie.original_title} 
                       />
                     )}
                   {movie.backdrop_path !== null &&
                     i !== 0 && (
-                      <img
-                        src={img_base_path + movie.backdrop_path}
-                        alt={movie.original_title}
+                      <MediaImage
+                        mediaType="poster"
+                        size={5} 
+                        filePath={movie.backdrop_path} 
+                        name={movie.original_title} 
                       />
                     )}
                   <div className="top-list__element-title">{movie.title}</div>

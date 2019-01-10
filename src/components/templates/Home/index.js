@@ -6,7 +6,6 @@ import HomeList from "../../atoms/HomeList";
 
 export default class TopListsContainer extends Component {
   static propTypes = {
-    config: PropTypes.object.isRequired,
     popular: PropTypes.array
   };
 
@@ -74,25 +73,22 @@ export default class TopListsContainer extends Component {
     return (
       <div>
         <TopRatedMovies
-          config={this.props.config}
           topMovies={this.state.topmovies}
           goToMovie={this.goToMovie}
           filterTopMovies={this.filterTopMovies}
         />
 
         <div className="top-lists-wrapper">
-          <HomeList
-            config={this.props.config}
+          {/*<HomeList
             list={this.props.nowplaying.slice(0, 10)}
             goToMovie={this.goToMovie}
             title="In Theatres"
           />
           <HomeList
-            config={this.props.config}
             list={this.props.upcoming.slice(0, 10)}
             goToMovie={this.goToMovie}
             title="Upcoming Movies"
-          />
+          />*/}
         </div>
       </div>
     );

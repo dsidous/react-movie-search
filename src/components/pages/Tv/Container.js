@@ -51,10 +51,11 @@ export default class TvProfileContainer extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div>
         {
-          (this.props.loading || this.props.configLoading) ? (
+          (this.props.loading) ? (
             <div className="loader">
               <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
               <span className="sr-only">Loading...</span>
