@@ -6,9 +6,6 @@ import SEO from "../../atoms/SEO";
 import TopPeople from "../../templates/TopPeople";
 
 export default class TopPeopleContainer extends Component {
-  static propTypes = {
-    config: PropTypes.object.isRequired
-  };
 
   static contextTypes = {
     router: PropTypes.object.isRequired
@@ -38,7 +35,7 @@ export default class TopPeopleContainer extends Component {
   };
 
   render() {
-    if (this.props.loading || this.props.configLoading) {
+    if (this.props.loading) {
       return (
         <div className="loader">
           <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
@@ -59,7 +56,6 @@ export default class TopPeopleContainer extends Component {
             transitionLeaveTimeout={5500}
           >
             <TopPeople
-              config={this.props.config}
               state={this.state}
               toppeople={this.props.toppeople}
               handlePersonClick={this.handlePersonClick}

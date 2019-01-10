@@ -79,7 +79,7 @@ export default class TopListsContainer extends Component {
         />
 
         <div className="top-lists-wrapper">
-          {/*<HomeList
+          <HomeList
             list={this.props.nowplaying.slice(0, 10)}
             goToMovie={this.goToMovie}
             title="In Theatres"
@@ -88,7 +88,7 @@ export default class TopListsContainer extends Component {
             list={this.props.upcoming.slice(0, 10)}
             goToMovie={this.goToMovie}
             title="Upcoming Movies"
-          />*/}
+          />
         </div>
       </div>
     );

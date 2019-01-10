@@ -3,15 +3,15 @@ import PropTypes from "prop-types";
 
 import MediaImage from '../../atoms/MediaImage';
 
-const PersonShows = ({ shows }, context) => {
+const PersonShows = ({ shows: { cast } }, context) => {
 
   const goToMovie = (id, showType) => {
     context.router.history.push(`/${showType}/${id}`);
   };
 
-  if (shows.cast.length > 0) {
+  if (cast.length > 0) {
 
-    const sortedShow = shows.cast
+    const sortedShow = [].concat(cast)
       .sort((a, b) => {
         const data_b = b.release_date || b.first_air_date;
         const data_a = a.release_date || a.first_air_date;

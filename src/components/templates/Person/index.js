@@ -30,11 +30,13 @@ class CastProfile extends Component {
     }
 
 
-    const person_movies_known = combined_credits
-      ? combined_credits.cast
-        .sort((a, b) => b.vote_count - a.vote_count)
-        .slice(0, 8)
-        .map((person_movie, i) => (
+    const person_movies_known = () => {
+      if (combined_credits) {
+        const sorted = [].concat(combined_credits.cast)
+          .sort((a, b) => b.vote_count - a.vote_count)
+          .slice(0, 8);
+
+        return sorted.map((person_movie, i) => (
           <div key={person_movie.id + i} className="person-movies-known">
             <MediaImage
               mediaType="poster"
@@ -49,8 +51,11 @@ class CastProfile extends Component {
               {person_movie.title || person_movie.name}
             </p>
           </div>
-        ))
-      : "";
+        ));
+      };
+
+      return null;
+    }
 
     return (
       <div>
@@ -133,7 +138,7 @@ class CastProfile extends Component {
           <div className="person-movies-wrapper">
             <h4>Knonw For</h4>
             <div className="person-movies-known-grid">
-              {person_movies_known}
+              {person_movies_known()}
             </div>
             <h4>Acting</h4>
             <div className="person-movies-grid">
