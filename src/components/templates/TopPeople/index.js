@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MyPager from "../../atoms/Pager";
 
+import MyPager from "../../atoms/Pager";
+import MediaImage from '../../atoms/MediaImage';
 
 TopPeople.propTypes = {
-  config: PropTypes.object.isRequired,
   state: PropTypes.object.isRequired,
   toppeople: PropTypes.array.isRequired,
   handlePersonClick: PropTypes.func.isRequired,
@@ -13,10 +13,6 @@ TopPeople.propTypes = {
 
 function TopPeople(props) {
   const people = props.toppeople;
-
-  const { secure_base_url, profile_sizes } = props.config.images;
-
-  const profile_path = secure_base_url + profile_sizes[1];
 
   return (
     <div className="top-people">
@@ -30,10 +26,12 @@ function TopPeople(props) {
               key={person.id}
               onClick={() => props.handlePersonClick(person.id)}
             >
-              <img
+              <MediaImage
+                mediaType="profile"
+                size={1}
+                filePath={person.profile_path}
+                name={person.name}
                 className="top-people__list-element__img"
-                src={profile_path + person.profile_path}
-                alt={person.name}
               />
               <figcaption className="top-people__list-element__name">
                 {person.name}

@@ -1,12 +1,10 @@
 import React from 'react';
 import { FormattedDate, IntlProvider } from "react-intl";
 
-import NoBdImage from '../../../images/nobdimage.jpg';
+import MediaImage from '../../atoms/MediaImage';
 
 const Episode = (props) => {
-  const { config: { images: { secure_base_url, still_sizes } },
-    episode: { name, air_date, episode_number, overview, still_path }
-  } = props;
+  const { episode: { name, air_date, episode_number, overview, still_path } } = props;
 
   const date = air_date !== null ? air_date : '';
 
@@ -16,9 +14,11 @@ const Episode = (props) => {
         <picture
           className="episode-poster"
         >
-          <img
-            src={still_path !== null ? secure_base_url + still_sizes[3] + still_path : NoBdImage}
-            alt={name}
+          <MediaImage
+            mediaType="still"
+            size={3}
+            filePath={still_path}
+            name={name}
           />
         </picture>
         <div className="episode-details">

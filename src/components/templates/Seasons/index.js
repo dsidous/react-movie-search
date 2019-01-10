@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import Season from '../../molecules/Season';
+import MediaImage from '../../atoms/MediaImage';
 
 class Seasons extends Component {
   static contextTypes = {
@@ -19,21 +20,25 @@ class Seasons extends Component {
       )
     }
 
-    const { config, tv: { seasons, name, first_air_date, id, poster_path } } = this.props;
-    const poster = config.images.secure_base_url + config.images.poster_sizes[1] + poster_path;
+    const { tv: { seasons, name, first_air_date, id, poster_path } } = this.props;
 
     return (
       <div>
         <div className="seasons__header">
           <div className="seasons__header__inner">
-            <img src={poster} alt={name} />
+            <MediaImage
+              mediaType="poster"
+              size={1}
+              filePath={poster_path}
+              name={name}
+            />
             <div className="seasons__header__info">
               <h2>{name}&nbsp;
                 <span>({first_air_date.slice(0, 4)})</span>
-                </h2>
-                <h4>
-                  <Link to={`/tv/${id}`}>&#8592; Back to main</Link>
-                </h4>
+              </h2>
+              <h4>
+                <Link to={`/tv/${id}`}>&#8592; Back to main</Link>
+              </h4>
             </div>
           </div>
         </div>

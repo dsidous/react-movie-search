@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import MediaImage from '../../atoms/MediaImage';
+
 function CastImages(props) {
 
-  if (props.loading || props.configLoading) {
+  if (props.loading) {
     return (
       <div className="loader">
         <i className="fa fa-spinner fa-pulse fa-3x fa-fw" />
@@ -12,9 +14,6 @@ function CastImages(props) {
     )
   }
 
-  const profileURL =
-    props.config.images.secure_base_url + props.config.images.profile_sizes[2];
-
   const images = props.person.images
     .sort((a, b) => b.vote_average - a.vote_average)
     .map((image, i) => (
@@ -22,7 +21,12 @@ function CastImages(props) {
         <a href={props.config.images.secure_base_url +
           props.config.images.profile_sizes[3] +
           image.file_path} target="_blank" rel="noopener noreferrer">
-          <img src={profileURL + image.file_path} alt={props.person.name} />
+          <MediaImage
+            mediaType="profile"
+            size={2}
+            filePath={image.file_path}
+            name={props.person.name}
+          />
           <figcaption>
             <p>
               Size: <br />
