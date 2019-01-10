@@ -23,7 +23,7 @@ class MovieProfile extends Component {
   render() {
     const {
       config: {
-        images: { secure_base_url, poster_sizes, backdrop_sizes, profile_sizes }
+        images: { secure_base_url, poster_sizes, backdrop_sizes }
       },
       movie: { backdrop_path, poster_path, genres, title,
         release_date, reviews, runtime, vote_average,

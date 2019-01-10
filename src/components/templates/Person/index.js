@@ -18,12 +18,8 @@ class CastProfile extends Component {
         place_of_birth,
         profile_path,
         combined_credits,
-        id},
-      config: { images: {
-        secure_base_url,
-        profile_sizes,
-        poster_sizes
-      }}
+        id
+      }
     } = this.props;
 
     let firstName, lastName;
@@ -33,20 +29,20 @@ class CastProfile extends Component {
       lastName = lastName.join(" ");
     }
 
-    
+
     const person_movies_known = combined_credits
       ? combined_credits.cast
         .sort((a, b) => b.vote_count - a.vote_count)
         .slice(0, 8)
-        .map((person_movie,i) => (
+        .map((person_movie, i) => (
           <div key={person_movie.id + i} className="person-movies-known">
             <MediaImage
               mediaType="poster"
-              size={1} 
-              filePath={person_movie.poster_path} 
-              name={person_movie.title || person_movie.name} 
+              size={1}
+              filePath={person_movie.poster_path}
+              name={person_movie.title || person_movie.name}
               onClick={() =>
-                this.props.handlePersonMovieClick(person_movie.id,person_movie.media_type)
+                this.props.handlePersonMovieClick(person_movie.id, person_movie.media_type)
               }
             />
             <p className="person-movie__title-known">
@@ -66,9 +62,9 @@ class CastProfile extends Component {
                 <MediaImage
                   className="img-responsive center-block"
                   mediaType="profile"
-                  size={2} 
-                  filePath={profile_path} 
-                  name="poster" 
+                  size={2}
+                  filePath={profile_path}
+                  name="poster"
                 />
               </Link>
             </div>
