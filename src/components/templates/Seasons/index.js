@@ -10,7 +10,7 @@ class Seasons extends Component {
   };
 
   render() {
-    if (this.props.loading || this.props.configLoading) {
+    if (this.props.loading) {
       return (
         <div className="loader">
           <i className="fa fa-spinner fa-pulse fa-3x fa-fw" />
@@ -40,7 +40,7 @@ class Seasons extends Component {
         <ul className="seasons">
           {seasons.sort((a, b) => a.season_number - b.season_number).map(season => (
             <li className="seasons__element" key={season.season_number}>
-              <Season season={season} config={config} tvId={id} />
+              <Season season={season} tvId={id} />
             </li>
           ))}
         </ul>

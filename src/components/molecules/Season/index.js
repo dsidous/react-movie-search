@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-import NoBdImage from '../../../images/nobdimage.jpg';
+import MediaImage from '../../atoms/MediaImage';
 
 const Season = (props, context) => {
   const {
     season: { poster_path, overview, name, episode_count, air_date, season_number },
-    config: {
-      images: { secure_base_url, poster_sizes }
-    }, tvId
+    tvId
   } = props;
 
   const date = air_date !== null ? air_date.slice(0, 4) : '';
@@ -23,9 +21,11 @@ const Season = (props, context) => {
         className="season-poster"
         onClick={handleSeasonClick}
       >
-        <img
-          src={poster_path !== null ? secure_base_url + poster_sizes[3] + poster_path : NoBdImage}
-          alt={name}
+        <MediaImage
+          mediaType="poster"
+          size={3} 
+          filePath={poster_path} 
+          name={name} 
         />
       </picture>
       <div className="season-details">

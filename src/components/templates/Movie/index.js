@@ -107,7 +107,6 @@ class MovieProfile extends Component {
         {cast[0] &&
           <Cast
             cast={cast.slice(0, 6)}
-            profile_img_base_url={secure_base_url + profile_sizes[1]}
             handlePersonClick={this.props.handlePersonClick}
             handleFullCrewClick={this.props.handleFullCrewClick}
           />
