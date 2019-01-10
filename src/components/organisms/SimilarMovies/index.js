@@ -1,6 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
 
+import MediaImage from '../../atoms/MediaImage';
+
 function SimilarMovies(props) {
   const settings = {
     dots: false,
@@ -34,9 +36,11 @@ function SimilarMovies(props) {
             onClick={() => props.handleMovieClick(sim.id)}
           >
             <p className="crew-col text-center">
-              <img
-                src={props.img_base_path + sim.poster_path}
-                alt={sim.title}
+              <MediaImage
+                mediaType="poster"
+                size={1} 
+                filePath={sim.poster_path} 
+                name={sim.title} 
                 className="similar-movies-img"
               />
               <br />
