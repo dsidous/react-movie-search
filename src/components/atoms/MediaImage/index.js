@@ -13,21 +13,19 @@ const MediaImage = ({
   ...otherProps
 }) => {
 
+  let imageUrl = NoImage;
+
   if (filePath !== null) {
     const sizePath = (mediaType === 'miniProfile') 
       ? "w132_and_h132_face/" 
       : images[`${mediaType}_sizes`][size];
 
-    const imageUrl = `${images.secure_base_url}${sizePath}${filePath}`; 
+    imageUrl = `${images.secure_base_url}${sizePath}${filePath}`; 
+  } 
 
   return (
-    <span>
-      {imageUrl}
-    </span>
-    //<img src={imageUrl} alt={name} {...otherProps} />
+    <img src={imageUrl} alt={name} {...otherProps} />
   );
-};
-return null
 };
 
 export default withConfig()(MediaImage);

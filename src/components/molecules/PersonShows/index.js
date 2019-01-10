@@ -6,11 +6,11 @@ const PersonShows = ({ shows }) => {
   if(shows.cast.length>0) {
    
     const end = shows.cast
-    .sort((a, b) => {
-      const data_b = b.release_date || b.first_air_date;  
-      const data_a = a.release_date || a.first_air_date;  
-      return data_b ? data_b.localeCompare(data_a) : -1
-    })
+    // .sort((a, b) => {
+    //   const data_b = b.release_date || b.first_air_date;  
+    //   const data_a = a.release_date || a.first_air_date;  
+    //   return data_b ? data_b.localeCompare(data_a) : -1
+    // })
     .map((show,i) => {
       console.log(i);
 
