@@ -1,9 +1,9 @@
 import { compose, withProps } from 'recompose';
 
 import withPerson from '../../queries/withPerson';
-import Container from './Container';
+import Person from '../../templates/Person';
 
 export default compose(
   withProps(props => ({ 'personId': props.match.params.personId })),
   withPerson(),
-)(Container);
+)(Person);

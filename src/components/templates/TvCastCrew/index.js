@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import FullCastCrew from '../../molecules/FullCastCrew';
+import Spinner from "../../atoms/Spinner";
+import PageTransition from "../../atoms/PageTransition";
 
 class CastCrew extends Component {
   static contextTypes = {
@@ -12,22 +14,18 @@ class CastCrew extends Component {
   };
 
   render() {
-    if (this.props.loading || this.props.configLoading) {
-      return (
-        <div className="loader">
-          <i className="fa fa-spinner fa-pulse fa-3x fa-fw" />
-          <span className="sr-only">Loading...</span>
-        </div>
-      )
+    
+    if (this.props.loading) {
+      return <Spinner />
     }
-    const { secure_base_url } = this.props.config.images;
-    const profile_img_base_url = secure_base_url + "w132_and_h132_face/";
+
     return (
-      <FullCastCrew
-        movie={this.props.tv}
-        profile_img_base_url={profile_img_base_url}
-        handlePersonClick={this.handlePersonClick}
-      />
+      <PageTransition>
+        <FullCastCrew
+          movie={this.props.tv}
+          handlePersonClick={this.handlePersonClick}
+        />
+      </PageTransition>
     );
   }
 }

@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { Link, withRouter } from "react-router-dom";
 
-
+import Spinner from '../../atoms/Spinner';
 import Episode from '../../molecules/Episode';
 import MediaImage from '../../atoms/MediaImage';
+import PageTransition from '../../atoms/PageTransition';
 
 class Season extends Component {
 
@@ -14,19 +15,14 @@ class Season extends Component {
 
   render() {
     if (this.props.loading) {
-      return (
-        <div className="loader">
-          <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-          <span className="sr-only">Loading...</span>
-        </div>
-      )
+      return <Spinner />
     }
 
     const { tvSeason: { name, air_date, episodes, poster_path }, tvId } = this.props;
     const date = air_date.slice(0, 4);
 
     return (
-      <div>
+      <PageTransition>
         <div className="season__header">
           <div className="season__header__inner">
             <MediaImage
@@ -52,7 +48,7 @@ class Season extends Component {
             </li>
           ))}
         </ul>
-      </div>
+      </PageTransition>
     )
   }
 

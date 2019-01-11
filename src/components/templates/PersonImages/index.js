@@ -2,16 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import MediaImage from '../../atoms/MediaImage';
+import Spinner from '../../atoms/Spinner';
+import PageTransition from "../../atoms/PageTransition";
 
 function CastImages(props) {
 
   if (props.loading) {
-    return (
-      <div className="loader">
-        <i className="fa fa-spinner fa-pulse fa-3x fa-fw" />
-        <span className="sr-only">Loading...</span>
-      </div>
-    )
+    return <Spinner />
   }
 
   const images = props.person.images
@@ -37,12 +34,12 @@ function CastImages(props) {
       </figure>
     ));
   return (
-    <div>
+    <PageTransition>
       <div className="cast-images__header">
         <Link to={`/person/${props.person.id}`}><h2>{props.person.name}</h2></Link>
       </div>
       <div className="cast-images__container">{images}</div>
-    </div>
+    </PageTransition>
   );
 }
 

@@ -1,52 +1,59 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import MyPager from "../../atoms/Pager";
-import MediaImage from '../../atoms/MediaImage';
+import Spinner from '../../atoms/Spinner';
+import PageTransition from "../../atoms/PageTransition/index";
+import SEO from "../../atoms/SEO";
+import TopPeopleProfile from "../../organisms/TopPeople";
 
-TopPeople.propTypes = {
-  state: PropTypes.object.isRequired,
-  toppeople: PropTypes.array.isRequired,
-  handlePersonClick: PropTypes.func.isRequired,
-  handlePageSelect: PropTypes.func.isRequired
-};
+export default class TopPeople extends Component {
 
-function TopPeople(props) {
-  const people = props.toppeople;
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  };
 
-  return (
-    <div className="top-people">
-      <h2>POPULAR PEOPLE</h2>
-      <div className="top-people__list">
+  constructor(props) {
+    super(props);
 
-        {
-          people.map(person => (
-            <figure
-              className="top-people__list-element"
-              key={person.id}
-              onClick={() => props.handlePersonClick(person.id)}
-            >
-              <MediaImage
-                mediaType="profile"
-                size={1}
-                filePath={person.profile_path}
-                name={person.name}
-                className="top-people__list-element__img"
-              />
-              <figcaption className="top-people__list-element__name">
-                {person.name}
-              </figcaption>
-            </figure>
-          ))
-        }
+    const params = new URLSearchParams(props.location.search);
+    const page = parseInt(params.get("page"), 10);
 
-      </div>
-      <MyPager
-        page={props.state.page}
-        handlePageSelect={props.handlePageSelect}
-      />
-    </div>
-  );
+    this.state = {
+      page: page || 1
+    };
+  }
+
+  handlePersonClick = personId => {
+    this.context.router.history.push(`/person/${personId}`);
+  };
+
+  handlePageSelect = e => {
+    if (e > 0) {
+      this.setState({ page: e }, () => {
+        this.context.router.history.push(`/person?page=${this.state.page}`);
+      });
+    }
+  };
+
+  render() {
+    if (this.props.loading) {
+      return <Spinner />
+    }
+
+    return (
+      <PageTransition>
+        <SEO title="Popular people" />
+        <div>
+          <PageTransition>
+            <TopPeopleProfile
+              state={this.state}
+              toppeople={this.props.toppeople}
+              handlePersonClick={this.handlePersonClick}
+              handlePageSelect={this.handlePageSelect}
+            />
+          </PageTransition>
+        </div>
+      </PageTransition>
+    );
+  }
 }
-
-export default TopPeople;

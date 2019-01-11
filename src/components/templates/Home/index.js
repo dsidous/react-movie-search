@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+import Spinner from '../../atoms/Spinner';
+import PageTransition from '../../atoms/PageTransition';
 import TopRatedMovies from "../../organisms/TopRatedMovies";
 import HomeList from "../../atoms/HomeList";
 
@@ -61,17 +63,13 @@ export default class TopListsContainer extends Component {
   };
 
   render() {
-    if (this.props.nowPlayingLoading || this.props.popularLoading || this.props.upcomingLoading || this.props.configLoading) {
-      return (
-        <div className="loader">
-          <i className="fa fa-spinner fa-pulse fa-3x fa-fw" />
-          <span className="sr-only">Loading...</span>
-        </div>
-      )
+
+    if (this.props.nowPlayingLoading || this.props.popularLoading || this.props.upcomingLoading) {
+      return <Spinner />
     }
 
     return (
-      <div>
+      <PageTransition>
         <TopRatedMovies
           topMovies={this.state.topmovies}
           goToMovie={this.goToMovie}
@@ -90,7 +88,7 @@ export default class TopListsContainer extends Component {
             title="Upcoming Movies"
           />
         </div>
-      </div>
+      </PageTransition>
     );
   }
 }
