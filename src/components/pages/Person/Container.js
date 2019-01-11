@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { IntlProvider } from 'react-intl';
 
+import PageTransition from "../../atoms/PageTransition/index";
 import Person from "../../templates/Person";
 
 export default class CastProfielContainer extends Component {
@@ -28,13 +28,7 @@ export default class CastProfielContainer extends Component {
               <span className="sr-only">Loading...</span>
             </div>
           ) : (
-              <ReactCSSTransitionGroup
-                transitionName="example"
-                transitionAppear={true}
-                transitionAppearTimeout={1500}
-                transitionEnterTimeout={1500}
-                transitionLeave={false}
-              >
+              <PageTransition>
                 <IntlProvider locale={navigator.language}>
                   <Person
                     key={this.props.person.id}
@@ -42,7 +36,7 @@ export default class CastProfielContainer extends Component {
                     handlePersonMovieClick={this.handlePersonMovieClick}
                   />
                 </IntlProvider>
-              </ReactCSSTransitionGroup>
+              </PageTransition>
             )}
       </div>
     );

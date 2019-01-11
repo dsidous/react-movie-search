@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import * as Vibrant from "node-vibrant";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
+import PageTransition from "../../atoms/PageTransition/index";
 import MovieProfile from "../../templates/Movie";
 
 export default class MovieProfileContainer extends Component {
@@ -61,23 +61,17 @@ export default class MovieProfileContainer extends Component {
               <span className="sr-only">Loading...</span>
             </div>
           ) : (
-              <ReactCSSTransitionGroup
-                transitionName="example"
-                transitionAppear={true}
-                transitionAppearTimeout={1500}
-                transitionEnterTimeout={1500}
-                transitionLeave={false}
-              >
-                <MovieProfile
-                  key={this.props.movie.id}
-                  config={this.props.config}
-                  movie={this.props.movie}
-                  dcolor={this.state.dcolor}
-                  handleMovieClick={this.handleMovieClick}
-                  handlePersonClick={this.handlePersonClick}
-                  handleFullCrewClick={this.handleFullCrewClick}
-                />
-              </ReactCSSTransitionGroup>
+            <PageTransition>
+              <MovieProfile
+                key={this.props.movie.id}
+                config={this.props.config}
+                movie={this.props.movie}
+                dcolor={this.state.dcolor}
+                handleMovieClick={this.handleMovieClick}
+                handlePersonClick={this.handlePersonClick}
+                handleFullCrewClick={this.handleFullCrewClick}
+              />
+            </PageTransition>  
             )}
       </div>
     );
