@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
+import PageTransition from "../../atoms/PageTransition/index";
 import SEO from "../../atoms/SEO";
 import TopPeople from "../../templates/TopPeople";
 
@@ -48,20 +48,14 @@ export default class TopPeopleContainer extends Component {
       <div>
         <SEO title="Popular people" />
         <div>
-          <ReactCSSTransitionGroup
-            transitionName="example"
-            transitionAppear={true}
-            transitionAppearTimeout={5500}
-            transitionEnterTimeout={5500}
-            transitionLeaveTimeout={5500}
-          >
+          <PageTransition>
             <TopPeople
               state={this.state}
               toppeople={this.props.toppeople}
               handlePersonClick={this.handlePersonClick}
               handlePageSelect={this.handlePageSelect}
             />
-          </ReactCSSTransitionGroup>
+          </PageTransition>
         </div>
       </div>
     );

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import * as Vibrant from "node-vibrant";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
+import PageTransition from "../../atoms/PageTransition/index";
 import TvProfile from "../../templates/Tv";
 
 export default class TvProfileContainer extends Component {
@@ -60,13 +60,7 @@ export default class TvProfileContainer extends Component {
               <span className="sr-only">Loading...</span>
             </div>
           ) : (
-              <ReactCSSTransitionGroup
-                transitionName="example"
-                transitionAppear={true}
-                transitionAppearTimeout={1500}
-                transitionEnterTimeout={1500}
-                transitionLeave={false}
-              >
+              <PageTransition>
                 <TvProfile
                   key={this.props.tv.id}
                   config={this.props.config}
@@ -76,7 +70,7 @@ export default class TvProfileContainer extends Component {
                   handlePersonClick={this.handlePersonClick}
                   handleFullCrewClick={this.handleFullCrewClick}
                 />
-              </ReactCSSTransitionGroup>
+              </PageTransition>
             )}
       </div>
     );
