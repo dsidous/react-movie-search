@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+import Spinner from '../../atoms/Spinner';
 import Season from '../../molecules/Season';
 import MediaImage from '../../atoms/MediaImage';
+import PageTransition from "../../atoms/PageTransition";
 
 class Seasons extends Component {
   static contextTypes = {
@@ -12,18 +14,13 @@ class Seasons extends Component {
 
   render() {
     if (this.props.loading) {
-      return (
-        <div className="loader">
-          <i className="fa fa-spinner fa-pulse fa-3x fa-fw" />
-          <span className="sr-only">Loading...</span>
-        </div>
-      )
+      return <Spinner />
     }
 
     const { tv: { seasons, name, first_air_date, id, poster_path } } = this.props;
 
     return (
-      <div>
+      <PageTransition>
         <div className="seasons__header">
           <div className="seasons__header__inner">
             <MediaImage
@@ -49,7 +46,7 @@ class Seasons extends Component {
             </li>
           ))}
         </ul>
-      </div>
+      </PageTransition>
     );
   }
 }

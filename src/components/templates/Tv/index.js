@@ -1,142 +1,74 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Style from "style-it";
+import * as Vibrant from "node-vibrant";
 
-import PlayTrailer from "../../atoms/PlayTrailer";
-import Cast from "../../atoms/Cast";
-import Crew from "../../atoms/Crew";
-import SimilarMovies from "../../organisms/SimilarMovies";
-import FullScreenBackdrop from "../../atoms/FullScreenBackdrop";
-import Reviews from "../../molecules/Reviews";
-import SEO from "../../atoms/SEO";
-import WatchlistBookmark from '../../atoms/WatchlistBookmark';
-import LastSeason from '../../molecules/LastSeason';
+import Spinner from '../../atoms/Spinner';
+import PageTransition from "../../atoms/PageTransition/index";
+import TvProfile from "../../organisms/TvProfile";
 
-class TvProfile extends Component {
+export default class Tv extends Component {
+  state = {
+    dcolor: [0, 0, 0],
+    tvId: this.props.match.params.tvId || ''
+  };
 
   static propTypes = {
     config: PropTypes.object.isRequired,
-    tv: PropTypes.object.isRequired,
-    dcolor: PropTypes.array.isRequired,
-    handleTvClick: PropTypes.func.isRequired
+    tv: PropTypes.object.isRequired
   };
 
   static contextTypes = {
     router: PropTypes.object.isRequired
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.loading && !nextProps.configLoading) {
+      let tvId = nextProps.match.params.tvId;
+      this.setState({ tvId });
+      this.getPalette(nextProps);
+    }
+  }
+
+  getPalette = (props) => {
+    const { tv: { poster_path }, config: { images } } = props;
+    if (poster_path) {
+      const path = images.secure_base_url + images.poster_sizes[3] + poster_path;
+      Vibrant.from(path).getSwatches((err, palette) => {
+        this.setState({ dcolor: (palette.DarkVibrant !== null) ? palette.DarkVibrant._rgb : [0, 0, 0] })
+      });
+    };
+  };
+
+  handleTvClick = tvId => {
+    this.context.router.history.push(`/tv/${tvId}`);
+  };
+
+  handleFullCrewClick = () => {
+    this.context.router.history.push(`/tv/${this.props.tv.id}/crew`);
+  };
+
+  handlePersonClick = personId => {
+    this.context.router.history.push(`/person/${personId}`);
+  };
+
   render() {
-
-    const {
-      config: {
-        images: { secure_base_url, poster_sizes, backdrop_sizes, profile_sizes }
-      },
-      tv: { id, backdrop_path, poster_path, genres, name,
-        first_air_date, reviews, runtime, vote_average,
-        tagline, overview, images: { backdrops },
-        videos, similar, credits: { cast, crew }, seasons,
-      },
-      dcolor,
-      tv,
-    } = this.props;
-    const last_season = seasons.sort((a, b) => (b.season_number - a.season_number))[0];
-    const posterURL = secure_base_url + poster_sizes[3] + poster_path;
-    const backdropURL = secure_base_url + backdrop_sizes[1] + backdrop_path;
-    const video = videos
-      ? videos.filter(video => video.type === "Trailer")[0]
-      : [];
-
-    const genres_html = genres.map(genre => (
-      <li key={genre.id} className="movie-genres">
-        {genre.name}
-      </li>
-    ));
+    
+    if (this.props.loading) {
+      return <Spinner />
+    }
 
     return (
-      <div>
-        <Style>
-          {`
-          .main-header:after {
-            background-image: radial-gradient(at 10% 30%, rgb(${dcolor[0]},${dcolor[1]},${dcolor[2]}) 0%, #342931 100%);
-          }
-          .main-header:before {
-            background-image: url(${backdropURL});
-          }
-        `}
-        </Style>
-        <SEO title={name} />
-        <div className="full-background">
-          {backdrops[0] && (
-            <FullScreenBackdrop
-              backdrops={backdrops.map(image => `${secure_base_url}${backdrop_sizes[2]}${image.file_path}`)}
-            />
-          )}
-        </div>
-
-        <div className="main-header">
-          <div className="main-header-inner">
-            <div className="poster">
-              {poster_path !== null ? (
-                <img src={posterURL} alt="poster" />
-              ) : (
-                  <div className="movie-no-image-holder" />
-                )}
-              <WatchlistBookmark movie={tv} />
-            </div>
-            <div className="movie-data">
-              <h1 className="movie-title">
-                {name}
-                <span className="movie-rating">{vote_average}</span>
-              </h1>
-
-              <ul className="title-tags">
-                <li>{first_air_date.slice(0, 4)}</li>
-                <li>{runtime} min</li>
-                <li>
-                  <ul className="title-tags__genres">{genres_html}</ul>
-                </li>
-              </ul>
-
-              <h4 className="movie-tagline">{tagline}</h4>
-            </div>
-
-            <div className="overview">
-              <h4>Overview</h4>
-              {overview}
-            </div>
-
-            {video && <PlayTrailer video={video} />}
-
-            {crew[0] && <Crew crew={crew.slice(0, 4)} />}
-          </div>
-        </div>
-        {cast[0] &&
-          <Cast
-            cast={cast.slice(0, 6)}
-            profile_img_base_url={secure_base_url + profile_sizes[1]}
-            handlePersonClick={this.props.handlePersonClick}
-            handleFullCrewClick={this.props.handleFullCrewClick}
-          />
-        }
-
-        <LastSeason
-          tvId={id}
-          season={last_season}
+      <PageTransition>
+        <TvProfile
+          key={this.props.tv.id}
           config={this.props.config}
+          tv={this.props.tv}
+          dcolor={this.state.dcolor}
+          handleTvClick={this.handleTvClick}
+          handlePersonClick={this.handlePersonClick}
+          handleFullCrewClick={this.handleFullCrewClick}
         />
-
-        {reviews && reviews[0] && <Reviews reviews={reviews} />}
-
-        {similar.results[0] &&
-          <SimilarMovies
-            similar={similar.results}
-            img_base_path={secure_base_url + poster_sizes[1]}
-            handleMovieClick={this.props.handleTvClick}
-          />
-        }
-      </div>
+      </PageTransition>
     );
   }
 }
-
-export default TvProfile;

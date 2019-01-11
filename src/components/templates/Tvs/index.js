@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import Filter from '../../organisms/Filter';
 import Result from "../../molecules/Result";
+import Spinner from "../../atoms/Spinner";
+import PageTransition from "../../atoms/PageTransition";
 
 class Tvs extends Component {
 
@@ -22,18 +24,15 @@ class Tvs extends Component {
 
   render() {
     if (this.props.loading || this.props.configLoading || this.props.genresLoading) {
-      return (
-        <div className="loader">
-          <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-          <span className="sr-only">Loading...</span>
-        </div>
-      )
+      return <Spinner />
     };
 
     return (
-      <Filter query={this.props.query} genres={this.props.genres} queryUpdate={this.queryUpdate}>
-        <Result {...this.props} media="tv"/>
-      </Filter>
+      <PageTransition>
+        <Filter query={this.props.query} genres={this.props.genres} queryUpdate={this.queryUpdate}>
+          <Result {...this.props} media="tv"/>
+        </Filter>
+      </PageTransition>
     );
   }
 }

@@ -1,7 +1,7 @@
 import { compose, withProps } from 'recompose';
 
 import withTopPeople from '../../queries/withTopPeople';
-import Container from './Container';
+import TopPeople from '../../templates/TopPeople';
 
 export default compose(
   withProps(props => {
@@ -12,4 +12,4 @@ export default compose(
     return { 'query': query }
   }),
   withTopPeople(),
-)(Container);
+)(TopPeople);
