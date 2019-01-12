@@ -142,6 +142,7 @@ div.filter-element-wrapper {
 
 .movies-list {
   margin: 0 auto;
+  max-width: 1150px;
   padding: 0 10px; }
 
 .movies-list__element {

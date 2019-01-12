@@ -13,13 +13,18 @@ class Filter extends Component {
 
   constructor(props) {
     super(props);
+
     const params = new URLSearchParams(props.query);
 
     const year = new Date().getFullYear();
 
+    this.release_year = props.media === 'tv'
+      ? ["first_air_date_year", "first_air_date"]
+      : ["primary_release_year", "primary_release_date"];
+
     this.state = {
       page: parseInt(params.get("page"), 10) || 1,
-      primary_release_year: params.get("primary_release_year") || year,
+      [this.release_year[0]]: params.get(this.release_year[0]) || year,
       sort_by: params.get("sort_by") || "popularity.desc",
       with_genres: params.get("with_genres") || [],
       "vote_average.gte": params.get("vote_average.gte") || 0
@@ -27,9 +32,11 @@ class Filter extends Component {
   }
 
   objectToQueryStr(paramsObj) {
-    return Object.keys(paramsObj)
+    const query = Object.keys(paramsObj)
       .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(paramsObj[key])}`)
       .join("&");
+
+    return query;
   }
 
   runQuery = () => {
@@ -82,14 +89,12 @@ class Filter extends Component {
               <option value="popularity.asc">Popularity Ascending</option>
               <option value="vote_average.desc">Rating Descending</option>
               <option value="vote_average.asc">Rating Ascending</option>
-              <option value="primary_release_date.desc">
+              <option value={`${this.release_year[1]}.desc`}>
                 Release Date Descending
             </option>
-              <option value="primary_release_date.asc">
+              <option value={`${this.release_year[1]}.asc`}>
                 Release Date Ascending
             </option>
-              <option value="title.asc">Title (A-Z)</option>
-              <option value="title.desc">Title (Z-A)</option>
             </FormControl>
           </FormGroup>
           <FormGroup className="filter-element-wrapper">
@@ -99,8 +104,8 @@ class Filter extends Component {
               componentClass="select"
               placeholder="select"
               onChange={this.handleChange}
-              defaultValue={this.state.primary_release_year}
-              id="primary_release_year"
+              defaultValue={this.state[this.release_year[0]]}
+              id={this.release_year[0]}
             >
               <option value="">None</option>
               {year_options}
