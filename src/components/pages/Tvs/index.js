@@ -2,7 +2,7 @@ import { compose, withProps } from 'recompose';
 
 import withTvs from '../../queries/withTvs';
 import withConfig from '../../queries/withConfig';
-import withGenres from '../../queries/withGenres';
+import withTvGenres from '../../queries/withTvGenres';
 import Tvs from '../../templates/Tvs';
 
 export default compose(
@@ -12,5 +12,5 @@ export default compose(
   }),
   withTvs(),
   withConfig(),
-  withGenres(),
+  withTvGenres(),
 )(Tvs);

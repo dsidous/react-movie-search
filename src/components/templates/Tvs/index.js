@@ -29,8 +29,13 @@ class Tvs extends Component {
 
     return (
       <PageTransition>
-        <Filter query={this.props.query} genres={this.props.genres} queryUpdate={this.queryUpdate}>
-          <Result {...this.props} media="tv"/>
+        <Filter
+          query={this.props.query}
+          genres={this.props.genres}
+          queryUpdate={this.queryUpdate}
+          media="tv"
+        >
+          <Result {...this.props} media="tv" />
         </Filter>
       </PageTransition>
     );
