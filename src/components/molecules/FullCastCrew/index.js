@@ -1,25 +1,21 @@
 import React from 'react';
+import PropTypes from "prop-types";
+
 import MediaImage from '../../atoms/MediaImage';
 
-const FullCastCrew = (props) => {
-  const { 
-    movie: { 
-      title, name, release_date, first_air_date, poster_path,
-      credits: { crew, cast } 
-    }, 
-    handlePersonClick 
+const FullCastCrew = (props, context) => {
+  const {
+    movie: {
+      credits: { crew, cast }
+    },
   } = props;
 
-  const date = release_date || first_air_date;
-  const media = release_date ? "movie" : "tv";
+  const handlePersonClick = personId => {
+    context.router.history.push(`/person/${personId}`);
+  };
 
   return (
     <div>
-      <div className="full-ca-cr__header">
-        <h2>{title || name}
-          <span> ({date.slice(0, 4)})</span>
-        </h2>
-      </div>
       <div className="full-ca-cr">
         <div className="full-ca-cr__col">
           <h3>
@@ -34,11 +30,11 @@ const FullCastCrew = (props) => {
             >
               <MediaImage
                 mediaType="miniProfile"
-                filePath={cast.profile_path} 
-                name={cast.name} 
+                filePath={cast.profile_path}
+                name={cast.name}
                 className="full-ca-cr__image"
               />
-              
+
               <div className="full-ca-cr__copy">
                 <strong>{cast.name}</strong>
                 <br />
@@ -56,8 +52,8 @@ const FullCastCrew = (props) => {
             <div key={i} className="full-ca-cr__element">
               <MediaImage
                 mediaType="miniProfile"
-                filePath={crew.profile_path} 
-                name={crew.name} 
+                filePath={crew.profile_path}
+                name={crew.name}
                 className="full-ca-cr__image"
               />
               <div className="full-ca-cr__copy">
@@ -71,6 +67,10 @@ const FullCastCrew = (props) => {
       </div>
     </div>
   );
+};
+
+FullCastCrew.contextTypes = {
+  router: PropTypes.object.isRequired
 };
 
 export default FullCastCrew;
