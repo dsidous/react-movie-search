@@ -5,7 +5,7 @@ It uses [The Movie Database (TMDb) API] (https://www.themoviedb.org/documentatio
 
 ## Demo
 
-[Movie search](http://movie-search.tamasjonas.com/)
+[Movie search](https://movie-search.tamasjonas.com/)
 
 ## Features
 
