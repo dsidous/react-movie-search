@@ -57,6 +57,13 @@ div.no_image_holder {
     align-self: center;
     justify-self: center; }
 
+.fade-appear, .fade-enter {
+  opacity: 0.01; }
+
+.fade-appear-active, .fade-enter-active {
+  opacity: 1;
+  transition: opacity 0.2s ease-in; }
+
 .navbar-default .navbar-brand {
   color: #fff; }
   .navbar-default .navbar-brandfocus, .navbar-default .navbar-brand:hover {
@@ -443,15 +450,6 @@ li.movie-genres:last-child:after {
   background-size: cover;
   height: 100%;
   width: 100%; }
-
-.example-appear,
-.example-enter {
-  opacity: 0.01; }
-
-.example-appear.example-appear-active,
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 0.5s ease-in; }
 
 .fullscreen-backdrop-slide {
   background-size: cover;
@@ -1004,22 +1002,11 @@ li.movie-genres:last-child:after {
   grid-gap: 20px;
   grid-template-columns: 1fr;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 940px;
   padding: 0 20px; }
   @media screen and (min-width: 640px) {
     .full-ca-cr {
       grid-template-columns: 1fr 1fr; } }
-  .full-ca-cr__header {
-    background: #eee;
-    border-top: 10px solid #ddd;
-    border-bottom: 10px solid #ddd;
-    font-size: 5em;
-    padding: 30px 20px; }
-    .full-ca-cr__header h2 {
-      margin: 0 auto;
-      max-width: 560px; }
-      .full-ca-cr__header h2 span {
-        font-size: .75em; }
   .full-ca-cr__col h3 span {
     color: #999;
     font-size: .75em; }
@@ -1139,58 +1126,11 @@ li.movie-genres:last-child:after {
   margin: 0 auto;
   max-width: 960px;
   padding: 0 20px; }
-  .seasons__header {
-    background: #eee;
-    border-top: 10px solid #ddd;
-    border-bottom: 10px solid #ddd;
-    font-size: 5em;
-    padding: 30px 20px; }
-    .seasons__header__inner {
-      display: grid;
-      grid-template-columns: 70px 4fr;
-      grid-column-gap: 10px;
-      height: 100px;
-      max-width: 900px;
-      margin: 0 auto; }
-      .seasons__header__inner img {
-        height: 100%; }
-    .seasons__header__info {
-      align-self: center; }
-      .seasons__header__info h2 {
-        margin: 0; }
-        .seasons__header__info h2 span {
-          font-size: .65em; }
-      .seasons__header__info h4 a {
-        color: #999; }
   .seasons__element {
     border-bottom: 5px solid #bcbcbc;
     list-style-type: none;
     margin: 40px 0;
     padding: 0 0 40px; }
-
-.season__header {
-  background: #eee;
-  border-top: 10px solid #ddd;
-  border-bottom: 10px solid #ddd;
-  font-size: 5em;
-  padding: 30px 20px; }
-  .season__header__inner {
-    display: grid;
-    grid-template-columns: 70px 4fr;
-    grid-column-gap: 10px;
-    height: 100px;
-    max-width: 900px;
-    margin: 0 auto; }
-    .season__header__inner img {
-      height: 100%; }
-  .season__header__info {
-    align-self: center; }
-    .season__header__info h2 {
-      margin: 0; }
-      .season__header__info h2 span {
-        font-size: .65em; }
-    .season__header__info h4 a {
-      color: #999; }
 
 .episodes__wrapper {
   margin: 0 auto;
@@ -1214,3 +1154,27 @@ li.movie-genres:last-child:after {
     padding: 0 20px; }
     .episode-details h3 {
       margin-top: 0; }
+
+.mini-header {
+  background: #eee;
+  border-top: 10px solid #ddd;
+  border-bottom: 10px solid #ddd;
+  font-size: 5em;
+  padding: 30px 20px; }
+  .mini-header__inner {
+    display: grid;
+    grid-template-columns: 70px 4fr;
+    grid-column-gap: 10px;
+    height: 100px;
+    max-width: 900px;
+    margin: 0 auto; }
+    .mini-header__inner img {
+      height: 100%; }
+  .mini-header__info {
+    align-self: center; }
+    .mini-header__info h2 {
+      margin: 0; }
+      .mini-header__info h2 span {
+        font-size: .65em; }
+    .mini-header__info h4 a {
+      color: #999; }

@@ -5,7 +5,7 @@ class PageTransition extends Component {
   render() {
     return (
       <ReactCSSTransitionGroup
-        transitionName="example"
+        transitionName="fade"
         transitionAppear={true}
         transitionAppearTimeout={1500}
         transitionEnterTimeout={1500}

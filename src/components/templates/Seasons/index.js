@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 import Spinner from '../../atoms/Spinner';
 import Season from '../../molecules/Season';
-import MediaImage from '../../atoms/MediaImage';
 import PageTransition from "../../atoms/PageTransition";
-
+import MiniHeader from '../../molecules/MiniHeader';
 class Seasons extends Component {
   static contextTypes = {
     router: PropTypes.object.isRequired
@@ -21,24 +19,14 @@ class Seasons extends Component {
 
     return (
       <PageTransition>
-        <div className="seasons__header">
-          <div className="seasons__header__inner">
-            <MediaImage
-              mediaType="poster"
-              size={1}
-              filePath={poster_path}
-              name={name}
-            />
-            <div className="seasons__header__info">
-              <h2>{name}&nbsp;
-                <span>({first_air_date.slice(0, 4)})</span>
-              </h2>
-              <h4>
-                <Link to={`/tv/${id}`}>&#8592; Back to main</Link>
-              </h4>
-            </div>
-          </div>
-        </div>
+        <MiniHeader
+          title={name}
+          release_date={first_air_date}
+          poster_path={poster_path}
+          link={`/tv/${id}`}
+          linkCopy="Back to main"
+        />
+
         <ul className="seasons">
           {seasons.sort((a, b) => a.season_number - b.season_number).map(season => (
             <li className="seasons__element" key={season.season_number}>

@@ -1,0 +1,12 @@
+.fade{
+  &-appear,
+  &-enter {
+    opacity: 0.01;
+  }
+
+  &-appear-active,
+  &-enter-active {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+  }
+}
