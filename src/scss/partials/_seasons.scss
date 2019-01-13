@@ -1,0 +1,13 @@
+.seasons {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0 20px;
+
+  &__element {
+    border-bottom: $separator;
+    list-style-type: none;
+    margin: 40px 0;
+    padding: 0 0 40px;
+  }
+  
+}

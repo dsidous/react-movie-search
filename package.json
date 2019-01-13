@@ -4,20 +4,30 @@
   "homepage": "http://movie-search.tamasjonas.com/",
   "private": true,
   "dependencies": {
+    "apollo-boost": "^0.1.20",
+    "apollo-client": "^2.4.7",
+    "apollo-link": "^1.2.4",
+    "apollo-link-batch-http": "^1.2.4",
+    "apollo-link-context": "^1.0.10",
     "axios": "^0.17.1",
-    "firebase": "^4.10.0",
+    "dotenv": "^6.1.0",
+    "firebase": "^5.7.2",
     "font-awesome": "^4.7.0",
+    "graphql": "^14.0.2",
+    "grpc": "^1.17.0",
+    "jquery": "^3.3.1",
     "lodash": "^4.17.5",
     "markdown-to-jsx": "^6.4.1",
     "node-sass-chokidar": "^0.0.3",
     "node-vibrant": "^3.0.0",
     "npm-run-all": "^4.1.2",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
+    "react": "^16.7.0",
     "react-addons-css-transition-group": "^15.6.2",
+    "react-apollo": "^2.2.4",
     "react-bootstrap": "^0.31.5",
-    "react-bootstrap-typeahead": "^2.0.2",
-    "react-dom": "^16.2.0",
+    "react-bootstrap-typeahead": "^3.2.4",
+    "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-intl": "^2.4.0",
     "react-modal-video": "^1.0.7",
@@ -26,20 +36,17 @@
     "react-router": "4",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",
+    "react-router-scroll-top": "^0.1.1",
     "react-select": "^1.1.0",
     "react-simple-image": "^1.0.0",
     "react-slick": "^0.16.0",
     "recompose": "^0.26.0",
-    "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
-    "redux-promise-middleware": "^5.0.0",
-    "redux-saga": "^0.16.0",
-    "redux-thunk": "^2.2.0",
+    "redux": "^4.0.1",
     "slick-carousel": "^1.8.1",
     "style-it": "^2.0.0"
   },
   "devDependencies": {
-    "react-scripts": "^1.0.17"
+    "react-scripts": "^2.1.3"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/scss -o src/css",
@@ -51,5 +58,11 @@
     "stop": "react-scripts stop",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
