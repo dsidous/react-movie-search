@@ -1,24 +1,28 @@
-import React from "react";
-import { Pager } from "react-bootstrap";
+import React from 'react';
+import { Pager } from 'react-bootstrap';
 
-const MyPager = (props) => (
+import { propTypes } from './propTypes';
+
+const MyPager = ({ page, handlePageSelect }) => (
   <Pager>
     <Pager.Item
       previous
-      eventKey={props.page - 1}
+      eventKey={page - 1}
       href="#"
-      onSelect={props.handlePageSelect}
+      onSelect={handlePageSelect}
     >
       &larr; Previous
     </Pager.Item>
     <Pager.Item
       next
-      eventKey={props.page + 1}
-      onSelect={props.handlePageSelect}
+      eventKey={page + 1}
+      onSelect={handlePageSelect}
     >
       Next &rarr;
     </Pager.Item>
   </Pager>
-)
+);
+
+MyPager.propTypes = propTypes;
 
 export default MyPager;

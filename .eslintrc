@@ -1,0 +1,30 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "plugins": [
+    "jest"
+  ],
+  "rules": {
+    "no-unused-expressions": [
+      0
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/prefer-stateless-function": 0
+  },
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "globals": {
+    "shallow": true,
+    "mount": true
+  }
+}

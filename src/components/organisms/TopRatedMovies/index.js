@@ -11,10 +11,10 @@ class TopRatedMovies extends Component {
   }
 
   selectGenre = (topGenreId) => {
-    this.setState({active : topGenreId});
+    this.setState({ active: topGenreId });
     this.props.filterTopMovies(topGenreId);
   }
-  
+
   render() {
     const topGenres = [
       { id: -1, name: "All" },
@@ -25,8 +25,8 @@ class TopRatedMovies extends Component {
       { id: 878, name: "Science Fiction" },
       { id: 53, name: "Thriller" }
     ];
-  
-    
+
+
     return (
       <div>
         {this.props.topMovies && (
@@ -55,18 +55,18 @@ class TopRatedMovies extends Component {
                     i === 0 && (
                       <MediaImage
                         mediaType="poster"
-                        size={5} 
-                        filePath={movie.poster_path} 
-                        name={movie.original_title} 
+                        size={5}
+                        filePath={movie.poster_path}
+                        name={movie.title}
                       />
                     )}
                   {movie.backdrop_path !== null &&
                     i !== 0 && (
                       <MediaImage
                         mediaType="poster"
-                        size={5} 
-                        filePath={movie.backdrop_path} 
-                        name={movie.original_title} 
+                        size={5}
+                        filePath={movie.backdrop_path}
+                        name={movie.title}
                       />
                     )}
                   <div className="top-list__element-title">{movie.title}</div>

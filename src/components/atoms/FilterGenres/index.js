@@ -1,42 +1,42 @@
-import React, { Component } from 'react'
-import Select from 'react-select'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import Select from 'react-select';
+import { propTypes } from './propTypes';
 
-import 'react-select/dist/react-select.css'
+import 'react-select/dist/react-select.css';
 
 class FilterGenres extends Component {
-  state = {
-    options: this.props.genres.map(genre => ({ label: genre.name, value: String(genre.id) })),
-    value: []
-  }
+  static propTypes = propTypes;
 
-  static propTypes = {
-    genres: PropTypes.array.isRequired,
-    onChange: PropTypes.func.isRequired
+  state = {
+    options: [],
+    value: [],
   }
 
   componentDidMount() {
-    this.setState({ value: this.props.value })
+    const { value, genres } = this.props;
+    const options = genres.map(genre => ({ label: genre.name, value: String(genre.id) }));
+    this.setState({ value, options });
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ value: nextProps.value })
+    this.setState({ value: nextProps.value });
   }
 
   render() {
-
+    const { value, options } = this.state;
+    const { onChange } = this.props;
     return (
       <div className="section">
         <Select
           multi
           simpleValue
-          value={this.state.value}
+          value={value}
           placeholder="Filter by genres..."
-          options={this.state.options}
-          onChange={this.props.onChange}
+          options={options}
+          onChange={onChange}
         />
       </div>
-    )
+    );
   }
 }
 

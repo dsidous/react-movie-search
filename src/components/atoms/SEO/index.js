@@ -1,20 +1,19 @@
-import React, { Component } from "react";
-import { Helmet } from "react-helmet";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Helmet } from 'react-helmet';
 
-class SEO extends Component {
-  static contextTypes = {
-    router: PropTypes.object.isRequired
-  };
+import { contextTypes, propTypes } from './propTypes';
 
-  render() {
-    const title =
-      "Movie Search" +
-      (this.context.router.history.location.pathname !== "/"
-        ? ` - ${this.props.title}`
-        : "");
-    return <Helmet title={title} />;
-  }
-}
+const SEO = ({ title }, { router }) => {
+  const subTitle = router.history.location.pathname !== '/'
+    ? ` - ${title}`
+    : null;
+
+  const fullTitle = `Movie Search${subTitle}`;
+
+  return <Helmet title={fullTitle} />;
+};
+
+SEO.contextTypes = contextTypes;
+SEO.propTypes = propTypes;
 
 export default SEO;
