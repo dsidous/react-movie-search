@@ -30,6 +30,7 @@ export const query = gql`
         }
       }
       reviews {
+        id
         author
         content
       }
