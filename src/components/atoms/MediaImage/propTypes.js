@@ -9,7 +9,7 @@ export const propTypes = {
   config: object.isRequired,
   filePath: string,
   name: string,
-  size: number.isRequired,
+  size: number,
   mediaType: string.isRequired,
   configLoading: bool.isRequired,
 };

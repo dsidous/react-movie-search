@@ -32,10 +32,12 @@ export default class Tv extends Component {
   getPalette = (props) => {
     const { tv: { poster_path }, config: { images } } = props;
     if (poster_path) {
-      const path = images.secure_base_url + images.poster_sizes[3] + poster_path;
-      Vibrant.from(path).getSwatches((err, palette) => {
-        this.setState({ dcolor: (palette.DarkVibrant !== null) ? palette.DarkVibrant._rgb : [0, 0, 0] })
-      });
+      // const path = images.secure_base_url + images.poster_sizes[3] + poster_path;
+      // Vibrant.from(path).getSwatches((err, palette) => {
+      //   console.log(err);
+
+      //   this.setState({ dcolor: (palette.DarkVibrant !== null) ? palette.DarkVibrant._rgb : [0, 0, 0] })
+      //});
     };
   };
 
@@ -47,13 +49,9 @@ export default class Tv extends Component {
     this.context.router.history.push(`/tv/${this.props.tv.id}/crew`);
   };
 
-  handlePersonClick = personId => {
-    this.context.router.history.push(`/person/${personId}`);
-  };
-
   render() {
-    
-    if (this.props.loading) {
+
+    if (this.props.loading || this.props.configLoading) {
       return <Spinner />
     }
 
@@ -65,7 +63,6 @@ export default class Tv extends Component {
           tv={this.props.tv}
           dcolor={this.state.dcolor}
           handleTvClick={this.handleTvClick}
-          handlePersonClick={this.handlePersonClick}
           handleFullCrewClick={this.handleFullCrewClick}
         />
       </PageTransition>

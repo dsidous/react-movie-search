@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Style from "style-it";
 
 import PlayTrailer from "../../atoms/PlayTrailer";
-import Cast from "../../atoms/Cast";
+import TopCast from "../../molecules/TopCast";
 import Crew from "../../atoms/Crew";
 import SimilarMovies from "../SimilarMovies";
 import FullScreenBackdrop from "../../atoms/FullScreenBackdrop";
@@ -29,7 +29,7 @@ class TvProfile extends Component {
 
     const {
       config: {
-        images: { secure_base_url, poster_sizes, backdrop_sizes, profile_sizes }
+        images: { secure_base_url, poster_sizes, backdrop_sizes }
       },
       tv: { id, backdrop_path, poster_path, genres, name,
         first_air_date, reviews, runtime, vote_average,
@@ -111,10 +111,8 @@ class TvProfile extends Component {
           </div>
         </div>
         {cast[0] &&
-          <Cast
+          <TopCast
             cast={cast.slice(0, 6)}
-            profile_img_base_url={secure_base_url + profile_sizes[1]}
-            handlePersonClick={this.props.handlePersonClick}
             handleFullCrewClick={this.props.handleFullCrewClick}
           />
         }

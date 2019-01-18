@@ -33,9 +33,9 @@ export default class Movie extends Component {
     const { movie: { poster_path }, config: { images } } = props;
     if (poster_path) {
       const path = images.secure_base_url + images.poster_sizes[3] + poster_path;
-      Vibrant.from(path).getSwatches((err, palette) => {
-        this.setState({ dcolor: (palette.DarkVibrant !== null) ? palette.DarkVibrant._rgb : [0, 0, 0] })
-      });
+      // Vibrant.from(path).getSwatches((err, palette) => {
+      //   this.setState({ dcolor: (palette.DarkVibrant !== null) ? palette.DarkVibrant._rgb : [0, 0, 0] })
+      // });
     };
   };
 
@@ -45,10 +45,6 @@ export default class Movie extends Component {
 
   handleFullCrewClick = () => {
     this.context.router.history.push(`/movie/${this.props.movie.id}/crew`);
-  };
-
-  handlePersonClick = personId => {
-    this.context.router.history.push(`/person/${personId}`);
   };
 
   render() {
@@ -65,10 +61,9 @@ export default class Movie extends Component {
             movie={this.props.movie}
             dcolor={this.state.dcolor}
             handleMovieClick={this.handleMovieClick}
-            handlePersonClick={this.handlePersonClick}
             handleFullCrewClick={this.handleFullCrewClick}
           />
-        </PageTransition>  
+        </PageTransition>
       </div>
     );
   }

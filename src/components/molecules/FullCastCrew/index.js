@@ -1,18 +1,15 @@
 import React from 'react';
-import PropTypes from "prop-types";
 
+import { propTypes } from './propTypes';
+import Cast from '../../atoms/Cast';
 import MediaImage from '../../atoms/MediaImage';
 
-const FullCastCrew = (props, context) => {
+const FullCastCrew = (props) => {
   const {
     movie: {
-      credits: { crew, cast }
+      credits: { crew, cast },
     },
   } = props;
-
-  const handlePersonClick = personId => {
-    context.router.history.push(`/person/${personId}`);
-  };
 
   return (
     <div>
@@ -20,46 +17,31 @@ const FullCastCrew = (props, context) => {
         <div className="full-ca-cr__col">
           <h3>
             Cast
-              <span> {cast.length} </span>
+            <span>
+              {` ${cast.length}`}
+            </span>
           </h3>
-          {cast.map((cast, i) => (
-            <div
-              key={i}
-              className="full-ca-cr__element"
-              onClick={() => handlePersonClick(cast.id)}
-            >
-              <MediaImage
-                mediaType="miniProfile"
-                filePath={cast.profile_path}
-                name={cast.name}
-                className="full-ca-cr__image"
-              />
-
-              <div className="full-ca-cr__copy">
-                <strong>{cast.name}</strong>
-                <br />
-                <small>{cast.character}</small>
-              </div>
-            </div>
-          ))}
+          {cast.map(person => <Cast cast={person} type="full" key={person.credit_id} />)}
         </div>
         <div className="full-ca-cr__col">
           <h3>
             Crew
-              <span> {crew.length} </span>
+            <span>
+              {` ${crew.length}`}
+            </span>
           </h3>
-          {crew.map((crew, i) => (
-            <div key={i} className="full-ca-cr__element">
+          {crew.map(person => (
+            <div key={person.credit_id} className="full-ca-cr__element">
               <MediaImage
                 mediaType="miniProfile"
-                filePath={crew.profile_path}
-                name={crew.name}
+                filePath={person.profile_path}
+                name={person.name}
                 className="full-ca-cr__image"
               />
               <div className="full-ca-cr__copy">
-                <strong>{crew.name}</strong>
+                <strong>{person.name}</strong>
                 <br />
-                <small>{crew.job}</small>
+                <small>{person.job}</small>
               </div>
             </div>
           ))}
@@ -69,8 +51,6 @@ const FullCastCrew = (props, context) => {
   );
 };
 
-FullCastCrew.contextTypes = {
-  router: PropTypes.object.isRequired
-};
+FullCastCrew.propTypes = propTypes;
 
 export default FullCastCrew;

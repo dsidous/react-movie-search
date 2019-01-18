@@ -4,8 +4,9 @@ import { propTypes, defaultProps } from './propTypes';
 const Crew = ({ crew }) => (
   <div className="crew">
     <div className="crew-wrapper">
-      {crew.map(cr => (
-        <div className="crew-element" key={cr.name}>
+      {crew.map((cr, i) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <div className="crew-element" key={`${cr.name}-${i}`}>
           <small>
             <strong>
               {`${cr.job}:`}

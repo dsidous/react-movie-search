@@ -470,19 +470,6 @@ li.movie-genres:last-child:after {
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(7em, 1fr)); }
 
-.cast-element {
-  border-radius: 4px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-  font-size: 2vw;
-  padding: 0 0 10px;
-  text-align: center;
-  overflow: hidden; }
-
-.cast-img {
-  cursor: pointer;
-  margin: 0 0 10px;
-  width: 100%; }
-
 .crew {
   grid-area: mcrew;
   padding: 0 10px; }
@@ -1178,3 +1165,30 @@ li.movie-genres:last-child:after {
         font-size: .65em; }
     .mini-header__info h4 a {
       color: #999; }
+
+.cast__element.top {
+  border-radius: 4px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  padding: 0 0 10px;
+  text-align: center;
+  overflow: hidden; }
+  .cast__element.top .cast__img {
+    cursor: pointer;
+    margin: 0 0 10px;
+    width: 100%; }
+
+.cast__element.full {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 20px;
+  padding: 10px 0; }
+  @media screen and (min-width: 640px) {
+    .cast__element.full {
+      grid-template-columns: 1fr 4fr; } }
+  .cast__element.full .cast__img {
+    border-radius: 4px;
+    width: 100%; }
+
+.cast__copy {
+  align-self: center; }

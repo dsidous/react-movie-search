@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Style from "style-it";
 
 import PlayTrailer from "../../atoms/PlayTrailer";
-import Cast from "../../atoms/Cast";
+import TopCast from "../../molecules/TopCast";
 import Crew from "../../atoms/Crew";
 import SimilarMovies from "../SimilarMovies";
 import FullScreenBackdrop from "../../atoms/FullScreenBackdrop";
@@ -105,9 +105,8 @@ class MovieProfile extends Component {
           </div>
         </div>
         {cast[0] &&
-          <Cast
+          <TopCast
             cast={cast.slice(0, 6)}
-            handlePersonClick={this.props.handlePersonClick}
             handleFullCrewClick={this.props.handleFullCrewClick}
           />
         }
