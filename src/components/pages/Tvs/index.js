@@ -6,9 +6,9 @@ import withTvGenres from '../../queries/withTvGenres';
 import Tvs from '../../templates/Tvs';
 
 export default compose(
-  withProps(props => {
+  withProps((props) => {
     const params = props.location.search.slice(1);
-    return { 'query': params }
+    return { query: params };
   }),
   withTvs(),
   withConfig(),
