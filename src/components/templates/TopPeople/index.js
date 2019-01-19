@@ -23,10 +23,6 @@ export default class TopPeople extends Component {
     };
   }
 
-  handlePersonClick = personId => {
-    this.context.router.history.push(`/person/${personId}`);
-  };
-
   handlePageSelect = e => {
     if (e > 0) {
       this.setState({ page: e }, () => {
@@ -39,7 +35,6 @@ export default class TopPeople extends Component {
     if (this.props.loading) {
       return <Spinner />
     }
-
     return (
       <PageTransition>
         <SEO title="Popular people" />
@@ -48,7 +43,6 @@ export default class TopPeople extends Component {
             <TopPeopleProfile
               state={this.state}
               toppeople={this.props.toppeople}
-              handlePersonClick={this.handlePersonClick}
               handlePageSelect={this.handlePageSelect}
             />
           </PageTransition>

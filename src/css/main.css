@@ -983,6 +983,9 @@ li.movie-genres:last-child:after {
     margin: 0 10px 0 0; }
     .top-genres-list li.active {
       font-weight: bold; }
+    .top-genres-list li:focus,
+    .top-genres-list li span:focus {
+      outline: none; }
 
 .full-ca-cr {
   display: grid;
@@ -1035,6 +1038,7 @@ li.movie-genres:last-child:after {
         box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
         width: 100%; }
       .top-people__list-element__name {
+        color: #666;
         margin: 5px 0 0; }
 
 .home-list {

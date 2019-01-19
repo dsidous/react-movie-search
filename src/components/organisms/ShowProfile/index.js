@@ -1,43 +1,50 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import Style from "style-it";
+/* eslint-disable camelcase */
+import React, { Component } from 'react';
+import Style from 'style-it';
 
-import PlayTrailer from "../../atoms/PlayTrailer";
-import TopCast from "../../molecules/TopCast";
-import Crew from "../../atoms/Crew";
-import SimilarMovies from "../SimilarMovies";
-import FullScreenBackdrop from "../../atoms/FullScreenBackdrop";
-import Reviews from "../../molecules/Reviews";
-import SEO from "../../atoms/SEO";
+import { propTypes } from './propTypes';
+import PlayTrailer from '../../atoms/PlayTrailer';
+import TopCast from '../../molecules/TopCast';
+import Crew from '../../atoms/Crew';
+import SimilarMovies from '../SimilarMovies';
+import FullScreenBackdrop from '../../atoms/FullScreenBackdrop';
+import Reviews from '../../molecules/Reviews';
+import SEO from '../../atoms/SEO';
 import WatchlistBookmark from '../../atoms/WatchlistBookmark';
+import LastSeason from '../../molecules/LastSeason';
 
-class MovieProfile extends Component {
-
-  static propTypes = {
-    config: PropTypes.object.isRequired,
-    movie: PropTypes.object.isRequired,
-    dcolor: PropTypes.array.isRequired,
-    handleMovieClick: PropTypes.func.isRequired
-  };
+class ShowProfile extends Component {
+  static propTypes = propTypes;
 
   render() {
     const {
       config: {
-        images: { secure_base_url, poster_sizes, backdrop_sizes }
+        images: { secure_base_url, poster_sizes, backdrop_sizes },
       },
-      movie: { backdrop_path, poster_path, genres, title,
-        release_date, reviews, runtime, vote_average,
+      show: {
+        id, backdrop_path, poster_path, genres, name, title,
+        release_date, first_air_date, reviews, runtime, vote_average,
         tagline, overview, images: { backdrops },
-        videos, similar, credits: { cast, crew },
+        videos, similar, credits: { cast, crew }, seasons,
       },
       dcolor,
-      movie,
+      show,
+      handleFullCrewClick,
+      handleShowClick,
     } = this.props;
+
+    const showDate = first_air_date || release_date;
+    const showTitle = title || name;
+    let lastSeason = null;
+
+    if (seasons) {
+      lastSeason = seasons.sort((a, b) => (b.season_number - a.season_number))[0];
+    }
 
     const posterURL = secure_base_url + poster_sizes[3] + poster_path;
     const backdropURL = secure_base_url + backdrop_sizes[1] + backdrop_path;
     const video = videos
-      ? videos.filter(video => video.type === "Trailer")[0]
+      ? videos.filter(element => element.type === 'Trailer')[0]
       : [];
 
     const genres_html = genres.map(genre => (
@@ -58,7 +65,7 @@ class MovieProfile extends Component {
           }
         `}
         </Style>
-        <SEO title={title} />
+        <SEO title={showTitle} />
         <div className="full-background">
           {backdrops[0] && (
             <FullScreenBackdrop
@@ -70,22 +77,23 @@ class MovieProfile extends Component {
         <div className="main-header">
           <div className="main-header-inner">
             <div className="poster">
-              {poster_path !== null ? (
-                <img src={posterURL} alt="poster" />
-              ) : (
-                  <div className="movie-no-image-holder" />
-                )}
-              <WatchlistBookmark movie={movie} />
+              {poster_path !== null
+                ? <img src={posterURL} alt="poster" />
+                : <div className="movie-no-image-holder" />
+              }
+              <WatchlistBookmark movie={show} />
             </div>
             <div className="movie-data">
               <h1 className="movie-title">
-                {title}
+                {showTitle}
                 <span className="movie-rating">{vote_average}</span>
               </h1>
 
               <ul className="title-tags">
-                <li>{release_date.slice(0, 4)}</li>
-                <li>{runtime} min</li>
+                <li>{showDate.slice(0, 4)}</li>
+                {runtime && (
+                  <li>{`${runtime} min`}</li>
+                )}
                 <li>
                   <ul className="title-tags__genres">{genres_html}</ul>
                 </li>
@@ -104,24 +112,30 @@ class MovieProfile extends Component {
             {crew[0] && <Crew crew={crew.slice(0, 4)} />}
           </div>
         </div>
-        {cast[0] &&
+        {cast[0] && (
           <TopCast
             cast={cast.slice(0, 6)}
-            handleFullCrewClick={this.props.handleFullCrewClick}
+            handleFullCrewClick={handleFullCrewClick}
           />
-        }
+        )}
+        {lastSeason && (
+          <LastSeason
+            tvId={id}
+            season={lastSeason}
+          />
+        )}
 
-        {reviews[0] && <Reviews reviews={reviews.slice(0, 4)} />}
+        {reviews && reviews[0] && <Reviews reviews={reviews} />}
 
-        {similar.results[0] &&
+        {similar.results[0] && (
           <SimilarMovies
             similar={similar.results}
-            handleMovieClick={this.props.handleMovieClick}
+            handleMovieClick={handleShowClick}
           />
-        }
+        )}
       </div>
     );
   }
 }
 
-export default MovieProfile;
+export default ShowProfile;

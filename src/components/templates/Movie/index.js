@@ -4,7 +4,7 @@ import * as Vibrant from "node-vibrant";
 
 import Spinner from '../../atoms/Spinner';
 import PageTransition from "../../atoms/PageTransition/index";
-import MovieProfile from "../../organisms/MovieProfile";
+import ShowProfile from "../../organisms/ShowProfile";
 
 export default class Movie extends Component {
   state = {
@@ -55,12 +55,12 @@ export default class Movie extends Component {
     return (
       <div>
         <PageTransition>
-          <MovieProfile
+          <ShowProfile
             key={this.props.movie.id}
             config={this.props.config}
-            movie={this.props.movie}
+            show={this.props.movie}
             dcolor={this.state.dcolor}
-            handleMovieClick={this.handleMovieClick}
+            handleShowClick={this.handleMovieClick}
             handleFullCrewClick={this.handleFullCrewClick}
           />
         </PageTransition>

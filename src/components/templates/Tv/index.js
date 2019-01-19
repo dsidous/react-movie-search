@@ -4,7 +4,7 @@ import * as Vibrant from "node-vibrant";
 
 import Spinner from '../../atoms/Spinner';
 import PageTransition from "../../atoms/PageTransition/index";
-import TvProfile from "../../organisms/TvProfile";
+import ShowProfile from "../../organisms/ShowProfile";
 
 export default class Tv extends Component {
   state = {
@@ -51,18 +51,18 @@ export default class Tv extends Component {
 
   render() {
 
-    if (this.props.loading || this.props.configLoading) {
+    if (this.props.loading) {
       return <Spinner />
     }
 
     return (
       <PageTransition>
-        <TvProfile
+        <ShowProfile
           key={this.props.tv.id}
           config={this.props.config}
-          tv={this.props.tv}
+          show={this.props.tv}
           dcolor={this.state.dcolor}
-          handleTvClick={this.handleTvClick}
+          handleShowClick={this.handleTvClick}
           handleFullCrewClick={this.handleFullCrewClick}
         />
       </PageTransition>

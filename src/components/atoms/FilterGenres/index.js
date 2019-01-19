@@ -9,7 +9,7 @@ class FilterGenres extends Component {
 
   state = {
     options: [],
-    value: [],
+    value: '',
   }
 
   componentDidMount() {

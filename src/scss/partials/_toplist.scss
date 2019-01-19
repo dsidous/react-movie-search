@@ -67,6 +67,11 @@
     &.active {
       font-weight: bold;
     }
+
+    &:focus,
+    & span:focus {
+      outline: none;
+    }
   }
 
 }
