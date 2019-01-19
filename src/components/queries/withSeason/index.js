@@ -6,7 +6,7 @@ const withSeason = () => graphql(query, {
     fetchPolicy: 'cache-and-network',
     variables: {
       tvId: props.tvId,
-      season: props.season
+      season: props.season,
     },
   }),
   props: ({
