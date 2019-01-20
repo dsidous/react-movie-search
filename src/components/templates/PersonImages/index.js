@@ -1,25 +1,32 @@
-import React from "react";
+/* eslint-disable camelcase */
+import React from 'react';
 
+import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
 import Spinner from '../../atoms/Spinner';
-import PageTransition from "../../atoms/PageTransition";
+import PageTransition from '../../atoms/PageTransition';
 import MiniHeader from '../../molecules/MiniHeader';
 
-function CastImages(props) {
+const PersonImages = (props) => {
+  const { loading } = props;
 
-  if (props.loading) {
-    return <Spinner />
+  if (loading) {
+    return <Spinner />;
   }
 
   const {
-    person: { images, name, id, birthday, profile_path },
-    config: { images: { secure_base_url, profile_sizes } }
+    person: {
+      images, name, id, birthday, profile_path,
+    },
+    config: {
+      images: { secure_base_url, profile_sizes },
+    },
   } = props;
 
   const list = [].concat(images)
     .sort((a, b) => b.vote_average - a.vote_average)
-    .map((image, i) => (
-      <figure key={i} className="cast-images__element">
+    .map(image => (
+      <figure key={image.file_path} className="cast-images__element">
         <a
           href={secure_base_url + profile_sizes[3] + image.file_path}
           target="_blank"
@@ -33,8 +40,9 @@ function CastImages(props) {
           />
           <figcaption>
             <p>
-              Size: <br />
-              {image.height} x {image.width}
+              Size:
+              <br />
+              {`${image.height} x ${image.width}`}
             </p>
           </figcaption>
         </a>
@@ -55,6 +63,8 @@ function CastImages(props) {
       </div>
     </PageTransition>
   );
-}
+};
 
-export default CastImages;
+PersonImages.propTypes = propTypes;
+
+export default PersonImages;

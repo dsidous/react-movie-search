@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import SignInFacebook from '../../molecules/SignInFacebook';
 import SignInForm from '../../molecules/SignInForm';
@@ -8,6 +8,6 @@ const SignInPage = () => (
     <SignInFacebook />
     <SignInForm />
   </div>
-)
+);
 
 export default SignInPage;

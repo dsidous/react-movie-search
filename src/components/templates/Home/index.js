@@ -1,89 +1,92 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
 
+import { propTypes, contextTypes, defaultProps } from './propTypes';
 import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition';
-import TopRatedMovies from "../../organisms/TopRatedMovies";
-import HomeList from "../../atoms/HomeList";
+import TopRatedMovies from '../../organisms/TopRatedMovies';
+import HomeList from '../../atoms/HomeList';
 
 export default class TopListsContainer extends Component {
-  static propTypes = {
-    popular: PropTypes.array
-  };
+  static defaultProps = defaultProps;
 
-  static contextTypes = {
-    router: PropTypes.object.isRequired
-  };
+  static propTypes = propTypes;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      topmovies: []
-    };
-  }
+  static contextTypes = contextTypes;
+
+  state = {
+    topmovies: [],
+  };
 
   componentWillReceiveProps(nextProps) {
     if (!nextProps.popularLoading) {
       this.setState({
-        topmovies: nextProps.popular.slice(0, 5)
+        topmovies: nextProps.popular.slice(0, 5),
       });
     }
   }
 
-  randomList = (to) => {
-    var a = Array.from(Array(to), (_, x) => x);
-    var n;
-    var r = [];
-    for (n = 1; n <= 5; ++n) {
-      var i = Math.floor((Math.random() * (to - n)) + 1);
-      r.push(a[i]);
-      a[i] = a[to - n];
+  randomList = (arrayMax) => {
+    const nbrArray = Array.from(Array(arrayMax), (_, x) => x);
+    const rndList = [];
+    // eslint-disable-next-line no-plusplus
+    for (let n = 1; n <= 5; ++n) {
+      const rndNum = Math.floor((Math.random() * (arrayMax - n)) + 1);
+      rndList.push(nbrArray[rndNum]);
+      nbrArray[rndNum] = nbrArray[arrayMax - n];
     }
-
-    return r;
+    return rndList;
   }
 
-  filterTopMovies = genre => {
+  filterTopMovies = (genre) => {
+    const { popular } = this.props;
     let movies = genre !== -1
-      ? this.props.popular.filter(movie => movie.genre_ids.includes(genre))
-      : this.props.popular;
+      ? popular.filter(movie => movie.genre_ids.includes(genre))
+      : popular;
 
-    let moviesLength = movies.length;
+    const moviesLength = movies.length;
 
     if (moviesLength > 5) {
-      let a = this.randomList(moviesLength);
-      movies = movies.filter((movie, index) => a.indexOf(index) !== -1);
+      const rndList = this.randomList(moviesLength);
+      movies = movies.filter((movie, index) => rndList.indexOf(index) !== -1);
     }
 
     this.setState({ topmovies: movies });
   }
 
-  goToMovie = movieId => {
-    this.context.router.history.push(`/movie/${movieId}`);
+  goToMovie = (movieId) => {
+    const { router } = this.context;
+    router.history.push(`/movie/${movieId}`);
   };
 
   render() {
-
-    if (this.props.nowPlayingLoading || this.props.popularLoading || this.props.upcomingLoading) {
-      return <Spinner />
+    const {
+      nowPlayingLoading,
+      popularLoading,
+      upcomingLoading,
+      nowplaying,
+      upcoming,
+    } = this.props;
+    const { topmovies } = this.state;
+    if (nowPlayingLoading || popularLoading || upcomingLoading) {
+      return <Spinner />;
     }
 
     return (
       <PageTransition>
         <TopRatedMovies
-          topMovies={this.state.topmovies}
+          topMovies={topmovies}
           goToMovie={this.goToMovie}
           filterTopMovies={this.filterTopMovies}
         />
 
         <div className="top-lists-wrapper">
           <HomeList
-            list={this.props.nowplaying.slice(0, 10)}
+            list={nowplaying.slice(0, 10)}
             goToMovie={this.goToMovie}
             title="In Theatres"
           />
           <HomeList
-            list={this.props.upcoming.slice(0, 10)}
+            list={upcoming.slice(0, 10)}
             goToMovie={this.goToMovie}
             title="Upcoming Movies"
           />

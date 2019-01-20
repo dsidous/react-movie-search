@@ -1,40 +1,31 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from 'react';
 import { IntlProvider } from 'react-intl';
 
+import { propTypes } from './propTypes';
 import Spinner from '../../atoms/Spinner';
-import PageTransition from "../../atoms/PageTransition/index";
-import PersonProfile from "../../organisms/PersonProfile";
+import PageTransition from '../../atoms/PageTransition/index';
+import PersonProfile from '../../organisms/PersonProfile';
 
-export default class Person extends Component {
-  static propTypes = {
-    person: PropTypes.object.isRequired
-  };
+const Person = (props) => {
+  const { loading } = props;
 
-  static contextTypes = {
-    router: PropTypes.object.isRequired
-  };
-
-  handlePersonMovieClick = (movieId, show) => {
-    this.context.router.history.push(`/${show}/${movieId}`);
-  };
-
-  render() {
-
-    if (this.props.loading) {
-      return <Spinner />
-    }
-
-    return (
-      <PageTransition>
-        <IntlProvider locale={navigator.language}>
-          <PersonProfile
-            key={this.props.person.id}
-            person={this.props.person}
-            handlePersonMovieClick={this.handlePersonMovieClick}
-          />
-        </IntlProvider>
-      </PageTransition>
-    );
+  if (loading) {
+    return <Spinner />;
   }
-}
+
+  const { person } = props;
+
+  return (
+    <PageTransition>
+      <IntlProvider locale={navigator.language}>
+        <PersonProfile
+          person={person}
+        />
+      </IntlProvider>
+    </PageTransition>
+  );
+};
+
+Person.propTypes = propTypes;
+
+export default Person;

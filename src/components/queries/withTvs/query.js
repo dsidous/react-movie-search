@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export const query = gql`
-  query getTvs($query: String!) {
+  query getTvs($query: String) {
     tvs(query: $query) {
       id
       backdrop_path

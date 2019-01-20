@@ -5,7 +5,7 @@ import { propTypes } from './propTypes';
 import MovieCard from '../MovieCard';
 
 const Result = ({
-  movies,
+  shows,
   config: {
     images: {
       secure_base_url,
@@ -18,7 +18,7 @@ const Result = ({
 
   return (
     <ul className="movies-list">
-      {movies.map(movie => (
+      {shows.map(movie => (
         <MovieCard
           key={movie.id}
           movie={movie}

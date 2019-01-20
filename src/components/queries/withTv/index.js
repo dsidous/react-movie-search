@@ -15,7 +15,7 @@ const withTv = () => graphql(query, {
     },
   }) => ({
     loading,
-    tv,
+    show: tv,
   }),
 });
 

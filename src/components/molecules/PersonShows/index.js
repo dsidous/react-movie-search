@@ -26,7 +26,7 @@ const PersonShows = ({ shows: { cast } }, context) => {
       const title = show[showAttr.title];
       const releaseDate = show[showAttr.releaseDate] || '';
       const { showType } = showAttr;
-      const key = id + i;
+      const key = `${title}${id}-${i}`;
       return (
         <div
           key={key}

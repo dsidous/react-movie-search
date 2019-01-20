@@ -38,6 +38,7 @@ export const query = gql`
         season_number
       }
       reviews {
+        id
         author
         content
       }      
