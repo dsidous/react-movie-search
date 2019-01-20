@@ -1,11 +1,12 @@
-import * as React from "react";
+import * as React from 'react';
+import PropTypes from 'prop-types';
 
-import { firebase, db as dba } from "./index";
-import { db } from "./firebase";
+import { firebase, db as dba } from './index';
+import { db } from './firebase';
 
 const defaultFirebaseContext = {
   authUser: false,
-  user: {}
+  user: {},
 };
 
 let User = db;
@@ -13,30 +14,33 @@ let User = db;
 export const FirebaseAuthContext = React.createContext(defaultFirebaseContext);
 
 export default class FirebaseAuthProvider extends React.Component {
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+  }
 
   state = defaultFirebaseContext;
 
   componentDidMount() {
-    firebase.auth.onAuthStateChanged(authUser => {
+    firebase.auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         this.setState({ authUser: true });
         User = db.ref(`users/${authUser.uid}`);
-        User.once("value", snapshot => {
+        User.once('value', (snapshot) => {
           if (snapshot.val() === null) {
             dba.doCreateUser(
               authUser.uid,
               authUser.displayName,
-              authUser.email
+              authUser.email,
             );
           }
         }).then(
-          User.on("value", snapshot => this.setState({ user: snapshot.val() }))
+          User.on('value', snapshot => this.setState({ user: snapshot.val() })),
         );
       } else {
         this.setState(defaultFirebaseContext);
       }
     });
-  };
+  }
 
   render() {
     const { children } = this.props;
@@ -52,5 +56,3 @@ export default class FirebaseAuthProvider extends React.Component {
 export const addMovieToWatchlist = movie => User.child(`watchlist/${movie.id}`).update(movie);
 
 export const removeMovieFromWatchlist = movieId => User.child(`watchlist/${movieId}`).remove();
-
-
