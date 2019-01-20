@@ -21,7 +21,7 @@ class Filter extends Component {
 
     const year = new Date().getFullYear();
 
-    this.release_year = props.media === 'tv'
+    this.release_year = props.media === 'tvs'
       ? ['first_air_date_year', 'first_air_date']
       : ['primary_release_year', 'primary_release_date'];
 
