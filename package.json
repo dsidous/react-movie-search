@@ -67,6 +67,12 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "jest": {
+    "coverageReporters": [
+      "lcov",
+      "html"
+    ]
+  },
   "browserslist": [
     ">0.2%",
     "not dead",

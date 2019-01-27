@@ -1,16 +1,13 @@
 /* eslint-disable camelcase */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { propTypes, contextTypes } from './propTypes';
+import { propTypes } from './propTypes';
 import NoImage from '../../../images/noimage.jpg';
 import NoBdImage from '../../../images/nobdimage.jpg';
 import WatchlistBookmark from '../../atoms/WatchlistBookmark';
 
-const MovieCard = ({ img_base_path, movie, media }, context) => {
-  const goToMovie = movieId => (
-    context.router.history.push(`/${media}/${movieId}`)
-  );
-
+const MovieCard = ({ img_base_path, movie, media }) => {
   const {
     id, title, overview, poster_path,
     backdrop_path, vote_average, release_date,
@@ -25,26 +22,25 @@ const MovieCard = ({ img_base_path, movie, media }, context) => {
 
   return (
     <li className="movies-list__element">
-      <picture
-        className="movies-poster"
-        onClick={() => goToMovie(id)}
-        onKeyDown={() => goToMovie(id)}
-      >
-        <source
-          media="(min-width: 941px)"
-          srcSet={imagePath[0]}
-        />
-        <source
-          media="(max-width: 940px)"
-          srcSet={imagePath[1]}
-        />
-        <img
-          src={imagePath[0]}
+      <Link to={`/${media}/${id}`}>
+        <picture
           className="movies-poster"
-          alt={mtitle}
-        />
-      </picture>
-
+        >
+          <source
+            media="(min-width: 941px)"
+            srcSet={imagePath[0]}
+          />
+          <source
+            media="(max-width: 940px)"
+            srcSet={imagePath[1]}
+          />
+          <img
+            src={imagePath[0]}
+            className="movies-poster"
+            alt={mtitle}
+          />
+        </picture>
+      </Link>
       <div className="clearfix">
         <div className="movies-title">
           {mtitle}
@@ -69,7 +65,6 @@ const MovieCard = ({ img_base_path, movie, media }, context) => {
   );
 };
 
-MovieCard.contextTypes = contextTypes;
 MovieCard.propTypes = propTypes;
 
 export default MovieCard;

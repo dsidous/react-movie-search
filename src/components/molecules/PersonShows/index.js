@@ -1,14 +1,11 @@
 /* eslint-disable camelcase */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { propTypes, contextTypes } from './propTypes';
+import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
 
-const PersonShows = ({ shows: { cast } }, context) => {
-  const goToMovie = (id, showType) => {
-    context.router.history.push(`/${showType}/${id}`);
-  };
-
+const PersonShows = ({ shows: { cast } }) => {
   if (cast.length > 0) {
     const sortedShow = [].concat(cast)
       .sort((a, b) => {
@@ -28,13 +25,10 @@ const PersonShows = ({ shows: { cast } }, context) => {
       const { showType } = showAttr;
       const key = `${title}${id}-${i}`;
       return (
-        <div
+        <Link
+          to={`/${showType}/${id}`}
           key={key}
           className="person-movie"
-          onClick={() => goToMovie(id, showType)}
-          onKeyDown={() => goToMovie(id, showType)}
-          role="link"
-          tabIndex="-1"
         >
           <p className="person-movie__poster">
             <MediaImage
@@ -59,7 +53,7 @@ const PersonShows = ({ shows: { cast } }, context) => {
               </span>
             )}
           </p>
-        </div>
+        </Link>
       );
     });
   }
@@ -67,7 +61,6 @@ const PersonShows = ({ shows: { cast } }, context) => {
   return null;
 };
 
-PersonShows.contextTypes = contextTypes;
 PersonShows.propTypes = propTypes;
 
 export default PersonShows;

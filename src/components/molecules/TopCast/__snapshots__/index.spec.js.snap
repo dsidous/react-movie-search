@@ -1,0 +1,348 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Molecules/TopCast should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TopCast
+    cast={
+      Array [
+        Object {
+          "character": "test",
+          "id": 1,
+          "name": "test",
+          "profile_path": "path/to/image",
+        },
+        Object {
+          "character": "test",
+          "id": 1,
+          "name": "test",
+          "profile_path": "path/to/image",
+        },
+      ]
+    }
+    handleFullCrewClick={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h4>
+          Top Billed Cast
+        </h4>,
+        <div
+          className="cast-wrapper"
+        >
+          <Cast
+            cast={
+              Object {
+                "character": "test",
+                "id": 1,
+                "name": "test",
+                "profile_path": "path/to/image",
+              }
+            }
+            type="top"
+          />
+          <Cast
+            cast={
+              Object {
+                "character": "test",
+                "id": 1,
+                "name": "test",
+                "profile_path": "path/to/image",
+              }
+            }
+            type="top"
+          />
+        </div>,
+        <button
+          className="full-crew-btn"
+          onClick={[MockFunction]}
+          type="button"
+        >
+          Full Cast & Crew
+        </button>,
+      ],
+      "className": "cast",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Top Billed Cast",
+        },
+        "ref": null,
+        "rendered": "Top Billed Cast",
+        "type": "h4",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Cast
+              cast={
+                Object {
+                  "character": "test",
+                  "id": 1,
+                  "name": "test",
+                  "profile_path": "path/to/image",
+                }
+              }
+              type="top"
+            />,
+            <Cast
+              cast={
+                Object {
+                  "character": "test",
+                  "id": 1,
+                  "name": "test",
+                  "profile_path": "path/to/image",
+                }
+              }
+              type="top"
+            />,
+          ],
+          "className": "cast-wrapper",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "function",
+            "props": Object {
+              "cast": Object {
+                "character": "test",
+                "id": 1,
+                "name": "test",
+                "profile_path": "path/to/image",
+              },
+              "type": "top",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "function",
+            "props": Object {
+              "cast": Object {
+                "character": "test",
+                "id": 1,
+                "name": "test",
+                "profile_path": "path/to/image",
+              },
+              "type": "top",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Full Cast & Crew",
+          "className": "full-crew-btn",
+          "onClick": [MockFunction],
+          "type": "button",
+        },
+        "ref": null,
+        "rendered": "Full Cast & Crew",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h4>
+            Top Billed Cast
+          </h4>,
+          <div
+            className="cast-wrapper"
+          >
+            <Cast
+              cast={
+                Object {
+                  "character": "test",
+                  "id": 1,
+                  "name": "test",
+                  "profile_path": "path/to/image",
+                }
+              }
+              type="top"
+            />
+            <Cast
+              cast={
+                Object {
+                  "character": "test",
+                  "id": 1,
+                  "name": "test",
+                  "profile_path": "path/to/image",
+                }
+              }
+              type="top"
+            />
+          </div>,
+          <button
+            className="full-crew-btn"
+            onClick={[MockFunction]}
+            type="button"
+          >
+            Full Cast & Crew
+          </button>,
+        ],
+        "className": "cast",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Top Billed Cast",
+          },
+          "ref": null,
+          "rendered": "Top Billed Cast",
+          "type": "h4",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Cast
+                cast={
+                  Object {
+                    "character": "test",
+                    "id": 1,
+                    "name": "test",
+                    "profile_path": "path/to/image",
+                  }
+                }
+                type="top"
+              />,
+              <Cast
+                cast={
+                  Object {
+                    "character": "test",
+                    "id": 1,
+                    "name": "test",
+                    "profile_path": "path/to/image",
+                  }
+                }
+                type="top"
+              />,
+            ],
+            "className": "cast-wrapper",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "function",
+              "props": Object {
+                "cast": Object {
+                  "character": "test",
+                  "id": 1,
+                  "name": "test",
+                  "profile_path": "path/to/image",
+                },
+                "type": "top",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "function",
+              "props": Object {
+                "cast": Object {
+                  "character": "test",
+                  "id": 1,
+                  "name": "test",
+                  "profile_path": "path/to/image",
+                },
+                "type": "top",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Full Cast & Crew",
+            "className": "full-crew-btn",
+            "onClick": [MockFunction],
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": "Full Cast & Crew",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
