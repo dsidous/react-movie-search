@@ -13,18 +13,14 @@ const SimilarMovies = ({ similar, handleMovieClick }) => {
     slidesToScroll: 1,
   };
 
-  function checkMobile() {
-    if (window.innerWidth < 640) {
-      Object.assign(settings, {
-        arrows: false,
-        slidesToScroll: 1,
-        slidesToShow: 3,
-        swipeToSlide: true,
-      });
-    }
+  if (window.innerWidth < 640) {
+    Object.assign(settings, {
+      arrows: false,
+      slidesToScroll: 1,
+      slidesToShow: 3,
+      swipeToSlide: true,
+    });
   }
-
-  checkMobile();
 
   return (
     <div className="similar">
