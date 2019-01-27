@@ -1,0 +1,329 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Atoms/MediaImage should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Apollo(MediaImage)
+    config={
+      Object {
+        "images": Object {
+          "profile_sizes": Array [
+            "1",
+            "2",
+            "3",
+            "4",
+          ],
+          "secure_base_url": "path/to/image",
+        },
+      }
+    }
+    configLoading={true}
+    filePath="path/to/image"
+    mediaType="profile"
+    name="name"
+    size="100 x 100"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": [Function],
+      "displayName": "Apollo(MediaImage)",
+      "fetchPolicy": "cache-and-network",
+      "query": Object {
+        "definitions": Array [
+          Object {
+            "directives": Array [],
+            "kind": "OperationDefinition",
+            "name": Object {
+              "kind": "Name",
+              "value": "getConfig",
+            },
+            "operation": "query",
+            "selectionSet": Object {
+              "kind": "SelectionSet",
+              "selections": Array [
+                Object {
+                  "alias": undefined,
+                  "arguments": Array [],
+                  "directives": Array [],
+                  "kind": "Field",
+                  "name": Object {
+                    "kind": "Name",
+                    "value": "config",
+                  },
+                  "selectionSet": Object {
+                    "kind": "SelectionSet",
+                    "selections": Array [
+                      Object {
+                        "alias": undefined,
+                        "arguments": Array [],
+                        "directives": Array [],
+                        "kind": "Field",
+                        "name": Object {
+                          "kind": "Name",
+                          "value": "images",
+                        },
+                        "selectionSet": Object {
+                          "kind": "SelectionSet",
+                          "selections": Array [
+                            Object {
+                              "alias": undefined,
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "base_url",
+                              },
+                              "selectionSet": undefined,
+                            },
+                            Object {
+                              "alias": undefined,
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "secure_base_url",
+                              },
+                              "selectionSet": undefined,
+                            },
+                            Object {
+                              "alias": undefined,
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "backdrop_sizes",
+                              },
+                              "selectionSet": undefined,
+                            },
+                            Object {
+                              "alias": undefined,
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "poster_sizes",
+                              },
+                              "selectionSet": undefined,
+                            },
+                            Object {
+                              "alias": undefined,
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "profile_sizes",
+                              },
+                              "selectionSet": undefined,
+                            },
+                            Object {
+                              "alias": undefined,
+                              "arguments": Array [],
+                              "directives": Array [],
+                              "kind": "Field",
+                              "name": Object {
+                                "kind": "Name",
+                                "value": "still_sizes",
+                              },
+                              "selectionSet": undefined,
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+            "variableDefinitions": Array [],
+          },
+        ],
+        "kind": "Document",
+        "loc": Object {
+          "end": 193,
+          "start": 0,
+        },
+      },
+      "skip": false,
+      "warnUnhandledError": true,
+    },
+    "ref": null,
+    "rendered": [Function],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": [Function],
+        "displayName": "Apollo(MediaImage)",
+        "fetchPolicy": "cache-and-network",
+        "query": Object {
+          "definitions": Array [
+            Object {
+              "directives": Array [],
+              "kind": "OperationDefinition",
+              "name": Object {
+                "kind": "Name",
+                "value": "getConfig",
+              },
+              "operation": "query",
+              "selectionSet": Object {
+                "kind": "SelectionSet",
+                "selections": Array [
+                  Object {
+                    "alias": undefined,
+                    "arguments": Array [],
+                    "directives": Array [],
+                    "kind": "Field",
+                    "name": Object {
+                      "kind": "Name",
+                      "value": "config",
+                    },
+                    "selectionSet": Object {
+                      "kind": "SelectionSet",
+                      "selections": Array [
+                        Object {
+                          "alias": undefined,
+                          "arguments": Array [],
+                          "directives": Array [],
+                          "kind": "Field",
+                          "name": Object {
+                            "kind": "Name",
+                            "value": "images",
+                          },
+                          "selectionSet": Object {
+                            "kind": "SelectionSet",
+                            "selections": Array [
+                              Object {
+                                "alias": undefined,
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "base_url",
+                                },
+                                "selectionSet": undefined,
+                              },
+                              Object {
+                                "alias": undefined,
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "secure_base_url",
+                                },
+                                "selectionSet": undefined,
+                              },
+                              Object {
+                                "alias": undefined,
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "backdrop_sizes",
+                                },
+                                "selectionSet": undefined,
+                              },
+                              Object {
+                                "alias": undefined,
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "poster_sizes",
+                                },
+                                "selectionSet": undefined,
+                              },
+                              Object {
+                                "alias": undefined,
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "profile_sizes",
+                                },
+                                "selectionSet": undefined,
+                              },
+                              Object {
+                                "alias": undefined,
+                                "arguments": Array [],
+                                "directives": Array [],
+                                "kind": "Field",
+                                "name": Object {
+                                  "kind": "Name",
+                                  "value": "still_sizes",
+                                },
+                                "selectionSet": undefined,
+                              },
+                            ],
+                          },
+                        },
+                      ],
+                    },
+                  },
+                ],
+              },
+              "variableDefinitions": Array [],
+            },
+          ],
+          "kind": "Document",
+          "loc": Object {
+            "end": 193,
+            "start": 0,
+          },
+        },
+        "skip": false,
+        "warnUnhandledError": true,
+      },
+      "ref": null,
+      "rendered": [Function],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

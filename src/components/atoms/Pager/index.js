@@ -9,14 +9,14 @@ const MyPager = ({ page, handlePageSelect }) => (
       previous
       eventKey={page - 1}
       href="#"
-      onSelect={handlePageSelect}
+      onClick={handlePageSelect}
     >
       &larr; Previous
     </Pager.Item>
     <Pager.Item
       next
       eventKey={page + 1}
-      onSelect={handlePageSelect}
+      onClick={handlePageSelect}
     >
       Next &rarr;
     </Pager.Item>

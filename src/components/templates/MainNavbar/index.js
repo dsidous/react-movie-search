@@ -117,7 +117,7 @@ class MainNavbar extends Component {
           </Navbar.Text>
           <Navbar.Text>
             <Link to="/watchlist">
-              WATCHLIST
+              WATCHLIST&nbsp;
               <span className="fa fa-bookmark" />
             </Link>
           </Navbar.Text>

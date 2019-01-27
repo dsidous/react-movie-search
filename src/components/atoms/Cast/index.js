@@ -1,33 +1,32 @@
 import React from 'react';
-import { propTypes, defaultProps, contextTypes } from './propTypes';
+import { Link } from 'react-router-dom';
+
+import { propTypes, defaultProps } from './propTypes';
 import MediaImage from '../MediaImage';
 
-const Cast = ({ cast, type }, context) => {
+const Cast = ({ cast, type }) => {
   const mediaType = type === 'full' ? 'miniProfile' : 'profile';
-
-  const handlePersonClick = personId => context.router.history.push(`/person/${personId}`);
 
   return (
     <div className={`cast__element ${type}`}>
-      <MediaImage
-        mediaType={mediaType}
-        size={1}
-        filePath={cast.profile_path}
-        name={cast.name}
-        onClick={() => handlePersonClick(cast.id)}
-        className="cast__img"
-      />
-      <div className="cast__copy">
-        <strong>{cast.name}</strong>
-        <br />
-        <small>{cast.character}</small>
-      </div>
+      <Link to={`/person/${cast.id}`}>
+        <MediaImage
+          mediaType={mediaType}
+          size={1}
+          filePath={cast.profile_path}
+          name={cast.name}
+          className="cast__img"
+        />
+        <div className="cast__copy">
+          <strong>{cast.name}</strong>
+          <br />
+          <small>{cast.character}</small>
+        </div>
+      </Link>
     </div>
   );
 };
 
-
-Cast.contextTypes = contextTypes;
 Cast.propTypes = propTypes;
 Cast.defaultProps = defaultProps;
 

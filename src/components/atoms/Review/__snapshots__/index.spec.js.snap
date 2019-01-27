@@ -1,0 +1,300 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Atoms/Review should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Review
+    review={
+      Object {
+        "author": "Author",
+        "content": "content",
+        "id": 1,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": "1",
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <input
+          className="review-content__more"
+          id={1}
+          type="checkbox"
+        />,
+        <div
+          className="review-author"
+        >
+          A review by Author
+        </div>,
+        <div
+          className="review-content "
+        >
+          <span>
+            conten
+          </span>
+          <span
+            className="review-content__hidden"
+          >
+            <span>
+              t
+            </span>
+          </span>
+        </div>,
+        false,
+      ],
+      "className": "reviews-element",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "review-content__more",
+          "id": 1,
+          "type": "checkbox",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "A review by Author",
+          "className": "review-author",
+        },
+        "ref": null,
+        "rendered": "A review by Author",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <span>
+              conten
+            </span>,
+            <span
+              className="review-content__hidden"
+            >
+              <span>
+                t
+              </span>
+            </span>,
+          ],
+          "className": "review-content ",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "conten",
+              "className": undefined,
+            },
+            "ref": null,
+            "rendered": "conten",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <span>
+                t
+              </span>,
+              "className": "review-content__hidden",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "t",
+                "className": undefined,
+              },
+              "ref": null,
+              "rendered": "t",
+              "type": "span",
+            },
+            "type": "span",
+          },
+        ],
+        "type": "div",
+      },
+      false,
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": "1",
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <input
+            className="review-content__more"
+            id={1}
+            type="checkbox"
+          />,
+          <div
+            className="review-author"
+          >
+            A review by Author
+          </div>,
+          <div
+            className="review-content "
+          >
+            <span>
+              conten
+            </span>
+            <span
+              className="review-content__hidden"
+            >
+              <span>
+                t
+              </span>
+            </span>
+          </div>,
+          false,
+        ],
+        "className": "reviews-element",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "review-content__more",
+            "id": 1,
+            "type": "checkbox",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "A review by Author",
+            "className": "review-author",
+          },
+          "ref": null,
+          "rendered": "A review by Author",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span>
+                conten
+              </span>,
+              <span
+                className="review-content__hidden"
+              >
+                <span>
+                  t
+                </span>
+              </span>,
+            ],
+            "className": "review-content ",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "conten",
+                "className": undefined,
+              },
+              "ref": null,
+              "rendered": "conten",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <span>
+                  t
+                </span>,
+                "className": "review-content__hidden",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "t",
+                  "className": undefined,
+                },
+                "ref": null,
+                "rendered": "t",
+                "type": "span",
+              },
+              "type": "span",
+            },
+          ],
+          "type": "div",
+        },
+        false,
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
