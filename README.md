@@ -23,5 +23,5 @@ It uses [The Movie Database (TMDb) API] (https://www.themoviedb.org/documentatio
 * Followed [Atomic design](http://bradfrost.com/blog/post/atomic-web-design/)
 * Responsive design using [React-Bootstrap](https://react-bootstrap.github.io/)
 * Environment set-up using [Create-React-App](https://github.com/facebookincubator/create-react-app)
-* Using [GrapfQl](https://graphql.org/) and [Apollo](https://www.apollographql.com/) for query
+* Using [GraphQl](https://graphql.org/) and [Apollo](https://www.apollographql.com/) for query
 * Authentication and watchlist using [Google Firebase](https://firebase.google.com/)
