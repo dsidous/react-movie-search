@@ -4,7 +4,7 @@ import MainLayout from '.';
 
 describe('Layouts/MainLayout', () => {
   it('should render as expected', () => {
-    const wrapper = shallow(<MainLayout />);
+    const wrapper = shallow(<MainLayout><div /></MainLayout>);
 
     expect(wrapper).toMatchSnapshot();
   });

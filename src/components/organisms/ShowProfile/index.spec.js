@@ -6,7 +6,8 @@ const mockProps = {
   config: {
     images: {
       secure_base_url: 'path/to/image',
-      profile_sizes: ['1', '2', '3', '4'],
+      poster_sizes: ['1', '2', '3', '4'],
+      backdrop_sizes: ['1', '2', '3', '4'],
     },
   },
   show: {
