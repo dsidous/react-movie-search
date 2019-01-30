@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
@@ -6,17 +7,18 @@ import MediaImage from '../../atoms/MediaImage';
 class TopRatedMovies extends Component {
   static propTypes = propTypes;
 
+  static topGenres = [
+    { id: -1, name: 'All' },
+    { id: 28, name: 'Action' },
+    { id: 35, name: 'Comedy' },
+    { id: 18, name: 'Drama' },
+    { id: 10751, name: 'Family' },
+    { id: 878, name: 'Science Fiction' },
+    { id: 53, name: 'Thriller' },
+  ]
+
   state = {
     active: -1,
-    topGenres: [
-      { id: -1, name: 'All' },
-      { id: 28, name: 'Action' },
-      { id: 35, name: 'Comedy' },
-      { id: 18, name: 'Drama' },
-      { id: 10751, name: 'Family' },
-      { id: 878, name: 'Science Fiction' },
-      { id: 53, name: 'Thriller' },
-    ],
   };
 
   selectGenre = (topGenreId) => {
@@ -26,10 +28,11 @@ class TopRatedMovies extends Component {
   }
 
   genresList = () => {
-    const { active, topGenres } = this.state;
+    const { active } = this.state;
 
-    return topGenres.map(topGenre => (
+    return TopRatedMovies.topGenres.map(topGenre => (
       <li
+        data-test={topGenre.id}
         key={topGenre.id}
         className={topGenre.id === active ? 'active' : ''}
       >
@@ -46,7 +49,7 @@ class TopRatedMovies extends Component {
   };
 
   render() {
-    const { topMovies, goToMovie } = this.props;
+    const { topMovies } = this.props;
     return (
       <div>
         {topMovies && (
@@ -59,17 +62,14 @@ class TopRatedMovies extends Component {
             </ul>
             <div className="top-list">
               {topMovies.map((movie, i) => (
-                <div
+                <Link
+                  to={`/movie/${movie.id}`}
                   key={movie.id}
                   className={
                     ['top-list__element',
                       i === 0 ? 'featured' : '',
                     ].join(' ')
                   }
-                  onClick={() => goToMovie(movie.id)}
-                  onKeyDown={() => goToMovie(movie.id)}
-                  role="link"
-                  tabIndex="-1"
                 >
                   {movie.poster_path !== null && i === 0 && (
                     <MediaImage
@@ -88,7 +88,7 @@ class TopRatedMovies extends Component {
                     />
                   )}
                   <div className="top-list__element-title">{movie.title}</div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

@@ -16,7 +16,6 @@ const mockProps = {
       },
     },
   ],
-  goToMovie: jest.fn(),
 };
 
 describe('Atoms/HomeList', () => {
@@ -24,15 +23,5 @@ describe('Atoms/HomeList', () => {
     const wrapper = shallow(<HomeList {...mockProps} />);
 
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('should handle onClick event', () => {
-    const wrapper = shallow(<HomeList {...mockProps} />);
-
-    wrapper.find('.home-list__list-element').simulate('click');
-    expect(mockProps.goToMovie).toHaveBeenCalled();
-
-    wrapper.find('.home-list__list-element').simulate('keyDown');
-    expect(mockProps.goToMovie).toHaveBeenCalled();
   });
 });

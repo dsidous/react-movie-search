@@ -1,0 +1,1471 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Organisms/TopRatedMovies should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TopRatedMovies
+    filterTopMovies={[MockFunction]}
+    topMovies={
+      Array [
+        Object {
+          "genre_names": Object {
+            "genre_name": Array [
+              "genre",
+            ],
+          },
+          "id": 1,
+          "poster_path": "path/to/poster",
+          "title": "title",
+          "vote_average": "1",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div>
+        <h3
+          className="top-list-main-title"
+        >
+          Movies of the day
+        </h3>
+        <ul
+          className="top-genres-list"
+        >
+          <li
+            className="active"
+            data-test={-1}
+          >
+            <span
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              tabIndex="-1"
+            >
+              All
+            </span>
+          </li>
+          <li
+            className=""
+            data-test={28}
+          >
+            <span
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              tabIndex="-1"
+            >
+              Action
+            </span>
+          </li>
+          <li
+            className=""
+            data-test={35}
+          >
+            <span
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              tabIndex="-1"
+            >
+              Comedy
+            </span>
+          </li>
+          <li
+            className=""
+            data-test={18}
+          >
+            <span
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              tabIndex="-1"
+            >
+              Drama
+            </span>
+          </li>
+          <li
+            className=""
+            data-test={10751}
+          >
+            <span
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              tabIndex="-1"
+            >
+              Family
+            </span>
+          </li>
+          <li
+            className=""
+            data-test={878}
+          >
+            <span
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              tabIndex="-1"
+            >
+              Science Fiction
+            </span>
+          </li>
+          <li
+            className=""
+            data-test={53}
+          >
+            <span
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              tabIndex="-1"
+            >
+              Thriller
+            </span>
+          </li>
+        </ul>
+        <div
+          className="top-list"
+        >
+          <Link
+            className="top-list__element featured"
+            replace={false}
+            to="/movie/1"
+          >
+            <Apollo(MediaImage)
+              filePath="path/to/poster"
+              mediaType="poster"
+              name="title"
+              size={5}
+            />
+            <div
+              className="top-list__element-title"
+            >
+              title
+            </div>
+          </Link>
+        </div>
+      </div>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h3
+            className="top-list-main-title"
+          >
+            Movies of the day
+          </h3>,
+          <ul
+            className="top-genres-list"
+          >
+            <li
+              className="active"
+              data-test={-1}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                All
+              </span>
+            </li>
+            <li
+              className=""
+              data-test={28}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Action
+              </span>
+            </li>
+            <li
+              className=""
+              data-test={35}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Comedy
+              </span>
+            </li>
+            <li
+              className=""
+              data-test={18}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Drama
+              </span>
+            </li>
+            <li
+              className=""
+              data-test={10751}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Family
+              </span>
+            </li>
+            <li
+              className=""
+              data-test={878}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Science Fiction
+              </span>
+            </li>
+            <li
+              className=""
+              data-test={53}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Thriller
+              </span>
+            </li>
+          </ul>,
+          <div
+            className="top-list"
+          >
+            <Link
+              className="top-list__element featured"
+              replace={false}
+              to="/movie/1"
+            >
+              <Apollo(MediaImage)
+                filePath="path/to/poster"
+                mediaType="poster"
+                name="title"
+                size={5}
+              />
+              <div
+                className="top-list__element-title"
+              >
+                title
+              </div>
+            </Link>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Movies of the day",
+            "className": "top-list-main-title",
+          },
+          "ref": null,
+          "rendered": "Movies of the day",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <li
+                className="active"
+                data-test={-1}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  All
+                </span>
+              </li>,
+              <li
+                className=""
+                data-test={28}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Action
+                </span>
+              </li>,
+              <li
+                className=""
+                data-test={35}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Comedy
+                </span>
+              </li>,
+              <li
+                className=""
+                data-test={18}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Drama
+                </span>
+              </li>,
+              <li
+                className=""
+                data-test={10751}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Family
+                </span>
+              </li>,
+              <li
+                className=""
+                data-test={878}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Science Fiction
+                </span>
+              </li>,
+              <li
+                className=""
+                data-test={53}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Thriller
+                </span>
+              </li>,
+            ],
+            "className": "top-genres-list",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "-1",
+              "nodeType": "host",
+              "props": Object {
+                "children": <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  All
+                </span>,
+                "className": "active",
+                "data-test": -1,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "All",
+                  "onClick": [Function],
+                  "onKeyDown": [Function],
+                  "role": "button",
+                  "tabIndex": "-1",
+                },
+                "ref": null,
+                "rendered": "All",
+                "type": "span",
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "28",
+              "nodeType": "host",
+              "props": Object {
+                "children": <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Action
+                </span>,
+                "className": "",
+                "data-test": 28,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Action",
+                  "onClick": [Function],
+                  "onKeyDown": [Function],
+                  "role": "button",
+                  "tabIndex": "-1",
+                },
+                "ref": null,
+                "rendered": "Action",
+                "type": "span",
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "35",
+              "nodeType": "host",
+              "props": Object {
+                "children": <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Comedy
+                </span>,
+                "className": "",
+                "data-test": 35,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Comedy",
+                  "onClick": [Function],
+                  "onKeyDown": [Function],
+                  "role": "button",
+                  "tabIndex": "-1",
+                },
+                "ref": null,
+                "rendered": "Comedy",
+                "type": "span",
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "18",
+              "nodeType": "host",
+              "props": Object {
+                "children": <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Drama
+                </span>,
+                "className": "",
+                "data-test": 18,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Drama",
+                  "onClick": [Function],
+                  "onKeyDown": [Function],
+                  "role": "button",
+                  "tabIndex": "-1",
+                },
+                "ref": null,
+                "rendered": "Drama",
+                "type": "span",
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "10751",
+              "nodeType": "host",
+              "props": Object {
+                "children": <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Family
+                </span>,
+                "className": "",
+                "data-test": 10751,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Family",
+                  "onClick": [Function],
+                  "onKeyDown": [Function],
+                  "role": "button",
+                  "tabIndex": "-1",
+                },
+                "ref": null,
+                "rendered": "Family",
+                "type": "span",
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "878",
+              "nodeType": "host",
+              "props": Object {
+                "children": <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Science Fiction
+                </span>,
+                "className": "",
+                "data-test": 878,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Science Fiction",
+                  "onClick": [Function],
+                  "onKeyDown": [Function],
+                  "role": "button",
+                  "tabIndex": "-1",
+                },
+                "ref": null,
+                "rendered": "Science Fiction",
+                "type": "span",
+              },
+              "type": "li",
+            },
+            Object {
+              "instance": null,
+              "key": "53",
+              "nodeType": "host",
+              "props": Object {
+                "children": <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Thriller
+                </span>,
+                "className": "",
+                "data-test": 53,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Thriller",
+                  "onClick": [Function],
+                  "onKeyDown": [Function],
+                  "role": "button",
+                  "tabIndex": "-1",
+                },
+                "ref": null,
+                "rendered": "Thriller",
+                "type": "span",
+              },
+              "type": "li",
+            },
+          ],
+          "type": "ul",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Link
+                className="top-list__element featured"
+                replace={false}
+                to="/movie/1"
+              >
+                <Apollo(MediaImage)
+                  filePath="path/to/poster"
+                  mediaType="poster"
+                  name="title"
+                  size={5}
+                />
+                <div
+                  className="top-list__element-title"
+                >
+                  title
+                </div>
+              </Link>,
+            ],
+            "className": "top-list",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <Apollo(MediaImage)
+                    filePath="path/to/poster"
+                    mediaType="poster"
+                    name="title"
+                    size={5}
+                  />,
+                  false,
+                  <div
+                    className="top-list__element-title"
+                  >
+                    title
+                  </div>,
+                ],
+                "className": "top-list__element featured",
+                "replace": false,
+                "to": "/movie/1",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "filePath": "path/to/poster",
+                    "mediaType": "poster",
+                    "name": "title",
+                    "size": 5,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                false,
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "title",
+                    "className": "top-list__element-title",
+                  },
+                  "ref": null,
+                  "rendered": "title",
+                  "type": "div",
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div>
+          <h3
+            className="top-list-main-title"
+          >
+            Movies of the day
+          </h3>
+          <ul
+            className="top-genres-list"
+          >
+            <li
+              className="active"
+              data-test={-1}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                All
+              </span>
+            </li>
+            <li
+              className=""
+              data-test={28}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Action
+              </span>
+            </li>
+            <li
+              className=""
+              data-test={35}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Comedy
+              </span>
+            </li>
+            <li
+              className=""
+              data-test={18}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Drama
+              </span>
+            </li>
+            <li
+              className=""
+              data-test={10751}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Family
+              </span>
+            </li>
+            <li
+              className=""
+              data-test={878}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Science Fiction
+              </span>
+            </li>
+            <li
+              className=""
+              data-test={53}
+            >
+              <span
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex="-1"
+              >
+                Thriller
+              </span>
+            </li>
+          </ul>
+          <div
+            className="top-list"
+          >
+            <Link
+              className="top-list__element featured"
+              replace={false}
+              to="/movie/1"
+            >
+              <Apollo(MediaImage)
+                filePath="path/to/poster"
+                mediaType="poster"
+                name="title"
+                size={5}
+              />
+              <div
+                className="top-list__element-title"
+              >
+                title
+              </div>
+            </Link>
+          </div>
+        </div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3
+              className="top-list-main-title"
+            >
+              Movies of the day
+            </h3>,
+            <ul
+              className="top-genres-list"
+            >
+              <li
+                className="active"
+                data-test={-1}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  All
+                </span>
+              </li>
+              <li
+                className=""
+                data-test={28}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Action
+                </span>
+              </li>
+              <li
+                className=""
+                data-test={35}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Comedy
+                </span>
+              </li>
+              <li
+                className=""
+                data-test={18}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Drama
+                </span>
+              </li>
+              <li
+                className=""
+                data-test={10751}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Family
+                </span>
+              </li>
+              <li
+                className=""
+                data-test={878}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Science Fiction
+                </span>
+              </li>
+              <li
+                className=""
+                data-test={53}
+              >
+                <span
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  tabIndex="-1"
+                >
+                  Thriller
+                </span>
+              </li>
+            </ul>,
+            <div
+              className="top-list"
+            >
+              <Link
+                className="top-list__element featured"
+                replace={false}
+                to="/movie/1"
+              >
+                <Apollo(MediaImage)
+                  filePath="path/to/poster"
+                  mediaType="poster"
+                  name="title"
+                  size={5}
+                />
+                <div
+                  className="top-list__element-title"
+                >
+                  title
+                </div>
+              </Link>
+            </div>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Movies of the day",
+              "className": "top-list-main-title",
+            },
+            "ref": null,
+            "rendered": "Movies of the day",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <li
+                  className="active"
+                  data-test={-1}
+                >
+                  <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    All
+                  </span>
+                </li>,
+                <li
+                  className=""
+                  data-test={28}
+                >
+                  <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    Action
+                  </span>
+                </li>,
+                <li
+                  className=""
+                  data-test={35}
+                >
+                  <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    Comedy
+                  </span>
+                </li>,
+                <li
+                  className=""
+                  data-test={18}
+                >
+                  <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    Drama
+                  </span>
+                </li>,
+                <li
+                  className=""
+                  data-test={10751}
+                >
+                  <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    Family
+                  </span>
+                </li>,
+                <li
+                  className=""
+                  data-test={878}
+                >
+                  <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    Science Fiction
+                  </span>
+                </li>,
+                <li
+                  className=""
+                  data-test={53}
+                >
+                  <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    Thriller
+                  </span>
+                </li>,
+              ],
+              "className": "top-genres-list",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "-1",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    All
+                  </span>,
+                  "className": "active",
+                  "data-test": -1,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "All",
+                    "onClick": [Function],
+                    "onKeyDown": [Function],
+                    "role": "button",
+                    "tabIndex": "-1",
+                  },
+                  "ref": null,
+                  "rendered": "All",
+                  "type": "span",
+                },
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": "28",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    Action
+                  </span>,
+                  "className": "",
+                  "data-test": 28,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Action",
+                    "onClick": [Function],
+                    "onKeyDown": [Function],
+                    "role": "button",
+                    "tabIndex": "-1",
+                  },
+                  "ref": null,
+                  "rendered": "Action",
+                  "type": "span",
+                },
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": "35",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    Comedy
+                  </span>,
+                  "className": "",
+                  "data-test": 35,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Comedy",
+                    "onClick": [Function],
+                    "onKeyDown": [Function],
+                    "role": "button",
+                    "tabIndex": "-1",
+                  },
+                  "ref": null,
+                  "rendered": "Comedy",
+                  "type": "span",
+                },
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": "18",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    Drama
+                  </span>,
+                  "className": "",
+                  "data-test": 18,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Drama",
+                    "onClick": [Function],
+                    "onKeyDown": [Function],
+                    "role": "button",
+                    "tabIndex": "-1",
+                  },
+                  "ref": null,
+                  "rendered": "Drama",
+                  "type": "span",
+                },
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": "10751",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    Family
+                  </span>,
+                  "className": "",
+                  "data-test": 10751,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Family",
+                    "onClick": [Function],
+                    "onKeyDown": [Function],
+                    "role": "button",
+                    "tabIndex": "-1",
+                  },
+                  "ref": null,
+                  "rendered": "Family",
+                  "type": "span",
+                },
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": "878",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    Science Fiction
+                  </span>,
+                  "className": "",
+                  "data-test": 878,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Science Fiction",
+                    "onClick": [Function],
+                    "onKeyDown": [Function],
+                    "role": "button",
+                    "tabIndex": "-1",
+                  },
+                  "ref": null,
+                  "rendered": "Science Fiction",
+                  "type": "span",
+                },
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": "53",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <span
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    role="button"
+                    tabIndex="-1"
+                  >
+                    Thriller
+                  </span>,
+                  "className": "",
+                  "data-test": 53,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Thriller",
+                    "onClick": [Function],
+                    "onKeyDown": [Function],
+                    "role": "button",
+                    "tabIndex": "-1",
+                  },
+                  "ref": null,
+                  "rendered": "Thriller",
+                  "type": "span",
+                },
+                "type": "li",
+              },
+            ],
+            "type": "ul",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <Link
+                  className="top-list__element featured"
+                  replace={false}
+                  to="/movie/1"
+                >
+                  <Apollo(MediaImage)
+                    filePath="path/to/poster"
+                    mediaType="poster"
+                    name="title"
+                    size={5}
+                  />
+                  <div
+                    className="top-list__element-title"
+                  >
+                    title
+                  </div>
+                </Link>,
+              ],
+              "className": "top-list",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "1",
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <Apollo(MediaImage)
+                      filePath="path/to/poster"
+                      mediaType="poster"
+                      name="title"
+                      size={5}
+                    />,
+                    false,
+                    <div
+                      className="top-list__element-title"
+                    >
+                      title
+                    </div>,
+                  ],
+                  "className": "top-list__element featured",
+                  "replace": false,
+                  "to": "/movie/1",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "filePath": "path/to/poster",
+                      "mediaType": "poster",
+                      "name": "title",
+                      "size": 5,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  false,
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "title",
+                      "className": "top-list__element-title",
+                    },
+                    "ref": null,
+                    "rendered": "title",
+                    "type": "div",
+                  },
+                ],
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

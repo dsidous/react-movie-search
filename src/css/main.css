@@ -1050,24 +1050,25 @@ li.movie-genres:last-child:after {
   .home-list__list {
     list-style: none;
     padding: 0; }
-  .home-list__list-element {
+  .home-list__list-element a {
+    color: #333;
     cursor: pointer;
     font-size: 1.1em;
     display: grid;
     grid-template-columns: auto 1fr;
     padding: 10px 0; }
-    .home-list__list-element:hover {
+    .home-list__list-element a:hover {
       color: #666; }
-    .home-list__list-element img {
+    .home-list__list-element a img {
       margin: 0 15px 0 0;
       width: 50px; }
       @media screen and (min-width: 640px) {
-        .home-list__list-element img {
+        .home-list__list-element a img {
           width: 30px; } }
-    .home-list__list-element .list-data__title {
+    .home-list__list-element a .list-data__title {
       overflow: hidden;
       width: 90%; }
-    .home-list__list-element .list-data__genres {
+    .home-list__list-element a .list-data__genres {
       font-size: 0.8em;
       font-style: italic;
       overflow: hidden;

@@ -23,4 +23,10 @@ describe('Atoms/MediaImage', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should render with no filePath', () => {
+    const wrapper = shallow(<MediaImage {...mockProps} filePath={null} />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

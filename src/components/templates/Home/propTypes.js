@@ -5,10 +5,6 @@ import {
   oneOfType,
 } from 'prop-types';
 
-export const contextTypes = {
-  router: object.isRequired,
-};
-
 export const propTypes = {
   popular: array.isRequired,
   nowPlayingLoading: bool,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { propTypes, contextTypes, defaultProps } from './propTypes';
+import { propTypes, defaultProps } from './propTypes';
 import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition';
 import TopRatedMovies from '../../organisms/TopRatedMovies';
@@ -10,8 +10,6 @@ export default class TopListsContainer extends Component {
   static defaultProps = defaultProps;
 
   static propTypes = propTypes;
-
-  static contextTypes = contextTypes;
 
   state = {
     topmovies: [],
@@ -53,11 +51,6 @@ export default class TopListsContainer extends Component {
     this.setState({ topmovies: movies });
   }
 
-  goToMovie = (movieId) => {
-    const { router } = this.context;
-    router.history.push(`/movie/${movieId}`);
-  };
-
   render() {
     const {
       nowPlayingLoading,
@@ -75,19 +68,16 @@ export default class TopListsContainer extends Component {
       <PageTransition>
         <TopRatedMovies
           topMovies={topmovies}
-          goToMovie={this.goToMovie}
           filterTopMovies={this.filterTopMovies}
         />
 
         <div className="top-lists-wrapper">
           <HomeList
             list={nowplaying.slice(0, 10)}
-            goToMovie={this.goToMovie}
             title="In Theatres"
           />
           <HomeList
             list={upcoming.slice(0, 10)}
-            goToMovie={this.goToMovie}
             title="Upcoming Movies"
           />
         </div>

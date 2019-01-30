@@ -4,7 +4,6 @@ exports[`Atoms/HomeList should render as expected 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <HomeList
-    goToMovie={[MockFunction]}
     list={
       Array [
         Object {
@@ -47,29 +46,32 @@ ShallowWrapper {
         >
           <li
             className="home-list__list-element"
-            onClick={[Function]}
-            onKeyDown={[Function]}
           >
-            <Apollo(MediaImage)
-              filePath="path/to/poster"
-              mediaType="poster"
-              name="title"
-              size={0}
-            />
-            <div
-              className="list-data"
+            <Link
+              replace={false}
+              to="/movie/1"
             >
+              <Apollo(MediaImage)
+                filePath="path/to/poster"
+                mediaType="poster"
+                name="title"
+                size={0}
+              />
               <div
-                className="list-data__title"
+                className="list-data"
               >
-                title (1)
+                <div
+                  className="list-data__title"
+                >
+                  title (1)
+                </div>
+                <div
+                  className="list-data__genres"
+                >
+                  genre, 
+                </div>
               </div>
-              <div
-                className="list-data__genres"
-              >
-                genre, 
-              </div>
-            </div>
+            </Link>
           </li>
         </ul>,
       ],
@@ -97,212 +99,10 @@ ShallowWrapper {
           "children": Array [
             <li
               className="home-list__list-element"
-              onClick={[Function]}
-              onKeyDown={[Function]}
             >
-              <Apollo(MediaImage)
-                filePath="path/to/poster"
-                mediaType="poster"
-                name="title"
-                size={0}
-              />
-              <div
-                className="list-data"
-              >
-                <div
-                  className="list-data__title"
-                >
-                  title (1)
-                </div>
-                <div
-                  className="list-data__genres"
-                >
-                  genre, 
-                </div>
-              </div>
-            </li>,
-          ],
-          "className": "home-list__list",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": "1",
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <Apollo(MediaImage)
-                  filePath="path/to/poster"
-                  mediaType="poster"
-                  name="title"
-                  size={0}
-                />,
-                <div
-                  className="list-data"
-                >
-                  <div
-                    className="list-data__title"
-                  >
-                    title (1)
-                  </div>
-                  <div
-                    className="list-data__genres"
-                  >
-                    genre, 
-                  </div>
-                </div>,
-              ],
-              "className": "home-list__list-element",
-              "onClick": [Function],
-              "onKeyDown": [Function],
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "filePath": "path/to/poster",
-                  "mediaType": "poster",
-                  "name": "title",
-                  "size": 0,
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    <div
-                      className="list-data__title"
-                    >
-                      title (1)
-                    </div>,
-                    <div
-                      className="list-data__genres"
-                    >
-                      genre, 
-                    </div>,
-                  ],
-                  "className": "list-data",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "title (1)",
-                      "className": "list-data__title",
-                    },
-                    "ref": null,
-                    "rendered": "title (1)",
-                    "type": "div",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": Array [
-                        "genre, ",
-                      ],
-                      "className": "list-data__genres",
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      "genre, ",
-                    ],
-                    "type": "div",
-                  },
-                ],
-                "type": "div",
-              },
-            ],
-            "type": "li",
-          },
-        ],
-        "type": "ul",
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <div
-            className="home-list__title"
-          >
-            title
-          </div>,
-          <ul
-            className="home-list__list"
-          >
-            <li
-              className="home-list__list-element"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-            >
-              <Apollo(MediaImage)
-                filePath="path/to/poster"
-                mediaType="poster"
-                name="title"
-                size={0}
-              />
-              <div
-                className="list-data"
-              >
-                <div
-                  className="list-data__title"
-                >
-                  title (1)
-                </div>
-                <div
-                  className="list-data__genres"
-                >
-                  genre, 
-                </div>
-              </div>
-            </li>
-          </ul>,
-        ],
-        "className": "home-list",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "title",
-            "className": "home-list__title",
-          },
-          "ref": null,
-          "rendered": "title",
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <li
-                className="home-list__list-element"
-                onClick={[Function]}
-                onKeyDown={[Function]}
+              <Link
+                replace={false}
+                to="/movie/1"
               >
                 <Apollo(MediaImage)
                   filePath="path/to/poster"
@@ -324,16 +124,50 @@ ShallowWrapper {
                     genre, 
                   </div>
                 </div>
-              </li>,
-            ],
-            "className": "home-list__list",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
+              </Link>
+            </li>,
+          ],
+          "className": "home-list__list",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "host",
+            "props": Object {
+              "children": <Link
+                replace={false}
+                to="/movie/1"
+              >
+                <Apollo(MediaImage)
+                  filePath="path/to/poster"
+                  mediaType="poster"
+                  name="title"
+                  size={0}
+                />
+                <div
+                  className="list-data"
+                >
+                  <div
+                    className="list-data__title"
+                  >
+                    title (1)
+                  </div>
+                  <div
+                    className="list-data__genres"
+                  >
+                    genre, 
+                  </div>
+                </div>
+              </Link>,
+              "className": "home-list__list-element",
+            },
+            "ref": null,
+            "rendered": Object {
               "instance": null,
-              "key": "1",
-              "nodeType": "host",
+              "key": undefined,
+              "nodeType": "class",
               "props": Object {
                 "children": Array [
                   <Apollo(MediaImage)
@@ -357,9 +191,8 @@ ShallowWrapper {
                     </div>
                   </div>,
                 ],
-                "className": "home-list__list-element",
-                "onClick": [Function],
-                "onKeyDown": [Function],
+                "replace": false,
+                "to": "/movie/1",
               },
               "ref": null,
               "rendered": Array [
@@ -430,6 +263,252 @@ ShallowWrapper {
                   "type": "div",
                 },
               ],
+              "type": [Function],
+            },
+            "type": "li",
+          },
+        ],
+        "type": "ul",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="home-list__title"
+          >
+            title
+          </div>,
+          <ul
+            className="home-list__list"
+          >
+            <li
+              className="home-list__list-element"
+            >
+              <Link
+                replace={false}
+                to="/movie/1"
+              >
+                <Apollo(MediaImage)
+                  filePath="path/to/poster"
+                  mediaType="poster"
+                  name="title"
+                  size={0}
+                />
+                <div
+                  className="list-data"
+                >
+                  <div
+                    className="list-data__title"
+                  >
+                    title (1)
+                  </div>
+                  <div
+                    className="list-data__genres"
+                  >
+                    genre, 
+                  </div>
+                </div>
+              </Link>
+            </li>
+          </ul>,
+        ],
+        "className": "home-list",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "title",
+            "className": "home-list__title",
+          },
+          "ref": null,
+          "rendered": "title",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <li
+                className="home-list__list-element"
+              >
+                <Link
+                  replace={false}
+                  to="/movie/1"
+                >
+                  <Apollo(MediaImage)
+                    filePath="path/to/poster"
+                    mediaType="poster"
+                    name="title"
+                    size={0}
+                  />
+                  <div
+                    className="list-data"
+                  >
+                    <div
+                      className="list-data__title"
+                    >
+                      title (1)
+                    </div>
+                    <div
+                      className="list-data__genres"
+                    >
+                      genre, 
+                    </div>
+                  </div>
+                </Link>
+              </li>,
+            ],
+            "className": "home-list__list",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  replace={false}
+                  to="/movie/1"
+                >
+                  <Apollo(MediaImage)
+                    filePath="path/to/poster"
+                    mediaType="poster"
+                    name="title"
+                    size={0}
+                  />
+                  <div
+                    className="list-data"
+                  >
+                    <div
+                      className="list-data__title"
+                    >
+                      title (1)
+                    </div>
+                    <div
+                      className="list-data__genres"
+                    >
+                      genre, 
+                    </div>
+                  </div>
+                </Link>,
+                "className": "home-list__list-element",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    <Apollo(MediaImage)
+                      filePath="path/to/poster"
+                      mediaType="poster"
+                      name="title"
+                      size={0}
+                    />,
+                    <div
+                      className="list-data"
+                    >
+                      <div
+                        className="list-data__title"
+                      >
+                        title (1)
+                      </div>
+                      <div
+                        className="list-data__genres"
+                      >
+                        genre, 
+                      </div>
+                    </div>,
+                  ],
+                  "replace": false,
+                  "to": "/movie/1",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "filePath": "path/to/poster",
+                      "mediaType": "poster",
+                      "name": "title",
+                      "size": 0,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <div
+                          className="list-data__title"
+                        >
+                          title (1)
+                        </div>,
+                        <div
+                          className="list-data__genres"
+                        >
+                          genre, 
+                        </div>,
+                      ],
+                      "className": "list-data",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "title (1)",
+                          "className": "list-data__title",
+                        },
+                        "ref": null,
+                        "rendered": "title (1)",
+                        "type": "div",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            "genre, ",
+                          ],
+                          "className": "list-data__genres",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "genre, ",
+                        ],
+                        "type": "div",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": [Function],
+              },
               "type": "li",
             },
           ],
