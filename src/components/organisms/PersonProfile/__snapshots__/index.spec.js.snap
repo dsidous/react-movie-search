@@ -48,7 +48,7 @@ ShallowWrapper {
                 replace={false}
                 to="/person/1/images"
               >
-                <Apollo(MediaImage)
+                <MediaImage
                   className="img-responsive center-block"
                   filePath="path/to/image"
                   mediaType="profile"
@@ -183,7 +183,7 @@ ShallowWrapper {
                   replace={false}
                   to="/person/1/images"
                 >
-                  <Apollo(MediaImage)
+                  <MediaImage
                     className="img-responsive center-block"
                     filePath="path/to/image"
                     mediaType="profile"
@@ -304,7 +304,7 @@ ShallowWrapper {
                     replace={false}
                     to="/person/1/images"
                   >
-                    <Apollo(MediaImage)
+                    <MediaImage
                       className="img-responsive center-block"
                       filePath="path/to/image"
                       mediaType="profile"
@@ -396,7 +396,7 @@ ShallowWrapper {
                     replace={false}
                     to="/person/1/images"
                   >
-                    <Apollo(MediaImage)
+                    <MediaImage
                       className="img-responsive center-block"
                       filePath="path/to/image"
                       mediaType="profile"
@@ -412,7 +412,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "children": <Apollo(MediaImage)
+                    "children": <MediaImage
                       className="img-responsive center-block"
                       filePath="path/to/image"
                       mediaType="profile"
@@ -426,7 +426,7 @@ ShallowWrapper {
                   "rendered": Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "class",
+                    "nodeType": "function",
                     "props": Object {
                       "className": "img-responsive center-block",
                       "filePath": "path/to/image",
@@ -892,7 +892,7 @@ ShallowWrapper {
                   replace={false}
                   to="/person/1/images"
                 >
-                  <Apollo(MediaImage)
+                  <MediaImage
                     className="img-responsive center-block"
                     filePath="path/to/image"
                     mediaType="profile"
@@ -1027,7 +1027,7 @@ ShallowWrapper {
                     replace={false}
                     to="/person/1/images"
                   >
-                    <Apollo(MediaImage)
+                    <MediaImage
                       className="img-responsive center-block"
                       filePath="path/to/image"
                       mediaType="profile"
@@ -1148,7 +1148,7 @@ ShallowWrapper {
                       replace={false}
                       to="/person/1/images"
                     >
-                      <Apollo(MediaImage)
+                      <MediaImage
                         className="img-responsive center-block"
                         filePath="path/to/image"
                         mediaType="profile"
@@ -1240,7 +1240,7 @@ ShallowWrapper {
                       replace={false}
                       to="/person/1/images"
                     >
-                      <Apollo(MediaImage)
+                      <MediaImage
                         className="img-responsive center-block"
                         filePath="path/to/image"
                         mediaType="profile"
@@ -1256,7 +1256,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
-                      "children": <Apollo(MediaImage)
+                      "children": <MediaImage
                         className="img-responsive center-block"
                         filePath="path/to/image"
                         mediaType="profile"
@@ -1270,7 +1270,7 @@ ShallowWrapper {
                     "rendered": Object {
                       "instance": null,
                       "key": undefined,
-                      "nodeType": "class",
+                      "nodeType": "function",
                       "props": Object {
                         "className": "img-responsive center-block",
                         "filePath": "path/to/image",

@@ -10,7 +10,6 @@ const mockProps = {
 };
 
 describe('Atoms/WatchlistBookmark', () => {
-
   it('should render as expected', () => {
     const wrapper = shallow(<WatchlistBookmark {...mockProps} />);
 

@@ -144,7 +144,7 @@ ShallowWrapper {
             replace={false}
             to="/movie/1"
           >
-            <Apollo(MediaImage)
+            <MediaImage
               filePath="path/to/poster"
               mediaType="poster"
               name="title"
@@ -274,7 +274,7 @@ ShallowWrapper {
               replace={false}
               to="/movie/1"
             >
-              <Apollo(MediaImage)
+              <MediaImage
                 filePath="path/to/poster"
                 mediaType="poster"
                 name="title"
@@ -657,7 +657,7 @@ ShallowWrapper {
                 replace={false}
                 to="/movie/1"
               >
-                <Apollo(MediaImage)
+                <MediaImage
                   filePath="path/to/poster"
                   mediaType="poster"
                   name="title"
@@ -680,7 +680,7 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": Array [
-                  <Apollo(MediaImage)
+                  <MediaImage
                     filePath="path/to/poster"
                     mediaType="poster"
                     name="title"
@@ -702,7 +702,7 @@ ShallowWrapper {
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "class",
+                  "nodeType": "function",
                   "props": Object {
                     "filePath": "path/to/poster",
                     "mediaType": "poster",
@@ -852,7 +852,7 @@ ShallowWrapper {
               replace={false}
               to="/movie/1"
             >
-              <Apollo(MediaImage)
+              <MediaImage
                 filePath="path/to/poster"
                 mediaType="poster"
                 name="title"
@@ -982,7 +982,7 @@ ShallowWrapper {
                 replace={false}
                 to="/movie/1"
               >
-                <Apollo(MediaImage)
+                <MediaImage
                   filePath="path/to/poster"
                   mediaType="poster"
                   name="title"
@@ -1365,7 +1365,7 @@ ShallowWrapper {
                   replace={false}
                   to="/movie/1"
                 >
-                  <Apollo(MediaImage)
+                  <MediaImage
                     filePath="path/to/poster"
                     mediaType="poster"
                     name="title"
@@ -1388,7 +1388,7 @@ ShallowWrapper {
                 "nodeType": "class",
                 "props": Object {
                   "children": Array [
-                    <Apollo(MediaImage)
+                    <MediaImage
                       filePath="path/to/poster"
                       mediaType="poster"
                       name="title"
@@ -1410,7 +1410,7 @@ ShallowWrapper {
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "class",
+                    "nodeType": "function",
                     "props": Object {
                       "filePath": "path/to/poster",
                       "mediaType": "poster",

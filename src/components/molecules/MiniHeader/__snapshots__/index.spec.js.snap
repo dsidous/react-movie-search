@@ -27,7 +27,7 @@ ShallowWrapper {
       "children": <div
         className="mini-header__inner"
       >
-        <Apollo(MediaImage)
+        <MediaImage
           filePath="path/to/image"
           mediaType="poster"
           name="title"
@@ -63,7 +63,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Apollo(MediaImage)
+          <MediaImage
             filePath="path/to/image"
             mediaType="poster"
             name="title"
@@ -97,7 +97,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "filePath": "path/to/image",
             "mediaType": "poster",
@@ -218,7 +218,7 @@ ShallowWrapper {
         "children": <div
           className="mini-header__inner"
         >
-          <Apollo(MediaImage)
+          <MediaImage
             filePath="path/to/image"
             mediaType="poster"
             name="title"
@@ -254,7 +254,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <Apollo(MediaImage)
+            <MediaImage
               filePath="path/to/image"
               mediaType="poster"
               name="title"
@@ -288,7 +288,7 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {
               "filePath": "path/to/image",
               "mediaType": "poster",

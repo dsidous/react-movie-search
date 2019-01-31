@@ -21,7 +21,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Apollo(withRouter(MainNavbar)) />,
+        <withRouter(MainNavbar) />,
         <div />,
       ],
     },
@@ -30,7 +30,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {},
         "ref": null,
         "rendered": null,
@@ -55,7 +55,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Apollo(withRouter(MainNavbar)) />,
+          <withRouter(MainNavbar) />,
           <div />,
         ],
       },
@@ -64,7 +64,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {},
           "ref": null,
           "rendered": null,

@@ -3,7 +3,7 @@
 exports[`Pages/Home should render as expected 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <withProps(Apollo(Apollo(Apollo(TopListsContainer)))) />,
+  Symbol(enzyme.__unrendered__): <withProps(TopListsContainer) />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -18,7 +18,9 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
+      "nowplaying": Array [],
       "query": "page=1",
+      "upcoming": Array [],
     },
     "ref": null,
     "rendered": null,
@@ -30,7 +32,9 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
+        "nowplaying": Array [],
         "query": "page=1",
+        "upcoming": Array [],
       },
       "ref": null,
       "rendered": null,

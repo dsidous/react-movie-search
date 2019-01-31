@@ -71,7 +71,7 @@ ShallowWrapper {
           <div
             className="full-ca-cr__element"
           >
-            <Apollo(MediaImage)
+            <MediaImage
               className="full-ca-cr__image"
               filePath="path/to/image"
               mediaType="miniProfile"
@@ -129,7 +129,7 @@ ShallowWrapper {
             <div
               className="full-ca-cr__element"
             >
-              <Apollo(MediaImage)
+              <MediaImage
                 className="full-ca-cr__image"
                 filePath="path/to/image"
                 mediaType="miniProfile"
@@ -242,7 +242,7 @@ ShallowWrapper {
                 <div
                   className="full-ca-cr__element"
                 >
-                  <Apollo(MediaImage)
+                  <MediaImage
                     className="full-ca-cr__image"
                     filePath="path/to/image"
                     mediaType="miniProfile"
@@ -301,7 +301,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <Apollo(MediaImage)
+                  <MediaImage
                     className="full-ca-cr__image"
                     filePath="path/to/image"
                     mediaType="miniProfile"
@@ -326,7 +326,7 @@ ShallowWrapper {
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "class",
+                  "nodeType": "function",
                   "props": Object {
                     "className": "full-ca-cr__image",
                     "filePath": "path/to/image",
@@ -439,7 +439,7 @@ ShallowWrapper {
             <div
               className="full-ca-cr__element"
             >
-              <Apollo(MediaImage)
+              <MediaImage
                 className="full-ca-cr__image"
                 filePath="path/to/image"
                 mediaType="miniProfile"
@@ -497,7 +497,7 @@ ShallowWrapper {
               <div
                 className="full-ca-cr__element"
               >
-                <Apollo(MediaImage)
+                <MediaImage
                   className="full-ca-cr__image"
                   filePath="path/to/image"
                   mediaType="miniProfile"
@@ -610,7 +610,7 @@ ShallowWrapper {
                   <div
                     className="full-ca-cr__element"
                   >
-                    <Apollo(MediaImage)
+                    <MediaImage
                       className="full-ca-cr__image"
                       filePath="path/to/image"
                       mediaType="miniProfile"
@@ -669,7 +669,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
-                    <Apollo(MediaImage)
+                    <MediaImage
                       className="full-ca-cr__image"
                       filePath="path/to/image"
                       mediaType="miniProfile"
@@ -694,7 +694,7 @@ ShallowWrapper {
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "class",
+                    "nodeType": "function",
                     "props": Object {
                       "className": "full-ca-cr__image",
                       "filePath": "path/to/image",

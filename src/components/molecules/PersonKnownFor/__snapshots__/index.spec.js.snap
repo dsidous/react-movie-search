@@ -44,7 +44,7 @@ ShallowWrapper {
           replace={false}
           to="/tv/1"
         >
-          <Apollo(MediaImage)
+          <MediaImage
             filePath="path/to/image"
             mediaType="poster"
             name="name"
@@ -66,7 +66,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": <Apollo(MediaImage)
+          "children": <MediaImage
             filePath="path/to/image"
             mediaType="poster"
             name="name"
@@ -79,7 +79,7 @@ ShallowWrapper {
         "rendered": Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "filePath": "path/to/image",
             "mediaType": "poster",
@@ -118,7 +118,7 @@ ShallowWrapper {
             replace={false}
             to="/tv/1"
           >
-            <Apollo(MediaImage)
+            <MediaImage
               filePath="path/to/image"
               mediaType="poster"
               name="name"
@@ -140,7 +140,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": <Apollo(MediaImage)
+            "children": <MediaImage
               filePath="path/to/image"
               mediaType="poster"
               name="name"
@@ -153,7 +153,7 @@ ShallowWrapper {
           "rendered": Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {
               "filePath": "path/to/image",
               "mediaType": "poster",
@@ -191,7 +191,7 @@ ShallowWrapper {
             replace={false}
             to="/tv/1"
           >
-            <Apollo(MediaImage)
+            <MediaImage
               filePath="path/to/image"
               mediaType="poster"
               name="name"
@@ -213,7 +213,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": <Apollo(MediaImage)
+            "children": <MediaImage
               filePath="path/to/image"
               mediaType="poster"
               name="name"
@@ -226,7 +226,7 @@ ShallowWrapper {
           "rendered": Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {
               "filePath": "path/to/image",
               "mediaType": "poster",

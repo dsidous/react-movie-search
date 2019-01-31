@@ -1,14 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pages/Seasons should render as expected 1`] = `
+exports[`Queries/withGenres should render as expected 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <withProps(Seasons)
-    match={
+  Symbol(enzyme.__unrendered__): <MockComponent
+    genres={
       Object {
-        "params": Object {
-          "tvId": 123,
-        },
+        "id": 1,
+        "name": "genrename",
+      }
+    }
+    options={
+      Object {
+        "fetchPolicy": "cache-and-network",
       }
     }
   />,
@@ -22,37 +26,25 @@ ShallowWrapper {
     "unmount": [Function],
   },
   Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "function",
-    "props": Object {
-      "match": Object {
-        "params": Object {
-          "tvId": 123,
-        },
-      },
-      "tvId": 123,
+    "genres": Object {
+      "id": 1,
+      "name": "genrename",
     },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "genresLoading": undefined,
+    "options": Object {
+      "fetchPolicy": "cache-and-network",
+    },
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "match": Object {
-          "params": Object {
-            "tvId": 123,
-          },
-        },
-        "tvId": 123,
+      "genres": Object {
+        "id": 1,
+        "name": "genrename",
       },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "genresLoading": undefined,
+      "options": Object {
+        "fetchPolicy": "cache-and-network",
+      },
     },
   ],
   Symbol(enzyme.__options__): Object {

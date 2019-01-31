@@ -50,7 +50,7 @@ ShallowWrapper {
             <p
               className="crew-col text-center"
             >
-              <Apollo(MediaImage)
+              <MediaImage
                 className="similar-movies-img"
                 filePath="path/to/image"
                 mediaType="poster"
@@ -96,7 +96,7 @@ ShallowWrapper {
               <p
                 className="crew-col text-center"
               >
-                <Apollo(MediaImage)
+                <MediaImage
                   className="similar-movies-img"
                   filePath="path/to/image"
                   mediaType="poster"
@@ -126,7 +126,7 @@ ShallowWrapper {
               "children": <p
                 className="crew-col text-center"
               >
-                <Apollo(MediaImage)
+                <MediaImage
                   className="similar-movies-img"
                   filePath="path/to/image"
                   mediaType="poster"
@@ -151,7 +151,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <Apollo(MediaImage)
+                  <MediaImage
                     className="similar-movies-img"
                     filePath="path/to/image"
                     mediaType="poster"
@@ -170,7 +170,7 @@ ShallowWrapper {
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "class",
+                  "nodeType": "function",
                   "props": Object {
                     "className": "similar-movies-img",
                     "filePath": "path/to/image",
@@ -240,7 +240,7 @@ ShallowWrapper {
               <p
                 className="crew-col text-center"
               >
-                <Apollo(MediaImage)
+                <MediaImage
                   className="similar-movies-img"
                   filePath="path/to/image"
                   mediaType="poster"
@@ -286,7 +286,7 @@ ShallowWrapper {
                 <p
                   className="crew-col text-center"
                 >
-                  <Apollo(MediaImage)
+                  <MediaImage
                     className="similar-movies-img"
                     filePath="path/to/image"
                     mediaType="poster"
@@ -316,7 +316,7 @@ ShallowWrapper {
                 "children": <p
                   className="crew-col text-center"
                 >
-                  <Apollo(MediaImage)
+                  <MediaImage
                     className="similar-movies-img"
                     filePath="path/to/image"
                     mediaType="poster"
@@ -341,7 +341,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
-                    <Apollo(MediaImage)
+                    <MediaImage
                       className="similar-movies-img"
                       filePath="path/to/image"
                       mediaType="poster"
@@ -360,7 +360,7 @@ ShallowWrapper {
                   Object {
                     "instance": null,
                     "key": undefined,
-                    "nodeType": "class",
+                    "nodeType": "function",
                     "props": Object {
                       "className": "similar-movies-img",
                       "filePath": "path/to/image",

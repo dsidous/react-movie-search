@@ -32,7 +32,7 @@ ShallowWrapper {
         replace={false}
         to="/person/1"
       >
-        <Apollo(MediaImage)
+        <MediaImage
           className="cast__img"
           filePath="/PSK6GmsVwdhqz9cd1lwzC6a7EA.jpg"
           mediaType="miniProfile"
@@ -60,7 +60,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <Apollo(MediaImage)
+          <MediaImage
             className="cast__img"
             filePath="/PSK6GmsVwdhqz9cd1lwzC6a7EA.jpg"
             mediaType="miniProfile"
@@ -87,7 +87,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
             "className": "cast__img",
             "filePath": "/PSK6GmsVwdhqz9cd1lwzC6a7EA.jpg",
@@ -166,7 +166,7 @@ ShallowWrapper {
           replace={false}
           to="/person/1"
         >
-          <Apollo(MediaImage)
+          <MediaImage
             className="cast__img"
             filePath="/PSK6GmsVwdhqz9cd1lwzC6a7EA.jpg"
             mediaType="miniProfile"
@@ -194,7 +194,7 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": Array [
-            <Apollo(MediaImage)
+            <MediaImage
               className="cast__img"
               filePath="/PSK6GmsVwdhqz9cd1lwzC6a7EA.jpg"
               mediaType="miniProfile"
@@ -221,7 +221,7 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {
               "className": "cast__img",
               "filePath": "/PSK6GmsVwdhqz9cd1lwzC6a7EA.jpg",

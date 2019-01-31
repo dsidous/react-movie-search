@@ -12,7 +12,7 @@ const mockProps = {
   },
   filePath: 'path/to/image',
   name: 'name',
-  size: '100 x 100',
+  size: 2,
   mediaType: 'profile',
   configLoading: true,
 };

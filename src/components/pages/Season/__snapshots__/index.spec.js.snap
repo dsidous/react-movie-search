@@ -3,7 +3,7 @@
 exports[`Pages/Season should render as expected 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <withProps(Apollo(Season))
+  Symbol(enzyme.__unrendered__): <withProps(Season)
     match={
       Object {
         "params": Object {
@@ -24,7 +24,7 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "function",
     "props": Object {
       "match": Object {
         "params": Object {
@@ -42,7 +42,7 @@ ShallowWrapper {
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "function",
       "props": Object {
         "match": Object {
           "params": Object {
