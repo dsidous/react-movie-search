@@ -6,7 +6,7 @@ import PageTransition from '../../atoms/PageTransition';
 import TopRatedMovies from '../../organisms/TopRatedMovies';
 import HomeList from '../../atoms/HomeList';
 
-export default class TopListsContainer extends Component {
+export default class Home extends Component {
   static defaultProps = defaultProps;
 
   static propTypes = propTypes;

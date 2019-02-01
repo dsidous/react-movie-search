@@ -41,7 +41,6 @@ ShallowWrapper {
           className="all-seasons-btn"
           replace={false}
           to="/tv/1/seasons"
-          type="button"
         >
           View All Seasons
         </Link>,
@@ -84,7 +83,6 @@ ShallowWrapper {
           "className": "all-seasons-btn",
           "replace": false,
           "to": "/tv/1/seasons",
-          "type": "button",
         },
         "ref": null,
         "rendered": "View All Seasons",
@@ -115,7 +113,6 @@ ShallowWrapper {
             className="all-seasons-btn"
             replace={false}
             to="/tv/1/seasons"
-            type="button"
           >
             View All Seasons
           </Link>,
@@ -158,7 +155,6 @@ ShallowWrapper {
             "className": "all-seasons-btn",
             "replace": false,
             "to": "/tv/1/seasons",
-            "type": "button",
           },
           "ref": null,
           "rendered": "View All Seasons",
