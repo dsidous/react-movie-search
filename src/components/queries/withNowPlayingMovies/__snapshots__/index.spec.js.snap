@@ -1,21 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Queries/withGenres should render as expected 1`] = `
+exports[`Queries/withNowPlayingMovies should render as expected 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <MockComponent
-    genres={
+    nowPlayingLoading={true}
+    nowplaying={
       Array [
         Object {
+          "backdrop_path": "path/to/image",
+          "genre_names": Array [
+            Object {
+              "genre_name": "genre",
+            },
+          ],
           "id": 1,
-          "name": "genrename",
+          "poster_path": "path/to/image",
+          "release_date": "01.01.2010",
+          "title": "title",
+          "vote_average": 1,
         },
       ]
     }
-    genresLoading={true}
     options={
       Object {
         "fetchPolicy": "cache-and-network",
+        "variables": Object {
+          "query": "page=1",
+        },
       }
     }
   />,
@@ -29,28 +41,52 @@ ShallowWrapper {
     "unmount": [Function],
   },
   Symbol(enzyme.__node__): Object {
-    "genres": Array [
+    "nowPlayingLoading": true,
+    "nowplaying": Array [
       Object {
+        "backdrop_path": "path/to/image",
+        "genre_names": Array [
+          Object {
+            "genre_name": "genre",
+          },
+        ],
         "id": 1,
-        "name": "genrename",
+        "poster_path": "path/to/image",
+        "release_date": "01.01.2010",
+        "title": "title",
+        "vote_average": 1,
       },
     ],
-    "genresLoading": true,
     "options": Object {
       "fetchPolicy": "cache-and-network",
+      "variables": Object {
+        "query": "page=1",
+      },
     },
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
-      "genres": Array [
+      "nowPlayingLoading": true,
+      "nowplaying": Array [
         Object {
+          "backdrop_path": "path/to/image",
+          "genre_names": Array [
+            Object {
+              "genre_name": "genre",
+            },
+          ],
           "id": 1,
-          "name": "genrename",
+          "poster_path": "path/to/image",
+          "release_date": "01.01.2010",
+          "title": "title",
+          "vote_average": 1,
         },
       ],
-      "genresLoading": true,
       "options": Object {
         "fetchPolicy": "cache-and-network",
+        "variables": Object {
+          "query": "page=1",
+        },
       },
     },
   ],

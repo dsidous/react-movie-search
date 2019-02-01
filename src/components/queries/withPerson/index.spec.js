@@ -1,22 +1,15 @@
 import { graphql } from 'react-apollo';
 import React from 'react';
 import { shallow } from 'enzyme';
-import withConfig from '.';
+import withPerson from '.';
 
-describe('Queries/withConfig', () => {
+describe('Queries/withPerson', () => {
   graphql.mockImplementation((query, config) => {
-    const ownProps = {};
+    const ownProps = { personId: 1 };
     const props = config.props({
       data: {
-        config: {
-          images: {
-            base_url: 'path/to/image',
-            secure_base_url: 'path/to/image',
-            backdrop_sizes: ['1', '2', '3', '4'],
-            poster_sizes: ['1', '2', '3', '4'],
-            profile_sizes: ['1', '2', '3', '4'],
-            still_sizes: ['1', '2', '3', '4'],
-          },
+        person: {
+          id: 1,
         },
         loading: true,
       },
@@ -27,7 +20,7 @@ describe('Queries/withConfig', () => {
   });
 
   const MockComponent = props => ({ ...props });
-  const Component = withConfig()(MockComponent);
+  const Component = withPerson()(MockComponent);
 
   it('should render as expected', () => {
     const render = shallow(Component);

@@ -5,13 +5,14 @@ import withGenres from '.';
 
 describe('Queries/withGenres', () => {
   graphql.mockImplementation((query, config) => {
-    const ownProps = { memberId: 1234, ssn: 123456 };
+    const ownProps = {};
     const props = config.props({
       data: {
-        genres: {
+        genres: [{
           id: 1,
           name: 'genrename',
-        },
+        }],
+        loading: true,
       },
       ownProps,
     });

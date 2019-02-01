@@ -36,6 +36,7 @@ ShallowWrapper {
         },
       }
     }
+    configLoading={true}
     options={
       Object {
         "fetchPolicy": "cache-and-network",
@@ -82,7 +83,7 @@ ShallowWrapper {
         ],
       },
     },
-    "configLoading": undefined,
+    "configLoading": true,
     "options": Object {
       "fetchPolicy": "cache-and-network",
     },
@@ -119,7 +120,7 @@ ShallowWrapper {
           ],
         },
       },
-      "configLoading": undefined,
+      "configLoading": true,
       "options": Object {
         "fetchPolicy": "cache-and-network",
       },

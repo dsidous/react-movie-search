@@ -1,22 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Queries/withGenres should render as expected 1`] = `
+exports[`Queries/withTopPeople should render as expected 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <MockComponent
-    genres={
-      Array [
-        Object {
-          "id": 1,
-          "name": "genrename",
-        },
-      ]
-    }
-    genresLoading={true}
+    loading={true}
     options={
       Object {
         "fetchPolicy": "cache-and-network",
+        "variables": Object {
+          "query": "page=1",
+        },
       }
+    }
+    toppeople={
+      Array [
+        Object {
+          "id": 1,
+          "name": "name",
+          "popularity": 1,
+          "profile_path": "path/to/image",
+        },
+      ]
     }
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -29,29 +34,39 @@ ShallowWrapper {
     "unmount": [Function],
   },
   Symbol(enzyme.__node__): Object {
-    "genres": Array [
-      Object {
-        "id": 1,
-        "name": "genrename",
-      },
-    ],
-    "genresLoading": true,
+    "loading": true,
     "options": Object {
       "fetchPolicy": "cache-and-network",
+      "variables": Object {
+        "query": "page=1",
+      },
     },
+    "toppeople": Array [
+      Object {
+        "id": 1,
+        "name": "name",
+        "popularity": 1,
+        "profile_path": "path/to/image",
+      },
+    ],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
-      "genres": Array [
-        Object {
-          "id": 1,
-          "name": "genrename",
-        },
-      ],
-      "genresLoading": true,
+      "loading": true,
       "options": Object {
         "fetchPolicy": "cache-and-network",
+        "variables": Object {
+          "query": "page=1",
+        },
       },
+      "toppeople": Array [
+        Object {
+          "id": 1,
+          "name": "name",
+          "popularity": 1,
+          "profile_path": "path/to/image",
+        },
+      ],
     },
   ],
   Symbol(enzyme.__options__): Object {

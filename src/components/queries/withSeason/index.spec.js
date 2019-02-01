@@ -1,22 +1,24 @@
 import { graphql } from 'react-apollo';
 import React from 'react';
 import { shallow } from 'enzyme';
-import withConfig from '.';
+import withSeason from '.';
 
-describe('Queries/withConfig', () => {
+describe('Queries/withSeason', () => {
   graphql.mockImplementation((query, config) => {
-    const ownProps = {};
+    const ownProps = { tvId: 1, season: 1 };
     const props = config.props({
       data: {
-        config: {
-          images: {
-            base_url: 'path/to/image',
-            secure_base_url: 'path/to/image',
-            backdrop_sizes: ['1', '2', '3', '4'],
-            poster_sizes: ['1', '2', '3', '4'],
-            profile_sizes: ['1', '2', '3', '4'],
-            still_sizes: ['1', '2', '3', '4'],
-          },
+        tvSeason: {
+          name: 'name',
+          air_date: '01.01.2010',
+          poster_path: 'path/to/image',
+          episodes: [{
+            name: 'name',
+            air_date: '01.01.2010',
+            episode_number: 1,
+            overview: 1,
+            still_path: 'path/to/image',
+          }],
         },
         loading: true,
       },
@@ -27,7 +29,7 @@ describe('Queries/withConfig', () => {
   });
 
   const MockComponent = props => ({ ...props });
-  const Component = withConfig()(MockComponent);
+  const Component = withSeason()(MockComponent);
 
   it('should render as expected', () => {
     const render = shallow(Component);

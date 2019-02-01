@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Queries/withGenres should render as expected 1`] = `
+exports[`Queries/withTv should render as expected 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <MockComponent
-    genres={
-      Array [
-        Object {
-          "id": 1,
-          "name": "genrename",
-        },
-      ]
-    }
-    genresLoading={true}
+    loading={true}
     options={
       Object {
         "fetchPolicy": "cache-and-network",
+        "variables": Object {
+          "tvId": 1,
+        },
+      }
+    }
+    show={
+      Object {
+        "name": "name",
       }
     }
   />,
@@ -29,28 +29,28 @@ ShallowWrapper {
     "unmount": [Function],
   },
   Symbol(enzyme.__node__): Object {
-    "genres": Array [
-      Object {
-        "id": 1,
-        "name": "genrename",
-      },
-    ],
-    "genresLoading": true,
+    "loading": true,
     "options": Object {
       "fetchPolicy": "cache-and-network",
+      "variables": Object {
+        "tvId": 1,
+      },
+    },
+    "show": Object {
+      "name": "name",
     },
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
-      "genres": Array [
-        Object {
-          "id": 1,
-          "name": "genrename",
-        },
-      ],
-      "genresLoading": true,
+      "loading": true,
       "options": Object {
         "fetchPolicy": "cache-and-network",
+        "variables": Object {
+          "tvId": 1,
+        },
+      },
+      "show": Object {
+        "name": "name",
       },
     },
   ],

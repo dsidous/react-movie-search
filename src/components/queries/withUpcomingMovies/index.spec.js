@@ -1,23 +1,24 @@
 import { graphql } from 'react-apollo';
 import React from 'react';
 import { shallow } from 'enzyme';
-import withConfig from '.';
+import withUpcomingMovies from '.';
 
-describe('Queries/withConfig', () => {
+describe('Queries/withUpcomingMovies', () => {
   graphql.mockImplementation((query, config) => {
-    const ownProps = {};
+    const ownProps = { query: 'page=1' };
     const props = config.props({
       data: {
-        config: {
-          images: {
-            base_url: 'path/to/image',
-            secure_base_url: 'path/to/image',
-            backdrop_sizes: ['1', '2', '3', '4'],
-            poster_sizes: ['1', '2', '3', '4'],
-            profile_sizes: ['1', '2', '3', '4'],
-            still_sizes: ['1', '2', '3', '4'],
-          },
-        },
+        upcoming: [{
+          id: 1,
+          backdrop_path: 'path/to/image',
+          poster_path: 'path/to/image',
+          title: 'title',
+          release_date: '01.01.2010',
+          vote_average: 1,
+          genre_names: [{
+            genre_name: 'genre',
+          }],
+        }],
         loading: true,
       },
       ownProps,
@@ -27,7 +28,7 @@ describe('Queries/withConfig', () => {
   });
 
   const MockComponent = props => ({ ...props });
-  const Component = withConfig()(MockComponent);
+  const Component = withUpcomingMovies()(MockComponent);
 
   it('should render as expected', () => {
     const render = shallow(Component);
