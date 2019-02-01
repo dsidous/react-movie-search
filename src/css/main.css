@@ -262,7 +262,7 @@ div.filter-element-wrapper {
     grid-column-gap: 10px;
     grid-template-rows: 40px 40px;
     padding: 0; }
-  .movies-poster {
+  .movies-list__element a {
     grid-row: 1 / 4; }
   .movies-overview {
     margin: 0 10px; } }
@@ -675,6 +675,7 @@ li.movie-genres:last-child:after {
 .person-movie {
   border: 1px solid #bbb;
   border-bottom: none;
+  color: #666;
   cursor: pointer;
   display: grid;
   grid-column-gap: 10px;
@@ -1106,9 +1107,11 @@ li.movie-genres:last-child:after {
 .all-seasons-btn {
   background: none;
   border: none;
+  color: #666;
+  display: inline-block;
   font-size: 1.2em;
   font-weight: bold;
-  margin: 30px 0 0; }
+  margin: 20px 10px; }
 
 @media screen and (min-width: 776px) {
   .last-season {
@@ -1177,21 +1180,24 @@ li.movie-genres:last-child:after {
   padding: 0 0 10px;
   text-align: center;
   overflow: hidden; }
+  .cast__element.top a {
+    color: #666; }
   .cast__element.top .cast__img {
     cursor: pointer;
     margin: 0 0 10px;
     width: 100%; }
 
-.cast__element.full {
+.cast__element.full a {
+  color: #666;
   cursor: pointer;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 20px;
   padding: 10px 0; }
   @media screen and (min-width: 640px) {
-    .cast__element.full {
+    .cast__element.full a {
       grid-template-columns: 1fr 4fr; } }
-  .cast__element.full .cast__img {
+  .cast__element.full a .cast__img {
     border-radius: 4px;
     width: 100%; }
 

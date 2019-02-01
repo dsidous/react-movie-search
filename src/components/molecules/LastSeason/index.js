@@ -10,7 +10,6 @@ const LastSeason = ({ tvId, season }) => (
     <Season season={season} tvId={tvId} />
     <Link
       to={`/tv/${tvId}/seasons`}
-      type="button"
       className="all-seasons-btn"
     >
       View All Seasons

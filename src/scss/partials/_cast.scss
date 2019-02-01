@@ -7,6 +7,10 @@
       text-align: center;
       overflow: hidden;
 
+      a {
+        color: #666,
+      }
+
       .cast__img {
         cursor: pointer;
         margin: 0 0 10px;
@@ -14,7 +18,8 @@
       }
     }
 
-    &.full {
+    &.full a {
+      color: #666;
       cursor: pointer;
       display: grid;
       grid-template-columns: 1fr 2fr;
