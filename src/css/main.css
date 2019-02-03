@@ -76,6 +76,9 @@ div.no_image_holder {
     .navbar-default .navbar-text a:hover {
       color: #ddd; }
 
+.navbar-default .navbar-nav li a:hover {
+  color: #ddd; }
+
 .navbar-collapse.in {
   overflow-y: visible; }
 
@@ -675,7 +678,7 @@ li.movie-genres:last-child:after {
 .person-movie {
   border: 1px solid #bbb;
   border-bottom: none;
-  color: #666;
+  color: #333;
   cursor: pointer;
   display: grid;
   grid-column-gap: 10px;
@@ -687,7 +690,8 @@ li.movie-genres:last-child:after {
   .person-movie:last-child {
     border-bottom: 1px solid #bbb; }
   .person-movie:hover {
-    background: #bec1c2; }
+    background: #bec1c2;
+    color: #333; }
   .person-movie__poster {
     margin: 0;
     text-align: center; }

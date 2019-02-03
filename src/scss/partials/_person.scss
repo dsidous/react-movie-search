@@ -165,7 +165,7 @@
 .person-movie {
   border: 1px solid #bbb;
   border-bottom: none;
-  color: #666;
+  color: #333;
   cursor: pointer;
   display: grid;
   grid-column-gap: 10px;
@@ -181,6 +181,7 @@
 
   &:hover {
     background: #bec1c2;
+    color: #333;
   }
 
   &__poster {

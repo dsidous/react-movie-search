@@ -88,13 +88,6 @@ class MainNavbar extends Component {
     }
   };
 
-  handleNavSelect = (selectedKey) => {
-    const { history } = this.props;
-    if (typeof selectedKey !== 'undefined') {
-      history.push(`/${selectedKey}`);
-    }
-  }
-
   render() {
     const { authUser, user } = this.context;
     return (
@@ -138,11 +131,11 @@ class MainNavbar extends Component {
             />
           </Navbar.Form>
           {!authUser && (
-            <Nav pullRight id="nav-user" onSelect={this.handleNavSelect}>
-              <NavItem eventKey="login" href="#">
+            <Nav pullRight id="nav-user">
+              <NavItem eventKey="login" href="/login">
                 Login
               </NavItem>
-              <NavItem eventKey="signup" href="#">
+              <NavItem eventKey="signup" href="/signup">
                 Sign up
               </NavItem>
             </Nav>

@@ -113,10 +113,7 @@ describe('Templates/Home', () => {
   });
 
   it('should render spinner when loading', () => {
-    const props = {
-      nowPlayingLoading: true,
-    };
-    const wrapper = shallow(<Home {...mockProps} {...props} />);
+    const wrapper = shallow(<Home {...mockProps} nowPlayingLoading />);
     wrapper.setProps({ ...mockProps });
     expect(wrapper).toMatchSnapshot();
   });

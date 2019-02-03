@@ -16,15 +16,14 @@ export default class Show extends Component {
     dcolor: [0, 0, 0],
   }
 
-  componentDidUpdate(prevProps) {
-    const { loading, show } = this.props;
-    if (!loading && show.id !== prevProps.show.id) {
-      this.getPalette();
+  componentWillReceiveProps(nextProps) {
+    if (!nextProps.loading) {
+      this.getPalette(nextProps);
     }
   }
 
-  getPalette = async () => {
-    const { show: { poster_path }, config: { images } } = this.props;
+  getPalette = async (nextProps) => {
+    const { show: { poster_path }, config: { images } } = nextProps;
     const path = images.base_url + images.poster_sizes[3] + poster_path;
     const palette = await Vibrant.from(path).getPalette();
     // eslint-disable-next-line no-underscore-dangle

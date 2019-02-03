@@ -1,0 +1,403 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Templates/TopPeople should render a spinner when loading 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TopPeople
+    loading={true}
+    location={
+      Object {
+        "search": Object {
+          "page": 1,
+        },
+      }
+    }
+    toppeople={
+      Array [
+        Object {
+          "id": 1,
+          "name": "name",
+          "popularity": 2,
+          "profile_path": "path/to/image",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "router": Object {
+        "history": Array [
+          "/person",
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`Templates/TopPeople should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <TopPeople
+    loading={false}
+    location={
+      Object {
+        "search": Object {
+          "page": 1,
+        },
+      }
+    }
+    toppeople={
+      Array [
+        Object {
+          "id": 1,
+          "name": "name",
+          "popularity": 2,
+          "profile_path": "path/to/image",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <SEO
+          title="Popular people"
+        />,
+        <div>
+          <PageTransition>
+            <TopPeopleProfile
+              handlePageSelect={[Function]}
+              state={
+                Object {
+                  "page": 1,
+                }
+              }
+              toppeople={
+                Array [
+                  Object {
+                    "id": 1,
+                    "name": "name",
+                    "popularity": 2,
+                    "profile_path": "path/to/image",
+                  },
+                ]
+              }
+            />
+          </PageTransition>
+        </div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "title": "Popular people",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <PageTransition>
+            <TopPeopleProfile
+              handlePageSelect={[Function]}
+              state={
+                Object {
+                  "page": 1,
+                }
+              }
+              toppeople={
+                Array [
+                  Object {
+                    "id": 1,
+                    "name": "name",
+                    "popularity": 2,
+                    "profile_path": "path/to/image",
+                  },
+                ]
+              }
+            />
+          </PageTransition>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <TopPeopleProfile
+              handlePageSelect={[Function]}
+              state={
+                Object {
+                  "page": 1,
+                }
+              }
+              toppeople={
+                Array [
+                  Object {
+                    "id": 1,
+                    "name": "name",
+                    "popularity": 2,
+                    "profile_path": "path/to/image",
+                  },
+                ]
+              }
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "handlePageSelect": [Function],
+              "state": Object {
+                "page": 1,
+              },
+              "toppeople": Array [
+                Object {
+                  "id": 1,
+                  "name": "name",
+                  "popularity": 2,
+                  "profile_path": "path/to/image",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        "type": "div",
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <SEO
+            title="Popular people"
+          />,
+          <div>
+            <PageTransition>
+              <TopPeopleProfile
+                handlePageSelect={[Function]}
+                state={
+                  Object {
+                    "page": 1,
+                  }
+                }
+                toppeople={
+                  Array [
+                    Object {
+                      "id": 1,
+                      "name": "name",
+                      "popularity": 2,
+                      "profile_path": "path/to/image",
+                    },
+                  ]
+                }
+              />
+            </PageTransition>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "title": "Popular people",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <PageTransition>
+              <TopPeopleProfile
+                handlePageSelect={[Function]}
+                state={
+                  Object {
+                    "page": 1,
+                  }
+                }
+                toppeople={
+                  Array [
+                    Object {
+                      "id": 1,
+                      "name": "name",
+                      "popularity": 2,
+                      "profile_path": "path/to/image",
+                    },
+                  ]
+                }
+              />
+            </PageTransition>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <TopPeopleProfile
+                handlePageSelect={[Function]}
+                state={
+                  Object {
+                    "page": 1,
+                  }
+                }
+                toppeople={
+                  Array [
+                    Object {
+                      "id": 1,
+                      "name": "name",
+                      "popularity": 2,
+                      "profile_path": "path/to/image",
+                    },
+                  ]
+                }
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "handlePageSelect": [Function],
+                "state": Object {
+                  "page": 1,
+                },
+                "toppeople": Array [
+                  Object {
+                    "id": 1,
+                    "name": "name",
+                    "popularity": 2,
+                    "profile_path": "path/to/image",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          "type": "div",
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "router": Object {
+        "history": Array [
+          "/person",
+        ],
+      },
+    },
+  },
+}
+`;
