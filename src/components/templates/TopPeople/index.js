@@ -40,14 +40,14 @@ export default class TopPeople extends Component {
     }
 
     const { toppeople } = this.props;
-
+    const { page } = this.state;
     return (
       <PageTransition>
         <SEO title="Popular people" />
         <div>
           <PageTransition>
             <TopPeopleProfile
-              state={this.state}
+              page={page}
               toppeople={toppeople}
               handlePageSelect={this.handlePageSelect}
             />

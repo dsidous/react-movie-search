@@ -1,7 +1,7 @@
-import { object, array, func } from 'prop-types';
+import { number, array, func } from 'prop-types';
 
 export const propTypes = {
-  state: object.isRequired,
+  page: number.isRequired,
   toppeople: array.isRequired,
   handlePageSelect: func.isRequired,
 };

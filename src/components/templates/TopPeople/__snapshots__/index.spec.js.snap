@@ -128,11 +128,7 @@ ShallowWrapper {
           <PageTransition>
             <TopPeopleProfile
               handlePageSelect={[Function]}
-              state={
-                Object {
-                  "page": 1,
-                }
-              }
+              page={1}
               toppeople={
                 Array [
                   Object {
@@ -169,11 +165,7 @@ ShallowWrapper {
           "children": <PageTransition>
             <TopPeopleProfile
               handlePageSelect={[Function]}
-              state={
-                Object {
-                  "page": 1,
-                }
-              }
+              page={1}
               toppeople={
                 Array [
                   Object {
@@ -195,11 +187,7 @@ ShallowWrapper {
           "props": Object {
             "children": <TopPeopleProfile
               handlePageSelect={[Function]}
-              state={
-                Object {
-                  "page": 1,
-                }
-              }
+              page={1}
               toppeople={
                 Array [
                   Object {
@@ -219,9 +207,7 @@ ShallowWrapper {
             "nodeType": "function",
             "props": Object {
               "handlePageSelect": [Function],
-              "state": Object {
-                "page": 1,
-              },
+              "page": 1,
               "toppeople": Array [
                 Object {
                   "id": 1,
@@ -256,11 +242,7 @@ ShallowWrapper {
             <PageTransition>
               <TopPeopleProfile
                 handlePageSelect={[Function]}
-                state={
-                  Object {
-                    "page": 1,
-                  }
-                }
+                page={1}
                 toppeople={
                   Array [
                     Object {
@@ -297,11 +279,7 @@ ShallowWrapper {
             "children": <PageTransition>
               <TopPeopleProfile
                 handlePageSelect={[Function]}
-                state={
-                  Object {
-                    "page": 1,
-                  }
-                }
+                page={1}
                 toppeople={
                   Array [
                     Object {
@@ -323,11 +301,7 @@ ShallowWrapper {
             "props": Object {
               "children": <TopPeopleProfile
                 handlePageSelect={[Function]}
-                state={
-                  Object {
-                    "page": 1,
-                  }
-                }
+                page={1}
                 toppeople={
                   Array [
                     Object {
@@ -347,9 +321,7 @@ ShallowWrapper {
               "nodeType": "function",
               "props": Object {
                 "handlePageSelect": [Function],
-                "state": Object {
-                  "page": 1,
-                },
+                "page": 1,
                 "toppeople": Array [
                   Object {
                     "id": 1,
