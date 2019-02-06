@@ -1,8 +1,8 @@
 import { object, bool } from 'prop-types';
 
 export const propTypes = {
-  loading: bool.isRequired,
-  person: object.isRequired,
+  loading: bool,
+  person: object,
 };
 
 export const defaultProps = {

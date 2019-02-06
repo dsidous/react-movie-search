@@ -5,8 +5,8 @@ export const contextTypes = {
 };
 
 export const propTypes = {
-  configLoading: bool.isRequired,
-  config: object.isRequired,
+  configLoading: bool,
+  config: object,
 };
 
 export const defaultProps = {

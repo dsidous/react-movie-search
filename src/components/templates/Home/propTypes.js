@@ -6,7 +6,7 @@ import {
 } from 'prop-types';
 
 export const propTypes = {
-  popular: array.isRequired,
+  popular: array,
   nowPlayingLoading: bool,
   popularLoading: bool,
   upcomingLoading: bool,

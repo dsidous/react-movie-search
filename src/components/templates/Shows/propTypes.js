@@ -5,11 +5,11 @@ export const contextTypes = {
 };
 
 export const propTypes = {
-  shows: array.isRequired,
-  genres: array.isRequired,
-  loading: bool.isRequired,
-  genresLoading: bool.isRequired,
-  configLoading: bool.isRequired,
+  shows: array,
+  genres: array,
+  loading: bool,
+  genresLoading: bool,
+  configLoading: bool,
 };
 
 export const defaultProps = {

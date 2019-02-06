@@ -9,8 +9,8 @@ export const contextTypes = {
 };
 
 export const propTypes = {
-  loading: bool.isRequired,
-  toppeople: array.isRequired,
+  loading: bool,
+  toppeople: array,
 };
 
 export const defaultProps = {
