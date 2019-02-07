@@ -8,9 +8,7 @@ const mockProps = {
     name: 'name',
     profile_path: 'path/to/image',
   }],
-  state: {
-    page: 1,
-  },
+  page: 1,
   handlePageSelect: jest.fn(),
 };
 

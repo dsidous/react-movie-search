@@ -6,12 +6,12 @@ import {
 } from 'prop-types';
 
 export const propTypes = {
-  config: object.isRequired,
+  config: object,
   filePath: string,
   name: string,
   size: number,
   mediaType: string.isRequired,
-  configLoading: bool.isRequired,
+  configLoading: bool,
 };
 
 export const defaultProps = {
