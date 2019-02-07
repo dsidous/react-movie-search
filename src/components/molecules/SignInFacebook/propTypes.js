@@ -1,7 +1,7 @@
-import { object } from 'prop-types';
+import { array } from 'prop-types';
 
 export const propTypes = {
-  history: object.isRequired,
+  history: array.isRequired,
 };
 
 export const defaultProps = {

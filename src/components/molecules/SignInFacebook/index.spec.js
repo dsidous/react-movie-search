@@ -1,8 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { BrowserRouter } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import { auth } from '../../../firebase';
+import { BrowserRouter } from 'react-router-dom';
 
 import SignInFacebook from '.';
 
@@ -10,30 +9,32 @@ const mockProps = {
   history: [],
 };
 
+jest.mock('../../../firebase/auth', () => ({
+  doSignInWithFacebook: () => new Promise(() => ({
+    data: { user: { name: 'test' } },
+  })),
+}));
+
+// jest.mock('../../../firebase/auth', () => ({
+//   auth: jest.fn(() => ({
+//     doSignInWithFacebook: () => ({
+//       data: { user: { name: 'test' } },
+//     }),
+//   })),
+// }));
+
 describe('Molecules/SignInFacebook', () => {
   it('should render as expected', () => {
-    const wrapper = shallow(<SignInFacebook {...mockProps} />);
+    const wrapper = shallow(
+      <SignInFacebook.WrappedComponent {...mockProps} />,
+    );
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle signin button click', () => {
-    //jest.mock('../../../firebase', () => new Promise(resolve => resolve(true)));
-    const wrapper = mount(<BrowserRouter><SignInFacebook {...mockProps} /></BrowserRouter>);
-    // const user = { name: 'test' };
-    // const resp = { data: user };
-    // auth.doSignInWithFacebook = (() => Promise.resolve(resp));
-    // auth = jest.fn().mockReturnValue({
-    //   currentUser: true,
-    //   doSignInWithFacebook: () => resp,
-    // });
-
-    // const result = wrapper.dive().instance().signInWithFB();
-
-    // expect(result).toBe('');
+    const wrapper = mount(<SignInFacebook.WrappedComponent {...mockProps} />);
     wrapper.find(Button).simulate('click');
-
-    expect(firebase.auth.FacebookAuthProvider()).toHaveBeenCalled();
-    //.then(response => expect(response.data).toEqual(user));
+    expect(wrapper.props().history).toEqual([]);
   });
 });
