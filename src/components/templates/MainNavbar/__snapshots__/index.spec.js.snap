@@ -3,7 +3,7 @@
 exports[`Templates/MainNavbar should render as expected 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <withRouter(MainNavbar)
+  Symbol(enzyme.__unrendered__): <MainNavbar
     config={
       Object {
         "images": Object {
@@ -29,7 +29,26 @@ ShallowWrapper {
         },
       }
     }
-    history={Array []}
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -45,10 +64,555 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": [Function],
+      "bsStyle": "default",
+      "children": Array [
+        <NavbarHeader>
+          <NavbarBrand>
+            <Link
+              replace={false}
+              to="/"
+            >
+              Movie Search
+            </Link>
+          </NavbarBrand>
+          <NavbarToggle />
+        </NavbarHeader>,
+        <NavbarCollapse>
+          <NavbarText
+            componentClass="p"
+            pullLeft={false}
+            pullRight={false}
+          >
+            <Link
+              replace={false}
+              to="/movies"
+            >
+              MOVIES
+            </Link>
+          </NavbarText>
+          <NavbarText
+            componentClass="p"
+            pullLeft={false}
+            pullRight={false}
+          >
+            <Link
+              replace={false}
+              to="/tvs"
+            >
+              TVS
+            </Link>
+          </NavbarText>
+          <NavbarText
+            componentClass="p"
+            pullLeft={false}
+            pullRight={false}
+          >
+            <Link
+              replace={false}
+              to="/person"
+            >
+              PEOPLE
+            </Link>
+          </NavbarText>
+          <NavbarText
+            componentClass="p"
+            pullLeft={false}
+            pullRight={false}
+          >
+            <Link
+              replace={false}
+              to="/watchlist"
+            >
+              WATCHLIST 
+              <span
+                className="fa fa-bookmark"
+              />
+            </Link>
+          </NavbarText>
+          <NavbarForm
+            componentClass="div"
+            pullLeft={true}
+            pullRight={false}
+          >
+            <AsyncContainer(TypeaheadContainer(WrappedTypeahead))
+              align="justify"
+              delay={200}
+              isLoading={false}
+              labelKey={[Function]}
+              minLength={2}
+              onChange={[Function]}
+              onSearch={[Function]}
+              options={Array []}
+              placeholder="Search for a movie or a person..."
+              promptText="Type to search..."
+              renderMenuItemChildren={[Function]}
+              searchText="Searching..."
+              useCache={true}
+            />
+          </NavbarForm>
+          <Nav
+            bsClass="nav"
+            id="nav-user"
+            justified={false}
+            pullLeft={false}
+            pullRight={true}
+            stacked={false}
+          >
+            <NavItem
+              active={false}
+              disabled={false}
+              eventKey="login"
+              href="/login"
+            >
+              Login
+            </NavItem>
+            <NavItem
+              active={false}
+              disabled={false}
+              eventKey="signup"
+              href="/signup"
+            >
+              Sign up
+            </NavItem>
+          </Nav>
+        </NavbarCollapse>,
+      ],
+      "fixedTop": true,
     },
     "ref": null,
-    "rendered": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <NavbarBrand>
+              <Link
+                replace={false}
+                to="/"
+              >
+                Movie Search
+              </Link>
+            </NavbarBrand>,
+            <NavbarToggle />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <Link
+                replace={false}
+                to="/"
+              >
+                Movie Search
+              </Link>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Movie Search",
+                "replace": false,
+                "to": "/",
+              },
+              "ref": null,
+              "rendered": "Movie Search",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <NavbarText
+              componentClass="p"
+              pullLeft={false}
+              pullRight={false}
+            >
+              <Link
+                replace={false}
+                to="/movies"
+              >
+                MOVIES
+              </Link>
+            </NavbarText>,
+            <NavbarText
+              componentClass="p"
+              pullLeft={false}
+              pullRight={false}
+            >
+              <Link
+                replace={false}
+                to="/tvs"
+              >
+                TVS
+              </Link>
+            </NavbarText>,
+            <NavbarText
+              componentClass="p"
+              pullLeft={false}
+              pullRight={false}
+            >
+              <Link
+                replace={false}
+                to="/person"
+              >
+                PEOPLE
+              </Link>
+            </NavbarText>,
+            <NavbarText
+              componentClass="p"
+              pullLeft={false}
+              pullRight={false}
+            >
+              <Link
+                replace={false}
+                to="/watchlist"
+              >
+                WATCHLIST 
+                <span
+                  className="fa fa-bookmark"
+                />
+              </Link>
+            </NavbarText>,
+            <NavbarForm
+              componentClass="div"
+              pullLeft={true}
+              pullRight={false}
+            >
+              <AsyncContainer(TypeaheadContainer(WrappedTypeahead))
+                align="justify"
+                delay={200}
+                isLoading={false}
+                labelKey={[Function]}
+                minLength={2}
+                onChange={[Function]}
+                onSearch={[Function]}
+                options={Array []}
+                placeholder="Search for a movie or a person..."
+                promptText="Type to search..."
+                renderMenuItemChildren={[Function]}
+                searchText="Searching..."
+                useCache={true}
+              />
+            </NavbarForm>,
+            <Nav
+              bsClass="nav"
+              id="nav-user"
+              justified={false}
+              pullLeft={false}
+              pullRight={true}
+              stacked={false}
+            >
+              <NavItem
+                active={false}
+                disabled={false}
+                eventKey="login"
+                href="/login"
+              >
+                Login
+              </NavItem>
+              <NavItem
+                active={false}
+                disabled={false}
+                eventKey="signup"
+                href="/signup"
+              >
+                Sign up
+              </NavItem>
+            </Nav>,
+            undefined,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <Link
+                replace={false}
+                to="/movies"
+              >
+                MOVIES
+              </Link>,
+              "componentClass": "p",
+              "pullLeft": false,
+              "pullRight": false,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "MOVIES",
+                "replace": false,
+                "to": "/movies",
+              },
+              "ref": null,
+              "rendered": "MOVIES",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <Link
+                replace={false}
+                to="/tvs"
+              >
+                TVS
+              </Link>,
+              "componentClass": "p",
+              "pullLeft": false,
+              "pullRight": false,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "TVS",
+                "replace": false,
+                "to": "/tvs",
+              },
+              "ref": null,
+              "rendered": "TVS",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <Link
+                replace={false}
+                to="/person"
+              >
+                PEOPLE
+              </Link>,
+              "componentClass": "p",
+              "pullLeft": false,
+              "pullRight": false,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "PEOPLE",
+                "replace": false,
+                "to": "/person",
+              },
+              "ref": null,
+              "rendered": "PEOPLE",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <Link
+                replace={false}
+                to="/watchlist"
+              >
+                WATCHLIST 
+                <span
+                  className="fa fa-bookmark"
+                />
+              </Link>,
+              "componentClass": "p",
+              "pullLeft": false,
+              "pullRight": false,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  "WATCHLIST ",
+                  <span
+                    className="fa fa-bookmark"
+                  />,
+                ],
+                "replace": false,
+                "to": "/watchlist",
+              },
+              "ref": null,
+              "rendered": Array [
+                "WATCHLIST ",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fa fa-bookmark",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "span",
+                },
+              ],
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <AsyncContainer(TypeaheadContainer(WrappedTypeahead))
+                align="justify"
+                delay={200}
+                isLoading={false}
+                labelKey={[Function]}
+                minLength={2}
+                onChange={[Function]}
+                onSearch={[Function]}
+                options={Array []}
+                placeholder="Search for a movie or a person..."
+                promptText="Type to search..."
+                renderMenuItemChildren={[Function]}
+                searchText="Searching..."
+                useCache={true}
+              />,
+              "componentClass": "div",
+              "pullLeft": true,
+              "pullRight": false,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "align": "justify",
+                "delay": 200,
+                "isLoading": false,
+                "labelKey": [Function],
+                "minLength": 2,
+                "onChange": [Function],
+                "onSearch": [Function],
+                "options": Array [],
+                "placeholder": "Search for a movie or a person...",
+                "promptText": "Type to search...",
+                "renderMenuItemChildren": [Function],
+                "searchText": "Searching...",
+                "useCache": true,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "bsClass": "nav",
+              "children": Array [
+                <NavItem
+                  active={false}
+                  disabled={false}
+                  eventKey="login"
+                  href="/login"
+                >
+                  Login
+                </NavItem>,
+                <NavItem
+                  active={false}
+                  disabled={false}
+                  eventKey="signup"
+                  href="/signup"
+                >
+                  Sign up
+                </NavItem>,
+              ],
+              "id": "nav-user",
+              "justified": false,
+              "pullLeft": false,
+              "pullRight": true,
+              "stacked": false,
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "active": false,
+                  "children": "Login",
+                  "disabled": false,
+                  "eventKey": "login",
+                  "href": "/login",
+                },
+                "ref": null,
+                "rendered": "Login",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "active": false,
+                  "children": "Sign up",
+                  "disabled": false,
+                  "eventKey": "signup",
+                  "href": "/signup",
+                },
+                "ref": null,
+                "rendered": "Sign up",
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          undefined,
+        ],
+        "type": [Function],
+      },
+    ],
     "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
@@ -57,10 +621,555 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": [Function],
+        "bsStyle": "default",
+        "children": Array [
+          <NavbarHeader>
+            <NavbarBrand>
+              <Link
+                replace={false}
+                to="/"
+              >
+                Movie Search
+              </Link>
+            </NavbarBrand>
+            <NavbarToggle />
+          </NavbarHeader>,
+          <NavbarCollapse>
+            <NavbarText
+              componentClass="p"
+              pullLeft={false}
+              pullRight={false}
+            >
+              <Link
+                replace={false}
+                to="/movies"
+              >
+                MOVIES
+              </Link>
+            </NavbarText>
+            <NavbarText
+              componentClass="p"
+              pullLeft={false}
+              pullRight={false}
+            >
+              <Link
+                replace={false}
+                to="/tvs"
+              >
+                TVS
+              </Link>
+            </NavbarText>
+            <NavbarText
+              componentClass="p"
+              pullLeft={false}
+              pullRight={false}
+            >
+              <Link
+                replace={false}
+                to="/person"
+              >
+                PEOPLE
+              </Link>
+            </NavbarText>
+            <NavbarText
+              componentClass="p"
+              pullLeft={false}
+              pullRight={false}
+            >
+              <Link
+                replace={false}
+                to="/watchlist"
+              >
+                WATCHLIST 
+                <span
+                  className="fa fa-bookmark"
+                />
+              </Link>
+            </NavbarText>
+            <NavbarForm
+              componentClass="div"
+              pullLeft={true}
+              pullRight={false}
+            >
+              <AsyncContainer(TypeaheadContainer(WrappedTypeahead))
+                align="justify"
+                delay={200}
+                isLoading={false}
+                labelKey={[Function]}
+                minLength={2}
+                onChange={[Function]}
+                onSearch={[Function]}
+                options={Array []}
+                placeholder="Search for a movie or a person..."
+                promptText="Type to search..."
+                renderMenuItemChildren={[Function]}
+                searchText="Searching..."
+                useCache={true}
+              />
+            </NavbarForm>
+            <Nav
+              bsClass="nav"
+              id="nav-user"
+              justified={false}
+              pullLeft={false}
+              pullRight={true}
+              stacked={false}
+            >
+              <NavItem
+                active={false}
+                disabled={false}
+                eventKey="login"
+                href="/login"
+              >
+                Login
+              </NavItem>
+              <NavItem
+                active={false}
+                disabled={false}
+                eventKey="signup"
+                href="/signup"
+              >
+                Sign up
+              </NavItem>
+            </Nav>
+          </NavbarCollapse>,
+        ],
+        "fixedTop": true,
       },
       "ref": null,
-      "rendered": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <NavbarBrand>
+                <Link
+                  replace={false}
+                  to="/"
+                >
+                  Movie Search
+                </Link>
+              </NavbarBrand>,
+              <NavbarToggle />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <Link
+                  replace={false}
+                  to="/"
+                >
+                  Movie Search
+                </Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "Movie Search",
+                  "replace": false,
+                  "to": "/",
+                },
+                "ref": null,
+                "rendered": "Movie Search",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <NavbarText
+                componentClass="p"
+                pullLeft={false}
+                pullRight={false}
+              >
+                <Link
+                  replace={false}
+                  to="/movies"
+                >
+                  MOVIES
+                </Link>
+              </NavbarText>,
+              <NavbarText
+                componentClass="p"
+                pullLeft={false}
+                pullRight={false}
+              >
+                <Link
+                  replace={false}
+                  to="/tvs"
+                >
+                  TVS
+                </Link>
+              </NavbarText>,
+              <NavbarText
+                componentClass="p"
+                pullLeft={false}
+                pullRight={false}
+              >
+                <Link
+                  replace={false}
+                  to="/person"
+                >
+                  PEOPLE
+                </Link>
+              </NavbarText>,
+              <NavbarText
+                componentClass="p"
+                pullLeft={false}
+                pullRight={false}
+              >
+                <Link
+                  replace={false}
+                  to="/watchlist"
+                >
+                  WATCHLIST 
+                  <span
+                    className="fa fa-bookmark"
+                  />
+                </Link>
+              </NavbarText>,
+              <NavbarForm
+                componentClass="div"
+                pullLeft={true}
+                pullRight={false}
+              >
+                <AsyncContainer(TypeaheadContainer(WrappedTypeahead))
+                  align="justify"
+                  delay={200}
+                  isLoading={false}
+                  labelKey={[Function]}
+                  minLength={2}
+                  onChange={[Function]}
+                  onSearch={[Function]}
+                  options={Array []}
+                  placeholder="Search for a movie or a person..."
+                  promptText="Type to search..."
+                  renderMenuItemChildren={[Function]}
+                  searchText="Searching..."
+                  useCache={true}
+                />
+              </NavbarForm>,
+              <Nav
+                bsClass="nav"
+                id="nav-user"
+                justified={false}
+                pullLeft={false}
+                pullRight={true}
+                stacked={false}
+              >
+                <NavItem
+                  active={false}
+                  disabled={false}
+                  eventKey="login"
+                  href="/login"
+                >
+                  Login
+                </NavItem>
+                <NavItem
+                  active={false}
+                  disabled={false}
+                  eventKey="signup"
+                  href="/signup"
+                >
+                  Sign up
+                </NavItem>
+              </Nav>,
+              undefined,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <Link
+                  replace={false}
+                  to="/movies"
+                >
+                  MOVIES
+                </Link>,
+                "componentClass": "p",
+                "pullLeft": false,
+                "pullRight": false,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "MOVIES",
+                  "replace": false,
+                  "to": "/movies",
+                },
+                "ref": null,
+                "rendered": "MOVIES",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <Link
+                  replace={false}
+                  to="/tvs"
+                >
+                  TVS
+                </Link>,
+                "componentClass": "p",
+                "pullLeft": false,
+                "pullRight": false,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "TVS",
+                  "replace": false,
+                  "to": "/tvs",
+                },
+                "ref": null,
+                "rendered": "TVS",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <Link
+                  replace={false}
+                  to="/person"
+                >
+                  PEOPLE
+                </Link>,
+                "componentClass": "p",
+                "pullLeft": false,
+                "pullRight": false,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "PEOPLE",
+                  "replace": false,
+                  "to": "/person",
+                },
+                "ref": null,
+                "rendered": "PEOPLE",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <Link
+                  replace={false}
+                  to="/watchlist"
+                >
+                  WATCHLIST 
+                  <span
+                    className="fa fa-bookmark"
+                  />
+                </Link>,
+                "componentClass": "p",
+                "pullLeft": false,
+                "pullRight": false,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    "WATCHLIST ",
+                    <span
+                      className="fa fa-bookmark"
+                    />,
+                  ],
+                  "replace": false,
+                  "to": "/watchlist",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "WATCHLIST ",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fa fa-bookmark",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "span",
+                  },
+                ],
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": <AsyncContainer(TypeaheadContainer(WrappedTypeahead))
+                  align="justify"
+                  delay={200}
+                  isLoading={false}
+                  labelKey={[Function]}
+                  minLength={2}
+                  onChange={[Function]}
+                  onSearch={[Function]}
+                  options={Array []}
+                  placeholder="Search for a movie or a person..."
+                  promptText="Type to search..."
+                  renderMenuItemChildren={[Function]}
+                  searchText="Searching..."
+                  useCache={true}
+                />,
+                "componentClass": "div",
+                "pullLeft": true,
+                "pullRight": false,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "align": "justify",
+                  "delay": 200,
+                  "isLoading": false,
+                  "labelKey": [Function],
+                  "minLength": 2,
+                  "onChange": [Function],
+                  "onSearch": [Function],
+                  "options": Array [],
+                  "placeholder": "Search for a movie or a person...",
+                  "promptText": "Type to search...",
+                  "renderMenuItemChildren": [Function],
+                  "searchText": "Searching...",
+                  "useCache": true,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "bsClass": "nav",
+                "children": Array [
+                  <NavItem
+                    active={false}
+                    disabled={false}
+                    eventKey="login"
+                    href="/login"
+                  >
+                    Login
+                  </NavItem>,
+                  <NavItem
+                    active={false}
+                    disabled={false}
+                    eventKey="signup"
+                    href="/signup"
+                  >
+                    Sign up
+                  </NavItem>,
+                ],
+                "id": "nav-user",
+                "justified": false,
+                "pullLeft": false,
+                "pullRight": true,
+                "stacked": false,
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "active": false,
+                    "children": "Login",
+                    "disabled": false,
+                    "eventKey": "login",
+                    "href": "/login",
+                  },
+                  "ref": null,
+                  "rendered": "Login",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "active": false,
+                    "children": "Sign up",
+                    "disabled": false,
+                    "eventKey": "signup",
+                    "href": "/signup",
+                  },
+                  "ref": null,
+                  "rendered": "Sign up",
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            undefined,
+          ],
+          "type": [Function],
+        },
+      ],
       "type": [Function],
     },
   ],
