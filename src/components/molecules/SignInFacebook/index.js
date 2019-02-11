@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import { auth } from '../../../firebase';
 import { propTypes } from './propTypes';
 
-class SignInFacebook extends Component {
+export class SignInFacebook extends Component {
   static propTypes = propTypes;
 
   signInWithFB = () => {
