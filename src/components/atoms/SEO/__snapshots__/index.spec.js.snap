@@ -512,7 +512,7 @@ ReactWrapper {
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": null,
             "_debugSource": Object {
-              "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+              "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
               "lineNumber": 13,
             },
             "actualDuration": 0,
@@ -523,7 +523,7 @@ ReactWrapper {
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
-                "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.js",
+                "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.js",
                 "lineNumber": 13,
               },
               "actualDuration": 0,
@@ -2487,7 +2487,7 @@ ReactWrapper {
             "_debugIsCurrentlyTiming": false,
             "_debugOwner": null,
             "_debugSource": Object {
-              "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+              "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
               "lineNumber": 13,
             },
             "actualDuration": 0,
@@ -2498,7 +2498,7 @@ ReactWrapper {
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": [Circular],
               "_debugSource": Object {
-                "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.js",
+                "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.js",
                 "lineNumber": 13,
               },
               "actualDuration": 0,
@@ -3863,7 +3863,7 @@ ReactWrapper {
                 "_debugIsCurrentlyTiming": false,
                 "_debugOwner": null,
                 "_debugSource": Object {
-                  "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                  "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                   "lineNumber": 13,
                 },
                 "actualDuration": 0,
@@ -6109,7 +6109,7 @@ ReactWrapper {
                 "updateQueue": null,
               },
               "_debugSource": Object {
-                "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.js",
+                "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.js",
                 "lineNumber": 13,
               },
               "actualDuration": 0,
@@ -6241,7 +6241,7 @@ ReactWrapper {
                 "_debugIsCurrentlyTiming": false,
                 "_debugOwner": null,
                 "_debugSource": Object {
-                  "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                  "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                   "lineNumber": 13,
                 },
                 "actualDuration": 0,
@@ -8531,7 +8531,7 @@ ReactWrapper {
                     "_debugIsCurrentlyTiming": false,
                     "_debugOwner": null,
                     "_debugSource": Object {
-                      "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                      "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                       "lineNumber": 13,
                     },
                     "actualDuration": 0,
@@ -10777,7 +10777,7 @@ ReactWrapper {
                     "updateQueue": null,
                   },
                   "_debugSource": Object {
-                    "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.js",
+                    "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.js",
                     "lineNumber": 13,
                   },
                   "actualDuration": 0,
@@ -10812,7 +10812,7 @@ ReactWrapper {
                     "_debugIsCurrentlyTiming": false,
                     "_debugOwner": null,
                     "_debugSource": Object {
-                      "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                      "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                       "lineNumber": 13,
                     },
                     "actualDuration": 0,
@@ -13158,7 +13158,7 @@ ReactWrapper {
                     "_debugIsCurrentlyTiming": false,
                     "_debugOwner": null,
                     "_debugSource": Object {
-                      "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                      "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                       "lineNumber": 13,
                     },
                     "actualDuration": 0,
@@ -15404,7 +15404,7 @@ ReactWrapper {
                     "updateQueue": null,
                   },
                   "_debugSource": Object {
-                    "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.js",
+                    "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.js",
                     "lineNumber": 13,
                   },
                   "actualDuration": 0,
@@ -15439,7 +15439,7 @@ ReactWrapper {
                     "_debugIsCurrentlyTiming": false,
                     "_debugOwner": null,
                     "_debugSource": Object {
-                      "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                      "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                       "lineNumber": 13,
                     },
                     "actualDuration": 0,
@@ -18261,7 +18261,7 @@ ReactWrapper {
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": null,
               "_debugSource": Object {
-                "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                 "lineNumber": 13,
               },
               "actualDuration": 0,
@@ -18272,7 +18272,7 @@ ReactWrapper {
                 "_debugIsCurrentlyTiming": false,
                 "_debugOwner": [Circular],
                 "_debugSource": Object {
-                  "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.js",
+                  "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.js",
                   "lineNumber": 13,
                 },
                 "actualDuration": 0,
@@ -20236,7 +20236,7 @@ ReactWrapper {
               "_debugIsCurrentlyTiming": false,
               "_debugOwner": null,
               "_debugSource": Object {
-                "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                 "lineNumber": 13,
               },
               "actualDuration": 0,
@@ -20247,7 +20247,7 @@ ReactWrapper {
                 "_debugIsCurrentlyTiming": false,
                 "_debugOwner": [Circular],
                 "_debugSource": Object {
-                  "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.js",
+                  "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.js",
                   "lineNumber": 13,
                 },
                 "actualDuration": 0,
@@ -21612,7 +21612,7 @@ ReactWrapper {
                   "_debugIsCurrentlyTiming": false,
                   "_debugOwner": null,
                   "_debugSource": Object {
-                    "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                    "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                     "lineNumber": 13,
                   },
                   "actualDuration": 0,
@@ -23858,7 +23858,7 @@ ReactWrapper {
                   "updateQueue": null,
                 },
                 "_debugSource": Object {
-                  "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.js",
+                  "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.js",
                   "lineNumber": 13,
                 },
                 "actualDuration": 0,
@@ -23990,7 +23990,7 @@ ReactWrapper {
                   "_debugIsCurrentlyTiming": false,
                   "_debugOwner": null,
                   "_debugSource": Object {
-                    "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                    "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                     "lineNumber": 13,
                   },
                   "actualDuration": 0,
@@ -26280,7 +26280,7 @@ ReactWrapper {
                       "_debugIsCurrentlyTiming": false,
                       "_debugOwner": null,
                       "_debugSource": Object {
-                        "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                        "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                         "lineNumber": 13,
                       },
                       "actualDuration": 0,
@@ -28526,7 +28526,7 @@ ReactWrapper {
                       "updateQueue": null,
                     },
                     "_debugSource": Object {
-                      "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.js",
+                      "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.js",
                       "lineNumber": 13,
                     },
                     "actualDuration": 0,
@@ -28561,7 +28561,7 @@ ReactWrapper {
                       "_debugIsCurrentlyTiming": false,
                       "_debugOwner": null,
                       "_debugSource": Object {
-                        "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                        "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                         "lineNumber": 13,
                       },
                       "actualDuration": 0,
@@ -30907,7 +30907,7 @@ ReactWrapper {
                       "_debugIsCurrentlyTiming": false,
                       "_debugOwner": null,
                       "_debugSource": Object {
-                        "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                        "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                         "lineNumber": 13,
                       },
                       "actualDuration": 0,
@@ -33153,7 +33153,7 @@ ReactWrapper {
                       "updateQueue": null,
                     },
                     "_debugSource": Object {
-                      "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.js",
+                      "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.js",
                       "lineNumber": 13,
                     },
                     "actualDuration": 0,
@@ -33188,7 +33188,7 @@ ReactWrapper {
                       "_debugIsCurrentlyTiming": false,
                       "_debugOwner": null,
                       "_debugSource": Object {
-                        "fileName": "/Users/jonast/dev/react-movie-search/src/components/atoms/SEO/index.spec.js",
+                        "fileName": "/Users/jonast/dev/movie-search/src/components/atoms/SEO/index.spec.js",
                         "lineNumber": 13,
                       },
                       "actualDuration": 0,

@@ -39,7 +39,7 @@ ShallowWrapper {
         >
           <small>
             <strong>
-              job:
+              job: 
             </strong>
           </small>
           <small>
@@ -51,7 +51,7 @@ ShallowWrapper {
         >
           <small>
             <strong>
-              job:
+              job: 
             </strong>
           </small>
           <small>
@@ -73,7 +73,7 @@ ShallowWrapper {
           >
             <small>
               <strong>
-                job:
+                job: 
               </strong>
             </small>
             <small>
@@ -85,7 +85,7 @@ ShallowWrapper {
           >
             <small>
               <strong>
-                job:
+                job: 
               </strong>
             </small>
             <small>
@@ -105,7 +105,7 @@ ShallowWrapper {
             "children": Array [
               <small>
                 <strong>
-                  job:
+                  job: 
                 </strong>
               </small>,
               <small>
@@ -122,7 +122,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <strong>
-                  job:
+                  job: 
                 </strong>,
               },
               "ref": null,
@@ -131,10 +131,10 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "job:",
+                  "children": "job: ",
                 },
                 "ref": null,
-                "rendered": "job:",
+                "rendered": "job: ",
                 "type": "strong",
               },
               "type": "small",
@@ -161,7 +161,7 @@ ShallowWrapper {
             "children": Array [
               <small>
                 <strong>
-                  job:
+                  job: 
                 </strong>
               </small>,
               <small>
@@ -178,7 +178,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <strong>
-                  job:
+                  job: 
                 </strong>,
               },
               "ref": null,
@@ -187,10 +187,10 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "job:",
+                  "children": "job: ",
                 },
                 "ref": null,
-                "rendered": "job:",
+                "rendered": "job: ",
                 "type": "strong",
               },
               "type": "small",
@@ -228,7 +228,7 @@ ShallowWrapper {
           >
             <small>
               <strong>
-                job:
+                job: 
               </strong>
             </small>
             <small>
@@ -240,7 +240,7 @@ ShallowWrapper {
           >
             <small>
               <strong>
-                job:
+                job: 
               </strong>
             </small>
             <small>
@@ -262,7 +262,7 @@ ShallowWrapper {
             >
               <small>
                 <strong>
-                  job:
+                  job: 
                 </strong>
               </small>
               <small>
@@ -274,7 +274,7 @@ ShallowWrapper {
             >
               <small>
                 <strong>
-                  job:
+                  job: 
                 </strong>
               </small>
               <small>
@@ -294,7 +294,7 @@ ShallowWrapper {
               "children": Array [
                 <small>
                   <strong>
-                    job:
+                    job: 
                   </strong>
                 </small>,
                 <small>
@@ -311,7 +311,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <strong>
-                    job:
+                    job: 
                   </strong>,
                 },
                 "ref": null,
@@ -320,10 +320,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "job:",
+                    "children": "job: ",
                   },
                   "ref": null,
-                  "rendered": "job:",
+                  "rendered": "job: ",
                   "type": "strong",
                 },
                 "type": "small",
@@ -350,7 +350,7 @@ ShallowWrapper {
               "children": Array [
                 <small>
                   <strong>
-                    job:
+                    job: 
                   </strong>
                 </small>,
                 <small>
@@ -367,7 +367,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <strong>
-                    job:
+                    job: 
                   </strong>,
                 },
                 "ref": null,
@@ -376,10 +376,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "job:",
+                    "children": "job: ",
                   },
                   "ref": null,
-                  "rendered": "job:",
+                  "rendered": "job: ",
                   "type": "strong",
                 },
                 "type": "small",

@@ -36,6 +36,7 @@ ShallowWrapper {
     loading={true}
     media="movies"
     query=""
+    resultMedia="movie"
     shows={
       Array [
         Object {},
@@ -138,6 +139,7 @@ ShallowWrapper {
     loading={false}
     media="movies"
     query=""
+    resultMedia="movie"
     shows={
       Array [
         Object {},
@@ -202,8 +204,9 @@ ShallowWrapper {
           }
           genresLoading={false}
           loading={false}
-          media="movies"
+          media="movie"
           query=""
+          resultMedia="movie"
           shows={
             Array [
               Object {},
@@ -249,8 +252,9 @@ ShallowWrapper {
           }
           genresLoading={false}
           loading={false}
-          media="movies"
+          media="movie"
           query=""
+          resultMedia="movie"
           shows={
             Array [
               Object {},
@@ -299,8 +303,9 @@ ShallowWrapper {
           ],
           "genresLoading": false,
           "loading": false,
-          "media": "movies",
+          "media": "movie",
           "query": "",
+          "resultMedia": "movie",
           "shows": Array [
             Object {},
           ],
@@ -363,8 +368,9 @@ ShallowWrapper {
             }
             genresLoading={false}
             loading={false}
-            media="movies"
+            media="movie"
             query=""
+            resultMedia="movie"
             shows={
               Array [
                 Object {},
@@ -410,8 +416,9 @@ ShallowWrapper {
             }
             genresLoading={false}
             loading={false}
-            media="movies"
+            media="movie"
             query=""
+            resultMedia="movie"
             shows={
               Array [
                 Object {},
@@ -460,8 +467,9 @@ ShallowWrapper {
             ],
             "genresLoading": false,
             "loading": false,
-            "media": "movies",
+            "media": "movie",
             "query": "",
+            "resultMedia": "movie",
             "shows": Array [
               Object {},
             ],

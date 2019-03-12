@@ -6,6 +6,7 @@ import Shows from '.';
 
 const mockProps = {
   media: 'movies',
+  resultMedia: 'movie',
   genres: [{
     id: 1,
     name: 'genrename',

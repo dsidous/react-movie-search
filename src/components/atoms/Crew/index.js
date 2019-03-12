@@ -9,7 +9,7 @@ const Crew = ({ crew }) => (
         <div className="crew-element" key={`${cr.name}-${i}`}>
           <small>
             <strong>
-              {`${cr.job}:`}
+              {`${cr.job}: `}
             </strong>
           </small>
           <small>{cr.name}</small>

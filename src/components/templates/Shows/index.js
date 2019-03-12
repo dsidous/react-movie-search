@@ -25,7 +25,7 @@ class Shows extends Component {
       return <Spinner />;
     }
 
-    const { media, genres, query } = this.props;
+    const { media, resultMedia, genres, query } = this.props;
 
     return (
       <PageTransition>
@@ -35,7 +35,7 @@ class Shows extends Component {
           queryUpdate={this.queryUpdate}
           media={media}
         >
-          <Result {...this.props} media={media} />
+          <Result {...this.props} media={resultMedia} />
         </Filter>
       </PageTransition>
     );
