@@ -10,7 +10,7 @@ const withTopPeople = () => graphql(query, {
   }),
   props: ({
     data: {
-      topPeople = {},
+      topPeople = [],
       loading,
     },
   }) => ({

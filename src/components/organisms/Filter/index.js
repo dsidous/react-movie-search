@@ -1,15 +1,18 @@
-import React, { Component } from "react";
+/* eslint-disable camelcase */
+import React, { Component } from 'react';
 import {
   ControlLabel,
   Form,
   FormGroup,
   FormControl,
-} from "react-bootstrap";
+} from 'react-bootstrap';
 
+import { propTypes } from './propTypes';
 import MyPager from '../../atoms/Pager';
-import FilterGenres from "../../atoms/FilterGenres";
+import FilterGenres from '../../atoms/FilterGenres';
 
 class Filter extends Component {
+  static propTypes = propTypes;
 
   constructor(props) {
     super(props);
@@ -18,55 +21,56 @@ class Filter extends Component {
 
     const year = new Date().getFullYear();
 
-    this.release_year = props.media === 'tv'
-      ? ["first_air_date_year", "first_air_date"]
-      : ["primary_release_year", "primary_release_date"];
+    this.release_year = props.media === 'tvs'
+      ? ['first_air_date_year', 'first_air_date']
+      : ['primary_release_year', 'primary_release_date'];
 
     this.state = {
-      page: parseInt(params.get("page"), 10) || 1,
+      page: parseInt(params.get('page'), 10) || 1,
       [this.release_year[0]]: params.get(this.release_year[0]) || year,
-      sort_by: params.get("sort_by") || "popularity.desc",
-      with_genres: params.get("with_genres") || [],
-      "vote_average.gte": params.get("vote_average.gte") || 0
+      sort_by: params.get('sort_by') || 'popularity.desc',
+      with_genres: params.get('with_genres') || '',
+      'vote_average.gte': params.get('vote_average.gte') || 0,
     };
-  }
-
-  objectToQueryStr(paramsObj) {
-    const query = Object.keys(paramsObj)
-      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(paramsObj[key])}`)
-      .join("&");
-
-    return query;
   }
 
   runQuery = () => {
     const query = this.objectToQueryStr(this.state);
-    this.props.queryUpdate(query);
+    const { queryUpdate } = this.props;
+    queryUpdate(query);
   };
 
-  handleChange = e => {
-    let val = e.target.value;
-    let option = e.target.id;
+  handleChange = (e) => {
+    const val = e.target.value;
+    const option = e.target.id;
     this.setState({ [option]: val, page: 1 }, () => this.runQuery());
   };
 
-  handleGenresChange = e => {
-    this.setState({ with_genres: e, page: 1 }, () => this.runQuery());
-  };
+  handleGenresChange = genres => (
+    this.setState({ with_genres: genres, page: 1 }, () => this.runQuery())
+  );
 
-  handlePageSelect = e => {
-    if (e > 0) {
-      this.setState({ page: e }, () => this.runQuery());
+  handlePageSelect = (page) => {
+    if (page > 0) {
+      this.setState({ page }, () => this.runQuery());
     }
   };
 
-  render() {
+  objectToQueryStr = paramsObj => (
+    Object.keys(paramsObj)
+      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(paramsObj[key])}`)
+      .join('&')
+  );
 
+  render() {
+    const { sort_by, with_genres, page } = this.state;
+    const { genres, children } = this.props;
     const year = new Date().getFullYear();
     const sumYear = year - 1900;
-    const year_options = Array(sumYear)
+    const yearOptions = Array(sumYear)
       .fill()
       .map((_, i) => (
+        // eslint-disable-next-line react/no-array-index-key
         <option key={i} value={year - i}>
           {year - i}
         </option>
@@ -82,7 +86,7 @@ class Filter extends Component {
               componentClass="select"
               placeholder="select"
               onChange={this.handleChange}
-              defaultValue={this.state.sort_by}
+              defaultValue={sort_by}
               id="sort_by"
             >
               <option value="popularity.desc">Popularity Descending</option>
@@ -91,10 +95,10 @@ class Filter extends Component {
               <option value="vote_average.asc">Rating Ascending</option>
               <option value={`${this.release_year[1]}.desc`}>
                 Release Date Descending
-            </option>
+              </option>
               <option value={`${this.release_year[1]}.asc`}>
                 Release Date Ascending
-            </option>
+              </option>
             </FormControl>
           </FormGroup>
           <FormGroup className="filter-element-wrapper">
@@ -104,20 +108,21 @@ class Filter extends Component {
               componentClass="select"
               placeholder="select"
               onChange={this.handleChange}
+              // eslint-disable-next-line react/destructuring-assignment
               defaultValue={this.state[this.release_year[0]]}
               id={this.release_year[0]}
             >
-              <option value="">None</option>
-              {year_options}
+              <option value="null">None</option>
+              {yearOptions}
             </FormControl>
           </FormGroup>
           <FormGroup className="filter-element-wrapper filter-genres-wrapper">
             <ControlLabel>Genres</ControlLabel>
             <br />
             <FilterGenres
-              genres={this.props.genres}
+              genres={genres}
               onChange={this.handleGenresChange}
-              value={this.state.with_genres}
+              value={with_genres}
             />
           </FormGroup>
           <FormGroup className="filter-element-wrapper">
@@ -128,7 +133,8 @@ class Filter extends Component {
               id="vote_average.gte"
               placeholder="select"
               onChange={this.handleChange}
-              defaultValue={this.state["vote_average.gte"]}
+              // eslint-disable-next-line react/destructuring-assignment
+              defaultValue={this.state['vote_average.gte']}
             >
               <option value="">Greater than...</option>
               <option value="9">9</option>
@@ -144,10 +150,10 @@ class Filter extends Component {
           </FormGroup>
         </Form>
 
-        {this.props.children}
+        {children}
 
         <MyPager
-          page={this.state.page}
+          page={page}
           handlePageSelect={this.handlePageSelect}
         />
       </div>

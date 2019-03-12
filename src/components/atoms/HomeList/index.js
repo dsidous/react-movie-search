@@ -1,42 +1,45 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import { propTypes } from './propTypes';
 import MediaImage from '../MediaImage';
 
-const HomeList = props => {
-  
-  return (
-    <div className="home-list">
-      <div className="home-list__title">{props.title}</div>
-      <ul className="home-list__list">
-        {props.list.map(list => (
-          <li
-            className="home-list__list-element"
-            key={list.id}
-            onClick={() => props.goToMovie(list.id)}
-          >
+const HomeList = ({ title, list, goToMovie }) => (
+  <div className="home-list">
+    <div className="home-list__title">{title}</div>
+    <ul className="home-list__list">
+      {list.map(show => (
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+        <li
+          className="home-list__list-element"
+          key={show.id}
+        >
+          <Link to={`/movie/${show.id}`}>
             <MediaImage
               mediaType="poster"
-              size={0} 
-              filePath={list.poster_path} 
-              name={list.title} 
+              size={0}
+              filePath={show.poster_path}
+              name={show.title}
             />
             <div className="list-data">
               <div className="list-data__title">
-                {list.title} ({list.vote_average})
+                {`${show.title} (${show.vote_average})`}
               </div>
               <div className="list-data__genres">
-                {list.genre_names.genre_name.map((genreName, i) =>
-                  list.genre_names.length === i + 1
+                {show.genre_names.genre_name.map((genreName, i) => (
+                  show.genre_names.length === i + 1
                     ? genreName
-                    : genreName + ", "
-                )
-                }
+                    : `${genreName}, `
+                ))}
               </div>
             </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+HomeList.propTypes = propTypes;
 
 export default HomeList;

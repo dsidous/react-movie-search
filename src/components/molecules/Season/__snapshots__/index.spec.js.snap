@@ -1,0 +1,306 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Molecules/Season should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Season
+    season={
+      Object {
+        "air_date": "01.01.2010",
+        "episode_count": 3,
+        "name": "name",
+        "overview": "overview",
+        "poster_path": "path/to/image",
+        "season_number": 2,
+      }
+    }
+    tvId={1}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Link
+          className="season-poster"
+          replace={false}
+          to="/tv/1/season/2"
+        >
+          <MediaImage
+            filePath="path/to/image"
+            mediaType="poster"
+            name="name"
+            size={3}
+          />
+        </Link>,
+        <div
+          className="season-details"
+        >
+          <h3>
+            name
+          </h3>
+          <h5>
+            01.0 | 3 episodes
+          </h5>
+          <div>
+            overview
+          </div>
+        </div>,
+      ],
+      "className": "season",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <MediaImage
+            filePath="path/to/image"
+            mediaType="poster"
+            name="name"
+            size={3}
+          />,
+          "className": "season-poster",
+          "replace": false,
+          "to": "/tv/1/season/2",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "filePath": "path/to/image",
+            "mediaType": "poster",
+            "name": "name",
+            "size": 3,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              name
+            </h3>,
+            <h5>
+              01.0 | 3 episodes
+            </h5>,
+            <div>
+              overview
+            </div>,
+          ],
+          "className": "season-details",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "name",
+            },
+            "ref": null,
+            "rendered": "name",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "01.0 | 3 episodes",
+            },
+            "ref": null,
+            "rendered": "01.0 | 3 episodes",
+            "type": "h5",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "overview",
+            },
+            "ref": null,
+            "rendered": "overview",
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Link
+            className="season-poster"
+            replace={false}
+            to="/tv/1/season/2"
+          >
+            <MediaImage
+              filePath="path/to/image"
+              mediaType="poster"
+              name="name"
+              size={3}
+            />
+          </Link>,
+          <div
+            className="season-details"
+          >
+            <h3>
+              name
+            </h3>
+            <h5>
+              01.0 | 3 episodes
+            </h5>
+            <div>
+              overview
+            </div>
+          </div>,
+        ],
+        "className": "season",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <MediaImage
+              filePath="path/to/image"
+              mediaType="poster"
+              name="name"
+              size={3}
+            />,
+            "className": "season-poster",
+            "replace": false,
+            "to": "/tv/1/season/2",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "filePath": "path/to/image",
+              "mediaType": "poster",
+              "name": "name",
+              "size": 3,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                name
+              </h3>,
+              <h5>
+                01.0 | 3 episodes
+              </h5>,
+              <div>
+                overview
+              </div>,
+            ],
+            "className": "season-details",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "name",
+              },
+              "ref": null,
+              "rendered": "name",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "01.0 | 3 episodes",
+              },
+              "ref": null,
+              "rendered": "01.0 | 3 episodes",
+              "type": "h5",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "overview",
+              },
+              "ref": null,
+              "rendered": "overview",
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

@@ -1,19 +1,20 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-import { auth } from "../../../firebase";
+import { auth } from '../../../firebase';
+import { propTypes } from './propTypes';
 
-class SignInFacebook extends Component {
+export class SignInFacebook extends Component {
+  static propTypes = propTypes;
 
   signInWithFB = () => {
+    const { history } = this.props;
+
     auth.doSignInWithFacebook()
-      .then(() => {
-        this.props.history.push("/");
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      .then(() => history.push('/'))
+      // eslint-disable-next-line no-console
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -25,9 +26,9 @@ class SignInFacebook extends Component {
           onClick={this.signInWithFB}
         >
           Log in with Facebook
-          </Button>
+        </Button>
       </div>
-    )
+    );
   }
 }
 

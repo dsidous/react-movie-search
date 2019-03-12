@@ -1,0 +1,280 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Molecules/PersonKnownFor should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PersonKnownFor
+    combinedCredits={
+      Object {
+        "cast": Array [
+          Object {
+            "id": 1,
+            "media_type": "tv",
+            "name": "name",
+            "poster_path": "path/to/image",
+            "vote_count": 1,
+          },
+          Object {
+            "id": 1,
+            "media_type": "tv",
+            "name": "name",
+            "poster_path": "path/to/image",
+            "vote_count": 3,
+          },
+        ],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": "1",
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Link
+          replace={false}
+          to="/tv/1"
+        >
+          <MediaImage
+            filePath="path/to/image"
+            mediaType="poster"
+            name="name"
+            size={1}
+          />
+        </Link>,
+        <p
+          className="person-movie__title-known"
+        >
+          name
+        </p>,
+      ],
+      "className": "person-movies-known",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <MediaImage
+            filePath="path/to/image"
+            mediaType="poster"
+            name="name"
+            size={1}
+          />,
+          "replace": false,
+          "to": "/tv/1",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "filePath": "path/to/image",
+            "mediaType": "poster",
+            "name": "name",
+            "size": 1,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "name",
+          "className": "person-movie__title-known",
+        },
+        "ref": null,
+        "rendered": "name",
+        "type": "p",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": "1",
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Link
+            replace={false}
+            to="/tv/1"
+          >
+            <MediaImage
+              filePath="path/to/image"
+              mediaType="poster"
+              name="name"
+              size={1}
+            />
+          </Link>,
+          <p
+            className="person-movie__title-known"
+          >
+            name
+          </p>,
+        ],
+        "className": "person-movies-known",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <MediaImage
+              filePath="path/to/image"
+              mediaType="poster"
+              name="name"
+              size={1}
+            />,
+            "replace": false,
+            "to": "/tv/1",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "filePath": "path/to/image",
+              "mediaType": "poster",
+              "name": "name",
+              "size": 1,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "name",
+            "className": "person-movie__title-known",
+          },
+          "ref": null,
+          "rendered": "name",
+          "type": "p",
+        },
+      ],
+      "type": "div",
+    },
+    Object {
+      "instance": null,
+      "key": "2",
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Link
+            replace={false}
+            to="/tv/1"
+          >
+            <MediaImage
+              filePath="path/to/image"
+              mediaType="poster"
+              name="name"
+              size={1}
+            />
+          </Link>,
+          <p
+            className="person-movie__title-known"
+          >
+            name
+          </p>,
+        ],
+        "className": "person-movies-known",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <MediaImage
+              filePath="path/to/image"
+              mediaType="poster"
+              name="name"
+              size={1}
+            />,
+            "replace": false,
+            "to": "/tv/1",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "filePath": "path/to/image",
+              "mediaType": "poster",
+              "name": "name",
+              "size": 1,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "name",
+            "className": "person-movie__title-known",
+          },
+          "ref": null,
+          "rendered": "name",
+          "type": "p",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

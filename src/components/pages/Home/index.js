@@ -6,7 +6,7 @@ import withUpcomingMovies from '../../queries/withUpcomingMovies';
 import Home from '../../templates/Home';
 
 export default compose(
-  withProps(() => ({ 'query': 'page=1' })),
+  withProps(() => ({ query: 'page=1' })),
   withPopularMovies(),
   withNowPlayingMovies(),
   withUpcomingMovies(),

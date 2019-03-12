@@ -1,10 +1,11 @@
-import React from 'react'
-import Slider from 'react-slick'
+import React from 'react';
+import Slider from 'react-slick';
 
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+import { propTypes } from './propTypes';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-function FullScreenBackdrop(props) {
+const FullScreenBackdrop = ({ backdrops }) => {
   const settings = {
     arrows: false,
     dots: false,
@@ -13,28 +14,31 @@ function FullScreenBackdrop(props) {
     autoplaySpeed: 5000,
     speed: 1000,
     adaptiveHeight: true,
-    pauseOnHover: false
+    pauseOnHover: false,
   };
 
   return (
     <div>
-      {props.backdrops &&
-        <Slider {...settings}>
-          {props.backdrops
-            .map((backdrop, i) => (
-              <div className="fullscreen-backdrop-slide" key={i} style={{
-                height: window.innerHeight,
-                backgroundImage: `url(${backdrop})`
-              }} >
-              </div>
-            ))
-          }
-
-        </Slider>
+      {backdrops
+        && (
+          <Slider {...settings}>
+            {backdrops.map(backdrop => (
+              <div
+                className="fullscreen-backdrop-slide"
+                key={backdrop}
+                style={{
+                  height: window.innerHeight,
+                  backgroundImage: `url(${backdrop})`,
+                }}
+              />
+            ))}
+          </Slider>
+        )
       }
     </div>
-  )
-}
+  );
+};
 
+FullScreenBackdrop.propTypes = propTypes;
 
 export default FullScreenBackdrop;

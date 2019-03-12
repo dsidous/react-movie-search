@@ -16,12 +16,14 @@ export const query = gql`
       }
       credits {
         crew {
+          credit_id
           job
           name
           profile_path
         }
         cast {
           id
+          credit_id
           name
           profile_path
           character
@@ -36,6 +38,7 @@ export const query = gql`
         season_number
       }
       reviews {
+        id
         author
         content
       }      

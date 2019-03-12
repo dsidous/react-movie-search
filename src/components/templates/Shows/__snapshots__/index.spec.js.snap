@@ -1,0 +1,507 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Templates/Shows should render a spinner when loading 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Shows
+    config={
+      Object {
+        "images": Object {
+          "backdrop_sizes": Array [
+            "1",
+            "2",
+            "3",
+            "4",
+          ],
+          "poster_sizes": Array [
+            "1",
+            "2",
+            "3",
+            "4",
+          ],
+          "secure_base_url": "path/to/image",
+        },
+      }
+    }
+    configLoading={false}
+    genres={
+      Array [
+        Object {
+          "id": 1,
+          "name": "genrename",
+        },
+      ]
+    }
+    genresLoading={false}
+    loading={true}
+    media="movies"
+    query=""
+    shows={
+      Array [
+        Object {},
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {},
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "router": Object {
+        "history": Array [
+          "/movies",
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`Templates/Shows should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Shows
+    config={
+      Object {
+        "images": Object {
+          "backdrop_sizes": Array [
+            "1",
+            "2",
+            "3",
+            "4",
+          ],
+          "poster_sizes": Array [
+            "1",
+            "2",
+            "3",
+            "4",
+          ],
+          "secure_base_url": "path/to/image",
+        },
+      }
+    }
+    configLoading={false}
+    genres={
+      Array [
+        Object {
+          "id": 1,
+          "name": "genrename",
+        },
+      ]
+    }
+    genresLoading={false}
+    loading={false}
+    media="movies"
+    query=""
+    shows={
+      Array [
+        Object {},
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <Filter
+        genres={
+          Array [
+            Object {
+              "id": 1,
+              "name": "genrename",
+            },
+          ]
+        }
+        media="movies"
+        query=""
+        queryUpdate={[Function]}
+      >
+        <Result
+          config={
+            Object {
+              "images": Object {
+                "backdrop_sizes": Array [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                ],
+                "poster_sizes": Array [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                ],
+                "secure_base_url": "path/to/image",
+              },
+            }
+          }
+          configLoading={false}
+          genres={
+            Array [
+              Object {
+                "id": 1,
+                "name": "genrename",
+              },
+            ]
+          }
+          genresLoading={false}
+          loading={false}
+          media="movies"
+          query=""
+          shows={
+            Array [
+              Object {},
+            ]
+          }
+        />
+      </Filter>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <Result
+          config={
+            Object {
+              "images": Object {
+                "backdrop_sizes": Array [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                ],
+                "poster_sizes": Array [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                ],
+                "secure_base_url": "path/to/image",
+              },
+            }
+          }
+          configLoading={false}
+          genres={
+            Array [
+              Object {
+                "id": 1,
+                "name": "genrename",
+              },
+            ]
+          }
+          genresLoading={false}
+          loading={false}
+          media="movies"
+          query=""
+          shows={
+            Array [
+              Object {},
+            ]
+          }
+        />,
+        "genres": Array [
+          Object {
+            "id": 1,
+            "name": "genrename",
+          },
+        ],
+        "media": "movies",
+        "query": "",
+        "queryUpdate": [Function],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "config": Object {
+            "images": Object {
+              "backdrop_sizes": Array [
+                "1",
+                "2",
+                "3",
+                "4",
+              ],
+              "poster_sizes": Array [
+                "1",
+                "2",
+                "3",
+                "4",
+              ],
+              "secure_base_url": "path/to/image",
+            },
+          },
+          "configLoading": false,
+          "genres": Array [
+            Object {
+              "id": 1,
+              "name": "genrename",
+            },
+          ],
+          "genresLoading": false,
+          "loading": false,
+          "media": "movies",
+          "query": "",
+          "shows": Array [
+            Object {},
+          ],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <Filter
+          genres={
+            Array [
+              Object {
+                "id": 1,
+                "name": "genrename",
+              },
+            ]
+          }
+          media="movies"
+          query=""
+          queryUpdate={[Function]}
+        >
+          <Result
+            config={
+              Object {
+                "images": Object {
+                  "backdrop_sizes": Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                  ],
+                  "poster_sizes": Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                  ],
+                  "secure_base_url": "path/to/image",
+                },
+              }
+            }
+            configLoading={false}
+            genres={
+              Array [
+                Object {
+                  "id": 1,
+                  "name": "genrename",
+                },
+              ]
+            }
+            genresLoading={false}
+            loading={false}
+            media="movies"
+            query=""
+            shows={
+              Array [
+                Object {},
+              ]
+            }
+          />
+        </Filter>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <Result
+            config={
+              Object {
+                "images": Object {
+                  "backdrop_sizes": Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                  ],
+                  "poster_sizes": Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                  ],
+                  "secure_base_url": "path/to/image",
+                },
+              }
+            }
+            configLoading={false}
+            genres={
+              Array [
+                Object {
+                  "id": 1,
+                  "name": "genrename",
+                },
+              ]
+            }
+            genresLoading={false}
+            loading={false}
+            media="movies"
+            query=""
+            shows={
+              Array [
+                Object {},
+              ]
+            }
+          />,
+          "genres": Array [
+            Object {
+              "id": 1,
+              "name": "genrename",
+            },
+          ],
+          "media": "movies",
+          "query": "",
+          "queryUpdate": [Function],
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "config": Object {
+              "images": Object {
+                "backdrop_sizes": Array [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                ],
+                "poster_sizes": Array [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                ],
+                "secure_base_url": "path/to/image",
+              },
+            },
+            "configLoading": false,
+            "genres": Array [
+              Object {
+                "id": 1,
+                "name": "genrename",
+              },
+            ],
+            "genresLoading": false,
+            "loading": false,
+            "media": "movies",
+            "query": "",
+            "shows": Array [
+              Object {},
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "context": Object {
+      "router": Object {
+        "history": Array [
+          "/movies",
+        ],
+      },
+    },
+  },
+}
+`;

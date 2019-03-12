@@ -1,38 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import { propTypes, defaultProps } from './propTypes';
 import MediaImage from '../MediaImage';
 
-function Cast(props) {
+const Cast = ({ cast, type }) => {
+  const mediaType = type === 'full' ? 'miniProfile' : 'profile';
+
   return (
-    <div className="cast">
-      <h4>Top Billed Cast</h4>
-      <div className="cast-wrapper">
-        {props.cast.map((cr, i) => (
-          <div className="cast-element" key={i}>
-            <MediaImage
-              mediaType="profile"
-              size={1} 
-              filePath={cr.profile_path} 
-              name={cr.name} 
-              onClick={() => props.handlePersonClick(cr.id)}
-              className="cast-img"
-            />
-            <br />
-            <strong>{cr.name}</strong><br />
-            <small>{cr.character}</small>
-          </div>
-        ))
-        }
-      </div>
-
-      <button className="full-crew-btn" onClick={props.handleFullCrewClick}>Full Cast & Crew</button>
-
+    <div className={`cast__element ${type}`}>
+      <Link to={`/person/${cast.id}`}>
+        <MediaImage
+          mediaType={mediaType}
+          size={1}
+          filePath={cast.profile_path}
+          name={cast.name}
+          className="cast__img"
+        />
+        <div className="cast__copy">
+          <strong>{cast.name}</strong>
+          <br />
+          <small>{cast.character}</small>
+        </div>
+      </Link>
     </div>
   );
-
-}
-
-Cast.defaultProps = {
-  cast: [],
 };
+
+Cast.propTypes = propTypes;
+Cast.defaultProps = defaultProps;
 
 export default Cast;

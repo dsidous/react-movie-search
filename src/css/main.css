@@ -76,6 +76,9 @@ div.no_image_holder {
     .navbar-default .navbar-text a:hover {
       color: #ddd; }
 
+.navbar-default .navbar-nav li a:hover {
+  color: #ddd; }
+
 .navbar-collapse.in {
   overflow-y: visible; }
 
@@ -262,7 +265,7 @@ div.filter-element-wrapper {
     grid-column-gap: 10px;
     grid-template-rows: 40px 40px;
     padding: 0; }
-  .movies-poster {
+  .movies-list__element a {
     grid-row: 1 / 4; }
   .movies-overview {
     margin: 0 10px; } }
@@ -470,19 +473,6 @@ li.movie-genres:last-child:after {
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(7em, 1fr)); }
 
-.cast-element {
-  border-radius: 4px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-  font-size: 2vw;
-  padding: 0 0 10px;
-  text-align: center;
-  overflow: hidden; }
-
-.cast-img {
-  cursor: pointer;
-  margin: 0 0 10px;
-  width: 100%; }
-
 .crew {
   grid-area: mcrew;
   padding: 0 10px; }
@@ -688,6 +678,7 @@ li.movie-genres:last-child:after {
 .person-movie {
   border: 1px solid #bbb;
   border-bottom: none;
+  color: #333;
   cursor: pointer;
   display: grid;
   grid-column-gap: 10px;
@@ -699,7 +690,8 @@ li.movie-genres:last-child:after {
   .person-movie:last-child {
     border-bottom: 1px solid #bbb; }
   .person-movie:hover {
-    background: #bec1c2; }
+    background: #bec1c2;
+    color: #333; }
   .person-movie__poster {
     margin: 0;
     text-align: center; }
@@ -996,6 +988,9 @@ li.movie-genres:last-child:after {
     margin: 0 10px 0 0; }
     .top-genres-list li.active {
       font-weight: bold; }
+    .top-genres-list li:focus,
+    .top-genres-list li span:focus {
+      outline: none; }
 
 .full-ca-cr {
   display: grid;
@@ -1048,6 +1043,7 @@ li.movie-genres:last-child:after {
         box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
         width: 100%; }
       .top-people__list-element__name {
+        color: #666;
         margin: 5px 0 0; }
 
 .home-list {
@@ -1059,24 +1055,25 @@ li.movie-genres:last-child:after {
   .home-list__list {
     list-style: none;
     padding: 0; }
-  .home-list__list-element {
+  .home-list__list-element a {
+    color: #333;
     cursor: pointer;
     font-size: 1.1em;
     display: grid;
     grid-template-columns: auto 1fr;
     padding: 10px 0; }
-    .home-list__list-element:hover {
+    .home-list__list-element a:hover {
       color: #666; }
-    .home-list__list-element img {
+    .home-list__list-element a img {
       margin: 0 15px 0 0;
       width: 50px; }
       @media screen and (min-width: 640px) {
-        .home-list__list-element img {
+        .home-list__list-element a img {
           width: 30px; } }
-    .home-list__list-element .list-data__title {
+    .home-list__list-element a .list-data__title {
       overflow: hidden;
       width: 90%; }
-    .home-list__list-element .list-data__genres {
+    .home-list__list-element a .list-data__genres {
       font-size: 0.8em;
       font-style: italic;
       overflow: hidden;
@@ -1114,9 +1111,11 @@ li.movie-genres:last-child:after {
 .all-seasons-btn {
   background: none;
   border: none;
+  color: #666;
+  display: inline-block;
   font-size: 1.2em;
   font-weight: bold;
-  margin: 30px 0 0; }
+  margin: 20px 10px; }
 
 @media screen and (min-width: 776px) {
   .last-season {
@@ -1178,3 +1177,33 @@ li.movie-genres:last-child:after {
         font-size: .65em; }
     .mini-header__info h4 a {
       color: #999; }
+
+.cast__element.top {
+  border-radius: 4px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  padding: 0 0 10px;
+  text-align: center;
+  overflow: hidden; }
+  .cast__element.top a {
+    color: #666; }
+  .cast__element.top .cast__img {
+    cursor: pointer;
+    margin: 0 0 10px;
+    width: 100%; }
+
+.cast__element.full a {
+  color: #666;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 20px;
+  padding: 10px 0; }
+  @media screen and (min-width: 640px) {
+    .cast__element.full a {
+      grid-template-columns: 1fr 4fr; } }
+  .cast__element.full a .cast__img {
+    border-radius: 4px;
+    width: 100%; }
+
+.cast__copy {
+  align-self: center; }

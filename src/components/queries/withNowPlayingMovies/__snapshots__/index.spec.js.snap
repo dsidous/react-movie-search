@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Queries/withNowPlayingMovies should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MockComponent
+    nowPlayingLoading={true}
+    nowplaying={
+      Array [
+        Object {
+          "backdrop_path": "path/to/image",
+          "genre_names": Array [
+            Object {
+              "genre_name": "genre",
+            },
+          ],
+          "id": 1,
+          "poster_path": "path/to/image",
+          "release_date": "01.01.2010",
+          "title": "title",
+          "vote_average": 1,
+        },
+      ]
+    }
+    options={
+      Object {
+        "fetchPolicy": "cache-and-network",
+        "variables": Object {
+          "query": "page=1",
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "nowPlayingLoading": true,
+    "nowplaying": Array [
+      Object {
+        "backdrop_path": "path/to/image",
+        "genre_names": Array [
+          Object {
+            "genre_name": "genre",
+          },
+        ],
+        "id": 1,
+        "poster_path": "path/to/image",
+        "release_date": "01.01.2010",
+        "title": "title",
+        "vote_average": 1,
+      },
+    ],
+    "options": Object {
+      "fetchPolicy": "cache-and-network",
+      "variables": Object {
+        "query": "page=1",
+      },
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "nowPlayingLoading": true,
+      "nowplaying": Array [
+        Object {
+          "backdrop_path": "path/to/image",
+          "genre_names": Array [
+            Object {
+              "genre_name": "genre",
+            },
+          ],
+          "id": 1,
+          "poster_path": "path/to/image",
+          "release_date": "01.01.2010",
+          "title": "title",
+          "vote_average": 1,
+        },
+      ],
+      "options": Object {
+        "fetchPolicy": "cache-and-network",
+        "variables": Object {
+          "query": "page=1",
+        },
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

@@ -1,10 +1,16 @@
+/* eslint-disable camelcase */
 import React from 'react';
-import { FormattedDate, IntlProvider } from "react-intl";
+import { FormattedDate, IntlProvider } from 'react-intl';
 
+import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
 
 const Episode = (props) => {
-  const { episode: { name, air_date, episode_number, overview, still_path } } = props;
+  const {
+    episode: {
+      name, air_date, episode_number, overview, still_path,
+    },
+  } = props;
 
   const date = air_date !== null ? air_date : '';
 
@@ -29,13 +35,16 @@ const Episode = (props) => {
               year="numeric"
               month="long"
               day="2-digit"
-            />{` | episode ${episode_number}`}
+            />
+            {` | episode ${episode_number}`}
           </h5>
           <div>{overview}</div>
         </div>
       </div>
     </IntlProvider>
-  )
-}
+  );
+};
+
+Episode.propTypes = propTypes;
 
 export default Episode;

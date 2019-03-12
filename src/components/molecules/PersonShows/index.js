@@ -1,38 +1,34 @@
+/* eslint-disable camelcase */
 import React from 'react';
-import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
 
+import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
 
-const PersonShows = ({ shows: { cast } }, context) => {
-
-  const goToMovie = (id, showType) => {
-    context.router.history.push(`/${showType}/${id}`);
-  };
-
+const PersonShows = ({ shows: { cast } }) => {
   if (cast.length > 0) {
-
     const sortedShow = [].concat(cast)
       .sort((a, b) => {
-        const data_b = b.release_date || b.first_air_date;
-        const data_a = a.release_date || a.first_air_date;
-        return data_b ? data_b.localeCompare(data_a) : -1
+        const dataB = b.release_date || b.first_air_date;
+        const dataA = a.release_date || a.first_air_date;
+        return dataB ? dataB.localeCompare(dataA) : -1;
       });
 
     return sortedShow.map((show, i) => {
-
       const { id, poster_path, character } = show;
-      const show_attr = show.release_date
-        ? { title: "title", release_date: "release_date", show_type: "movie" }
-        : { title: "name", release_date: "first_air_date", show_type: "tv" };
+      const showAttr = show.release_date
+        ? { title: 'title', releaseDate: 'release_date', showType: 'movie' }
+        : { title: 'name', releaseDate: 'first_air_date', showType: 'tv' };
 
-      const title = show[show_attr.title];
-      const release_date = show[show_attr.release_date] || '';
-      const { show_type } = show_attr;
+      const title = show[showAttr.title];
+      const releaseDate = show[showAttr.releaseDate] || '';
+      const { showType } = showAttr;
+      const key = `${title}${id}-${i}`;
       return (
-        <div
-          key={id + i}
+        <Link
+          to={`/${showType}/${id}`}
+          key={key}
           className="person-movie"
-          onClick={() => goToMovie(id, show_type)}
         >
           <p className="person-movie__poster">
             <MediaImage
@@ -43,30 +39,28 @@ const PersonShows = ({ shows: { cast } }, context) => {
             />
           </p>
           <p className="person-movie__release">
-            {release_date !== "" &&
-              release_date !== undefined
-              ? release_date.substr(0, 4)
-              : ""}
+            {releaseDate !== ''
+              && releaseDate !== undefined
+              ? releaseDate.substr(0, 4)
+              : ''
+            }
           </p>
           <p className="person-movie__title">
             {title}
             {character && (
               <span className="person-movie__character">
-                {" "}
-                as {character}
+                {` as ${character}`}
               </span>
             )}
           </p>
-        </div>
-      )
+        </Link>
+      );
     });
-  };
+  }
 
   return null;
-}
-
-PersonShows.contextTypes = {
-  router: PropTypes.object.isRequired
 };
+
+PersonShows.propTypes = propTypes;
 
 export default PersonShows;

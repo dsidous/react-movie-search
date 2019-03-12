@@ -1,29 +1,28 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { Alert, Button } from 'react-bootstrap';
 
+import { propTypes } from './propTypes';
 import FieldGroup from '../../atoms/FieldGroup';
-import { SignUpLink } from "../SignUpForm";
-import { auth } from "../../../firebase";
+import { SignUpLink } from '../SignUpForm';
+import { auth } from '../../../firebase';
 
 const byPropKey = (propertyName, value) => () => ({
-  [propertyName]: value
+  [propertyName]: value,
 });
 
 const INITIAL_STATE = {
-  email: "",
-  password: "",
-  error: null
+  email: '',
+  password: '',
+  error: null,
 };
 
 class SignInForm extends Component {
-  constructor(props) {
-    super(props);
+  static propTypes = propTypes;
 
-    this.state = { ...INITIAL_STATE };
-  }
+  state = { ...INITIAL_STATE };
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     const { email, password } = this.state;
 
     const { history } = this.props;
@@ -32,11 +31,9 @@ class SignInForm extends Component {
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState(() => ({ ...INITIAL_STATE }));
-        history.push("/");
+        history.push('/');
       })
-      .catch(error => {
-        this.setState(byPropKey("error", error));
-      });
+      .catch(error => this.setState(byPropKey('error', error)));
 
     event.preventDefault();
   };
@@ -44,7 +41,7 @@ class SignInForm extends Component {
   render() {
     const { email, password, error } = this.state;
 
-    const isInvalid = password === "" || email === "";
+    const isInvalid = password === '' || email === '';
 
     return (
       <form onSubmit={this.onSubmit}>
@@ -57,18 +54,14 @@ class SignInForm extends Component {
           label="Email address"
           placeholder="Enter email"
           value={email}
-          onChange={event =>
-            this.setState(byPropKey("email", event.target.value))
-          }
+          onChange={event => this.setState(byPropKey('email', event.target.value))}
         />
         <FieldGroup
           id="passwordOne"
           label="Password"
           type="password"
           value={password}
-          onChange={event =>
-            this.setState(byPropKey("password", event.target.value))
-          }
+          onChange={event => this.setState(byPropKey('password', event.target.value))}
         />
         <Button
           type="submit"

@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Atoms/MyPager should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MyPager
+    handlePageSelect={[MockFunction]}
+    page={1}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "bsClass": "pager",
+      "children": Array [
+        <PagerItem
+          disabled={false}
+          eventKey={0}
+          href="#"
+          next={false}
+          onClick={[Function]}
+          previous={true}
+        >
+          ← Previous
+        </PagerItem>,
+        <PagerItem
+          disabled={false}
+          eventKey={2}
+          next={true}
+          onClick={[Function]}
+          previous={false}
+        >
+          Next →
+        </PagerItem>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "← Previous",
+          "disabled": false,
+          "eventKey": 0,
+          "href": "#",
+          "next": false,
+          "onClick": [Function],
+          "previous": true,
+        },
+        "ref": null,
+        "rendered": "← Previous",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Next →",
+          "disabled": false,
+          "eventKey": 2,
+          "next": true,
+          "onClick": [Function],
+          "previous": false,
+        },
+        "ref": null,
+        "rendered": "Next →",
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "bsClass": "pager",
+        "children": Array [
+          <PagerItem
+            disabled={false}
+            eventKey={0}
+            href="#"
+            next={false}
+            onClick={[Function]}
+            previous={true}
+          >
+            ← Previous
+          </PagerItem>,
+          <PagerItem
+            disabled={false}
+            eventKey={2}
+            next={true}
+            onClick={[Function]}
+            previous={false}
+          >
+            Next →
+          </PagerItem>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "← Previous",
+            "disabled": false,
+            "eventKey": 0,
+            "href": "#",
+            "next": false,
+            "onClick": [Function],
+            "previous": true,
+          },
+          "ref": null,
+          "rendered": "← Previous",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Next →",
+            "disabled": false,
+            "eventKey": 2,
+            "next": true,
+            "onClick": [Function],
+            "previous": false,
+          },
+          "ref": null,
+          "rendered": "Next →",
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

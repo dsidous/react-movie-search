@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Queries/withPopularMovies should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MockComponent
+    options={
+      Object {
+        "fetchPolicy": "cache-and-network",
+        "variables": Object {
+          "query": "page=1",
+        },
+      }
+    }
+    popular={
+      Array [
+        Object {
+          "backdrop_path": "path/to/image",
+          "genre_ids": Array [
+            1,
+          ],
+          "id": 1,
+          "overview": "overview",
+          "poster_path": "path/to/image",
+          "release_date": "01.01.2010",
+          "title": "title",
+          "vote_average": 1,
+        },
+      ]
+    }
+    popularLoading={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "options": Object {
+      "fetchPolicy": "cache-and-network",
+      "variables": Object {
+        "query": "page=1",
+      },
+    },
+    "popular": Array [
+      Object {
+        "backdrop_path": "path/to/image",
+        "genre_ids": Array [
+          1,
+        ],
+        "id": 1,
+        "overview": "overview",
+        "poster_path": "path/to/image",
+        "release_date": "01.01.2010",
+        "title": "title",
+        "vote_average": 1,
+      },
+    ],
+    "popularLoading": true,
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "options": Object {
+        "fetchPolicy": "cache-and-network",
+        "variables": Object {
+          "query": "page=1",
+        },
+      },
+      "popular": Array [
+        Object {
+          "backdrop_path": "path/to/image",
+          "genre_ids": Array [
+            1,
+          ],
+          "id": 1,
+          "overview": "overview",
+          "poster_path": "path/to/image",
+          "release_date": "01.01.2010",
+          "title": "title",
+          "vote_average": 1,
+        },
+      ],
+      "popularLoading": true,
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

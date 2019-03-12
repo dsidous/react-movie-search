@@ -1,0 +1,426 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Molecules/MiniHeader should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MiniHeader
+    link="url"
+    linkCopy="lnkCopy"
+    poster_path="path/to/image"
+    release_date="01.01.2010"
+    title="title"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="mini-header__inner"
+      >
+        <MediaImage
+          filePath="path/to/image"
+          mediaType="poster"
+          name="title"
+          size={1}
+        />
+        <div
+          className="mini-header__info"
+        >
+          <h2>
+            title
+             
+            <span>
+              01.0
+            </span>
+          </h2>
+          <h4>
+            <Link
+              replace={false}
+              to="url"
+            >
+              ←
+              lnkCopy
+            </Link>
+          </h4>
+        </div>
+      </div>,
+      "className": "mini-header",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <MediaImage
+            filePath="path/to/image"
+            mediaType="poster"
+            name="title"
+            size={1}
+          />,
+          <div
+            className="mini-header__info"
+          >
+            <h2>
+              title
+               
+              <span>
+                01.0
+              </span>
+            </h2>
+            <h4>
+              <Link
+                replace={false}
+                to="url"
+              >
+                ←
+                lnkCopy
+              </Link>
+            </h4>
+          </div>,
+        ],
+        "className": "mini-header__inner",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "filePath": "path/to/image",
+            "mediaType": "poster",
+            "name": "title",
+            "size": 1,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h2>
+                title
+                 
+                <span>
+                  01.0
+                </span>
+              </h2>,
+              <h4>
+                <Link
+                  replace={false}
+                  to="url"
+                >
+                  ←
+                  lnkCopy
+                </Link>
+              </h4>,
+            ],
+            "className": "mini-header__info",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "title",
+                  " ",
+                  <span>
+                    01.0
+                  </span>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "title",
+                " ",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "01.0",
+                  },
+                  "ref": null,
+                  "rendered": "01.0",
+                  "type": "span",
+                },
+              ],
+              "type": "h2",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Link
+                  replace={false}
+                  to="url"
+                >
+                  ←
+                  lnkCopy
+                </Link>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": Array [
+                    "←",
+                    "lnkCopy",
+                  ],
+                  "replace": false,
+                  "to": "url",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "←",
+                  "lnkCopy",
+                ],
+                "type": [Function],
+              },
+              "type": "h4",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="mini-header__inner"
+        >
+          <MediaImage
+            filePath="path/to/image"
+            mediaType="poster"
+            name="title"
+            size={1}
+          />
+          <div
+            className="mini-header__info"
+          >
+            <h2>
+              title
+               
+              <span>
+                01.0
+              </span>
+            </h2>
+            <h4>
+              <Link
+                replace={false}
+                to="url"
+              >
+                ←
+                lnkCopy
+              </Link>
+            </h4>
+          </div>
+        </div>,
+        "className": "mini-header",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <MediaImage
+              filePath="path/to/image"
+              mediaType="poster"
+              name="title"
+              size={1}
+            />,
+            <div
+              className="mini-header__info"
+            >
+              <h2>
+                title
+                 
+                <span>
+                  01.0
+                </span>
+              </h2>
+              <h4>
+                <Link
+                  replace={false}
+                  to="url"
+                >
+                  ←
+                  lnkCopy
+                </Link>
+              </h4>
+            </div>,
+          ],
+          "className": "mini-header__inner",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "filePath": "path/to/image",
+              "mediaType": "poster",
+              "name": "title",
+              "size": 1,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h2>
+                  title
+                   
+                  <span>
+                    01.0
+                  </span>
+                </h2>,
+                <h4>
+                  <Link
+                    replace={false}
+                    to="url"
+                  >
+                    ←
+                    lnkCopy
+                  </Link>
+                </h4>,
+              ],
+              "className": "mini-header__info",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "title",
+                    " ",
+                    <span>
+                      01.0
+                    </span>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "title",
+                  " ",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "01.0",
+                    },
+                    "ref": null,
+                    "rendered": "01.0",
+                    "type": "span",
+                  },
+                ],
+                "type": "h2",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Link
+                    replace={false}
+                    to="url"
+                  >
+                    ←
+                    lnkCopy
+                  </Link>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": Array [
+                      "←",
+                      "lnkCopy",
+                    ],
+                    "replace": false,
+                    "to": "url",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "←",
+                    "lnkCopy",
+                  ],
+                  "type": [Function],
+                },
+                "type": "h4",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

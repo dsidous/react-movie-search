@@ -1,0 +1,429 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Organisms/SimilarMovies should render as expected 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SimilarMovies
+    handleMovieClick={[MockFunction]}
+    similar={
+      Array [
+        Object {
+          "id": 1,
+          "poster_path": "path/to/image",
+          "title": "title",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h4>
+          Similar movies
+        </h4>,
+        <Slider
+          dots={false}
+          infinite={true}
+          slidesToScroll={1}
+          slidesToShow={7}
+          speed={500}
+        >
+          <div
+            className="similar-movies__element"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="link"
+            tabIndex="-1"
+          >
+            <p
+              className="crew-col text-center"
+            >
+              <MediaImage
+                className="similar-movies-img"
+                filePath="path/to/image"
+                mediaType="poster"
+                name="title"
+                size={1}
+              />
+              <br />
+              <small>
+                title
+              </small>
+            </p>
+          </div>
+        </Slider>,
+      ],
+      "className": "similar",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Similar movies",
+        },
+        "ref": null,
+        "rendered": "Similar movies",
+        "type": "h4",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <div
+              className="similar-movies__element"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="link"
+              tabIndex="-1"
+            >
+              <p
+                className="crew-col text-center"
+              >
+                <MediaImage
+                  className="similar-movies-img"
+                  filePath="path/to/image"
+                  mediaType="poster"
+                  name="title"
+                  size={1}
+                />
+                <br />
+                <small>
+                  title
+                </small>
+              </p>
+            </div>,
+          ],
+          "dots": false,
+          "infinite": true,
+          "slidesToScroll": 1,
+          "slidesToShow": 7,
+          "speed": 500,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "1",
+            "nodeType": "host",
+            "props": Object {
+              "children": <p
+                className="crew-col text-center"
+              >
+                <MediaImage
+                  className="similar-movies-img"
+                  filePath="path/to/image"
+                  mediaType="poster"
+                  name="title"
+                  size={1}
+                />
+                <br />
+                <small>
+                  title
+                </small>
+              </p>,
+              "className": "similar-movies__element",
+              "onClick": [Function],
+              "onKeyDown": [Function],
+              "role": "link",
+              "tabIndex": "-1",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <MediaImage
+                    className="similar-movies-img"
+                    filePath="path/to/image"
+                    mediaType="poster"
+                    name="title"
+                    size={1}
+                  />,
+                  <br />,
+                  <small>
+                    title
+                  </small>,
+                ],
+                "className": "crew-col text-center",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "className": "similar-movies-img",
+                    "filePath": "path/to/image",
+                    "mediaType": "poster",
+                    "name": "title",
+                    "size": 1,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "br",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "title",
+                  },
+                  "ref": null,
+                  "rendered": "title",
+                  "type": "small",
+                },
+              ],
+              "type": "p",
+            },
+            "type": "div",
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h4>
+            Similar movies
+          </h4>,
+          <Slider
+            dots={false}
+            infinite={true}
+            slidesToScroll={1}
+            slidesToShow={7}
+            speed={500}
+          >
+            <div
+              className="similar-movies__element"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="link"
+              tabIndex="-1"
+            >
+              <p
+                className="crew-col text-center"
+              >
+                <MediaImage
+                  className="similar-movies-img"
+                  filePath="path/to/image"
+                  mediaType="poster"
+                  name="title"
+                  size={1}
+                />
+                <br />
+                <small>
+                  title
+                </small>
+              </p>
+            </div>
+          </Slider>,
+        ],
+        "className": "similar",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Similar movies",
+          },
+          "ref": null,
+          "rendered": "Similar movies",
+          "type": "h4",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <div
+                className="similar-movies__element"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="link"
+                tabIndex="-1"
+              >
+                <p
+                  className="crew-col text-center"
+                >
+                  <MediaImage
+                    className="similar-movies-img"
+                    filePath="path/to/image"
+                    mediaType="poster"
+                    name="title"
+                    size={1}
+                  />
+                  <br />
+                  <small>
+                    title
+                  </small>
+                </p>
+              </div>,
+            ],
+            "dots": false,
+            "infinite": true,
+            "slidesToScroll": 1,
+            "slidesToShow": 7,
+            "speed": 500,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "1",
+              "nodeType": "host",
+              "props": Object {
+                "children": <p
+                  className="crew-col text-center"
+                >
+                  <MediaImage
+                    className="similar-movies-img"
+                    filePath="path/to/image"
+                    mediaType="poster"
+                    name="title"
+                    size={1}
+                  />
+                  <br />
+                  <small>
+                    title
+                  </small>
+                </p>,
+                "className": "similar-movies__element",
+                "onClick": [Function],
+                "onKeyDown": [Function],
+                "role": "link",
+                "tabIndex": "-1",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <MediaImage
+                      className="similar-movies-img"
+                      filePath="path/to/image"
+                      mediaType="poster"
+                      name="title"
+                      size={1}
+                    />,
+                    <br />,
+                    <small>
+                      title
+                    </small>,
+                  ],
+                  "className": "crew-col text-center",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "className": "similar-movies-img",
+                      "filePath": "path/to/image",
+                      "mediaType": "poster",
+                      "name": "title",
+                      "size": 1,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {},
+                    "ref": null,
+                    "rendered": null,
+                    "type": "br",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "title",
+                    },
+                    "ref": null,
+                    "rendered": "title",
+                    "type": "small",
+                  },
+                ],
+                "type": "p",
+              },
+              "type": "div",
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

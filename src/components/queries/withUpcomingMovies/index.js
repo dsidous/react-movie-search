@@ -2,7 +2,7 @@ import { graphql } from 'react-apollo';
 import { query } from './query';
 
 const withUpcomingMovies = () => graphql(query, {
-  options: props => ({
+  options: () => ({
     fetchPolicy: 'cache-and-network',
   }),
   props: ({

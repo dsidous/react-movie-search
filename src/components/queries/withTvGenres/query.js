@@ -7,4 +7,4 @@ export const query = gql`
       name
     }
   }
-`
+`;

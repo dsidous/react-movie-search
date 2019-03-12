@@ -1,17 +1,27 @@
-import React from "react";
+import React from 'react';
 import {
   FormGroup,
   ControlLabel,
   FormControl,
-  HelpBlock
-} from "react-bootstrap";
+  HelpBlock,
+} from 'react-bootstrap';
 
-const FieldGroup = ({ id, label, help, ...props }) => (
-  <FormGroup controlId={id}>
-    <ControlLabel>{label}</ControlLabel>
-    <FormControl {...props} />
-    {help && <HelpBlock>{help}</HelpBlock>}
-  </FormGroup>
-);
+import { propTypes, defaultProps } from './propTypes';
+
+const FieldGroup = ({
+  id,
+  label,
+  help,
+  ...props
+}) => (
+    <FormGroup controlId={id}>
+      <ControlLabel>{label}</ControlLabel>
+      <FormControl {...props} />
+      {help && <HelpBlock>{help}</HelpBlock>}
+    </FormGroup>
+  );
+
+FieldGroup.propTypes = propTypes;
+FieldGroup.defaultProps = defaultProps;
 
 export default FieldGroup;

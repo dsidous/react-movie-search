@@ -1,31 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import MyPager from "../../atoms/Pager";
+import { propTypes } from './propTypes';
+import MyPager from '../../atoms/Pager';
 import MediaImage from '../../atoms/MediaImage';
 
-TopPeople.propTypes = {
-  state: PropTypes.object.isRequired,
-  toppeople: PropTypes.array.isRequired,
-  handlePersonClick: PropTypes.func.isRequired,
-  handlePageSelect: PropTypes.func.isRequired
-};
-
-function TopPeople(props) {
-  const people = props.toppeople;
-
-  return (
-    <div className="top-people">
-      <h2>POPULAR PEOPLE</h2>
-      <div className="top-people__list">
-
-        {
-          people.map(person => (
-            <figure
-              className="top-people__list-element"
-              key={person.id}
-              onClick={() => props.handlePersonClick(person.id)}
-            >
+const TopPeopleProfile = ({ toppeople, page, handlePageSelect }) => (
+  <div className="top-people">
+    <h2>POPULAR PEOPLE</h2>
+    <div className="top-people__list">
+      {
+        toppeople.map(person => (
+          <Link key={person.id} to={`/person/${person.id}`}>
+            <figure className="top-people__list-element">
               <MediaImage
                 mediaType="profile"
                 size={1}
@@ -37,16 +24,17 @@ function TopPeople(props) {
                 {person.name}
               </figcaption>
             </figure>
-          ))
-        }
-
-      </div>
-      <MyPager
-        page={props.state.page}
-        handlePageSelect={props.handlePageSelect}
-      />
+          </Link>
+        ))
+      }
     </div>
-  );
-}
+    <MyPager
+      page={page}
+      handlePageSelect={handlePageSelect}
+    />
+  </div>
+);
 
-export default TopPeople;
+TopPeopleProfile.propTypes = propTypes;
+
+export default TopPeopleProfile;

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import SignInFacebook from '../../molecules/SignInFacebook';
 import SignUpForm from '../../molecules/SignUpForm';

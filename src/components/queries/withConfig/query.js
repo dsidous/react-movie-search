@@ -4,6 +4,7 @@ export const query = gql`
   query getConfig {
     config{
       images {
+        base_url
         secure_base_url
         backdrop_sizes
         poster_sizes
@@ -12,4 +13,4 @@ export const query = gql`
       }
     }
   }
-`
+`;
