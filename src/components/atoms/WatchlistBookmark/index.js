@@ -33,7 +33,7 @@ class WatchlistBookmark extends Component {
         role="button"
         tabIndex="-1"
       >
-        {user
+        {user.email
           && (
             <span className={
               ['movie-add-watchlist__icon fa',

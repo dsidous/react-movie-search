@@ -7,6 +7,7 @@ const mockProps = {
   movie: {
     id: 1,
   },
+  user: {},
 };
 
 describe('Atoms/WatchlistBookmark', () => {
