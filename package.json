@@ -9,7 +9,6 @@
     "apollo-link": "^1.2.4",
     "apollo-link-batch-http": "^1.2.4",
     "apollo-link-context": "^1.0.10",
-    "axios": "^0.17.1",
     "dotenv": "^6.1.0",
     "firebase": "^5.8.2",
     "font-awesome": "^4.7.0",
