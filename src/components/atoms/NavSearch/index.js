@@ -2,13 +2,35 @@
 import React, { useState } from 'react';
 import Downshift from 'downshift';
 import TextField from '@material-ui/core/TextField';
+import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
-import { withStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 
 import noimage from '../../../images/noimage.jpg';
 
-const styles = {};
+const useStyles = makeStyles({
+  inputRoot: {
+    background: '#fff',
+  },
+  iconButton: {
+    background: '#fff',
+    borderRadius: 0,
+    color: '#000',
+    height: '31px',
+  },
+  container: {
+    display: 'flex',
+    position: 'relative',
+  },
+  paper: {
+    left: 0,
+    marginTop: '8px',
+    position: 'absolute',
+    top: '22px',
+  },
+});
 
 const renderMenuItemChildren = ({
   index,
@@ -68,6 +90,7 @@ const handleChange = (selected) => {
 
 const NavSearch = (props) => {
   const [options, setOptions] = useState(null);
+  const classes = useStyles(props);
 
   const handleSearch = async (query) => {
     if (!query) {
@@ -106,7 +129,7 @@ const NavSearch = (props) => {
     );
   };
 
-  const { classes, config } = props;
+  const { config } = props;
 
   return (
     <Downshift id="downshift-simple">
@@ -155,6 +178,9 @@ const NavSearch = (props) => {
                 </Paper>
               ) : null}
             </div>
+            <IconButton className={classes.iconButton} aria-label="Search">
+              <SearchIcon />
+            </IconButton>
           </div>
         );
       }}
@@ -162,4 +188,4 @@ const NavSearch = (props) => {
   );
 };
 
-export default withStyles(styles)(NavSearch);
+export default NavSearch;

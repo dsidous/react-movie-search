@@ -34,6 +34,9 @@ const styles = {
     color: '#fff',
     textDecoration: 'none',
   },
+  searchMenu: {
+    overflow: 'visible',
+  },
 };
 
 class MainNavbar extends Component {
@@ -96,7 +99,7 @@ class MainNavbar extends Component {
               </Link>
             </MenuItem>
             <div style={{ flexGrow: 1 }} />
-            <MenuItem>
+            <MenuItem className={classes.searchMenu}>
               <NavSearch config={config} />
             </MenuItem>
             {!authUser && (
