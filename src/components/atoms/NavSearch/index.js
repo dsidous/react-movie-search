@@ -2,17 +2,33 @@
 import React, { useState } from 'react';
 import Downshift from 'downshift';
 import TextField from '@material-ui/core/TextField';
-import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
-import { makeStyles } from '@material-ui/styles';
+import { fade, makeStyles } from '@material-ui/core/styles';
 
 import noimage from '../../../images/noimage.jpg';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   inputRoot: {
-    background: '#fff',
+    color: 'inherit',
+    '&:before': {
+      display: 'none',
+    },
+    '&:after': {
+      display: 'none',
+    },
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 7),
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: 120,
+      '&:focus': {
+        width: 200,
+      },
+    },
   },
   iconButton: {
     background: '#fff',
@@ -21,16 +37,37 @@ const useStyles = makeStyles({
     height: '31px',
   },
   container: {
+    color: theme.palette.common.black,
     display: 'flex',
     position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.55),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.65),
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
   },
   paper: {
     left: 0,
     marginTop: '8px',
     position: 'absolute',
-    top: '22px',
+    top: '32px',
   },
-});
+  searchIcon: {
+    width: theme.spacing(7),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));
 
 const renderMenuItemChildren = ({
   index,
@@ -148,11 +185,14 @@ const NavSearch = (props) => {
           onChange,
           ...inputProps
         } = getInputProps({
-          placeholder: 'Search for a movie or a person',
+          placeholder: 'Search ...',
         });
 
         return (
           <div className={classes.container}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
             {renderInput({
               fullWidth: true,
               classes,
@@ -178,9 +218,6 @@ const NavSearch = (props) => {
                 </Paper>
               ) : null}
             </div>
-            <IconButton className={classes.iconButton} aria-label="Search">
-              <SearchIcon />
-            </IconButton>
           </div>
         );
       }}

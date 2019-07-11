@@ -22,6 +22,7 @@ import NavSearch from '../../atoms/NavSearch';
 const styles = {
   appBar: {
     background: '#1f1d1d',
+    maxHeight: '63px',
   },
   menuList: {
     display: 'flex',
@@ -62,7 +63,7 @@ class MainNavbar extends Component {
     const { authUser, user } = this.context;
     return (
       <AppBar color="primary" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar variant="dense">
           <Link to="/" className={classes.menuItem}>
             <Typography variant="h6">
               Movie Search
