@@ -99,75 +99,74 @@ class MainNavbar extends Component {
                 </Typography>
               </Link>
             </MenuItem>
-            <div style={{ flexGrow: 1 }} />
-            <MenuItem className={classes.searchMenu}>
-              <NavSearch config={config} />
-            </MenuItem>
-            {!authUser && (
-              <MenuList className={classes.menuListUser}>
-                <MenuItem>
-                  <Link to="/login" className={classes.menuItem}>
-                    <Typography variant="body2">
-                      Login
-                    </Typography>
-                  </Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link to="/signup" className={classes.menuItem}>
-                    <Typography variant="body2">
-                      Sign up
-                    </Typography>
-                  </Link>
-                </MenuItem>
-              </MenuList>
-            )}
-            {authUser && (
-              <div>
-                <IconButton
-                  aria-label="Account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={this.handleMenu}
-                  color="inherit"
-                >
-                  <AccountCircle />
-                </IconButton>
-
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={Boolean(anchorEl)}
-                  onClose={this.handleClose}
-                >
-                  <MenuItem disabled>
-                    {user ? user.username : null}
-                  </MenuItem>
-                  <MenuItem href="#" disabled>
-                    view profile
-                  </MenuItem>
-                  <MenuItem divider />
-                  <MenuItem>
-                    <Link to="/watchlist">
-                      Watchlist
-                    </Link>
-                  </MenuItem>
-                  <MenuItem divider />
-                  <MenuItem>
-                    <SignOutButton />
-                  </MenuItem>
-                </Menu>
-              </div>
-            )}
           </MenuList>
+          <div style={{ flexGrow: 1 }} />
+          <NavSearch config={config} />
+
+          {!authUser && (
+            <MenuList className={classes.menuListUser}>
+              <MenuItem>
+                <Link to="/login" className={classes.menuItem}>
+                  <Typography variant="body2">
+                    Login
+                    </Typography>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link to="/signup" className={classes.menuItem}>
+                  <Typography variant="body2">
+                    Sign up
+                    </Typography>
+                </Link>
+              </MenuItem>
+            </MenuList>
+          )}
+          {authUser && (
+            <div>
+              <IconButton
+                aria-label="Account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={this.handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={this.handleClose}
+              >
+                <MenuItem disabled>
+                  {user ? user.username : null}
+                </MenuItem>
+                <MenuItem href="#" disabled>
+                  view profile
+                </MenuItem>
+                <MenuItem divider />
+                <MenuItem>
+                  <Link to="/watchlist">
+                    Watchlist
+                  </Link>
+                </MenuItem>
+                <MenuItem divider />
+                <MenuItem>
+                  <SignOutButton />
+                </MenuItem>
+              </Menu>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
     );

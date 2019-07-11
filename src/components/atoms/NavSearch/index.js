@@ -55,6 +55,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     left: 0,
     marginTop: '8px',
+    paddingLeft: 0,
     position: 'absolute',
     top: '32px',
   },
@@ -118,11 +119,15 @@ const renderMenuItemChildren = ({
   );
 };
 
-const handleChange = (selected) => {
-  const { history } = this.props;
-  if (typeof selected[0] !== 'undefined') {
-    history.push(`/${selected[0].media_type}/${selected[0].id}`);
-  }
+const handleChange = () => {
+  return console.log('HERE');
+  // const { history } = this.props;
+
+  // if (typeof selected[0] === 'undefined') {
+  //   return null;
+  // }
+
+  // return history.push(`/${selected[0].media_type}/${selected[0].id}`);
 };
 
 const NavSearch = (props) => {
@@ -152,7 +157,6 @@ const NavSearch = (props) => {
 
     return (
       <TextField
-        onChange={handleSearch(inputValue)}
         InputProps={{
           inputRef: ref,
           classes: {
@@ -169,7 +173,10 @@ const NavSearch = (props) => {
   const { config } = props;
 
   return (
-    <Downshift id="downshift-simple">
+    <Downshift
+      id="downshift-simple"
+      onChange={handleChange}
+    >
       {({
         getInputProps,
         getItemProps,
@@ -182,7 +189,6 @@ const NavSearch = (props) => {
         const {
           onBlur,
           onFocus,
-          onChange,
           ...inputProps
         } = getInputProps({
           placeholder: 'Search ...',
@@ -196,14 +202,18 @@ const NavSearch = (props) => {
             {renderInput({
               fullWidth: true,
               classes,
-              InputProps: { onBlur, onFocus, onChange },
+              InputProps: {
+                onBlur,
+                onFocus,
+                onKeyUp: () => handleSearch(inputValue),
+              },
               inputProps,
               inputValue,
             })}
 
             <div {...getMenuProps()}>
               {isOpen ? (
-                <Paper className={classes.paper} square>
+                <Paper className={classes.paper} component="ul">
                   {(options)
                     ? options.map((option, index) => renderMenuItemChildren({
                       index,
@@ -213,7 +223,7 @@ const NavSearch = (props) => {
                       highlightedIndex,
                       selectedItem,
                     }))
-                    : ''
+                    : null
                   }
                 </Paper>
               ) : null}
