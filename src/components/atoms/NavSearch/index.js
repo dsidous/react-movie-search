@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
-import React, { useState } from 'react';
+import React from 'react';
+import { withRouter } from 'react-router';
 import Downshift from 'downshift';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
@@ -7,6 +8,8 @@ import Paper from '@material-ui/core/Paper';
 import MenuItem from '@material-ui/core/MenuItem';
 import { fade, makeStyles } from '@material-ui/core/styles';
 
+import { propTypes, itemsProps } from './propTypes';
+import withSearch from '../../queries/withSearch';
 import noimage from '../../../images/noimage.jpg';
 
 const useStyles = makeStyles(theme => ({
@@ -55,6 +58,8 @@ const useStyles = makeStyles(theme => ({
   paper: {
     left: 0,
     marginTop: '8px',
+    maxHeight: '200px',
+    overflowY: 'scroll',
     paddingLeft: 0,
     position: 'absolute',
     top: '32px',
@@ -74,8 +79,8 @@ const renderMenuItemChildren = ({
   index,
   option,
   config,
-  itemProps,
   highlightedIndex,
+  getItemProps,
 }) => {
   const {
     id, title, name, first_air_date, release_date, poster_path, profile_path,
@@ -107,9 +112,9 @@ const renderMenuItemChildren = ({
     : noimage;
   return (
     <MenuItem
-      {...itemProps}
       key={id}
       selected={isHighlighted}
+      {...getItemProps({ item: option })}
     >
       <span>
         <img src={listImage} className="movie-search-img-thumb" alt="#" />
@@ -119,120 +124,68 @@ const renderMenuItemChildren = ({
   );
 };
 
-const handleChange = () => {
-  return console.log('HERE');
-  // const { history } = this.props;
+renderMenuItemChildren.propTypes = itemsProps;
 
-  // if (typeof selected[0] === 'undefined') {
-  //   return null;
-  // }
+const Items = ({
+  search,
+  loading,
+  ...props
+}) => (loading || Object.keys(search).length === 0
+  ? null
+  : search.map((option, index) => renderMenuItemChildren({
+    option, index, ...props,
+  })));
 
-  // return history.push(`/${selected[0].media_type}/${selected[0].id}`);
-};
+const FetchItems = withSearch()(Items);
 
 const NavSearch = (props) => {
-  const [options, setOptions] = useState(null);
-  const classes = useStyles(props);
-
-  const handleSearch = async (query) => {
-    if (!query) {
-      return null;
-    }
-
-    const response = await fetch(
-      `https://api.themoviedb.org/3/search/multi?api_key=cfe422613b250f702980a3bbf9e90716&query=${query}`,
-    );
-    const json = await response.json();
-    return setOptions(json.results);
-  };
-
-  const renderInput = (inputProps) => {
-    const {
-      inputValue,
-      InputProps,
-      classes,
-      ref,
-      ...other
-    } = inputProps;
-
-    return (
-      <TextField
-        InputProps={{
-          inputRef: ref,
-          classes: {
-            root: classes.inputRoot,
-            input: classes.inputInput,
-          },
-          ...InputProps,
-        }}
-        {...other}
-      />
-    );
-  };
-
-  const { config } = props;
+  const classes = useStyles();
+  const { history, config } = props;
 
   return (
     <Downshift
-      id="downshift-simple"
-      onChange={handleChange}
+      onChange={({ media_type, id }) => history.push(`/${media_type}/${id}`)}
+      itemToString={item => (item ? item.name || item.title : '')}
     >
       {({
         getInputProps,
         getItemProps,
-        getMenuProps,
-        highlightedIndex,
-        inputValue,
         isOpen,
+        inputValue,
         selectedItem,
-      }) => {
-        const {
-          onBlur,
-          onFocus,
-          ...inputProps
-        } = getInputProps({
-          placeholder: 'Search ...',
-        });
-
-        return (
+        highlightedIndex,
+      }) => (
           <div className={classes.container}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            {renderInput({
-              fullWidth: true,
-              classes,
-              InputProps: {
-                onBlur,
-                onFocus,
-                onKeyUp: () => handleSearch(inputValue),
-              },
-              inputProps,
-              inputValue,
-            })}
 
-            <div {...getMenuProps()}>
-              {isOpen ? (
-                <Paper className={classes.paper} component="ul">
-                  {(options)
-                    ? options.map((option, index) => renderMenuItemChildren({
-                      index,
-                      option,
-                      config,
-                      itemProps: getItemProps,
-                      highlightedIndex,
-                      selectedItem,
-                    }))
-                    : null
-                  }
-                </Paper>
-              ) : null}
-            </div>
+            <TextField
+              InputProps={{
+                classes: {
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                },
+                ...getInputProps({ placeholder: 'Search...' }),
+              }}
+            />
+            {isOpen ? (
+              <Paper className={classes.paper} component="ul">
+                <FetchItems
+                  query={inputValue}
+                  selectedItem={selectedItem}
+                  highlightedIndex={highlightedIndex}
+                  getItemProps={getItemProps}
+                  config={config}
+                />
+              </Paper>
+            ) : null}
           </div>
-        );
-      }}
+        )}
     </Downshift>
   );
 };
 
-export default NavSearch;
+export default withRouter(NavSearch);
+
+NavSearch.propTypes = propTypes;
