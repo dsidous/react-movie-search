@@ -42,16 +42,22 @@ const useStyles = makeStyles(theme => ({
   container: {
     color: theme.palette.common.black,
     display: 'flex',
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.55),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.65),
-    },
+    backgroundColor: theme.palette.common.white,
+    left: 0,
     marginLeft: 0,
+    position: 'absolute',
+    top: '48px',
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: fade(theme.palette.common.white, 0.55),
+      '&:hover': {
+        backgroundColor: fade(theme.palette.common.white, 0.65),
+      },
+      left: 'auto',
       marginLeft: theme.spacing(1),
+      position: 'relative',
+      top: 'auto',
       width: 'auto',
     },
   },
