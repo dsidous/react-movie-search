@@ -1,8 +1,6 @@
 /* eslint-disable camelcase */
-import React, { Component } from 'react';
-import { compose } from 'recompose';
-import { withStyles } from '@material-ui/styles';
-import { withRouter } from 'react-router';
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -11,18 +9,31 @@ import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import Menu from '@material-ui/core/Menu';
+import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
 
 import { propTypes } from './propTypes';
 import { FirebaseAuthContext } from '../../../firebase/FirebaseAuthProvider';
 import SignOutButton from '../../atoms/SignOut';
 import NavSearch from '../../atoms/NavSearch';
 
-const styles = {
+const useStyles = makeStyles(theme => ({
   appBar: {
     background: '#1f1d1d',
     maxHeight: '63px',
+  },
+  logo: {
+    marginRight: theme.spacing(2),
+    whiteSpace: 'nowrap',
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
   },
   menuList: {
     display: 'flex',
@@ -38,144 +49,180 @@ const styles = {
   searchMenu: {
     overflow: 'visible',
   },
-};
+  drawerPaper: {
+    background: '#000',
 
-class MainNavbar extends Component {
-  static propTypes = propTypes;
+    '& $menuList': {
+      flexDirection: 'column',
+      marginTop: theme.spacing(3),
 
-  state = {
-    isLoading: false,
-    options: [],
-    anchorEl: null,
-  };
+      '& $menuItem': {
+        padding: '0 16px',
+        width: '100%',
+      },
+    },
+  },
+}));
 
-  handleMenu = (event) => {
-    this.setState({ anchorEl: event.currentTarget });
-  }
+const MainNavbar = (props) => {
+  const classes = useStyles();
+  const { config } = props;
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  handleClose = () => {
-    this.setState({ anchorEl: null });
-  }
+  const mainMenu = (
+    <MenuList className={classes.menuList}>
+      <MenuItem>
+        <Link to="/movies" className={classes.menuItem}>
+          <Typography variant="button">
+            MOVIES
+          </Typography>
+        </Link>
+      </MenuItem>
+      <MenuItem>
+        <Link to="/tvs" className={classes.menuItem}>
+          <Typography variant="button">
+            TVS
+          </Typography>
+        </Link>
+      </MenuItem>
+      <MenuItem>
+        <Link to="/person" className={classes.menuItem}>
+          <Typography variant="button">
+            PEOPLE
+          </Typography>
+        </Link>
+      </MenuItem>
+      <MenuItem>
+        <Link to="/watchlist" className={classes.menuItem}>
+          <Typography variant="button">
+            WATCHLIST&nbsp;
+            <span className="fa fa-bookmark" />
+          </Typography>
+        </Link>
+      </MenuItem>
+    </MenuList>
+  );
 
-  render() {
-    const { anchorEl } = this.state;
-    const { classes, config } = this.props;
-    const { authUser, user } = this.context;
-    return (
-      <AppBar color="primary" className={classes.appBar}>
-        <Toolbar variant="dense">
-          <Link to="/" className={classes.menuItem}>
-            <Typography variant="h6">
-              Movie Search
-            </Typography>
-          </Link>
-          <MenuList className={classes.menuList}>
+  const memberMenu = (
+    <FirebaseAuthContext.Consumer>
+      {({ user, authUser }) => ((!authUser)
+        ? (
+          <MenuList className={classes.menuListUser}>
             <MenuItem>
-              <Link to="/movies" className={classes.menuItem}>
-                <Typography variant="button">
-                  MOVIES
+              <Link to="/login" className={classes.menuItem}>
+                <Typography variant="body2">
+                  Login
                 </Typography>
               </Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/tvs" className={classes.menuItem}>
-                <Typography variant="button">
-                  TVS
-                </Typography>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/person" className={classes.menuItem}>
-                <Typography variant="button">
-                  PEOPLE
-                </Typography>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/watchlist" className={classes.menuItem}>
-                <Typography variant="button">
-                  WATCHLIST&nbsp;
-                  <span className="fa fa-bookmark" />
+              <Link to="/signup" className={classes.menuItem}>
+                <Typography variant="body2">
+                  Sign up
                 </Typography>
               </Link>
             </MenuItem>
           </MenuList>
-          <div style={{ flexGrow: 1 }} />
-          <NavSearch config={config} />
+        )
+        : (
+          <div>
+            <IconButton
+              aria-label="Account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={e => setAnchorEl(e.currentTarget)}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
 
-          {!authUser && (
-            <MenuList className={classes.menuListUser}>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorEl)}
+              onClose={() => setAnchorEl(null)}
+            >
+              <MenuItem disabled>
+                {user ? user.username : null}
+              </MenuItem>
+              <MenuItem href="#" disabled>
+                view profile
+              </MenuItem>
+              <MenuItem divider />
               <MenuItem>
-                <Link to="/login" className={classes.menuItem}>
-                  <Typography variant="body2">
-                    Login
-                    </Typography>
+                <Link to="/watchlist">
+                  Watchlist
                 </Link>
               </MenuItem>
+              <MenuItem divider />
               <MenuItem>
-                <Link to="/signup" className={classes.menuItem}>
-                  <Typography variant="body2">
-                    Sign up
-                    </Typography>
-                </Link>
+                <SignOutButton />
               </MenuItem>
-            </MenuList>
-          )}
-          {authUser && (
-            <div>
-              <IconButton
-                aria-label="Account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={this.handleMenu}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
+            </Menu>
+          </div>
+        ))}
+    </FirebaseAuthContext.Consumer>
+  );
 
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(anchorEl)}
-                onClose={this.handleClose}
-              >
-                <MenuItem disabled>
-                  {user ? user.username : null}
-                </MenuItem>
-                <MenuItem href="#" disabled>
-                  view profile
-                </MenuItem>
-                <MenuItem divider />
-                <MenuItem>
-                  <Link to="/watchlist">
-                    Watchlist
-                  </Link>
-                </MenuItem>
-                <MenuItem divider />
-                <MenuItem>
-                  <SignOutButton />
-                </MenuItem>
-              </Menu>
-            </div>
-          )}
-        </Toolbar>
-      </AppBar>
-    );
-  }
-}
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
-export default compose(
-  withRouter,
-  withStyles(styles),
-)(MainNavbar);
+  return (
+    <AppBar color="primary" className={classes.appBar}>
+      <Toolbar variant="dense">
+        <IconButton
+          color="inherit"
+          aria-label="Open drawer"
+          edge="start"
+          onClick={handleDrawerToggle}
+          className={classes.menuButton}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Link to="/" className={classes.menuItem}>
+          <Typography variant="h6" className={classes.logo}>
+            Movie Search
+          </Typography>
+        </Link>
+        <Hidden smDown implementation="css">
+          {mainMenu}
+        </Hidden>
+        <Hidden mdUp implementation="css">
+          <Drawer
+            // container={container}
+            variant="temporary"
+            anchor="left"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+          >
+            {mainMenu}
+          </Drawer>
+        </Hidden>
+        <div style={{ flexGrow: 1 }} />
+        <NavSearch config={config} />
+        {memberMenu}
+      </Toolbar>
+    </AppBar>
+  );
+};
 
-MainNavbar.contextType = FirebaseAuthContext;
+export default MainNavbar;
+
+MainNavbar.propTypes = propTypes;
