@@ -13,9 +13,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
+import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 
-import { propTypes } from './propTypes';
+import { propTypes, isDrawerWrapperPropTypes } from './propTypes';
 import { FirebaseAuthContext } from '../../../firebase/FirebaseAuthProvider';
 import SignOutButton from '../../atoms/SignOut';
 import NavSearch from '../../atoms/NavSearch';
@@ -66,11 +66,11 @@ const useStyles = makeStyles(theme => ({
 
 const MainNavbar = (props) => {
   const classes = useStyles();
-  const { config } = props;
+  const { config, width } = props;
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const mainMenu = (
+  const MainMenu = () => (
     <MenuList className={classes.menuList}>
       <MenuItem>
         <Link to="/movies" className={classes.menuItem}>
@@ -104,7 +104,7 @@ const MainNavbar = (props) => {
     </MenuList>
   );
 
-  const memberMenu = (
+  const UserMenu = () => (
     <FirebaseAuthContext.Consumer>
       {({ user, authUser }) => ((!authUser)
         ? (
@@ -178,6 +178,29 @@ const MainNavbar = (props) => {
     setMobileOpen(!mobileOpen);
   };
 
+  const IsDrawerWrapper = ({ children }) => (
+    isWidthUp('md', width)
+      ? children
+      : (
+        <Drawer
+          // container={container}
+          variant="temporary"
+          anchor="left"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+          ModalProps={{
+            keepMounted: true,
+          }}
+        >
+          {children}
+        </Drawer>
+      ));
+
+  IsDrawerWrapper.propTypes = isDrawerWrapperPropTypes;
+
   return (
     <AppBar color="primary" className={classes.appBar}>
       <Toolbar variant="dense">
@@ -195,34 +218,17 @@ const MainNavbar = (props) => {
             Movie Search
           </Typography>
         </Link>
-        <Hidden smDown implementation="css">
-          {mainMenu}
-        </Hidden>
-        <Hidden mdUp implementation="css">
-          <Drawer
-            // container={container}
-            variant="temporary"
-            anchor="left"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            {mainMenu}
-          </Drawer>
-        </Hidden>
+        <IsDrawerWrapper>
+          <MainMenu />
+        </IsDrawerWrapper>
         <div style={{ flexGrow: 1 }} />
         <NavSearch config={config} />
-        {memberMenu}
+        <UserMenu />
       </Toolbar>
     </AppBar>
   );
 };
 
-export default MainNavbar;
+export default withWidth()(MainNavbar);
 
 MainNavbar.propTypes = propTypes;

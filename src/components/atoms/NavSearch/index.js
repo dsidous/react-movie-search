@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     top: '48px',
     width: '100%',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('sm')]: {
       borderRadius: theme.shape.borderRadius,
       backgroundColor: fade(theme.palette.common.white, 0.55),
       '&:hover': {
