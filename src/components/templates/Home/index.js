@@ -11,46 +11,6 @@ export default class Home extends Component {
 
   static propTypes = propTypes;
 
-  state = {
-    topmovies: [],
-  };
-
-  componentWillReceiveProps(nextProps) {
-    if (!nextProps.popularLoading) {
-      this.setState({
-        topmovies: nextProps.popular.slice(0, 5),
-      });
-    }
-  }
-
-  randomList = (arrayMax) => {
-    const nbrArray = Array.from(Array(arrayMax), (_, x) => x);
-    const rndList = [];
-    // eslint-disable-next-line no-plusplus
-    for (let n = 1; n <= 5; ++n) {
-      const rndNum = Math.floor((Math.random() * (arrayMax - n)) + 1);
-      rndList.push(nbrArray[rndNum]);
-      nbrArray[rndNum] = nbrArray[arrayMax - n];
-    }
-    return rndList;
-  }
-
-  filterTopMovies = (genre) => {
-    const { popular } = this.props;
-    let movies = genre !== -1
-      ? popular.filter(movie => movie.genre_ids.includes(genre))
-      : popular;
-
-    const moviesLength = movies.length;
-
-    if (moviesLength > 5) {
-      const rndList = this.randomList(moviesLength);
-      movies = movies.filter((movie, index) => rndList.indexOf(index) !== -1);
-    }
-
-    this.setState({ topmovies: movies });
-  }
-
   render() {
     const {
       nowPlayingLoading,
@@ -58,8 +18,8 @@ export default class Home extends Component {
       upcomingLoading,
       nowplaying,
       upcoming,
+      popular,
     } = this.props;
-    const { topmovies } = this.state;
     if (nowPlayingLoading || popularLoading || upcomingLoading) {
       return <Spinner />;
     }
@@ -67,8 +27,7 @@ export default class Home extends Component {
     return (
       <PageTransition>
         <TopRatedMovies
-          topMovies={topmovies}
-          filterTopMovies={this.filterTopMovies}
+          popular={popular}
         />
 
         <div className="top-lists-wrapper">
