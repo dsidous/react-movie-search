@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { propTypes } from './propTypes';
 import MediaImage from '../MediaImage';
 
-const HomeList = ({ title, list, goToMovie }) => (
+const HomeList = ({ title, list }) => (
   <div className="home-list">
     <div className="home-list__title">{title}</div>
     <ul className="home-list__list">
