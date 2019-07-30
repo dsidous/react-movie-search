@@ -11,9 +11,12 @@ body {
   min-height: 100vh;
   padding: 0; }
 
-a:hover {
-  color: #999;
+a {
   text-decoration: none; }
+  a:hover {
+    color: #999;
+    cursor: pointer;
+    text-decoration: none; }
 
 #root {
   padding: 86px 0 100px; }
@@ -109,7 +112,7 @@ div.no_image_holder {
     font-weight: bold; }
 
 div.filter-element-wrapper {
-  margin: 0 10px 10px; }
+  margin: 0 10px 20px; }
 
 .filter-element-wrapper .control-label {
   font: 14px arial;
@@ -598,7 +601,8 @@ li.movie-genres:last-child:after {
 
 .person-name {
   font-weight: 300;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  margin-top: 0; }
 
 .person-bio-wrapper {
   grid-area: bio; }
@@ -785,6 +789,7 @@ li.movie-genres:last-child:after {
 .cast-images__element {
   border-radius: 4px;
   box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+  margin: 0;
   overflow: hidden; }
   .cast-images__element a {
     color: #000; }
@@ -1039,7 +1044,8 @@ li.movie-genres:last-child:after {
         grid-gap: 40px;
         grid-template-columns: repeat(4, 1fr); } }
     .top-people__list-element {
-      cursor: pointer; }
+      cursor: pointer;
+      margin: 0; }
       .top-people__list-element__img {
         border-radius: 4px;
         box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
@@ -1160,7 +1166,7 @@ li.movie-genres:last-child:after {
   background: #eee;
   border-top: 10px solid #ddd;
   border-bottom: 10px solid #ddd;
-  font-size: 5em;
+  font-size: 1em;
   padding: 30px 20px; }
   .mini-header__inner {
     display: grid;

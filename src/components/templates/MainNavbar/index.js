@@ -9,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 
-
 import { propTypes } from './propTypes';
 import { FirebaseAuthContext } from '../../../firebase/FirebaseAuthProvider';
 import NavSearch from '../../atoms/NavSearch';

@@ -5,10 +5,20 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { propTypes } from './propTypes';
 import MyPager from '../../atoms/Pager';
 import FilterGenres from '../../atoms/FilterGenres';
+
+const useStyles = makeStyles(theme => ({
+  'filter-wrapper': {
+    '& form': {
+      margin: `${theme.spacing(5)}px 0`,
+    },
+  },
+}));
 
 const objectToQueryStr = paramsObj => (
   Object.keys(paramsObj)
@@ -31,6 +41,7 @@ const Filter = ({
   children,
   queryUpdate
 }) => {
+  const classes = useStyles();
   const year = new Date().getFullYear();
 
   const params = new URLSearchParams(query);
@@ -75,19 +86,23 @@ const Filter = ({
   };
 
   const { sort_by, with_genres, page } = state;
-
   return (
-    <div className="filter-wrapper">
+    <div className={classes['filter-wrapper']}>
       <form>
-        <FormControl className="filter-element-wrapper">
-          <InputLabel>
+        <FormControl
+          variant="outlined"
+          className="filter-element-wrapper"
+        >
+          <InputLabel htmlFor="shortby">
             Sort By
           </InputLabel>
           <Select
+            id="shortby"
             placeholder="select"
             onChange={handleChange}
             value={sort_by}
             name="sort_by"
+            input={<OutlinedInput labelWidth="53" id="shortby" />}
           >
             <MenuItem value="popularity.desc">Popularity Descending</MenuItem>
             <MenuItem value="popularity.asc">Popularity Ascending</MenuItem>
@@ -101,7 +116,7 @@ const Filter = ({
             </MenuItem>
           </Select>
         </FormControl>
-        <FormControl className="filter-element-wrapper">
+        <FormControl className="filter-element-wrapper" variant="outlined">
           <InputLabel>Year</InputLabel>
           <Select
             placeholder="select"
@@ -109,27 +124,27 @@ const Filter = ({
             // eslint-disable-next-line react/destructuring-assignment
             value={state[release_year[0]]}
             name={release_year[0]}
+            input={<OutlinedInput labelWidth="53" id="year" />}
           >
             <MenuItem value="null">None</MenuItem>
             {yearOptions}
           </Select>
         </FormControl>
-        <FormControl className="filter-element-wrapper filter-genres-wrapper">
-          <InputLabel>Genres</InputLabel>
-          <FilterGenres
-            genres={genres}
-            onChange={handleGenresChange}
-            value={with_genres}
-          />
-        </FormControl>
-        <FormControl className="filter-element-wrapper">
-          <InputLabel>Average vote</InputLabel>
+        <FilterGenres
+          genres={genres}
+          onChange={handleGenresChange}
+          value={with_genres}
+        />
+        <FormControl className="filter-element-wrapper" variant="outlined">
+          <InputLabel labelWidth="200">Average vote</InputLabel>
           <Select
             name="vote_average.gte"
             placeholder="select"
             onChange={handleChange}
             // eslint-disable-next-line react/destructuring-assignment
             value={state['vote_average.gte']}
+            input={<OutlinedInput labelWidth="200" id="vote" />}
+            fullWidth
           >
             <MenuItem value="">Greater than...</MenuItem>
             <MenuItem value="9">9</MenuItem>
