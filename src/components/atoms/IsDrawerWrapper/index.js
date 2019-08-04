@@ -27,6 +27,7 @@ const IsDrawerWrapper = ({
           ModalProps={{
             keepMounted: true,
           }}
+          onClick={handleDrawerToggle}
         >
           {children}
         </Drawer>

@@ -12,12 +12,12 @@ import { propTypes } from './propTypes';
 const FilterGenres = ({ value, genres, onChange }) => {
   const [state, setState] = useState({
     options: [],
-    selectValue: [],
+    selectValue: [''],
   });
 
   useEffect(() => {
     const options = genres.map(genre => ({ label: genre.name, value: String(genre.id) }));
-    setState({ selectValue: value.split(','), options });
+    setState({ ...state, options });
   }, []);
 
   const handleChange = (event) => {
@@ -39,8 +39,21 @@ const FilterGenres = ({ value, genres, onChange }) => {
         value={state.selectValue}
         onChange={handleChange}
         onClose={handleClose}
-        input={<OutlinedInput id="genres" />}
+        input={<OutlinedInput id="genres" labelWidth={50} />}
+        renderValue={(selected) => {
+          if (selected.length === 1) {
+            return <em>Select genres...</em>;
+          }
+
+          const list = selected.filter(select => select !== '')
+            .map(select => (
+              state.options.find(option => option.value === select).label
+            ));
+
+          return list.join(', ');
+        }}
       >
+        <MenuItem value="" disabled>Select genres...</MenuItem>
         {state.options.map(option => (
           <MenuItem key={option.label} value={option.value}>
             {option.label}
@@ -50,5 +63,6 @@ const FilterGenres = ({ value, genres, onChange }) => {
     </FormControl>
   );
 };
+
 
 export default FilterGenres;

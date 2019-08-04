@@ -14,8 +14,11 @@ import FilterGenres from '../../atoms/FilterGenres';
 
 const useStyles = makeStyles(theme => ({
   'filter-wrapper': {
+    maxWidth: '1150px',
+    margin: '0 auto',
+
     '& form': {
-      margin: `${theme.spacing(5)}px 0`,
+      margin: `${theme.spacing(5)}px 0 ${theme.spacing(2)}px`,
     },
   },
 }));
@@ -102,7 +105,7 @@ const Filter = ({
             onChange={handleChange}
             value={sort_by}
             name="sort_by"
-            input={<OutlinedInput labelWidth="53" id="shortby" />}
+            input={<OutlinedInput labelWidth={53} id="shortby" />}
           >
             <MenuItem value="popularity.desc">Popularity Descending</MenuItem>
             <MenuItem value="popularity.asc">Popularity Ascending</MenuItem>
@@ -124,7 +127,7 @@ const Filter = ({
             // eslint-disable-next-line react/destructuring-assignment
             value={state[release_year[0]]}
             name={release_year[0]}
-            input={<OutlinedInput labelWidth="53" id="year" />}
+            input={<OutlinedInput labelWidth={35} id="year" />}
           >
             <MenuItem value="null">None</MenuItem>
             {yearOptions}
@@ -136,17 +139,17 @@ const Filter = ({
           value={with_genres}
         />
         <FormControl className="filter-element-wrapper" variant="outlined">
-          <InputLabel labelWidth="200">Average vote</InputLabel>
+          <InputLabel>Average vote</InputLabel>
           <Select
             name="vote_average.gte"
             placeholder="select"
             onChange={handleChange}
             // eslint-disable-next-line react/destructuring-assignment
             value={state['vote_average.gte']}
-            input={<OutlinedInput labelWidth="200" id="vote" />}
+            input={<OutlinedInput labelWidth={93} id="vote" />}
             fullWidth
           >
-            <MenuItem value="">Greater than...</MenuItem>
+            <MenuItem value="0">Greater than...</MenuItem>
             <MenuItem value="9">9</MenuItem>
             <MenuItem value="8">8</MenuItem>
             <MenuItem value="7">7</MenuItem>
@@ -159,7 +162,10 @@ const Filter = ({
           </Select>
         </FormControl>
       </form>
-
+      <MyPager
+        page={page}
+        handlePageSelect={handlePageSelect}
+      />
       {children}
 
       <MyPager
