@@ -8,6 +8,7 @@ import PageTransition from '../../atoms/PageTransition';
 
 const Shows = ({
   media,
+  resultMedia,
   genres,
   loading,
   genresLoading,
@@ -28,7 +29,7 @@ const Shows = ({
       >
         <Result
           query={query}
-          media={media}
+          resultMedia={resultMedia}
         />
       </Filter>
     </PageTransition>

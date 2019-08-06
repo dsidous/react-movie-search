@@ -4,8 +4,6 @@ import withTvGenres from '../../queries/withTvGenres';
 import Shows from '../../templates/Shows';
 
 export default compose(
-  withProps(() => {
-    return { media: 'tvs' };
-  }),
+  withProps(() => ({ media: 'tvs', resultMedia: 'tv' })),
   withTvGenres(),
 )(Shows);

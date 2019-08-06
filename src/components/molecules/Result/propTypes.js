@@ -3,7 +3,7 @@ import { array, object, string } from 'prop-types';
 export const propTypes = {
   config: object.isRequired,
   shows: array.isRequired,
-  media: string.isRequired,
+  resultMedia: string.isRequired,
 };
 
 export const defaultProps = {

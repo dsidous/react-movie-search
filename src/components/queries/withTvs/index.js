@@ -16,7 +16,6 @@ const withTvs = () => graphql(query, {
   }) => ({
     loading,
     shows: tvs,
-    media: 'tvs',
   }),
 });
 

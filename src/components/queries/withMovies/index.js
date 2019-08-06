@@ -16,7 +16,6 @@ const withMovies = () => graphql(query, {
   }) => ({
     loading,
     shows: movies,
-    media: 'movies',
   }),
 });
 

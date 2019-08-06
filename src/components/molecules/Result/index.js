@@ -18,7 +18,7 @@ const Result = ({
       poster_sizes,
     },
   },
-  media,
+  resultMedia,
   loading,
   configLoading,
 }) => {
@@ -35,7 +35,7 @@ const Result = ({
           key={movie.id}
           movie={movie}
           img_base_path={img_base_path}
-          media={media}
+          media={resultMedia}
         />
       ))}
     </ul>
@@ -45,9 +45,8 @@ const Result = ({
 Result.propTypes = propTypes;
 
 const enhancedComponent = compose(
-  withProps(({ media, query }) => ({ query, resultMedia: media })),
   branch(
-    props => props.media === 'movies',
+    props => props.resultMedia === 'movie',
     withMovies(),
     withTvs(),
   ),
