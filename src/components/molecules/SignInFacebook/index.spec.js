@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { Button } from 'react-bootstrap';
 import { BrowserRouter } from 'react-router-dom';
 
 import { SignInFacebook } from '.';

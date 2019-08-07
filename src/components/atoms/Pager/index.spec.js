@@ -1,7 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Pager } from 'react-bootstrap';
-
 
 import MyPager from '.';
 

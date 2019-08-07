@@ -255,8 +255,7 @@ div.filter-element-wrapper {
     grid-gap: 40px;
     grid-area: result;
     grid-template-columns: repeat(2, minmax(200px, 1fr));
-    margin: 0 auto;
-    padding: 0 20px; }
+    margin: 0 auto; }
   .movies-list__element {
     grid-column-gap: 10px;
     grid-template-rows: 40px 40px;

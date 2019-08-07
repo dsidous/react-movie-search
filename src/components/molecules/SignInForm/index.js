@@ -1,11 +1,29 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Alert, Button } from 'react-bootstrap';
+
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import { blue, grey } from '@material-ui/core/colors';
 
 import { propTypes } from './propTypes';
-import FieldGroup from '../../atoms/FieldGroup';
 import { SignUpLink } from '../SignUpForm';
 import { auth } from '../../../firebase';
+
+const ColorButton = withStyles(theme => ({
+  root: {
+    color: theme.palette.getContrastText(blue[800]),
+    backgroundColor: blue[800],
+    '&:hover': {
+      backgroundColor: blue[900],
+    },
+  },
+  disabled: {
+    color: theme.palette.getContrastText(grey[300]),
+    backgroundColor: grey[300],
+  },
+}))(Button);
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value,
@@ -45,31 +63,43 @@ class SignInForm extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <h3>Or Sign in</h3>
+        <Typography
+          variant="h5"
+          style={{ margin: '28px 0 0' }}
+        >
+          Or Sign in
+        </Typography>
 
-        {error && <Alert bsStyle="danger">{error.message}</Alert>}
-        <FieldGroup
+        {error && error.message}
+        <TextField
           id="email"
           type="email"
           label="Email address"
-          placeholder="Enter email"
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
+          margin="normal"
+          variant="outlined"
+          fullWidth
+          required
         />
-        <FieldGroup
+        <TextField
           id="passwordOne"
           label="Password"
           type="password"
           value={password}
           onChange={event => this.setState(byPropKey('password', event.target.value))}
+          margin="normal"
+          variant="outlined"
+          fullWidth
+          required
         />
-        <Button
+        <ColorButton
+          fullWidth
           type="submit"
           disabled={isInvalid}
-          className="btn btn-primary btn-block"
         >
           Sign In
-        </Button>
+        </ColorButton>
         <SignUpLink />
       </form>
     );

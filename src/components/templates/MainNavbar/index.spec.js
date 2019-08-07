@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { BrowserRouter } from 'react-router-dom';
 
-import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import MainNavbar from '.';
 
 const mockProps = {

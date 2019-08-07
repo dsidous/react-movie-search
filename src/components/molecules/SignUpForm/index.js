@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Alert, Button } from 'react-bootstrap';
+
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import { blue, grey } from '@material-ui/core/colors';
 
 import { propTypes } from './propTypes';
-import FieldGroup from '../../atoms/FieldGroup';
 import { auth, db } from '../../../firebase';
+
+const ColorButton = withStyles(theme => ({
+  root: {
+    color: theme.palette.getContrastText(blue[800]),
+    backgroundColor: blue[800],
+    '&:hover': {
+      backgroundColor: blue[900],
+    },
+  },
+  disabled: {
+    color: theme.palette.getContrastText(grey[300]),
+    backgroundColor: grey[300],
+  },
+}))(Button);
 
 const INITIAL_STATE = {
   username: '',
@@ -54,50 +72,69 @@ class SignUpForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
 
-        <h3>Or Sign up for an account</h3>
+        <Typography
+          variant="h5"
+          style={{ margin: '28px 0 0' }}
+        >
+          Or Sign up for an account
+        </Typography>
 
         {error && (
-          <Alert bsStyle="danger">
-            {error.message}
-          </Alert>
+          error.message
         )}
-        <FieldGroup
+        <TextField
           id="username"
-          type="text"
           label="Username"
-          placeholder="Enter username"
           value={username}
           onChange={event => this.setState(byPropKey('username', event.target.value))}
+          margin="normal"
+          variant="outlined"
+          fullWidth
+          required
         />
-        <FieldGroup
+
+        <TextField
           id="email"
           type="email"
           label="Email address"
           placeholder="Enter email"
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
+          margin="normal"
+          variant="outlined"
+          fullWidth
+          required
         />
-        <FieldGroup
+        <TextField
           id="passwordOne"
           label="Password"
           type="password"
           value={passwordOne}
           onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
+          margin="normal"
+          variant="outlined"
+          fullWidth
+          required
         />
-        <FieldGroup
+        <TextField
           id="passwordTwo"
           label="Confirm password"
           type="password"
           value={passwordTwo}
           onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
+          margin="normal"
+          variant="outlined"
+          fullWidth
+          required
         />
-        <Button
+        <ColorButton
+          fullWidth
           type="submit"
           disabled={isInvalid}
           className="btn btn-primary btn-block"
         >
           Sign Up
-        </Button>
+        </ColorButton>
 
       </form>
     );

@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import { blue } from '@material-ui/core/colors';
 
 import { auth } from '../../../firebase';
 import { propTypes } from './propTypes';
+
+const ColorButton = withStyles(theme => ({
+  root: {
+    color: theme.palette.getContrastText(blue[500]),
+    backgroundColor: blue[800],
+    '&:hover': {
+      backgroundColor: blue[900],
+    },
+  },
+}))(Button);
 
 export class SignInFacebook extends Component {
   static propTypes = propTypes;
@@ -20,13 +33,14 @@ export class SignInFacebook extends Component {
   render() {
     return (
       <div>
-        <Button
+        <ColorButton
+          variant="contained"
+          fullWidth
           type="submit"
-          className="btn btn-primary btn-block"
           onClick={this.signInWithFB}
         >
           Log in with Facebook
-        </Button>
+        </ColorButton>
       </div>
     );
   }
