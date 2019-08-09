@@ -64,10 +64,11 @@ class SignInForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <Typography
-          variant="h5"
+          align="center"
+          variant="h6"
           style={{ margin: '28px 0 0' }}
         >
-          Or Sign in
+          Or
         </Typography>
 
         {error && error.message}
@@ -81,6 +82,8 @@ class SignInForm extends Component {
           variant="outlined"
           fullWidth
           required
+          autoFocus
+          autoComplete="email"
         />
         <TextField
           id="passwordOne"
@@ -98,7 +101,7 @@ class SignInForm extends Component {
           type="submit"
           disabled={isInvalid}
         >
-          Sign In
+          Log In
         </ColorButton>
         <SignUpLink />
       </form>

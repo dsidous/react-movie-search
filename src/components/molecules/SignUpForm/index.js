@@ -73,10 +73,11 @@ class SignUpForm extends Component {
       <form onSubmit={this.onSubmit}>
 
         <Typography
-          variant="h5"
+          align="center"
+          variant="h6"
           style={{ margin: '28px 0 0' }}
         >
-          Or Sign up for an account
+          OR
         </Typography>
 
         {error && (
@@ -133,7 +134,7 @@ class SignUpForm extends Component {
           disabled={isInvalid}
           className="btn btn-primary btn-block"
         >
-          Sign Up
+          Create account
         </ColorButton>
 
       </form>

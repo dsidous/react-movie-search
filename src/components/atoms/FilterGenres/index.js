@@ -42,7 +42,7 @@ const FilterGenres = ({ value, genres, onChange }) => {
         input={<OutlinedInput id="genres" labelWidth={50} />}
         renderValue={(selected) => {
           if (selected.length === 1) {
-            return <em>Select genres...</em>;
+            return <span>Select genres...</span>;
           }
 
           const list = selected.filter(select => select !== '')

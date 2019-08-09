@@ -32,16 +32,13 @@ export class SignInFacebook extends Component {
 
   render() {
     return (
-      <div>
-        <ColorButton
-          variant="contained"
-          fullWidth
-          type="submit"
-          onClick={this.signInWithFB}
-        >
-          Log in with Facebook
-        </ColorButton>
-      </div>
+      <ColorButton
+        fullWidth
+        type="submit"
+        onClick={this.signInWithFB}
+      >
+        Log in with Facebook
+      </ColorButton>
     );
   }
 }
