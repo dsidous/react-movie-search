@@ -3,7 +3,7 @@ import { query } from './query';
 
 const withGenres = () => graphql(query, {
   options: () => ({
-    fetchPolicy: 'cache-and-network',
+    fetchPolicy: 'cache-first',
   }),
   props: ({
     data: {

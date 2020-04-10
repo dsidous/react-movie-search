@@ -3,7 +3,7 @@ import { query } from './query';
 
 const withTopPeople = () => graphql(query, {
   options: props => ({
-    fetchPolicy: 'cache-and-network',
+    fetchPolicy: 'cache-first',
     variables: {
       query: props.query,
     },
