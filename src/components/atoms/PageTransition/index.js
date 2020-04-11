@@ -1,27 +1,29 @@
-import React, { Component } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import React, { useState, useEffect } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 import { propTypes } from './propTypes';
 
-class PageTransition extends Component {
-  static options = {
-    transitionName: 'fade',
-    transitionAppear: true,
-    transitionAppearTimeout: 1500,
-    transitionEnterTimeout: 1500,
-    transitionLeave: false,
-  };
+const PageTransition = props => {
+  const { children } = props;
+  const [loaded, setLoaded ] = useState(false);
 
-  render() {
-    const { children } = this.props;
+  useEffect(() => {
+    setLoaded(true);
+  },[]);
 
-    return (
-      <ReactCSSTransitionGroup {...PageTransition.options}>
+  return (
+    <CSSTransition
+      in={loaded}
+      timeout={1000}
+      classNames="fade"
+      onEntered={() => console.log('Enter')}
+    >
+      <div>
         {children}
-      </ReactCSSTransitionGroup>
-    );
-  }
-}
+      </div>
+    </CSSTransition>
+  );
+};
 
 PageTransition.propTypes = propTypes;
 

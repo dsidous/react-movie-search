@@ -917,9 +917,6 @@ li.movie-genres:last-child:after {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.bootstrap-typeahead {
-  margin: 0 30px 0 0; }
-
 .movie-search-img-thumb {
   height: 50px;
   margin-left: -10px;
