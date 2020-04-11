@@ -16,7 +16,6 @@ const PageTransition = props => {
       in={loaded}
       timeout={1000}
       classNames="fade"
-      onEntered={() => console.log('Enter')}
     >
       <div>
         {children}

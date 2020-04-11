@@ -555,14 +555,16 @@ li.movie-genres:last-child:after {
 .person-info-wrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-areas: "poster info" "bio bio";
+  grid-template-areas: "poster poster" "info info" "bio bio";
   grid-gap: 10px; }
 
 .person-poster {
   grid-area: poster; }
   .person-poster img {
     border-radius: 4px;
-    box-shadow: 0 0 20px -5px #000; }
+    box-shadow: 0 0 20px -5px #000;
+    height: auto;
+    max-width: 100%; }
   .person-poster a {
     display: block;
     color: #000;
