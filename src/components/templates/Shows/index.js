@@ -36,4 +36,6 @@ const Shows = ({
   );
 };
 
+Shows.propTypes = propTypes;
+
 export default Shows;

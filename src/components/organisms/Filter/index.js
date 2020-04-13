@@ -6,22 +6,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
-import { makeStyles } from '@material-ui/core/styles';
 
 import { propTypes } from './propTypes';
 import MyPager from '../../atoms/Pager';
 import FilterGenres from '../../atoms/FilterGenres';
-
-const useStyles = makeStyles(theme => ({
-  'filter-wrapper': {
-    maxWidth: '1150px',
-    margin: '0 auto',
-
-    '& form': {
-      margin: `${theme.spacing(5)}px 0 ${theme.spacing(2)}px`,
-    },
-  },
-}));
+import useStyles from './styles';
 
 const objectToQueryStr = paramsObj => (
   Object.keys(paramsObj)
@@ -42,7 +31,7 @@ const Filter = ({
   media,
   genres,
   children,
-  queryUpdate
+  queryUpdate,
 }) => {
   const classes = useStyles();
   const year = new Date().getFullYear();
@@ -175,5 +164,7 @@ const Filter = ({
     </div>
   );
 };
+
+Filter.propTypes = propTypes;
 
 export default Filter;

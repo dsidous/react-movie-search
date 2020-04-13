@@ -22,7 +22,7 @@ import FirebaseAuthProvider from '../firebase/FirebaseAuthProvider';
 
 const routes = [
   { path: '/movie/:movieId', component: Movie },
-  { path: '/person/:personId' , component: Person },
+  { path: '/person/:personId', component: Person },
   { path: '/person/:personId/images', component: PersonImages },
   { path: '/movie/:movieId/crew', component: MovieCastCrew },
   { path: '/person', component: TopPeople },
@@ -31,7 +31,7 @@ const routes = [
   { path: '/login', component: Login },
   { path: 'signup', component: SignUp },
   { path: '/watchlist', component: WatchList },
-  { path: '/tvs', component: Tvs},
+  { path: '/tvs', component: Tvs },
   { path: '/tv/:tvId', component: Tv },
   { path: '/tv/:tvId/crew', component: TvCastCrew },
   { path: '/tv/:tvId/seasons', component: Seasons },
@@ -40,7 +40,7 @@ const routes = [
 
 const MatchWithMainLayout = ({ exact, path, component: Component }) => (
   <Route
-    exact={exact}
+    exact
     path={path}
     render={props => (
       <MainLayout>
@@ -54,14 +54,13 @@ const Root = () => (
   <FirebaseAuthProvider>
     <Router>
       <ScrollToTop>
-          {routes.map(({ path, component }) => (
-            <MatchWithMainLayout
-              key={path}
-              exact
-              path={path}
-              component={component}
-            />
-          ))}
+        {routes.map(({ path, component }) => (
+          <MatchWithMainLayout
+            key={path}
+            path={path}
+            component={component}
+          />
+        ))}
       </ScrollToTop>
     </Router>
   </FirebaseAuthProvider>

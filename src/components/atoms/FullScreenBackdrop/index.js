@@ -12,9 +12,10 @@ const FullScreenBackdrop = ({ backdrops }) => {
     fade: true,
     autoplay: true,
     autoplaySpeed: 5000,
-    speed: 1000,
     adaptiveHeight: true,
     pauseOnHover: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
 
   return (
@@ -23,14 +24,15 @@ const FullScreenBackdrop = ({ backdrops }) => {
         && (
           <Slider {...settings}>
             {backdrops.map(backdrop => (
-              <div
-                className="fullscreen-backdrop-slide"
-                key={backdrop}
-                style={{
-                  height: window.innerHeight,
-                  backgroundImage: `url(${backdrop})`,
-                }}
-              />
+              <div key={backdrop}>
+                <div
+                  className="fullscreen-backdrop-slide"
+                  style={{
+                    height: window.innerHeight,
+                    backgroundImage: `url(${backdrop})`,
+                  }}
+                />
+              </div>
             ))}
           </Slider>
         )

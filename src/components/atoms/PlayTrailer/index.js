@@ -1,37 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import ModalVideo from 'react-modal-video';
 import { propTypes } from './propTypes';
 
 import 'react-modal-video/css/modal-video.min.css';
 
-class PlayTrailer extends Component {
-  static propTypes = propTypes;
+const PlayTrailer = ({ video: { key } }) => {
+  const [isOpen, setIsopen] = useState(false);
 
-  state = {
-    isOpen: false,
-  }
+  const openModal = () => {
+    setIsopen(true);
+  };
 
-  openModal = () => {
-    this.setState({ isOpen: true });
-  }
-
-  render() {
-    const { isOpen } = this.state;
-    const { video: { key } } = this.props;
-    return (
-      <div className="play-trailer-wrapper">
-        <ModalVideo
-          channel="youtube"
-          isOpen={isOpen}
-          videoId={key}
-          onClose={() => this.setState({ isOpen: false })}
+  return (
+    <div className="play-trailer-wrapper">
+      <ModalVideo
+        channel="youtube"
+        isOpen={isOpen}
+        videoId={key}
+        onClose={() => setIsopen(false)}
         />
-        <button type="button" className="play-trailer" onClick={this.openModal}>
-          <span className="fa fa-angle-right"> Watch Trailer </span>
-        </button>
-      </div>
-    );
-  }
-}
+      <button type="button" className="play-trailer" onClick={openModal}>
+        <span>
+          <i className="fa fa-angle-right" />
+          {' Watch Trailer'}
+        </span>
+      </button>
+    </div>
+  );
+};
+
+PlayTrailer.propTypes = propTypes;
 
 export default PlayTrailer;

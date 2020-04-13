@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react';
-import { compose, withProps, branch } from 'recompose';
+import { compose, branch } from 'recompose';
 
 import withMovies from '../../queries/withMovies';
 import withTvs from '../../queries/withTvs';

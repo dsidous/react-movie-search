@@ -5,10 +5,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import IconButton from '@material-ui/core/IconButton';
+import Divider from '@material-ui/core/Divider';
 
 import SignOutButton from '../SignOut';
 
-const UserMenuLoggedIn = ({ classes: { menuItem, menuListUser }, username }) => {
+const UserMenuLoggedIn = ({ username }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   return (
@@ -41,16 +42,13 @@ const UserMenuLoggedIn = ({ classes: { menuItem, menuListUser }, username }) => 
         <MenuItem disabled>
           {username}
         </MenuItem>
-        <MenuItem href="#" disabled>
-          view profile
-        </MenuItem>
-        <MenuItem divider />
+        <Divider />
         <MenuItem>
           <Link to="/watchlist">
             Watchlist
           </Link>
         </MenuItem>
-        <MenuItem divider />
+        <Divider />
         <MenuItem>
           <SignOutButton />
         </MenuItem>

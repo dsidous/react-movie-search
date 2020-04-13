@@ -1,59 +1,47 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 
-import { propTypes, contextTypes } from './propTypes';
+import { propTypes } from './propTypes';
 import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition/index';
 import SEO from '../../atoms/SEO';
 import TopPeopleProfile from '../../organisms/TopPeople';
 
-export default class TopPeople extends Component {
-  static propTypes = propTypes;
+const TopPeople = ({ loading, toppeople }) => {
+  const location = useLocation();
+  const search = new URLSearchParams(location.search);
+  const actPage = (parseInt(search.get('page'), 10)) || 1;
 
-  static contextTypes = contextTypes;
+  const history = useHistory();
+  const [page, setPage] = useState(actPage);
 
-  constructor(props) {
-    super(props);
-
-    const params = new URLSearchParams(props.location.search);
-    const page = parseInt(params.get('page'), 10);
-
-    this.state = {
-      page: page || 1,
-    };
-  }
-
-  handlePageSelect = (e) => {
-    const { router } = this.context;
+  const handlePageSelect = e => {
     if (e > 0) {
-      this.setState({ page: e }, () => {
-        const { page } = this.state;
-        router.history.push(`/person?page=${page}`);
-      });
+      setPage(e);
+      history.push(`/person?page=${e}`);
     }
   };
 
-  render() {
-    const { loading } = this.props;
-
-    if (loading) {
-      return <Spinner />;
-    }
-
-    const { toppeople } = this.props;
-    const { page } = this.state;
-    return (
-      <PageTransition>
-        <SEO title="Popular people" />
-        <div>
-          <PageTransition>
-            <TopPeopleProfile
-              page={page}
-              toppeople={toppeople}
-              handlePageSelect={this.handlePageSelect}
-            />
-          </PageTransition>
-        </div>
-      </PageTransition>
-    );
+  if (loading) {
+    return <Spinner />;
   }
-}
+
+  return (
+    <PageTransition>
+      <SEO title="Popular people" />
+      <div>
+        <PageTransition>
+          <TopPeopleProfile
+            page={page}
+            toppeople={toppeople}
+            handlePageSelect={handlePageSelect}
+            />
+        </PageTransition>
+      </div>
+    </PageTransition>
+  );
+};
+
+TopPeople.propTypes = propTypes;
+
+export default TopPeople;
