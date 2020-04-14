@@ -18,7 +18,7 @@ const TopRatedMovies = ({ popular }) => {
   const [active, setActive] = useState(-1);
   const [topMovies, setTopMovies] = useState(popular.slice(0, 5));
 
-  const randomList = (arrayMax) => {
+  const randomList = arrayMax => {
     const nbrArray = Array.from(Array(arrayMax), (_, x) => x);
     const rndList = [];
     // eslint-disable-next-line no-plusplus
@@ -30,7 +30,7 @@ const TopRatedMovies = ({ popular }) => {
     return rndList;
   };
 
-  const filterTopMovies = (genre) => {
+  const filterTopMovies = genre => {
     let movies = genre !== -1
       ? popular.filter(movie => movie.genre_ids.includes(genre))
       : popular;
@@ -45,7 +45,7 @@ const TopRatedMovies = ({ popular }) => {
     setTopMovies(() => movies);
   };
 
-  const selectGenre = (topGenreId) => {
+  const selectGenre = topGenreId => {
     setActive(() => topGenreId);
     filterTopMovies(topGenreId);
   };

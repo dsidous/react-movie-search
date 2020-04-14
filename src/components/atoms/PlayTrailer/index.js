@@ -18,7 +18,7 @@ const PlayTrailer = ({ video: { key } }) => {
         isOpen={isOpen}
         videoId={key}
         onClose={() => setIsopen(false)}
-        />
+      />
       <button type="button" className="play-trailer" onClick={openModal}>
         <span>
           <i className="fa fa-angle-right" />

@@ -63,15 +63,15 @@ const Filter = ({
       </MenuItem>
     ));
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const val = e.target.value;
     const option = e.target.name;
     setState({ ...state, [option]: val, page: 1 });
   };
 
-  const handleGenresChange = genres => setState({ ...state, with_genres: genres, page: 1 });
+  const handleGenresChange = g => setState({ ...state, with_genres: g, page: 1 });
 
-  const handlePageSelect = (page) => {
+  const handlePageSelect = page => {
     if (page > 0) {
       setState({ ...state, page });
     }

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -35,78 +35,74 @@ const INITIAL_STATE = {
   error: null,
 };
 
-class SignInForm extends Component {
-  static propTypes = propTypes;
+const SignInForm = () => {
+  const [state, setState] = useState({ ...INITIAL_STATE });
+  const history = useHistory();
 
-  state = { ...INITIAL_STATE };
-
-  onSubmit = (event) => {
-    const { email, password } = this.state;
-
-    const { history } = this.props;
+  const onSubmit = event => {
+    const { email, password } = state;
 
     auth
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
-        this.setState(() => ({ ...INITIAL_STATE }));
+        setState(() => ({ ...INITIAL_STATE }));
         history.push('/');
       })
-      .catch(error => this.setState(byPropKey('error', error)));
+      .catch(error => setState(byPropKey('error', error)));
 
     event.preventDefault();
   };
 
-  render() {
-    const { email, password, error } = this.state;
+  const { email, password, error } = state;
+  const isInvalid = password === '' || email === '';
 
-    const isInvalid = password === '' || email === '';
+  return (
+    <form onSubmit={onSubmit}>
+      <Typography
+        align="center"
+        variant="h6"
+        style={{ margin: '28px 0 0' }}
+      >
+        Or
+      </Typography>
 
-    return (
-      <form onSubmit={this.onSubmit}>
-        <Typography
-          align="center"
-          variant="h6"
-          style={{ margin: '28px 0 0' }}
-        >
-          Or
-        </Typography>
+      {error && error.message}
+      <TextField
+        id="email"
+        type="email"
+        label="Email address"
+        value={email}
+        onChange={event => setState(s => ({ ...s, email: event.target.value }))}
+        margin="normal"
+        variant="outlined"
+        fullWidth
+        required
+        autoFocus
+        autoComplete="email"
+      />
+      <TextField
+        id="passwordOne"
+        label="Password"
+        type="password"
+        value={password}
+        onChange={event => setState(s => ({ ...s, password: event.target.value }))}
+        margin="normal"
+        variant="outlined"
+        fullWidth
+        required
+      />
+      <ColorButton
+        fullWidth
+        type="submit"
+        disabled={isInvalid}
+      >
+        Log In
+      </ColorButton>
+      <SignUpLink />
+    </form>
+  );
+};
 
-        {error && error.message}
-        <TextField
-          id="email"
-          type="email"
-          label="Email address"
-          value={email}
-          onChange={event => this.setState(byPropKey('email', event.target.value))}
-          margin="normal"
-          variant="outlined"
-          fullWidth
-          required
-          autoFocus
-          autoComplete="email"
-        />
-        <TextField
-          id="passwordOne"
-          label="Password"
-          type="password"
-          value={password}
-          onChange={event => this.setState(byPropKey('password', event.target.value))}
-          margin="normal"
-          variant="outlined"
-          fullWidth
-          required
-        />
-        <ColorButton
-          fullWidth
-          type="submit"
-          disabled={isInvalid}
-        >
-          Log In
-        </ColorButton>
-        <SignUpLink />
-      </form>
-    );
-  }
-}
+SignInForm.propTypes = propTypes;
 
-export default withRouter(SignInForm);
+export default SignInForm;

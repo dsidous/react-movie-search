@@ -6,7 +6,7 @@ import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition/index';
 import PersonProfile from '../../organisms/PersonProfile';
 
-const Person = (props) => {
+const Person = props => {
   const { loading } = props;
 
   if (loading) {

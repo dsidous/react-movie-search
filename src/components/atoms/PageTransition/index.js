@@ -5,11 +5,11 @@ import { propTypes } from './propTypes';
 
 const PageTransition = props => {
   const { children } = props;
-  const [loaded, setLoaded ] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     setLoaded(true);
-  },[]);
+  }, []);
 
   return (
     <CSSTransition

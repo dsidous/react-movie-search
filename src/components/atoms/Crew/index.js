@@ -14,8 +14,7 @@ const Crew = ({ crew }) => (
           </small>
           <small>{cr.name}</small>
         </div>
-      ))
-      }
+      ))}
     </div>
   </div>
 );

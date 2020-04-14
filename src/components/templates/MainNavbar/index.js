@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const MainNavbar = (props) => {
+const MainNavbar = props => {
   const classes = useStyles();
   const { config } = props;
   const [mobileOpen, setMobileOpen] = useState(false);

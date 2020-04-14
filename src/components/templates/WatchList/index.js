@@ -9,7 +9,7 @@ import MovieCard from '../../molecules/MovieCard';
 import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition';
 
-const WatchList = (props) => {
+const WatchList = props => {
   const { configLoading } = props;
   if (configLoading) {
     return <Spinner />;
@@ -26,7 +26,7 @@ const WatchList = (props) => {
             {_.size(user.watchlist) > 0
               ? (
                 <ul className="movies-list movies-list--watchlist">
-                  {_.map(user.watchlist, (movie) => {
+                  {_.map(user.watchlist, movie => {
                     const media = movie.__typename === 'Tv_detailed'
                       || movie.__typename === 'Tv' ? 'tv' : 'movie';
                     return (
@@ -44,8 +44,7 @@ const WatchList = (props) => {
                 <div>
                   No movie or tv show added to your watchlist yet.
                 </div>
-              )
-            }
+              )}
             {!authUser && (
               <div>
                 Please log in or register for manage your watchlist

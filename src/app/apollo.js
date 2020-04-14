@@ -8,9 +8,10 @@ const httpLink = new BatchHttpLink({ uri: process.env.REACT_APP_GQL_URL });
 const apikey = process.env.REACT_APP_API_KEY;
 
 const authLink = setContext((_, { headers }) => ({
-  headers: Object.assign({}, headers, {
+  headers: {
+    ...headers,
     apikey,
-  }),
+  },
 }));
 
 const link = ApolloLink.from([

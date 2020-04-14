@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -18,29 +18,28 @@ const ColorButton = withStyles(theme => ({
   },
 }))(Button);
 
-export class SignInFacebook extends Component {
-  static propTypes = propTypes;
+const SignInFacebook = () => {
+  const history = useHistory();
 
-  signInWithFB = () => {
-    const { history } = this.props;
-
+  const signInWithFB = () => {
     auth.doSignInWithFacebook()
       .then(() => history.push('/'))
       // eslint-disable-next-line no-console
       .catch(err => console.log(err));
-  }
+  };
 
-  render() {
-    return (
-      <ColorButton
-        fullWidth
-        type="submit"
-        onClick={this.signInWithFB}
-      >
-        Log in with Facebook
-      </ColorButton>
-    );
-  }
-}
+  return (
+    <ColorButton
+      fullWidth
+      type="submit"
+      onClick={signInWithFB}
+    >
+      Log in with Facebook
+    </ColorButton>
+  );
+};
 
-export default withRouter(SignInFacebook);
+
+SignInFacebook.propTypes = propTypes;
+
+export default SignInFacebook;

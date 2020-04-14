@@ -35,7 +35,7 @@ const TopPeople = ({ loading, toppeople }) => {
             page={page}
             toppeople={toppeople}
             handlePageSelect={handlePageSelect}
-            />
+          />
         </PageTransition>
       </div>
     </PageTransition>

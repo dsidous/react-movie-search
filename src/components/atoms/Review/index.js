@@ -25,6 +25,7 @@ const Review = ({ review: { id, author, content } }) => (
       </span>
     </div>
     {content.length > 500 && (
+      // eslint-disable-next-line jsx-a11y/label-has-associated-control
       <label htmlFor={id} className="review-content__more-label" />
     )}
   </div>

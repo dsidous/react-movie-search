@@ -35,8 +35,7 @@ const FullScreenBackdrop = ({ backdrops }) => {
               </div>
             ))}
           </Slider>
-        )
-      }
+        )}
     </div>
   );
 };

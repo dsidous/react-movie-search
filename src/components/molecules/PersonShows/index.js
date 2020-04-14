@@ -42,8 +42,7 @@ const PersonShows = ({ shows: { cast } }) => {
             {releaseDate !== ''
               && releaseDate !== undefined
               ? releaseDate.substr(0, 4)
-              : ''
-            }
+              : ''}
           </p>
           <p className="person-movie__title">
             {title}

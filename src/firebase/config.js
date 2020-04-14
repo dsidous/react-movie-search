@@ -4,7 +4,7 @@ const config = {
   databaseURL: `https://${process.env.REACT_APP_FIREBASE_PROJECT_ID}.firebaseio.com`,
   projectId: `${process.env.REACT_APP_FIREBASE_PROJECT_ID}`,
   storageBucket: `${process.env.REACT_APP_FIREBASE_PROJECT_ID}.appspot.com`,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID
+  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
 };
 
 export default config;

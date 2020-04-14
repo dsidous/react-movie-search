@@ -29,7 +29,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/movies', component: Movies },
   { path: '/login', component: Login },
-  { path: 'signup', component: SignUp },
+  { path: '/signup', component: SignUp },
   { path: '/watchlist', component: WatchList },
   { path: '/tvs', component: Tvs },
   { path: '/tv/:tvId', component: Tv },
@@ -38,7 +38,7 @@ const routes = [
   { path: '/tv/:tvId/season/:season', component: Season },
 ];
 
-const MatchWithMainLayout = ({ exact, path, component: Component }) => (
+const MatchWithMainLayout = ({ path, component: Component }) => (
   <Route
     exact
     path={path}

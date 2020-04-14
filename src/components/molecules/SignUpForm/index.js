@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -32,117 +32,116 @@ const INITIAL_STATE = {
   error: null,
 };
 
-const byPropKey = (propertyName, value) => () => ({
+const byPropKey = (propertyName, value, state) => () => ({
+  ...state,
   [propertyName]: value,
 });
 
-class SignUpForm extends Component {
-  static propTypes = propTypes;
+const SignUpForm = () => {
+  const [state, setState] = useState({ ...INITIAL_STATE });
+  const history = useHistory();
 
-  state = { ...INITIAL_STATE };
+  const onSubmit = event => {
+    const { username, email, passwordOne } = state;
 
-  onSubmit = (event) => {
-    const { username, email, passwordOne } = this.state;
-    const { history } = this.props;
     auth
       .doCreateUserWithEmailAndPassword(email, passwordOne)
-      .then((authUser) => {
+      .then(authUser => {
         db.doCreateUser(authUser.uid, username, email)
           .then(() => {
-            this.setState(() => ({ ...INITIAL_STATE }));
+            setState(() => ({ ...INITIAL_STATE }));
             history.push('/');
-          })
-          .catch(error => this.setState(byPropKey('error', error)));
+          });
       })
-      .catch(error => this.setState(byPropKey('error', error)));
+      .catch(error => setState(byPropKey('error', error)));
 
     event.preventDefault();
   };
 
-  render() {
-    const {
-      username, email, passwordOne, passwordTwo, error,
-    } = this.state;
+  const {
+    username, email, passwordOne, passwordTwo, error,
+  } = state;
 
-    const isInvalid = passwordOne !== passwordTwo
-      || passwordOne === ''
-      || email === ''
-      || username === '';
+  const isInvalid = passwordOne !== passwordTwo
+    || passwordOne === ''
+    || email === ''
+    || username === '';
 
-    return (
-      <form onSubmit={this.onSubmit}>
+  return (
+    <form onSubmit={onSubmit}>
 
-        <Typography
-          align="center"
-          variant="h6"
-          style={{ margin: '28px 0 0' }}
-        >
-          OR
-        </Typography>
+      <Typography
+        align="center"
+        variant="h6"
+        style={{ margin: '28px 0 0' }}
+      >
+        OR
+      </Typography>
 
-        {error && (
-          error.message
-        )}
-        <TextField
-          id="username"
-          label="Username"
-          value={username}
-          onChange={event => this.setState(byPropKey('username', event.target.value))}
-          margin="normal"
-          variant="outlined"
-          fullWidth
-          required
-        />
+      {error && (
+        error.message
+      )}
+      <TextField
+        id="username"
+        label="Username"
+        value={username}
+        onChange={event => setState(byPropKey('username', event.target.value, state))}
+        margin="normal"
+        variant="outlined"
+        fullWidth
+        required
+      />
 
-        <TextField
-          id="email"
-          type="email"
-          label="Email address"
-          placeholder="Enter email"
-          value={email}
-          onChange={event => this.setState(byPropKey('email', event.target.value))}
-          margin="normal"
-          variant="outlined"
-          fullWidth
-          required
-        />
-        <TextField
-          id="passwordOne"
-          label="Password"
-          type="password"
-          value={passwordOne}
-          onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
-          margin="normal"
-          variant="outlined"
-          fullWidth
-          required
-        />
-        <TextField
-          id="passwordTwo"
-          label="Confirm password"
-          type="password"
-          value={passwordTwo}
-          onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
-          margin="normal"
-          variant="outlined"
-          fullWidth
-          required
-        />
-        <ColorButton
-          fullWidth
-          type="submit"
-          disabled={isInvalid}
-          className="btn btn-primary btn-block"
-        >
-          Create account
-        </ColorButton>
+      <TextField
+        id="email"
+        type="email"
+        label="Email address"
+        placeholder="Enter email"
+        value={email}
+        onChange={event => setState(byPropKey('email', event.target.value, state))}
+        margin="normal"
+        variant="outlined"
+        fullWidth
+        required
+      />
+      <TextField
+        id="passwordOne"
+        label="Password"
+        type="password"
+        value={passwordOne}
+        onChange={event => setState(byPropKey('passwordOne', event.target.value, state))}
+        margin="normal"
+        variant="outlined"
+        fullWidth
+        required
+      />
+      <TextField
+        id="passwordTwo"
+        label="Confirm password"
+        type="password"
+        value={passwordTwo}
+        onChange={event => setState(byPropKey('passwordTwo', event.target.value, state))}
+        margin="normal"
+        variant="outlined"
+        fullWidth
+        required
+      />
+      <ColorButton
+        fullWidth
+        type="submit"
+        disabled={isInvalid}
+        className="btn btn-primary btn-block"
+      >
+        Create account
+      </ColorButton>
 
-      </form>
-    );
-  }
-}
+    </form>
+  );
+};
 
-export default withRouter(SignUpForm);
+SignUpForm.propTypes = propTypes;
+
+export default SignUpForm;
 
 export const SignUpLink = () => (
   <p>

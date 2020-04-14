@@ -7,7 +7,7 @@ import Season from '../../molecules/Season';
 import PageTransition from '../../atoms/PageTransition';
 import MiniHeader from '../../molecules/MiniHeader';
 
-const Seasons = (props) => {
+const Seasons = props => {
   const { loading } = props;
 
   if (loading) {

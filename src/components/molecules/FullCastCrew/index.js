@@ -4,7 +4,7 @@ import { propTypes } from './propTypes';
 import Cast from '../../atoms/Cast';
 import MediaImage from '../../atoms/MediaImage';
 
-const FullCastCrew = (props) => {
+const FullCastCrew = props => {
   const {
     movie: {
       credits: { crew, cast },

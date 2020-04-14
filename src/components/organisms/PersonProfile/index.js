@@ -99,6 +99,7 @@ const PersonProfile = ({
                   </Markdown>
                 </span>
                 {biography.length > 500 && (
+                  // eslint-disable-next-line jsx-a11y/label-has-associated-control
                   <label
                     htmlFor="person-bio__more"
                     className="person-bio__more-label"

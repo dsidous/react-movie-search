@@ -7,21 +7,18 @@ import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition';
 import MiniHeader from '../../molecules/MiniHeader';
 
-const PersonImages = (props) => {
-  const { loading } = props;
-
+const PersonImages = ({
+  loading,
+  person: {
+    images, name, id, birthday, profile_path,
+  },
+  config: {
+    images: { secure_base_url, profile_sizes },
+  },
+}) => {
   if (loading) {
     return <Spinner />;
   }
-
-  const {
-    person: {
-      images, name, id, birthday, profile_path,
-    },
-    config: {
-      images: { secure_base_url, profile_sizes },
-    },
-  } = props;
 
   const list = [].concat(images)
     .sort((a, b) => b.vote_average - a.vote_average)

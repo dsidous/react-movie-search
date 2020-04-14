@@ -21,7 +21,8 @@
     ],
     "react/prefer-stateless-function": 0,
     "import/prefer-default-export": 0,
-    "arrow-parens": ["error", "as-needed"]
+    "arrow-parens": ["error", "as-needed"],
+    "react/jsx-props-no-spreading": 0
   },
   "env": {
     "browser": true,

@@ -5,7 +5,7 @@ import { FormattedDate, IntlProvider } from 'react-intl';
 import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
 
-const Episode = (props) => {
+const Episode = props => {
   const {
     episode: {
       name, air_date, episode_number, overview, still_path,
