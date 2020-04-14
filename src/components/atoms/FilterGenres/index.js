@@ -9,7 +9,7 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import { propTypes } from './propTypes';
 
 const FilterGenres = ({ genres, onChange }) => {
-  const [state, setState] = useState({
+  const [selectedGenres, setSelectedGenres] = useState({
     options: [],
     selectValue: [''],
   });
@@ -19,18 +19,18 @@ const FilterGenres = ({ genres, onChange }) => {
       label: genre.name,
       value: String(genre.id),
     }));
-    setState({ ...state, options });
-  }, []);
+    setSelectedGenres(s => ({ ...s, options }));
+  }, [genres]);
 
   const handleChange = event => {
-    setState({
-      ...state,
+    setSelectedGenres({
+      ...selectedGenres,
       selectValue: event.target.value,
     });
   };
 
   const handleClose = () => {
-    onChange(state.selectValue);
+    onChange(selectedGenres.selectValue);
   };
 
   return (
@@ -38,7 +38,7 @@ const FilterGenres = ({ genres, onChange }) => {
       <InputLabel htmlFor="genres">Genres</InputLabel>
       <Select
         multiple
-        value={state.selectValue}
+        value={selectedGenres.selectValue}
         onChange={handleChange}
         onClose={handleClose}
         input={<OutlinedInput id="genres" labelWidth={50} />}
@@ -49,14 +49,14 @@ const FilterGenres = ({ genres, onChange }) => {
 
           const list = selected.filter(select => select !== '')
             .map(select => (
-              state.options.find(option => option.value === select).label
+              selectedGenres.options.find(option => option.value === select).label
             ));
 
           return list.join(', ');
         }}
       >
         <MenuItem value="" disabled>Select genres...</MenuItem>
-        {state.options.map(option => (
+        {selectedGenres.options.map(option => (
           <MenuItem key={option.label} value={option.value}>
             {option.label}
           </MenuItem>

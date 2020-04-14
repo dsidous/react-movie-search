@@ -4,7 +4,7 @@ import withTopPeople from '../../queries/withTopPeople';
 import TopPeople from '../../templates/TopPeople';
 
 export default compose(
-  withProps((props) => {
+  withProps(props => {
     const params = new URLSearchParams(props.location.search);
     const page = parseInt(params.get('page'), 10) || 1;
 

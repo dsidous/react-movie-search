@@ -18,8 +18,6 @@ const Show = ({
 
   const [dcolor, setDcolor] = useState([0, 0, 0]);
 
-  
-
   const handleShowClick = showId => {
     history.push(`/${media}/${showId}`);
   };
@@ -42,7 +40,7 @@ const Show = ({
     if (!loading) {
       getPalette();
     }
-  }, [loading]);
+  }, [loading, config, show]);
 
   if (loading) {
     return <Spinner />;
