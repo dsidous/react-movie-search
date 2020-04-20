@@ -9,23 +9,17 @@ const MainMenu = ({ classes: { menuItem, menuList } }) => (
   <MenuList className={menuList}>
     <MenuItem>
       <Link to="/movies" className={menuItem}>
-        <Typography variant="button">
-          MOVIES
-        </Typography>
+        <Typography variant="button">MOVIES</Typography>
       </Link>
     </MenuItem>
     <MenuItem>
       <Link to="/tvs" className={menuItem}>
-        <Typography variant="button">
-          TVS
-        </Typography>
+        <Typography variant="button">TVS</Typography>
       </Link>
     </MenuItem>
     <MenuItem>
       <Link to="/person" className={menuItem}>
-        <Typography variant="button">
-          PEOPLE
-        </Typography>
+        <Typography variant="button">PEOPLE</Typography>
       </Link>
     </MenuItem>
     <MenuItem>

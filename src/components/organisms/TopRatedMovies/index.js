@@ -23,7 +23,7 @@ const TopRatedMovies = ({ popular }) => {
     const rndList = [];
     // eslint-disable-next-line no-plusplus
     for (let n = 1; n <= 5; ++n) {
-      const rndNum = Math.floor((Math.random() * (arrayMax - n)) + 1);
+      const rndNum = Math.floor(Math.random() * (arrayMax - n) + 1);
       rndList.push(nbrArray[rndNum]);
       nbrArray[rndNum] = nbrArray[arrayMax - n];
     }
@@ -31,9 +31,10 @@ const TopRatedMovies = ({ popular }) => {
   };
 
   const filterTopMovies = genre => {
-    let movies = genre !== -1
-      ? popular.filter(movie => movie.genre_ids.includes(genre))
-      : popular;
+    let movies =
+      genre !== -1
+        ? popular.filter(movie => movie.genre_ids.includes(genre))
+        : popular;
 
     const moviesLength = movies.length;
 
@@ -46,11 +47,11 @@ const TopRatedMovies = ({ popular }) => {
   };
 
   const selectGenre = topGenreId => {
-    setActive(() => topGenreId);
+    setActive(topGenreId);
     filterTopMovies(topGenreId);
   };
 
-  const genresList = () => (
+  const genresList = () =>
     topGenres.map(topGenre => (
       <li
         data-test={topGenre.id}
@@ -66,29 +67,23 @@ const TopRatedMovies = ({ popular }) => {
           {topGenre.name}
         </span>
       </li>
-    ))
-  );
+    ));
 
   return (
     <div>
       {topMovies && (
         <div>
-          <h3 className="top-list-main-title">
-            Movies of the day
-          </h3>
-          <ul className="top-genres-list">
-            {genresList()}
-          </ul>
+          <h3 className="top-list-main-title">Movies of the day</h3>
+          <ul className="top-genres-list">{genresList()}</ul>
           <div className="top-list">
             {topMovies.map((movie, i) => (
               <Link
                 to={`/movie/${movie.id}`}
                 key={movie.id}
-                className={
-                  ['top-list__element',
-                    i === 0 ? 'featured' : '',
-                  ].join(' ')
-                }
+                className={[
+                  'top-list__element',
+                  i === 0 ? 'featured' : '',
+                ].join(' ')}
               >
                 {movie.poster_path !== null && i === 0 && (
                   <MediaImage

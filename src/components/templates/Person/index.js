@@ -18,9 +18,7 @@ const Person = props => {
   return (
     <PageTransition>
       <IntlProvider locale={navigator.language}>
-        <PersonProfile
-          person={person}
-        />
+        <PersonProfile person={person} />
       </IntlProvider>
     </PageTransition>
   );

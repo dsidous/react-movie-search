@@ -6,9 +6,11 @@ const mockProps = {
   tvSeason: {
     name: 'name',
     air_date: '01.01.2010',
-    episodes: [{
-      episode_number: 1,
-    }],
+    episodes: [
+      {
+        episode_number: 1,
+      },
+    ],
     poster_path: 'path/to/image',
   },
   tvId: 1,

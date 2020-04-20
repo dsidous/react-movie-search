@@ -10,7 +10,7 @@ import TopPeopleProfile from '../../organisms/TopPeople';
 const TopPeople = ({ loading, toppeople }) => {
   const location = useLocation();
   const search = new URLSearchParams(location.search);
-  const actPage = (parseInt(search.get('page'), 10)) || 1;
+  const actPage = parseInt(search.get('page'), 10) || 1;
 
   const history = useHistory();
   const [page, setPage] = useState(actPage);

@@ -18,10 +18,24 @@ const ShowProfile = ({
     images: { secure_base_url, poster_sizes, backdrop_sizes },
   },
   show: {
-    id, backdrop_path, poster_path, genres, name, title,
-    release_date, first_air_date, reviews, runtime, vote_average,
-    tagline, overview, images: { backdrops },
-    videos, similar, credits: { cast, crew }, seasons,
+    id,
+    backdrop_path,
+    poster_path,
+    genres,
+    name,
+    title,
+    release_date,
+    first_air_date,
+    reviews,
+    runtime,
+    vote_average,
+    tagline,
+    overview,
+    images: { backdrops },
+    videos,
+    similar,
+    credits: { cast, crew },
+    seasons,
   },
   dcolor,
   show,
@@ -33,7 +47,7 @@ const ShowProfile = ({
   let lastSeason = null;
 
   if (seasons) {
-    [lastSeason] = seasons.sort((a, b) => (b.season_number - a.season_number));
+    [lastSeason] = seasons.sort((a, b) => b.season_number - a.season_number);
   }
 
   const posterURL = secure_base_url + poster_sizes[3] + poster_path;
@@ -64,7 +78,10 @@ const ShowProfile = ({
       <div className="full-background">
         {backdrops[0] && (
           <FullScreenBackdrop
-            backdrops={backdrops.map(image => `${secure_base_url}${backdrop_sizes[2]}${image.file_path}`)}
+            backdrops={backdrops.map(
+              image =>
+                `${secure_base_url}${backdrop_sizes[2]}${image.file_path}`,
+            )}
           />
         )}
       </div>
@@ -72,9 +89,11 @@ const ShowProfile = ({
       <div className="main-header">
         <div className="main-header-inner">
           <div className="poster">
-            {poster_path !== null
-              ? <img src={posterURL} alt="poster" />
-              : <div className="movie-no-image-holder" />}
+            {poster_path !== null ? (
+              <img src={posterURL} alt="poster" />
+            ) : (
+              <div className="movie-no-image-holder" />
+            )}
             <WatchlistBookmark movie={show} />
           </div>
           <div className="movie-data">
@@ -85,9 +104,7 @@ const ShowProfile = ({
 
             <ul className="title-tags">
               <li>{showDate.slice(0, 4)}</li>
-              {runtime && (
-                <li>{`${runtime} min`}</li>
-              )}
+              {runtime && <li>{`${runtime} min`}</li>}
               <li>
                 <ul className="title-tags__genres">{genres_html}</ul>
               </li>
@@ -112,12 +129,7 @@ const ShowProfile = ({
           handleFullCrewClick={handleFullCrewClick}
         />
       )}
-      {lastSeason && (
-        <LastSeason
-          tvId={id}
-          season={lastSeason}
-        />
-      )}
+      {lastSeason && <LastSeason tvId={id} season={lastSeason} />}
 
       {reviews && reviews[0] && <Reviews reviews={reviews} />}
 

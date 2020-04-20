@@ -11,27 +11,27 @@ const IsDrawerWrapper = ({
   mobileOpen,
   handleDrawerToggle,
   classes: { drawerPaper },
-}) => (
-  isWidthUp('md', width)
-    ? children
-    : (
-      <Drawer
-        // container={container}
-        variant="temporary"
-        anchor="left"
-        open={mobileOpen}
-        onClose={handleDrawerToggle}
-        classes={{
-          paper: drawerPaper,
-        }}
-        ModalProps={{
-          keepMounted: true,
-        }}
-        onClick={handleDrawerToggle}
-      >
-        {children}
-      </Drawer>
-    ));
+}) =>
+  isWidthUp('md', width) ? (
+    children
+  ) : (
+    <Drawer
+      // container={container}
+      variant="temporary"
+      anchor="left"
+      open={mobileOpen}
+      onClose={handleDrawerToggle}
+      classes={{
+        paper: drawerPaper,
+      }}
+      ModalProps={{
+        keepMounted: true,
+      }}
+      onClick={handleDrawerToggle}
+    >
+      {children}
+    </Drawer>
+  );
 
 export default withWidth()(IsDrawerWrapper);
 

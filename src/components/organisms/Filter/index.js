@@ -12,11 +12,12 @@ import MyPager from '../../atoms/Pager';
 import FilterGenres from '../../atoms/FilterGenres';
 import useStyles from './styles';
 
-const objectToQueryStr = paramsObj => (
+const objectToQueryStr = paramsObj =>
   Object.keys(paramsObj)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(paramsObj[key])}`)
-    .join('&')
-);
+    .map(
+      key => `${encodeURIComponent(key)}=${encodeURIComponent(paramsObj[key])}`,
+    )
+    .join('&');
 
 const initState = ({ params, release_year }) => ({
   page: parseInt(params.get('page'), 10) || 1,
@@ -26,21 +27,16 @@ const initState = ({ params, release_year }) => ({
   'vote_average.gte': params.get('vote_average.gte') || 0,
 });
 
-const Filter = ({
-  query,
-  media,
-  genres,
-  children,
-  queryUpdate,
-}) => {
+const Filter = ({ query, media, genres, children, queryUpdate }) => {
   const classes = useStyles();
   const year = new Date().getFullYear();
 
   const params = new URLSearchParams(query);
 
-  const release_year = media === 'tvs'
-    ? ['first_air_date_year', 'first_air_date']
-    : ['primary_release_year', 'primary_release_date'];
+  const release_year =
+    media === 'tvs'
+      ? ['first_air_date_year', 'first_air_date']
+      : ['primary_release_year', 'primary_release_date'];
 
   const [state, setState] = useState(initState({ params, release_year }));
 
@@ -69,7 +65,8 @@ const Filter = ({
     setState({ ...state, [option]: val, page: 1 });
   };
 
-  const handleGenresChange = g => setState({ ...state, with_genres: g, page: 1 });
+  const handleGenresChange = g =>
+    setState({ ...state, with_genres: g, page: 1 });
 
   const handlePageSelect = page => {
     if (page > 0) {
@@ -81,13 +78,8 @@ const Filter = ({
   return (
     <div className={classes['filter-wrapper']}>
       <form>
-        <FormControl
-          variant="outlined"
-          className="filter-element-wrapper"
-        >
-          <InputLabel htmlFor="shortby">
-            Sort By
-          </InputLabel>
+        <FormControl variant="outlined" className="filter-element-wrapper">
+          <InputLabel htmlFor="shortby">Sort By</InputLabel>
           <Select
             id="shortby"
             placeholder="select"
@@ -151,16 +143,10 @@ const Filter = ({
           </Select>
         </FormControl>
       </form>
-      <MyPager
-        page={page}
-        handlePageSelect={handlePageSelect}
-      />
+      <MyPager page={page} handlePageSelect={handlePageSelect} />
       {children}
 
-      <MyPager
-        page={page}
-        handlePageSelect={handlePageSelect}
-      />
+      <MyPager page={page} handlePageSelect={handlePageSelect} />
     </div>
   );
 };

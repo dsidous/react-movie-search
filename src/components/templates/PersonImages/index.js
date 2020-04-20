@@ -9,9 +9,7 @@ import MiniHeader from '../../molecules/MiniHeader';
 
 const PersonImages = ({
   loading,
-  person: {
-    images, name, id, birthday, profile_path,
-  },
+  person: { images, name, id, birthday, profile_path },
   config: {
     images: { secure_base_url, profile_sizes },
   },
@@ -20,7 +18,8 @@ const PersonImages = ({
     return <Spinner />;
   }
 
-  const list = [].concat(images)
+  const list = []
+    .concat(images)
     .sort((a, b) => b.vote_average - a.vote_average)
     .map(image => (
       <figure key={image.file_path} className="cast-images__element">
@@ -55,9 +54,7 @@ const PersonImages = ({
         linkCopy="Back to main"
       />
 
-      <div className="cast-images__container">
-        {list}
-      </div>
+      <div className="cast-images__container">{list}</div>
     </PageTransition>
   );
 };

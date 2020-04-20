@@ -3,12 +3,14 @@ import { shallow } from 'enzyme';
 import SimilarMovies from '.';
 
 const mockProps = {
-  similar: [{
-    id: 1,
-    poster_path: 'path/to/image',
-    title: 'title',
-  }],
-  handleMovieClick: jest.fn(() => { }),
+  similar: [
+    {
+      id: 1,
+      poster_path: 'path/to/image',
+      title: 'title',
+    },
+  ],
+  handleMovieClick: jest.fn(() => {}),
 };
 
 describe('Organisms/SimilarMovies', () => {

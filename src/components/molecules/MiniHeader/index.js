@@ -5,13 +5,7 @@ import { Link } from 'react-router-dom';
 import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
 
-const MiniHeader = ({
-  title,
-  release_date,
-  poster_path,
-  link,
-  linkCopy,
-}) => (
+const MiniHeader = ({ title, release_date, poster_path, link, linkCopy }) => (
   <div className="mini-header">
     <div className="mini-header__inner">
       <MediaImage
@@ -24,9 +18,7 @@ const MiniHeader = ({
         <h2>
           {title}
           &nbsp;
-          <span>
-            {release_date.slice(0, 4)}
-          </span>
+          <span>{release_date.slice(0, 4)}</span>
         </h2>
         <h4>
           <Link to={link}>

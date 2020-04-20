@@ -12,5 +12,4 @@ export const propTypes = {
   configLoading: bool,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

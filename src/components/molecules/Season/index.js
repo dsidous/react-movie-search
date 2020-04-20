@@ -8,7 +8,12 @@ import MediaImage from '../../atoms/MediaImage';
 const Season = props => {
   const {
     season: {
-      poster_path, overview, name, episode_count, air_date, season_number,
+      poster_path,
+      overview,
+      name,
+      episode_count,
+      air_date,
+      season_number,
     },
     tvId,
   } = props;

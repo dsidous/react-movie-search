@@ -8,5 +8,4 @@ export const isDrawerWrapperPropTypes = {
   children: node.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

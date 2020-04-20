@@ -8,16 +8,18 @@ describe('Queries/withMovies', () => {
     const ownProps = { query: 'page=1' };
     const props = config.props({
       data: {
-        movies: [{
-          id: 1,
-          backdrop_path: 'path/to/image',
-          poster_path: 'path/to/image',
-          title: 'title',
-          overview: 'overview',
-          release_date: '01.01.2010',
-          vote_average: 1,
-          genre_ids: [1],
-        }],
+        movies: [
+          {
+            id: 1,
+            backdrop_path: 'path/to/image',
+            poster_path: 'path/to/image',
+            title: 'title',
+            overview: 'overview',
+            release_date: '01.01.2010',
+            vote_average: 1,
+            genre_ids: [1],
+          },
+        ],
         loading: true,
       },
       ownProps,

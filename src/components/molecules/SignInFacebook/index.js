@@ -22,23 +22,19 @@ const SignInFacebook = () => {
   const history = useHistory();
 
   const signInWithFB = () => {
-    auth.doSignInWithFacebook()
+    auth
+      .doSignInWithFacebook()
       .then(() => history.push('/'))
       // eslint-disable-next-line no-console
       .catch(err => console.log(err));
   };
 
   return (
-    <ColorButton
-      fullWidth
-      type="submit"
-      onClick={signInWithFB}
-    >
+    <ColorButton fullWidth type="submit" onClick={signInWithFB}>
       Log in with Facebook
     </ColorButton>
   );
 };
-
 
 SignInFacebook.propTypes = propTypes;
 

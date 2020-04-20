@@ -8,10 +8,12 @@ describe('Queries/withTvGenres', () => {
     const ownProps = {};
     const props = config.props({
       data: {
-        genresTv: [{
-          id: 1,
-          name: 'genrename',
-        }],
+        genresTv: [
+          {
+            id: 1,
+            name: 'genrename',
+          },
+        ],
         loading: true,
       },
       ownProps,

@@ -30,7 +30,9 @@ const FirebaseAuthProvider = ({ children }) => {
             );
           }
         }).then(
-          User.on('value', snapshot => setState(s => ({ ...s, user: snapshot.val() }))),
+          User.on('value', snapshot =>
+            setState(s => ({ ...s, user: snapshot.val() })),
+          ),
         );
       } else {
         setState(defaultFirebaseContext);
@@ -52,6 +54,8 @@ FirebaseAuthProvider.propTypes = {
 
 export default FirebaseAuthProvider;
 
-export const addMovieToWatchlist = movie => User.child(`watchlist/${movie.id}`).update(movie);
+export const addMovieToWatchlist = movie =>
+  User.child(`watchlist/${movie.id}`).update(movie);
 
-export const removeMovieFromWatchlist = movieId => User.child(`watchlist/${movieId}`).remove();
+export const removeMovieFromWatchlist = movieId =>
+  User.child(`watchlist/${movieId}`).remove();

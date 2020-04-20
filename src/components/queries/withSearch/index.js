@@ -1,22 +1,18 @@
 import { graphql } from 'react-apollo';
 import { query } from './query';
 
-const withSearch = () => graphql(query, {
-  options: props => ({
-    fetchPolicy: 'cache-first',
-    variables: {
-      query: props.query,
-    },
-  }),
-  props: ({
-    data: {
-      search = {},
+const withSearch = () =>
+  graphql(query, {
+    options: props => ({
+      fetchPolicy: 'cache-first',
+      variables: {
+        query: props.query,
+      },
+    }),
+    props: ({ data: { search = {}, loading } }) => ({
       loading,
-    },
-  }) => ({
-    loading,
-    search,
-  }),
-});
+      search,
+    }),
+  });
 
 export default withSearch;

@@ -7,10 +7,12 @@ import Shows from '.';
 const mockProps = {
   media: 'movies',
   resultMedia: 'movie',
-  genres: [{
-    id: 1,
-    name: 'genrename',
-  }],
+  genres: [
+    {
+      id: 1,
+      name: 'genrename',
+    },
+  ],
   query: '',
   config: {
     images: {
@@ -43,6 +45,8 @@ describe('Templates/Shows', () => {
     const wrapper = shallow(<Shows {...mockProps} />, { context });
     wrapper.find(Filter).props().queryUpdate('page=2');
 
-    expect(wrapper.context().router.history.includes('/movies?page=2')).toBe(true);
+    expect(wrapper.context().router.history.includes('/movies?page=2')).toBe(
+      true,
+    );
   });
 });

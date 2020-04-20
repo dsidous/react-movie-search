@@ -7,6 +7,6 @@ export const query = gql`
       name
       profile_path
       popularity
-    }  
+    }
   }
 `;

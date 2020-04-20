@@ -14,10 +14,12 @@ const mockProps = {
     id: 1,
     backdrop_path: 'path/to/image',
     poster_path: 'path/to/image',
-    genres: [{
-      id: 1,
-      genre_name: 'genre',
-    }],
+    genres: [
+      {
+        id: 1,
+        genre_name: 'genre',
+      },
+    ],
     name: 'name',
     release_date: '01.01.2010',
     reviews: {},
@@ -26,13 +28,9 @@ const mockProps = {
     tagline: 'tagline',
     overview: 'overview',
     images: {
-      backdrops: [
-        { file_path: 'path/to/image' },
-      ],
+      backdrops: [{ file_path: 'path/to/image' }],
     },
-    videos: [
-      { type: 'trailer' },
-    ],
+    videos: [{ type: 'trailer' }],
     similar: {
       results: [],
     },

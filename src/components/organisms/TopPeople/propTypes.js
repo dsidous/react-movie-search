@@ -6,5 +6,4 @@ export const propTypes = {
   handlePageSelect: func.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

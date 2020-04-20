@@ -7,9 +7,7 @@ import { propTypes } from './propTypes';
 const SEO = ({ title }) => {
   const history = useHistory();
 
-  const subTitle = history.location.pathname !== '/'
-    ? ` - ${title}`
-    : null;
+  const subTitle = history.location.pathname !== '/' ? ` - ${title}` : null;
 
   const fullTitle = `Movie Search${subTitle}`;
 

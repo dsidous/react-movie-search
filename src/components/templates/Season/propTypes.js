@@ -6,5 +6,4 @@ export const propTypes = {
   tvId: number,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

@@ -4,14 +4,14 @@ export const query = gql`
   query getMovie($movieId: ID!) {
     movie(id: $movieId) {
       id
-      backdrop_path,
-      poster_path,
-      title,
-      release_date,
-      runtime,
-      vote_average,
-      tagline,
-      overview,
+      backdrop_path
+      poster_path
+      title
+      release_date
+      runtime
+      vote_average
+      tagline
+      overview
       genres {
         id
         name

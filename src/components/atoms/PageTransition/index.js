@@ -12,14 +12,8 @@ const PageTransition = props => {
   }, []);
 
   return (
-    <CSSTransition
-      in={loaded}
-      timeout={1000}
-      classNames="fade"
-    >
-      <div>
-        {children}
-      </div>
+    <CSSTransition in={loaded} timeout={1000} classNames="fade">
+      <div>{children}</div>
     </CSSTransition>
   );
 };

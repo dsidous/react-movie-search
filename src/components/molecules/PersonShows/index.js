@@ -7,12 +7,11 @@ import MediaImage from '../../atoms/MediaImage';
 
 const PersonShows = ({ shows: { cast } }) => {
   if (cast.length > 0) {
-    const sortedShow = [].concat(cast)
-      .sort((a, b) => {
-        const dataB = b.release_date || b.first_air_date;
-        const dataA = a.release_date || a.first_air_date;
-        return dataB ? dataB.localeCompare(dataA) : -1;
-      });
+    const sortedShow = [].concat(cast).sort((a, b) => {
+      const dataB = b.release_date || b.first_air_date;
+      const dataA = a.release_date || a.first_air_date;
+      return dataB ? dataB.localeCompare(dataA) : -1;
+    });
 
     return sortedShow.map((show, i) => {
       const { id, poster_path, character } = show;
@@ -25,11 +24,7 @@ const PersonShows = ({ shows: { cast } }) => {
       const { showType } = showAttr;
       const key = `${title}${id}-${i}`;
       return (
-        <Link
-          to={`/${showType}/${id}`}
-          key={key}
-          className="person-movie"
-        >
+        <Link to={`/${showType}/${id}`} key={key} className="person-movie">
           <p className="person-movie__poster">
             <MediaImage
               mediaType="poster"
@@ -39,8 +34,7 @@ const PersonShows = ({ shows: { cast } }) => {
             />
           </p>
           <p className="person-movie__release">
-            {releaseDate !== ''
-              && releaseDate !== undefined
+            {releaseDate !== '' && releaseDate !== undefined
               ? releaseDate.substr(0, 4)
               : ''}
           </p>

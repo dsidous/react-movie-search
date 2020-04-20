@@ -20,12 +20,16 @@ const renderMenuItemChildren = ({
   getItemProps,
 }) => {
   const {
-    id, title, name, first_air_date, release_date, poster_path, profile_path,
+    id,
+    title,
+    name,
+    first_air_date,
+    release_date,
+    poster_path,
+    profile_path,
   } = option;
   const {
-    images: {
-      secure_base_url, poster_sizes, profile_sizes,
-    },
+    images: { secure_base_url, poster_sizes, profile_sizes },
   } = config;
   const isHighlighted = highlightedIndex === index;
 
@@ -35,18 +39,19 @@ const renderMenuItemChildren = ({
     release_date
       ? [release_date.slice(0, 4), 'in movies'].join(' ')
       : first_air_date
-        ? [first_air_date.slice(0, 4), 'in tvs'].join(' ')
-        : ' in persons',
+      ? [first_air_date.slice(0, 4), 'in tvs'].join(' ')
+      : ' in persons',
   ].join(' ');
 
-  const listImage = (poster_path || profile_path)
-    ? [
-      secure_base_url,
-      poster_path
-        ? [poster_sizes[0], poster_path].join('')
-        : [profile_sizes[0], profile_path].join(''),
-    ].join('')
-    : noimage;
+  const listImage =
+    poster_path || profile_path
+      ? [
+          secure_base_url,
+          poster_path
+            ? [poster_sizes[0], poster_path].join('')
+            : [profile_sizes[0], profile_path].join(''),
+        ].join('')
+      : noimage;
   return (
     <MenuItem
       key={id}
@@ -63,15 +68,16 @@ const renderMenuItemChildren = ({
 
 renderMenuItemChildren.propTypes = itemsProps;
 
-const Items = ({
-  search,
-  loading,
-  ...props
-}) => (loading || Object.keys(search).length === 0
-  ? null
-  : search.map((option, index) => renderMenuItemChildren({
-    option, index, ...props,
-  })));
+const Items = ({ search, loading, ...props }) =>
+  loading || Object.keys(search).length === 0
+    ? null
+    : search.map((option, index) =>
+        renderMenuItemChildren({
+          option,
+          index,
+          ...props,
+        }),
+      );
 
 const FetchItems = withSearch()(Items);
 

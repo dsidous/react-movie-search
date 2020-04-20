@@ -4,5 +4,4 @@ export const propTypes = {
   video: object,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

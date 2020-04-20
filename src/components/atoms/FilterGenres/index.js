@@ -47,15 +47,20 @@ const FilterGenres = ({ genres, onChange }) => {
             return <span>Select genres...</span>;
           }
 
-          const list = selected.filter(select => select !== '')
-            .map(select => (
-              selectedGenres.options.find(option => option.value === select).label
-            ));
+          const list = selected
+            .filter(select => select !== '')
+            .map(
+              select =>
+                selectedGenres.options.find(option => option.value === select)
+                  .label,
+            );
 
           return list.join(', ');
         }}
       >
-        <MenuItem value="" disabled>Select genres...</MenuItem>
+        <MenuItem value="" disabled>
+          Select genres...
+        </MenuItem>
         {selectedGenres.options.map(option => (
           <MenuItem key={option.label} value={option.value}>
             {option.label}

@@ -55,11 +55,7 @@ const Root = () => (
     <Router>
       <ScrollToTop>
         {routes.map(({ path, component }) => (
-          <MatchWithMainLayout
-            key={path}
-            path={path}
-            component={component}
-          />
+          <MatchWithMainLayout key={path} path={path} component={component} />
         ))}
       </ScrollToTop>
     </Router>

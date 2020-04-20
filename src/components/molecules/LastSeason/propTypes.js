@@ -5,5 +5,4 @@ export const propTypes = {
   season: object.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

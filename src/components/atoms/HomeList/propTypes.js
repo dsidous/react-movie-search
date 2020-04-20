@@ -5,5 +5,4 @@ export const propTypes = {
   list: array.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

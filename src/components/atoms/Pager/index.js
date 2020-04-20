@@ -19,15 +19,11 @@ const MyPager = ({ page, handlePageSelect }) => {
 
   return (
     <div className={classes.pager}>
-      <Button
-        onClick={() => handlePageSelect(page - 1)}
-      >
+      <Button onClick={() => handlePageSelect(page - 1)}>
         <KeyboardArrowLeft />
         Previous
       </Button>
-      <Button
-        onClick={() => handlePageSelect(page + 1)}
-      >
+      <Button onClick={() => handlePageSelect(page + 1)}>
         Next
         <KeyboardArrowRight />
       </Button>

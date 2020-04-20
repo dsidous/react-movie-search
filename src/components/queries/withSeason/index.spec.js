@@ -12,13 +12,15 @@ describe('Queries/withSeason', () => {
           name: 'name',
           air_date: '01.01.2010',
           poster_path: 'path/to/image',
-          episodes: [{
-            name: 'name',
-            air_date: '01.01.2010',
-            episode_number: 1,
-            overview: 1,
-            still_path: 'path/to/image',
-          }],
+          episodes: [
+            {
+              name: 'name',
+              air_date: '01.01.2010',
+              episode_number: 1,
+              overview: 1,
+              still_path: 'path/to/image',
+            },
+          ],
         },
         loading: true,
       },

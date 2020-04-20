@@ -10,10 +10,7 @@ const HomeList = ({ title, list }) => (
     <ul className="home-list__list">
       {list.map(show => (
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-        <li
-          className="home-list__list-element"
-          key={show.id}
-        >
+        <li className="home-list__list-element" key={show.id}>
           <Link to={`/movie/${show.id}`}>
             <MediaImage
               mediaType="poster"
@@ -26,11 +23,11 @@ const HomeList = ({ title, list }) => (
                 {`${show.title} (${show.vote_average})`}
               </div>
               <div className="list-data__genres">
-                {show.genre_names.genre_name.map((genreName, i) => (
+                {show.genre_names.genre_name.map((genreName, i) =>
                   show.genre_names.length === i + 1
                     ? genreName
-                    : `${genreName}, `
-                ))}
+                    : `${genreName}, `,
+                )}
               </div>
             </div>
           </Link>

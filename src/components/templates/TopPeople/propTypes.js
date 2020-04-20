@@ -1,8 +1,4 @@
-import {
-  bool,
-  object,
-  array,
-} from 'prop-types';
+import { bool, object, array } from 'prop-types';
 
 export const contextTypes = {
   router: object.isRequired,
@@ -13,5 +9,4 @@ export const propTypes = {
   toppeople: array,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

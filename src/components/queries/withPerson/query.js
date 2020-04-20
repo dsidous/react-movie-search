@@ -39,6 +39,6 @@ export const query = gql`
         width
         vote_average
       }
-    }  
+    }
   }
 `;

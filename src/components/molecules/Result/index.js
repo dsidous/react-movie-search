@@ -9,14 +9,10 @@ import { propTypes } from './propTypes';
 import MovieCard from '../MovieCard';
 import Spinner from '../../atoms/Spinner';
 
-
 const Result = ({
   shows,
   config: {
-    images: {
-      secure_base_url,
-      poster_sizes,
-    },
+    images: { secure_base_url, poster_sizes },
   },
   resultMedia,
   loading,
@@ -45,11 +41,7 @@ const Result = ({
 Result.propTypes = propTypes;
 
 const enhancedComponent = compose(
-  branch(
-    props => props.resultMedia === 'movie',
-    withMovies(),
-    withTvs(),
-  ),
+  branch(props => props.resultMedia === 'movie', withMovies(), withTvs()),
   withConfig(),
 )(Result);
 

@@ -15,9 +15,7 @@ const Season = props => {
   }
 
   const {
-    tvSeason: {
-      name, air_date, episodes, poster_path,
-    },
+    tvSeason: { name, air_date, episodes, poster_path },
     tvId,
   } = props;
 

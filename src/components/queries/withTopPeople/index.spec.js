@@ -8,12 +8,14 @@ describe('Queries/withTopPeople', () => {
     const ownProps = { query: 'page=1' };
     const props = config.props({
       data: {
-        topPeople: [{
-          id: 1,
-          name: 'name',
-          profile_path: 'path/to/image',
-          popularity: 1,
-        }],
+        topPeople: [
+          {
+            id: 1,
+            name: 'name',
+            profile_path: 'path/to/image',
+            popularity: 1,
+          },
+        ],
         loading: true,
       },
       ownProps,

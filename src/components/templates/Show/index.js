@@ -8,11 +8,7 @@ import Spinner from '../../atoms/Spinner';
 import PageTransition from '../../atoms/PageTransition/index';
 import ShowProfile from '../../organisms/ShowProfile';
 
-const Show = ({
-  loading,
-  show,
-  config,
-}) => {
+const Show = ({ loading, show, config }) => {
   const history = useHistory();
   const media = show.name ? 'tv' : 'movie';
 

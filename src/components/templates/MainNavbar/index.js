@@ -70,9 +70,13 @@ const MainNavbar = props => {
 
   const UserMenu = () => (
     <FirebaseAuthContext.Consumer>
-      {({ user, authUser }) => ((!authUser)
-        ? <UserMenuNotLoggedIn classes={classes} />
-        : <UserMenuLoggedIn username={user.username} classes={classes} />)}
+      {({ user, authUser }) =>
+        !authUser ? (
+          <UserMenuNotLoggedIn classes={classes} />
+        ) : (
+          <UserMenuLoggedIn username={user.username} classes={classes} />
+        )
+      }
     </FirebaseAuthContext.Consumer>
   );
 

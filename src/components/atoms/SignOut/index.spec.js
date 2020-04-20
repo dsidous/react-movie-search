@@ -5,7 +5,6 @@ import SignOutButton from '.';
 import * as firebase from '../../../firebase/firebase';
 
 describe('Atoms/SignOutButton', () => {
-
   beforeAll(() => {
     firebase.auth = jest.fn().mockReturnValue({
       currentUser: true,

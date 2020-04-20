@@ -6,5 +6,4 @@ export const propTypes = {
   loading: bool,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

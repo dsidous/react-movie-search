@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import MediaImage from '../../atoms/MediaImage';
 
 const PersonKnownFor = ({ combinedCredits }) => {
-  const sorted = [].concat(combinedCredits.cast)
+  const sorted = []
+    .concat(combinedCredits.cast)
     .sort((a, b) => b.vote_count - a.vote_count)
     .slice(0, 8);
 
@@ -18,9 +19,7 @@ const PersonKnownFor = ({ combinedCredits }) => {
           name={movie.title || movie.name}
         />
       </Link>
-      <p className="person-movie__title-known">
-        {movie.title || movie.name}
-      </p>
+      <p className="person-movie__title-known">{movie.title || movie.name}</p>
     </div>
   ));
 };

@@ -39,14 +39,10 @@ const UserMenuLoggedIn = ({ username }) => {
         open={Boolean(anchorEl)}
         onClose={() => setAnchorEl(null)}
       >
-        <MenuItem disabled>
-          {username}
-        </MenuItem>
+        <MenuItem disabled>{username}</MenuItem>
         <Divider />
         <MenuItem>
-          <Link to="/watchlist">
-            Watchlist
-          </Link>
+          <Link to="/watchlist">Watchlist</Link>
         </MenuItem>
         <Divider />
         <MenuItem>

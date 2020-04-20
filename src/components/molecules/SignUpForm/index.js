@@ -47,45 +47,38 @@ const SignUpForm = () => {
     auth
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        db.doCreateUser(authUser.uid, username, email)
-          .then(() => {
-            setState(() => ({ ...INITIAL_STATE }));
-            history.push('/');
-          });
+        db.doCreateUser(authUser.uid, username, email).then(() => {
+          setState(() => ({ ...INITIAL_STATE }));
+          history.push('/');
+        });
       })
       .catch(error => setState(byPropKey('error', error)));
 
     event.preventDefault();
   };
 
-  const {
-    username, email, passwordOne, passwordTwo, error,
-  } = state;
+  const { username, email, passwordOne, passwordTwo, error } = state;
 
-  const isInvalid = passwordOne !== passwordTwo
-    || passwordOne === ''
-    || email === ''
-    || username === '';
+  const isInvalid =
+    passwordOne !== passwordTwo ||
+    passwordOne === '' ||
+    email === '' ||
+    username === '';
 
   return (
     <form onSubmit={onSubmit}>
-
-      <Typography
-        align="center"
-        variant="h6"
-        style={{ margin: '28px 0 0' }}
-      >
+      <Typography align="center" variant="h6" style={{ margin: '28px 0 0' }}>
         OR
       </Typography>
 
-      {error && (
-        error.message
-      )}
+      {error && error.message}
       <TextField
         id="username"
         label="Username"
         value={username}
-        onChange={event => setState(byPropKey('username', event.target.value, state))}
+        onChange={event =>
+          setState(byPropKey('username', event.target.value, state))
+        }
         margin="normal"
         variant="outlined"
         fullWidth
@@ -98,7 +91,9 @@ const SignUpForm = () => {
         label="Email address"
         placeholder="Enter email"
         value={email}
-        onChange={event => setState(byPropKey('email', event.target.value, state))}
+        onChange={event =>
+          setState(byPropKey('email', event.target.value, state))
+        }
         margin="normal"
         variant="outlined"
         fullWidth
@@ -109,7 +104,9 @@ const SignUpForm = () => {
         label="Password"
         type="password"
         value={passwordOne}
-        onChange={event => setState(byPropKey('passwordOne', event.target.value, state))}
+        onChange={event =>
+          setState(byPropKey('passwordOne', event.target.value, state))
+        }
         margin="normal"
         variant="outlined"
         fullWidth
@@ -120,7 +117,9 @@ const SignUpForm = () => {
         label="Confirm password"
         type="password"
         value={passwordTwo}
-        onChange={event => setState(byPropKey('passwordTwo', event.target.value, state))}
+        onChange={event =>
+          setState(byPropKey('passwordTwo', event.target.value, state))
+        }
         margin="normal"
         variant="outlined"
         fullWidth
@@ -134,7 +133,6 @@ const SignUpForm = () => {
       >
         Create account
       </ColorButton>
-
     </form>
   );
 };

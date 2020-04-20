@@ -48,13 +48,19 @@ describe('Templates/Show', () => {
     const newMovieId = 2;
     wrapper.find(ShowProfile).props().handleShowClick(newMovieId);
 
-    expect(wrapper.context().router.history.includes(`/movie/${newMovieId}`)).toBe(true);
+    expect(
+      wrapper.context().router.history.includes(`/movie/${newMovieId}`),
+    ).toBe(true);
   });
 
   it('should handle full crew click', () => {
     const wrapper = shallow(<Show {...mockProps} />, { context });
     wrapper.find(ShowProfile).props().handleFullCrewClick();
 
-    expect(wrapper.context().router.history.includes(`/movie/${mockProps.show.id}/crew`)).toBe(true);
+    expect(
+      wrapper
+        .context()
+        .router.history.includes(`/movie/${mockProps.show.id}/crew`),
+    ).toBe(true);
   });
 });

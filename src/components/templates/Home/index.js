@@ -20,19 +20,11 @@ const Home = ({
 
   return (
     <PageTransition>
-      <TopRatedMovies
-        popular={popular}
-      />
+      <TopRatedMovies popular={popular} />
 
       <div className="top-lists-wrapper">
-        <HomeList
-          list={nowplaying.slice(0, 10)}
-          title="In Theatres"
-        />
-        <HomeList
-          list={upcoming.slice(0, 10)}
-          title="Upcoming Movies"
-        />
+        <HomeList list={nowplaying.slice(0, 10)} title="In Theatres" />
+        <HomeList list={upcoming.slice(0, 10)} title="Upcoming Movies" />
       </div>
     </PageTransition>
   );

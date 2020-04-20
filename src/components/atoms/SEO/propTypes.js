@@ -4,5 +4,4 @@ export const propTypes = {
   title: string,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

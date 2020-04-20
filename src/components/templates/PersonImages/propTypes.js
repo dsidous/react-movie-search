@@ -6,5 +6,4 @@ export const propTypes = {
   config: object,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

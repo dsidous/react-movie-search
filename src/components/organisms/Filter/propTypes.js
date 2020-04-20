@@ -1,9 +1,4 @@
-import {
-  array,
-  string,
-  func,
-  node,
-} from 'prop-types';
+import { array, string, func, node } from 'prop-types';
 
 export const propTypes = {
   query: string,
@@ -13,5 +8,4 @@ export const propTypes = {
   children: node,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

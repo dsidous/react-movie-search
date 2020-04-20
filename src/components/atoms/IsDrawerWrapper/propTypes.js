@@ -1,10 +1,4 @@
-import {
-  object,
-  node,
-  string,
-  bool,
-  func,
-} from 'prop-types';
+import { object, node, string, bool, func } from 'prop-types';
 
 export const propTypes = {
   children: node.isRequired,
@@ -14,5 +8,4 @@ export const propTypes = {
   classes: object.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

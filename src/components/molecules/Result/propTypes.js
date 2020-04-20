@@ -6,5 +6,4 @@ export const propTypes = {
   resultMedia: string.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

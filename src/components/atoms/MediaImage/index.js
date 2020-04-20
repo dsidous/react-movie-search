@@ -16,16 +16,15 @@ const MediaImage = ({
   let imageUrl = NoImage;
 
   if (filePath !== null) {
-    const sizePath = (mediaType === 'miniProfile')
-      ? 'w132_and_h132_face/'
-      : images[`${mediaType}_sizes`][size];
+    const sizePath =
+      mediaType === 'miniProfile'
+        ? 'w132_and_h132_face/'
+        : images[`${mediaType}_sizes`][size];
 
     imageUrl = `${images.secure_base_url}${sizePath}${filePath}`;
   }
 
-  return (
-    <img src={imageUrl} alt={name} {...otherProps} />
-  );
+  return <img src={imageUrl} alt={name} {...otherProps} />;
 };
 
 MediaImage.propTypes = propTypes;

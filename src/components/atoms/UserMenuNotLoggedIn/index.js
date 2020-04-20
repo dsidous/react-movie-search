@@ -9,16 +9,12 @@ const UserMenuNotLoggedIn = ({ classes: { menuItem, menuListUser } }) => (
   <MenuList className={menuListUser}>
     <MenuItem>
       <Link to="/login" className={menuItem}>
-        <Typography variant="body2">
-          Login
-        </Typography>
+        <Typography variant="body2">Login</Typography>
       </Link>
     </MenuItem>
     <MenuItem>
       <Link to="/signup" className={menuItem}>
-        <Typography variant="body2">
-          Sign up
-        </Typography>
+        <Typography variant="body2">Sign up</Typography>
       </Link>
     </MenuItem>
   </MenuList>

@@ -22,15 +22,8 @@ const Shows = ({
 
   return (
     <PageTransition>
-      <Filter
-        genres={genres}
-        queryUpdate={queryUpdate}
-        media={media}
-      >
-        <Result
-          query={query}
-          resultMedia={resultMedia}
-        />
+      <Filter genres={genres} queryUpdate={queryUpdate} media={media}>
+        <Result query={query} resultMedia={resultMedia} />
       </Filter>
     </PageTransition>
   );

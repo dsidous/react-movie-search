@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 export const query = gql`
   query getPopularMovies($query: String) {
-    popular(query:$query) {
+    popular(query: $query) {
       id
       backdrop_path
       poster_path

@@ -23,15 +23,8 @@ const SignInPage = () => {
   return (
     <Container maxWidth="sm">
       <Paper className={classes.paper}>
-        <Typography
-          variant="h4"
-        >
-          Log in
-        </Typography>
-        <Typography
-          paragraph
-          variant="body2"
-        >
+        <Typography variant="h4">Log in</Typography>
+        <Typography paragraph variant="body2">
           To your watchlist.
         </Typography>
         <SignInFacebook />

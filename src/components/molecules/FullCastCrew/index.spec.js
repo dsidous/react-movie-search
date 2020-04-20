@@ -5,15 +5,19 @@ import FullCastCrew from '.';
 const mockProps = {
   movie: {
     credits: {
-      crew: [{
-        credit_id: 1,
-        profile_path: 'path/to/image',
-        name: 'name',
-        job: 'job',
-      }],
-      cast: [{
-        credit_id: 1,
-      }],
+      crew: [
+        {
+          credit_id: 1,
+          profile_path: 'path/to/image',
+          name: 'name',
+          job: 'job',
+        },
+      ],
+      cast: [
+        {
+          credit_id: 1,
+        },
+      ],
     },
   },
 };

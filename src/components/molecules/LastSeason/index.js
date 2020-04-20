@@ -8,10 +8,7 @@ const LastSeason = ({ tvId, season }) => (
   <div className="last-season">
     <h4>Last season</h4>
     <Season season={season} tvId={tvId} />
-    <Link
-      to={`/tv/${tvId}/seasons`}
-      className="all-seasons-btn"
-    >
+    <Link to={`/tv/${tvId}/seasons`} className="all-seasons-btn">
       View All Seasons
     </Link>
   </div>

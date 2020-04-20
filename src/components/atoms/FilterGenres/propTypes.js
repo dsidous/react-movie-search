@@ -5,5 +5,4 @@ export const propTypes = {
   onChange: func.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

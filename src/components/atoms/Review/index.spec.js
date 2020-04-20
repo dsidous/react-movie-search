@@ -13,7 +13,6 @@ const mockProps = {
 
 describe('Atoms/Review', () => {
   it('should render as expected', () => {
-
     const wrapper = shallow(<Review {...mockProps} />);
 
     expect(wrapper).toMatchSnapshot();

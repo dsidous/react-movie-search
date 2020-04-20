@@ -15,9 +15,7 @@ const Seasons = props => {
   }
 
   const {
-    show: {
-      seasons, name, first_air_date, id, poster_path,
-    },
+    show: { seasons, name, first_air_date, id, poster_path },
   } = props;
 
   return (
@@ -31,11 +29,13 @@ const Seasons = props => {
       />
 
       <ul className="seasons">
-        {seasons.sort((a, b) => a.season_number - b.season_number).map(season => (
-          <li className="seasons__element" key={season.season_number}>
-            <Season season={season} tvId={id} />
-          </li>
-        ))}
+        {seasons
+          .sort((a, b) => a.season_number - b.season_number)
+          .map(season => (
+            <li className="seasons__element" key={season.season_number}>
+              <Season season={season} tvId={id} />
+            </li>
+          ))}
       </ul>
     </PageTransition>
   );

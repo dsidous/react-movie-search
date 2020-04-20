@@ -8,17 +8,21 @@ describe('Queries/withNowPlayingMovies', () => {
     const ownProps = { query: 'page=1' };
     const props = config.props({
       data: {
-        nowplaying: [{
-          id: 1,
-          backdrop_path: 'path/to/image',
-          poster_path: 'path/to/image',
-          title: 'title',
-          release_date: '01.01.2010',
-          vote_average: 1,
-          genre_names: [{
-            genre_name: 'genre',
-          }],
-        }],
+        nowplaying: [
+          {
+            id: 1,
+            backdrop_path: 'path/to/image',
+            poster_path: 'path/to/image',
+            title: 'title',
+            release_date: '01.01.2010',
+            vote_average: 1,
+            genre_names: [
+              {
+                genre_name: 'genre',
+              },
+            ],
+          },
+        ],
         loading: true,
       },
       ownProps,

@@ -70,7 +70,9 @@
     "build": "npm-run-all build-css build-js",
     "stop": "react-scripts stop",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src/",
+    "lint:fix": "eslint ./src/ --fix"
   },
   "jest": {
     "coverageReporters": [

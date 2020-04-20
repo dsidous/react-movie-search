@@ -20,22 +20,21 @@ const FullScreenBackdrop = ({ backdrops }) => {
 
   return (
     <div>
-      {backdrops
-        && (
-          <Slider {...settings}>
-            {backdrops.map(backdrop => (
-              <div key={backdrop}>
-                <div
-                  className="fullscreen-backdrop-slide"
-                  style={{
-                    height: window.innerHeight,
-                    backgroundImage: `url(${backdrop})`,
-                  }}
-                />
-              </div>
-            ))}
-          </Slider>
-        )}
+      {backdrops && (
+        <Slider {...settings}>
+          {backdrops.map(backdrop => (
+            <div key={backdrop}>
+              <div
+                className="fullscreen-backdrop-slide"
+                style={{
+                  height: window.innerHeight,
+                  backgroundImage: `url(${backdrop})`,
+                }}
+              />
+            </div>
+          ))}
+        </Slider>
+      )}
     </div>
   );
 };

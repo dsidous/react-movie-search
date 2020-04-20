@@ -58,11 +58,7 @@ const SignInForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <Typography
-        align="center"
-        variant="h6"
-        style={{ margin: '28px 0 0' }}
-      >
+      <Typography align="center" variant="h6" style={{ margin: '28px 0 0' }}>
         Or
       </Typography>
 
@@ -85,17 +81,15 @@ const SignInForm = () => {
         label="Password"
         type="password"
         value={password}
-        onChange={event => setState(s => ({ ...s, password: event.target.value }))}
+        onChange={event =>
+          setState(s => ({ ...s, password: event.target.value }))
+        }
         margin="normal"
         variant="outlined"
         fullWidth
         required
       />
-      <ColorButton
-        fullWidth
-        type="submit"
-        disabled={isInvalid}
-      >
+      <ColorButton fullWidth type="submit" disabled={isInvalid}>
         Log In
       </ColorButton>
       <SignUpLink />

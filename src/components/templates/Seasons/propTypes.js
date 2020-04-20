@@ -5,5 +5,4 @@ export const propTypes = {
   show: object,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};
