@@ -3,8 +3,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import withPerson from '.';
 
+jest.mock('react-apollo', () => ({
+  ...jest.requireActual('react-apollo'),
+  graphql: jest.fn(),
+}));
+
 describe('Queries/withPerson', () => {
-  graphql.mockImplementation((query, config) => {
+  graphql.mockImplementation((_, config) => {
     const ownProps = { personId: 1 };
     const props = config.props({
       data: {

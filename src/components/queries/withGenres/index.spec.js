@@ -3,8 +3,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import withGenres from '.';
 
+jest.mock('react-apollo', () => ({
+  ...jest.requireActual('react-apollo'),
+  graphql: jest.fn(),
+}));
+
 describe('Queries/withGenres', () => {
-  graphql.mockImplementation((query, config) => {
+  graphql.mockImplementation((_, config) => {
     const ownProps = {};
     const props = config.props({
       data: {

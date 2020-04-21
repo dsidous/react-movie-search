@@ -3,8 +3,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import withPopularMovies from '.';
 
+jest.mock('react-apollo', () => ({
+  ...jest.requireActual('react-apollo'),
+  graphql: jest.fn(),
+}));
+
 describe('Queries/withPopularMovies', () => {
-  graphql.mockImplementation((query, config) => {
+  graphql.mockImplementation((_, config) => {
     const ownProps = { query: 'page=1' };
     const props = config.props({
       data: {

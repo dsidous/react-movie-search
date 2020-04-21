@@ -3,8 +3,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import withSeason from '.';
 
+jest.mock('react-apollo', () => ({
+  ...jest.requireActual('react-apollo'),
+  graphql: jest.fn(),
+}));
+
 describe('Queries/withSeason', () => {
-  graphql.mockImplementation((query, config) => {
+  graphql.mockImplementation((_, config) => {
     const ownProps = { tvId: 1, season: 1 };
     const props = config.props({
       data: {

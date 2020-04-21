@@ -33,7 +33,7 @@ describe('Molecules/SignInFacebook', () => {
       </Router>,
     );
     const btn = wrapper.find(Button);
-    await act(() => {
+    await act(async () => {
       btn.props().onClick();
     });
 

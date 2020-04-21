@@ -1,10 +1,18 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
+import { Router, useHistory as useHistoryMock } from 'react-router-dom';
 import { shallow, mount } from 'enzyme';
 
 import TopPeople from '.';
 import TopPeopleProfile from '../../organisms/TopPeople';
 import Spinner from '../../atoms/Spinner';
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: () => ({
+    pathname: 'localhost:3000/example/path',
+  }),
+  useHistory: jest.fn(),
+}));
 
 const mockProps = {
   toppeople: [
@@ -20,7 +28,7 @@ const mockProps = {
 
 const historyMock = {
   push: jest.fn(),
-  location: {},
+  location: { search: 'page=1' },
   listen: jest.fn(),
   createHref: jest.fn(),
 };
@@ -47,13 +55,25 @@ describe('Templates/TopPeople', () => {
   });
 
   it('should handle page select', () => {
-    const wrapper = mount(
+    const setHistory = jest.fn();
+
+    useHistoryMock.mockImplementation(() => ({
+      push: setHistory,
+    }));
+
+    const wrapper = shallow(
       <Router history={historyMock}>
-        <TopPeople {...mockProps} />{' '}
+        <TopPeople {...mockProps} />
       </Router>,
     );
-    wrapper.find(TopPeopleProfile).props().handlePageSelect(2);
 
-    expect(historyMock.push).toHavebeenCalledWith(2);
+    wrapper
+      .find(TopPeople)
+      .dive()
+      .find(TopPeopleProfile)
+      .props()
+      .handlePageSelect(2);
+
+    expect(setHistory.mock.calls[0][0]).toEqual('/person?page=2');
   });
 });

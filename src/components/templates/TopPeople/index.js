@@ -3,8 +3,6 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 import { propTypes } from './propTypes';
 import Spinner from '../../atoms/Spinner';
-import PageTransition from '../../atoms/PageTransition/index';
-import SEO from '../../atoms/SEO';
 import TopPeopleProfile from '../../organisms/TopPeople';
 
 const TopPeople = ({ loading, toppeople }) => {
@@ -27,18 +25,11 @@ const TopPeople = ({ loading, toppeople }) => {
   }
 
   return (
-    <PageTransition>
-      <SEO title="Popular people" />
-      <div>
-        <PageTransition>
-          <TopPeopleProfile
-            page={page}
-            toppeople={toppeople}
-            handlePageSelect={handlePageSelect}
-          />
-        </PageTransition>
-      </div>
-    </PageTransition>
+    <TopPeopleProfile
+      page={page}
+      toppeople={toppeople}
+      handlePageSelect={handlePageSelect}
+    />
   );
 };
 
