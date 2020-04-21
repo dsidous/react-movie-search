@@ -4,16 +4,13 @@ import { Link } from 'react-router-dom';
 import { propTypes } from './propTypes';
 import MediaImage from '../MediaImage';
 
-const HomeList = ({ title, list, goToMovie }) => (
+const HomeList = ({ title, list }) => (
   <div className="home-list">
     <div className="home-list__title">{title}</div>
     <ul className="home-list__list">
       {list.map(show => (
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-        <li
-          className="home-list__list-element"
-          key={show.id}
-        >
+        <li className="home-list__list-element" key={show.id}>
           <Link to={`/movie/${show.id}`}>
             <MediaImage
               mediaType="poster"
@@ -26,11 +23,11 @@ const HomeList = ({ title, list, goToMovie }) => (
                 {`${show.title} (${show.vote_average})`}
               </div>
               <div className="list-data__genres">
-                {show.genre_names.genre_name.map((genreName, i) => (
+                {show.genre_names.genre_name.map((genreName, i) =>
                   show.genre_names.length === i + 1
                     ? genreName
-                    : `${genreName}, `
-                ))}
+                    : `${genreName}, `,
+                )}
               </div>
             </div>
           </Link>

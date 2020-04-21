@@ -3,15 +3,22 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import withTvGenres from '.';
 
+jest.mock('react-apollo', () => ({
+  ...jest.requireActual('react-apollo'),
+  graphql: jest.fn(),
+}));
+
 describe('Queries/withTvGenres', () => {
-  graphql.mockImplementation((query, config) => {
+  graphql.mockImplementation((_, config) => {
     const ownProps = {};
     const props = config.props({
       data: {
-        genresTv: [{
-          id: 1,
-          name: 'genrename',
-        }],
+        genresTv: [
+          {
+            id: 1,
+            name: 'genrename',
+          },
+        ],
         loading: true,
       },
       ownProps,

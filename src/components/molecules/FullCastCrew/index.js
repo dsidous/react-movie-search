@@ -4,7 +4,7 @@ import { propTypes } from './propTypes';
 import Cast from '../../atoms/Cast';
 import MediaImage from '../../atoms/MediaImage';
 
-const FullCastCrew = (props) => {
+const FullCastCrew = props => {
   const {
     movie: {
       credits: { crew, cast },
@@ -17,18 +17,16 @@ const FullCastCrew = (props) => {
         <div className="full-ca-cr__col">
           <h3>
             Cast
-            <span>
-              {` ${cast.length}`}
-            </span>
+            <span>{` ${cast.length}`}</span>
           </h3>
-          {cast.map(person => <Cast cast={person} type="full" key={person.credit_id} />)}
+          {cast.map(person => (
+            <Cast cast={person} type="full" key={person.credit_id} />
+          ))}
         </div>
         <div className="full-ca-cr__col">
           <h3>
             Crew
-            <span>
-              {` ${crew.length}`}
-            </span>
+            <span>{` ${crew.length}`}</span>
           </h3>
           {crew.map(person => (
             <div key={person.credit_id} className="full-ca-cr__element">

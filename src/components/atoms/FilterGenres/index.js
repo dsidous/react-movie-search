@@ -1,43 +1,76 @@
-import React, { Component } from 'react';
-import Select from 'react-select';
+import React, { useState, useEffect } from 'react';
+
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+
 import { propTypes } from './propTypes';
 
-import 'react-select/dist/react-select.css';
-
-class FilterGenres extends Component {
-  static propTypes = propTypes;
-
-  state = {
+const FilterGenres = ({ genres, onChange }) => {
+  const [selectedGenres, setSelectedGenres] = useState({
     options: [],
-    value: '',
-  }
+    selectValue: [''],
+  });
 
-  componentDidMount() {
-    const { value, genres } = this.props;
-    const options = genres.map(genre => ({ label: genre.name, value: String(genre.id) }));
-    this.setState({ value, options });
-  }
+  useEffect(() => {
+    const options = genres.map(genre => ({
+      label: genre.name,
+      value: String(genre.id),
+    }));
+    setSelectedGenres(s => ({ ...s, options }));
+  }, [genres]);
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ value: nextProps.value });
-  }
+  const handleChange = event => {
+    setSelectedGenres({
+      ...selectedGenres,
+      selectValue: event.target.value,
+    });
+  };
 
-  render() {
-    const { value, options } = this.state;
-    const { onChange } = this.props;
-    return (
-      <div className="section">
-        <Select
-          multi
-          simpleValue
-          value={value}
-          placeholder="Filter by genres..."
-          options={options}
-          onChange={onChange}
-        />
-      </div>
-    );
-  }
-}
+  const handleClose = () => {
+    onChange(selectedGenres.selectValue);
+  };
+
+  return (
+    <FormControl className="filter-element-wrapper" variant="outlined">
+      <InputLabel htmlFor="genres">Genres</InputLabel>
+      <Select
+        multiple
+        value={selectedGenres.selectValue}
+        onChange={handleChange}
+        onClose={handleClose}
+        input={<OutlinedInput id="genres" labelWidth={50} />}
+        renderValue={selected => {
+          if (selected.length === 1) {
+            return <span>Select genres...</span>;
+          }
+
+          const list = selected
+            .filter(select => select !== '')
+            .map(
+              select =>
+                selectedGenres.options.find(option => option.value === select)
+                  .label,
+            );
+
+          return list.join(', ');
+        }}
+      >
+        <MenuItem value="" disabled>
+          Select genres...
+        </MenuItem>
+        {selectedGenres.options.map(option => (
+          <MenuItem key={option.label} value={option.value}>
+            {option.label}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+  );
+};
+
+FilterGenres.propTypes = propTypes;
 
 export default FilterGenres;

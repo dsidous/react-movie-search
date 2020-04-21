@@ -4,12 +4,12 @@ export const query = gql`
   query getTv($tvId: ID!) {
     tv(id: $tvId) {
       id
-      backdrop_path,
-      poster_path,
-      name,
-      first_air_date,
-      vote_average,
-      overview,
+      backdrop_path
+      poster_path
+      name
+      first_air_date
+      vote_average
+      overview
       genres {
         id
         name
@@ -41,7 +41,7 @@ export const query = gql`
         id
         author
         content
-      }      
+      }
       images {
         posters {
           file_path

@@ -4,5 +4,4 @@ export const propTypes = {
   episode: object.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

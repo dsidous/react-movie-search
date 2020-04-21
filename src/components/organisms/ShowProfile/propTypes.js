@@ -1,8 +1,4 @@
-import {
-  array,
-  object,
-  func,
-} from 'prop-types';
+import { array, object, func } from 'prop-types';
 
 export const propTypes = {
   config: object.isRequired,
@@ -12,5 +8,4 @@ export const propTypes = {
   handleFullCrewClick: func.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

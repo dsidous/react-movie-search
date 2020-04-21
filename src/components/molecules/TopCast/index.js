@@ -12,13 +12,15 @@ const TopCast = ({ cast, handleFullCrewClick }) => (
       ))}
     </div>
 
-    <button type="button" className="full-crew-btn" onClick={handleFullCrewClick}>
+    <button
+      type="button"
+      className="full-crew-btn"
+      onClick={handleFullCrewClick}
+    >
       Full Cast & Crew
     </button>
-
   </div>
 );
-
 
 TopCast.propTypes = propTypes;
 TopCast.defaultProps = defaultProps;

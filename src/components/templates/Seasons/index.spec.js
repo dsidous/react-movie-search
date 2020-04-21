@@ -6,12 +6,14 @@ const mockProps = {
   show: {
     name: 'name',
     first_air_date: '01.01.2010',
-    seasons: [{
-      season_number: 1,
-    },
-    {
-      season_number: 2,
-    }],
+    seasons: [
+      {
+        season_number: 1,
+      },
+      {
+        season_number: 2,
+      },
+    ],
     poster_path: 'path/to/image',
     id: 1,
   },

@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 export const query = gql`
   query getConfig {
-    config{
+    config {
       images {
         base_url
         secure_base_url

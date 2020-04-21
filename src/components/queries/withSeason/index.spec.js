@@ -3,8 +3,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import withSeason from '.';
 
+jest.mock('react-apollo', () => ({
+  ...jest.requireActual('react-apollo'),
+  graphql: jest.fn(),
+}));
+
 describe('Queries/withSeason', () => {
-  graphql.mockImplementation((query, config) => {
+  graphql.mockImplementation((_, config) => {
     const ownProps = { tvId: 1, season: 1 };
     const props = config.props({
       data: {
@@ -12,13 +17,15 @@ describe('Queries/withSeason', () => {
           name: 'name',
           air_date: '01.01.2010',
           poster_path: 'path/to/image',
-          episodes: [{
-            name: 'name',
-            air_date: '01.01.2010',
-            episode_number: 1,
-            overview: 1,
-            still_path: 'path/to/image',
-          }],
+          episodes: [
+            {
+              name: 'name',
+              air_date: '01.01.2010',
+              episode_number: 1,
+              overview: 1,
+              still_path: 'path/to/image',
+            },
+          ],
         },
         loading: true,
       },

@@ -1,12 +1,7 @@
-import { object, string } from 'prop-types';
-
-export const contextTypes = {
-  router: object.isRequired,
-};
+import { string } from 'prop-types';
 
 export const propTypes = {
   title: string,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

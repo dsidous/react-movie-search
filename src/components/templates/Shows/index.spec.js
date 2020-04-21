@@ -1,16 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Filter from '../../organisms/Filter';
+import Spinner from '../../atoms/Spinner';
 import Shows from '.';
 
 const mockProps = {
   media: 'movies',
   resultMedia: 'movie',
-  genres: [{
-    id: 1,
-    name: 'genrename',
-  }],
+  genres: [
+    {
+      id: 1,
+      name: 'genrename',
+    },
+  ],
   query: '',
   config: {
     images: {
@@ -25,24 +27,16 @@ const mockProps = {
   configLoading: false,
 };
 
-const context = { router: { history: ['/movies'] } };
-
 describe('Templates/Shows', () => {
   it('should render as expected', () => {
-    const wrapper = shallow(<Shows {...mockProps} />, { context });
+    const wrapper = shallow(<Shows {...mockProps} />);
 
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should render a spinner when loading', () => {
-    const wrapper = shallow(<Shows {...mockProps} loading />, { context });
-    expect(wrapper).toMatchSnapshot();
-  });
+    const wrapper = shallow(<Shows {...mockProps} loading />);
 
-  it('should handle filter change', () => {
-    const wrapper = shallow(<Shows {...mockProps} />, { context });
-    wrapper.find(Filter).props().queryUpdate('page=2');
-
-    expect(wrapper.context().router.history.includes('/movies?page=2')).toBe(true);
+    expect(wrapper.find(Spinner).length).toBe(1);
   });
 });

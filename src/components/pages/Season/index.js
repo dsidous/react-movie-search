@@ -4,7 +4,7 @@ import withSeason from '../../queries/withSeason';
 import Season from '../../templates/Season';
 
 export default compose(
-  withProps((props) => {
+  withProps(props => {
     const tvId = parseInt(props.match.params.tvId, 10);
     const season = parseInt(props.match.params.season, 10);
     return { tvId, season };

@@ -1,9 +1,4 @@
-import {
-  array,
-  bool,
-  object,
-  oneOfType,
-} from 'prop-types';
+import { array, bool, object, oneOfType } from 'prop-types';
 
 export const propTypes = {
   popular: array,

@@ -1,9 +1,4 @@
-import {
-  object,
-  string,
-  bool,
-  number,
-} from 'prop-types';
+import { object, string, bool, number } from 'prop-types';
 
 export const propTypes = {
   config: object,
@@ -14,5 +9,4 @@ export const propTypes = {
   configLoading: bool,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

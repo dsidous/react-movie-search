@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState as useStateMock } from 'react';
 import { shallow } from 'enzyme';
 
 import Filter from '.';
+import FilterGenres from '../../atoms/FilterGenres';
+import MyPager from '../../atoms/Pager';
+
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useState: jest.fn(),
+}));
 
 const mockProps = {
   query: '',
@@ -15,41 +22,69 @@ const mockProps = {
 };
 
 describe('Organisms/Filter', () => {
-  it('should render as expected', () => {
-    const wrapper = shallow(<Filter {...mockProps}><div /></Filter>);
+  let wrapper;
+  const setState = jest.fn();
 
+  beforeEach(() => {
+    useStateMock.mockImplementation(init => [init, setState]);
+    wrapper = shallow(
+      <Filter {...mockProps}>
+        <div />
+      </Filter>,
+    );
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should render as expected', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should handle genre select', () => {
-    const wrapper = shallow(<Filter {...mockProps}><div /></Filter>);
-    wrapper.instance().handleGenresChange('2');
+    wrapper.find(FilterGenres).props().onChange('2');
 
-    expect(wrapper.state().with_genres).toEqual('2');
+    expect(setState).toHaveBeenCalledWith(
+      expect.objectContaining({
+        with_genres: '2',
+      }),
+    );
   });
 
   it('should handle page select', () => {
-    const wrapper = shallow(<Filter {...mockProps}><div /></Filter>);
-    wrapper.instance().handlePageSelect(2);
+    wrapper.find(MyPager).first().props().handlePageSelect(2);
 
-    expect(wrapper.state().page).toEqual(2);
+    expect(setState).toHaveBeenCalledWith(
+      expect.objectContaining({
+        page: 2,
+      }),
+    );
   });
 
   it('should handle "sort_by" select', () => {
-    const selected = { target: { value: 'vote_average.desc', id: 'sort_by' } };
-    const wrapper = shallow(<Filter {...mockProps}><div /></Filter>);
+    const selected = {
+      target: { value: 'vote_average.desc', name: 'sort_by' },
+    };
 
-    wrapper.find('#sort_by').simulate('change', selected);
+    wrapper.find('#shortby').props().onChange(selected);
 
-    expect(wrapper.state().sort_by).toBe(selected.target.value);
+    expect(setState).toHaveBeenCalledWith(
+      expect.objectContaining({
+        sort_by: selected.target.value,
+      }),
+    );
   });
 
   it('should handle "average vote" select', () => {
-    const selected = { target: { value: '4', id: 'vote_average.gte' } };
-    const wrapper = shallow(<Filter {...mockProps}><div /></Filter>);
+    const selected = { target: { value: '4', name: 'vote_average.gte' } };
 
-    wrapper.find('FormControl[id="vote_average.gte"]').simulate('change', selected);
+    wrapper.find('[name="vote_average.gte"]').props().onChange(selected);
 
-    expect(wrapper.state()['vote_average.gte']).toBe(selected.target.value);
+    expect(setState).toHaveBeenCalledWith(
+      expect.objectContaining({
+        'vote_average.gte': selected.target.value,
+      }),
+    );
   });
 });

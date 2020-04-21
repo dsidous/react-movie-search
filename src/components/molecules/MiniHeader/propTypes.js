@@ -8,5 +8,4 @@ export const propTypes = {
   linkCopy: string.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

@@ -1,8 +1,15 @@
 import React from 'react';
+import { useHistory as useHistoryMock } from 'react-router-dom';
 import { shallow } from 'enzyme';
 
 import ShowProfile from '../../organisms/ShowProfile';
 import Show from '.';
+import Spinner from '../../atoms/Spinner';
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useHistory: jest.fn(),
+}));
 
 const mockProps = {
   config: {
@@ -16,45 +23,48 @@ const mockProps = {
     id: 1,
     title: 'title',
   },
-  loading: false,
-  genresLoading: false,
-  configLoading: false,
 };
 
-const context = { router: { history: ['/movie'] } };
-
 describe('Templates/Show', () => {
-  it('should render as expected', () => {
-    const wrapper = shallow(<Show {...mockProps} />, { context });
+  const setHistory = jest.fn();
 
-    expect(wrapper).toMatchSnapshot();
+  useHistoryMock.mockImplementation(() => ({
+    push: setHistory,
+  }));
+
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<Show {...mockProps} />);
   });
 
-  it('should render as expected with new props', () => {
-    const wrapper = shallow(<Show {...mockProps} />, { context });
-    mockProps.show.id = 141052;
-    wrapper.setProps({ ...mockProps });
+  afterEach(() => {
+    setHistory.mock.calls = [];
+  });
+
+  it('should render as expected', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
   it('should render a spinner when loading', () => {
-    const wrapper = shallow(<Show {...mockProps} loading />, { context });
+    wrapper = shallow(<Show {...mockProps} loading />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find(Spinner).length).toBe(1);
   });
 
   it('should handle show click', () => {
-    const wrapper = shallow(<Show {...mockProps} />, { context });
     const newMovieId = 2;
+
     wrapper.find(ShowProfile).props().handleShowClick(newMovieId);
 
-    expect(wrapper.context().router.history.includes(`/movie/${newMovieId}`)).toBe(true);
+    expect(setHistory.mock.calls[0][0]).toEqual(`/movie/${newMovieId}`);
   });
 
   it('should handle full crew click', () => {
-    const wrapper = shallow(<Show {...mockProps} />, { context });
     wrapper.find(ShowProfile).props().handleFullCrewClick();
 
-    expect(wrapper.context().router.history.includes(`/movie/${mockProps.show.id}/crew`)).toBe(true);
+    expect(setHistory.mock.calls[0][0]).toEqual(
+      `/movie/${mockProps.show.id}/crew`,
+    );
   });
 });

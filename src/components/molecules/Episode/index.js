@@ -5,11 +5,9 @@ import { FormattedDate, IntlProvider } from 'react-intl';
 import { propTypes } from './propTypes';
 import MediaImage from '../../atoms/MediaImage';
 
-const Episode = (props) => {
+const Episode = props => {
   const {
-    episode: {
-      name, air_date, episode_number, overview, still_path,
-    },
+    episode: { name, air_date, episode_number, overview, still_path },
   } = props;
 
   const date = air_date !== null ? air_date : '';
@@ -17,9 +15,7 @@ const Episode = (props) => {
   return (
     <IntlProvider locale={navigator.language}>
       <div className="episode">
-        <picture
-          className="episode-poster"
-        >
+        <picture className="episode-poster">
           <MediaImage
             mediaType="still"
             size={3}

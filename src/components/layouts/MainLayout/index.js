@@ -1,20 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { propTypes } from './propTypes';
 import MainNavbar from '../../pages/MainNavbar';
 
-class MainLayout extends Component {
-  static propTypes = propTypes;
+const MainLayout = ({ children }) => (
+  <div>
+    <MainNavbar />
+    {children}
+  </div>
+);
 
-  render() {
-    const { children } = this.props;
-    return (
-      <div>
-        <MainNavbar />
-        {children}
-      </div>
-    );
-  }
-}
+MainLayout.propTypes = propTypes;
 
 export default MainLayout;

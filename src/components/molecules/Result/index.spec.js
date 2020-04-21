@@ -3,9 +3,11 @@ import { shallow } from 'enzyme';
 import Result from '.';
 
 const mockProps = {
-  shows: [{
-    id: 1,
-  }],
+  shows: [
+    {
+      id: 1,
+    },
+  ],
   config: {
     images: {
       secure_base_url: 'path/to/image',

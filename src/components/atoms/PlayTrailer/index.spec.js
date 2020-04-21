@@ -12,7 +12,6 @@ const mockProps = {
 
 describe('Atoms/PlayTrailer', () => {
   it('should render as expected', () => {
-
     const wrapper = shallow(<PlayTrailer {...mockProps} />);
 
     expect(wrapper).toMatchSnapshot();

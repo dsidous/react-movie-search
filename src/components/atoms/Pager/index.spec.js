@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Pager } from 'react-bootstrap';
-
+import Button from '@material-ui/core/Button';
 
 import MyPager from '.';
 
@@ -20,7 +19,7 @@ describe('Atoms/MyPager', () => {
   it('should handle onSelect event', () => {
     const wrapper = shallow(<MyPager {...mockProps} />);
 
-    wrapper.find(Pager.Item).first().simulate('click');
+    wrapper.find(Button).first().simulate('click');
     expect(mockProps.handlePageSelect).toHaveBeenCalled();
   });
 });

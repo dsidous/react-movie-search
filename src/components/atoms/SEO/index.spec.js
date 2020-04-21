@@ -10,7 +10,11 @@ const mockProps = {
 
 describe('Atoms/SEO', () => {
   it('should render as expected', () => {
-    const wrapper = mount(<BrowserRouter><SEO {...mockProps} /></BrowserRouter>);
+    const wrapper = mount(
+      <BrowserRouter>
+        <SEO {...mockProps} />
+      </BrowserRouter>,
+    );
 
     expect(wrapper).toMatchSnapshot();
   });

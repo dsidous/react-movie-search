@@ -8,14 +8,11 @@ const Crew = ({ crew }) => (
         // eslint-disable-next-line react/no-array-index-key
         <div className="crew-element" key={`${cr.name}-${i}`}>
           <small>
-            <strong>
-              {`${cr.job}: `}
-            </strong>
+            <strong>{`${cr.job}: `}</strong>
           </small>
           <small>{cr.name}</small>
         </div>
-      ))
-      }
+      ))}
     </div>
   </div>
 );

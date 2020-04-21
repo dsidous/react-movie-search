@@ -1,9 +1,7 @@
-import { array, func } from 'prop-types';
+import { array } from 'prop-types';
 
 export const propTypes = {
-  filterTopMovies: func.isRequired,
-  topMovies: array.isRequired,
+  popular: array.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

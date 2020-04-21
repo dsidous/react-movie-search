@@ -5,5 +5,4 @@ export const propTypes = {
   person: object,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

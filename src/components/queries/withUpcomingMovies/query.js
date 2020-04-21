@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export const query = gql`
-  query getUpcomingMovies ($query: String) {
+  query getUpcomingMovies($query: String) {
     upcoming(query: $query) {
       id
       backdrop_path

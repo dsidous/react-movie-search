@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import ScrollToTop from 'react-router-scroll-top';
 
 import MainLayout from '../components/layouts/MainLayout';
@@ -20,9 +20,27 @@ import SignUp from '../components/pages/SignUp';
 import Login from '../components/pages/Login';
 import FirebaseAuthProvider from '../firebase/FirebaseAuthProvider';
 
-const MatchWithMainLayout = ({ exact, path, component: Component }) => (
+const routes = [
+  { path: '/movie/:movieId', component: Movie },
+  { path: '/person/:personId', component: Person },
+  { path: '/person/:personId/images', component: PersonImages },
+  { path: '/movie/:movieId/crew', component: MovieCastCrew },
+  { path: '/person', component: TopPeople },
+  { path: '/', component: Home },
+  { path: '/movies', component: Movies },
+  { path: '/login', component: Login },
+  { path: '/signup', component: SignUp },
+  { path: '/watchlist', component: WatchList },
+  { path: '/tvs', component: Tvs },
+  { path: '/tv/:tvId', component: Tv },
+  { path: '/tv/:tvId/crew', component: TvCastCrew },
+  { path: '/tv/:tvId/seasons', component: Seasons },
+  { path: '/tv/:tvId/season/:season', component: Season },
+];
+
+const MatchWithMainLayout = ({ path, component: Component }) => (
   <Route
-    exact={exact}
+    exact
     path={path}
     render={props => (
       <MainLayout>
@@ -36,23 +54,9 @@ const Root = () => (
   <FirebaseAuthProvider>
     <Router>
       <ScrollToTop>
-        <Switch>
-          <MatchWithMainLayout exact path="/movie/:movieId" component={Movie} />
-          <MatchWithMainLayout exact path="/person/:personId" component={Person} />
-          <MatchWithMainLayout exact path="/person/:personId/images" component={PersonImages} />
-          <MatchWithMainLayout exact path="/movie/:movieId/crew" component={MovieCastCrew} />
-          <MatchWithMainLayout exact path="/person" component={TopPeople} />
-          <MatchWithMainLayout exact path="/" component={Home} />
-          <MatchWithMainLayout path="/movies" component={Movies} />
-          <MatchWithMainLayout path="/login" component={Login} />
-          <MatchWithMainLayout path="/signup" component={SignUp} />
-          <MatchWithMainLayout path="/watchlist" component={WatchList} />
-          <MatchWithMainLayout path="/tvs" component={Tvs} />
-          <MatchWithMainLayout exact path="/tv/:tvId" component={Tv} />
-          <MatchWithMainLayout exact path="/tv/:tvId/crew" component={TvCastCrew} />
-          <MatchWithMainLayout exact path="/tv/:tvId/seasons" component={Seasons} />
-          <MatchWithMainLayout exact path="/tv/:tvId/season/:season" component={Season} />
-        </Switch>
+        {routes.map(({ path, component }) => (
+          <MatchWithMainLayout key={path} path={path} component={component} />
+        ))}
       </ScrollToTop>
     </Router>
   </FirebaseAuthProvider>

@@ -5,5 +5,4 @@ export const propTypes = {
   tvId: number.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

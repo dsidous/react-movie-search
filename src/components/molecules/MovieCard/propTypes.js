@@ -6,5 +6,4 @@ export const propTypes = {
   media: string,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

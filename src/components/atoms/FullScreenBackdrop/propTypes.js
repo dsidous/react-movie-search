@@ -4,5 +4,4 @@ export const propTypes = {
   backdrops: array.isRequired,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};

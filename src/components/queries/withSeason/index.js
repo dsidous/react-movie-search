@@ -1,23 +1,19 @@
 import { graphql } from 'react-apollo';
 import { query } from './query';
 
-const withSeason = () => graphql(query, {
-  options: props => ({
-    fetchPolicy: 'cache-and-network',
-    variables: {
-      tvId: props.tvId,
-      season: props.season,
-    },
-  }),
-  props: ({
-    data: {
-      tvSeason = {},
+const withSeason = () =>
+  graphql(query, {
+    options: props => ({
+      fetchPolicy: 'cache-first',
+      variables: {
+        tvId: props.tvId,
+        season: props.season,
+      },
+    }),
+    props: ({ data: { tvSeason = {}, loading } }) => ({
       loading,
-    },
-  }) => ({
-    loading,
-    tvSeason,
-  }),
-});
+      tvSeason,
+    }),
+  });
 
 export default withSeason;

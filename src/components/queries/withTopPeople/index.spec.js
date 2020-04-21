@@ -3,17 +3,24 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import withTopPeople from '.';
 
+jest.mock('react-apollo', () => ({
+  ...jest.requireActual('react-apollo'),
+  graphql: jest.fn(),
+}));
+
 describe('Queries/withTopPeople', () => {
-  graphql.mockImplementation((query, config) => {
+  graphql.mockImplementation((_, config) => {
     const ownProps = { query: 'page=1' };
     const props = config.props({
       data: {
-        topPeople: [{
-          id: 1,
-          name: 'name',
-          profile_path: 'path/to/image',
-          popularity: 1,
-        }],
+        topPeople: [
+          {
+            id: 1,
+            name: 'name',
+            profile_path: 'path/to/image',
+            popularity: 1,
+          },
+        ],
         loading: true,
       },
       ownProps,

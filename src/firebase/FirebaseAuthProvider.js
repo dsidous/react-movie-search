@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { firebase, db as dba } from './index';
@@ -13,19 +13,15 @@ let User = db;
 
 export const FirebaseAuthContext = React.createContext(defaultFirebaseContext);
 
-export default class FirebaseAuthProvider extends React.Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-  }
+const FirebaseAuthProvider = ({ children }) => {
+  const [state, setState] = useState(defaultFirebaseContext);
 
-  state = defaultFirebaseContext;
-
-  componentDidMount() {
-    firebase.auth.onAuthStateChanged((authUser) => {
+  useEffect(() => {
+    firebase.auth.onAuthStateChanged(authUser => {
       if (authUser) {
-        this.setState({ authUser: true });
+        setState(s => ({ ...s, authUser: true }));
         User = db.ref(`users/${authUser.uid}`);
-        User.once('value', (snapshot) => {
+        User.once('value', snapshot => {
           if (snapshot.val() === null) {
             dba.doCreateUser(
               authUser.uid,
@@ -34,25 +30,32 @@ export default class FirebaseAuthProvider extends React.Component {
             );
           }
         }).then(
-          User.on('value', snapshot => this.setState({ user: snapshot.val() })),
+          User.on('value', snapshot =>
+            setState(s => ({ ...s, user: snapshot.val() })),
+          ),
         );
       } else {
-        this.setState(defaultFirebaseContext);
+        setState(defaultFirebaseContext);
       }
     });
-  }
+  }, []);
 
-  render() {
-    const { children } = this.props;
-    const { authUser, user } = this.state;
-    return (
-      <FirebaseAuthContext.Provider value={{ user, authUser }}>
-        {children}
-      </FirebaseAuthContext.Provider>
-    );
-  }
-}
+  const { authUser, user } = state;
+  return (
+    <FirebaseAuthContext.Provider value={{ user, authUser }}>
+      {children}
+    </FirebaseAuthContext.Provider>
+  );
+};
 
-export const addMovieToWatchlist = movie => User.child(`watchlist/${movie.id}`).update(movie);
+FirebaseAuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
-export const removeMovieFromWatchlist = movieId => User.child(`watchlist/${movieId}`).remove();
+export default FirebaseAuthProvider;
+
+export const addMovieToWatchlist = movie =>
+  User.child(`watchlist/${movie.id}`).update(movie);
+
+export const removeMovieFromWatchlist = movieId =>
+  User.child(`watchlist/${movieId}`).remove();

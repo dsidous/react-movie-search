@@ -3,18 +3,20 @@ import { shallow } from 'enzyme';
 import TopCast from '.';
 
 const mockProps = {
-  cast: [{
-    name: 'test',
-    id: 1,
-    character: 'test',
-    profile_path: 'path/to/image',
-  },
-  {
-    name: 'test',
-    id: 1,
-    character: 'test',
-    profile_path: 'path/to/image',
-  }],
+  cast: [
+    {
+      name: 'test',
+      id: 1,
+      character: 'test',
+      profile_path: 'path/to/image',
+    },
+    {
+      name: 'test',
+      id: 1,
+      character: 'test',
+      profile_path: 'path/to/image',
+    },
+  ],
   handleFullCrewClick: jest.fn(),
 };
 

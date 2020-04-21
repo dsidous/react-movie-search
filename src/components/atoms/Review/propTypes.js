@@ -4,5 +4,4 @@ export const propTypes = {
   review: object,
 };
 
-export const defaultProps = {
-};
+export const defaultProps = {};
